@@ -1,0 +1,387 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────
+   Hand-Drawn design system — "sketchbook" theme
+   Palette: warm paper, pencil black, red correction marker,
+   blue ballpoint, post-it yellow. No straight lines, no soft blur.
+   ────────────────────────────────────────────────────────────────── */
+:root {
+  --background: #fdfbf7;   /* warm paper            */
+  --foreground: #2d2d2d;   /* soft pencil black     */
+  --primary: #2d2d2d;      /* ink — headings, banners, borders */
+  --primary-light: #2d5da1;/* blue ballpoint — links, hover    */
+  --primary-dark: #232323; /* deep ink — chalkboard sections   */
+  --accent: #ff4d4d;       /* red correction marker */
+  --accent-light: #ff8585; /* light red             */
+  --surface: #fbf6ec;      /* light paper section   */
+  --surface-dark: #e5e0d8; /* old paper / erased pencil */
+  --text-muted: #6f6a61;   /* faded pencil          */
+  --postit: #fff7b0;       /* post-it yellow        */
+  --ink: #2d2d2d;          /* alias used by shadows */
+
+  /* Wobbly border-radius presets — irregular organic ellipses */
+  --wobble: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --wobble-alt: 15px 225px 15px 255px / 255px 15px 225px 15px;
+  --wobble-md: 18px 90px 22px 90px / 90px 18px 90px 22px;
+  --wobble-sm: 12px 40px 14px 44px / 44px 14px 40px 12px;
+  --wobble-btn: 28px 58px 30px 60px / 60px 30px 58px 28px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  --color-text-muted: var(--text-muted);
+  --color-postit: var(--postit);
+  --font-sans: var(--font-patrick);
+  --font-display: var(--font-kalam);
+  --font-mono: var(--font-patrick);
+}
+
+body {
+  background-color: var(--background);
+  /* notebook dot grain */
+  background-image: radial-gradient(var(--surface-dark) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--foreground);
+  font-family: var(--font-patrick, "Comic Sans MS", system-ui, cursive);
+  font-size: 1.05rem;
+}
+
+/* Everything handwritten: headings in marker, body in pen */
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-kalam, "Comic Sans MS", system-ui, cursive);
+  font-weight: 700;
+  text-wrap: balance;
+  letter-spacing: 0.2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+/* Sketchy focus ring — blue ballpoint, no clinical outline */
+:focus-visible {
+  outline: 3px dashed var(--primary-light);
+  outline-offset: 3px;
+}
+
+/* ── Reusable wobble + shadow primitives ───────────────────────── */
+.wobble { border-radius: var(--wobble); }
+.wobble-alt { border-radius: var(--wobble-alt); }
+.wobble-md { border-radius: var(--wobble-md); }
+.wobble-sm { border-radius: var(--wobble-sm); }
+.wobble-btn { border-radius: var(--wobble-btn); }
+
+.shadow-sketch { box-shadow: 4px 4px 0 0 var(--ink); }
+.shadow-sketch-lg { box-shadow: 8px 8px 0 0 var(--ink); }
+.shadow-sketch-soft { box-shadow: 3px 3px 0 0 rgba(45, 45, 45, 0.12); }
+
+/* ── Card / container ──────────────────────────────────────────── */
+.card-sketch {
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: var(--wobble-md);
+  box-shadow: 4px 4px 0 0 var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.card-sketch.is-hover:hover,
+a.card-sketch:hover,
+.card-sketch--lift:hover {
+  transform: translate(-2px, -2px) rotate(-0.6deg);
+  box-shadow: 7px 7px 0 0 var(--ink);
+}
+.card-postit {
+  background: var(--postit);
+  border: 2px solid var(--ink);
+  border-radius: var(--wobble-md);
+  box-shadow: 4px 4px 0 0 var(--ink);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.btn-sketch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  min-height: 3rem;
+  font-family: var(--font-patrick, system-ui, cursive);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink);
+  background: #ffffff;
+  border: 3px solid var(--ink);
+  border-radius: var(--wobble-btn);
+  box-shadow: 4px 4px 0 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease,
+    color 0.1s ease;
+}
+.btn-sketch:hover {
+  background: var(--accent);
+  color: #ffffff;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--ink);
+}
+.btn-sketch:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 var(--ink);
+}
+.btn-sketch--secondary {
+  background: var(--surface-dark);
+}
+.btn-sketch--secondary:hover {
+  background: var(--primary-light);
+  color: #ffffff;
+}
+/* Inverted for dark/ink sections */
+.btn-sketch--ink {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: #fdfbf7;
+  box-shadow: 4px 4px 0 0 #fdfbf7;
+}
+.btn-sketch--ink:hover {
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 2px 2px 0 0 #fdfbf7;
+}
+
+/* ── Sticky-note tag / kicker ──────────────────────────────────── */
+.tag-sketch {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  background: var(--postit);
+  border: 2px solid var(--ink);
+  border-radius: var(--wobble-sm);
+  font-family: var(--font-kalam, system-ui, cursive);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--ink);
+  box-shadow: 3px 3px 0 0 rgba(45, 45, 45, 0.18);
+  transform: rotate(-2deg);
+}
+.tag-sketch--blue { background: #cfe0f5; }
+.tag-sketch--red { background: var(--accent); color: #fff; }
+
+/* ── Inputs ────────────────────────────────────────────────────── */
+.input-sketch {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: var(--wobble-sm);
+  font-family: var(--font-patrick, system-ui, cursive);
+  font-size: 1rem;
+  color: var(--ink);
+  outline: none;
+}
+.input-sketch::placeholder { color: rgba(45, 45, 45, 0.4); }
+.input-sketch:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(45, 93, 161, 0.2);
+}
+
+/* ── Wavy hand-drawn underline (nav links, footer headers) ─────── */
+.wavy-underline {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+.wavy-hover {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-style: wavy;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+  transition: text-decoration-color 0.15s ease;
+}
+.wavy-hover:hover { text-decoration-color: var(--accent); }
+/* footer link strike-through on hover */
+.strike-hover { transition: color 0.15s ease; }
+.strike-hover:hover { text-decoration: line-through; }
+
+/* ── Tape & thumbtack decorations ──────────────────────────────── */
+.tape { position: relative; }
+.tape::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 90px;
+  height: 26px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(120, 120, 120, 0.22);
+  border-left: 1px dashed rgba(80, 80, 80, 0.3);
+  border-right: 1px dashed rgba(80, 80, 80, 0.3);
+}
+.tack { position: relative; }
+.tack::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateX(-50%);
+  background: var(--accent);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 1px 2px 0 0 rgba(45, 45, 45, 0.3);
+}
+
+/* ── Hand-drawn divider (dashed) ───────────────────────────────── */
+.divider-sketch {
+  border: none;
+  border-top: 3px dashed var(--ink);
+  opacity: 0.55;
+}
+
+/* ── Playful motion ────────────────────────────────────────────── */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+@keyframes sketch-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.anim-wiggle { animation: wiggle 1.4s ease-in-out infinite; }
+.anim-bounce { animation: sketch-bounce 3s ease-in-out infinite; }
+
+/* ── Recruiter marquee ─────────────────────────────────────────── */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.marquee-left { animation: marquee-l 32s linear infinite; }
+.marquee-right { animation: marquee-r 36s linear infinite; }
+
+@keyframes marquee-l {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+@keyframes marquee-r {
+  from { transform: translateX(-33.333%); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left,
+  .marquee-right,
+  .anim-wiggle,
+  .anim-bounce {
+    animation: none;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   Futures — "Living Blueprint" scroll experience (/futures)
+   Dark drafting-table world. Thin glowing strokes, flowing dashes,
+   meshing gears, twinkling career constellation. Ambient motion only;
+   scroll choreography lives in the React orchestrator.
+   ────────────────────────────────────────────────────────────────── */
+@keyframes fx-flow { to { stroke-dashoffset: -240; } }
+@keyframes fx-flow-rev { to { stroke-dashoffset: 240; } }
+@keyframes fx-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+@keyframes fx-spin { to { transform: rotate(360deg); } }
+@keyframes fx-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes fx-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes fx-twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.95; } }
+@keyframes fx-blink-cursor { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes fx-grain-drift { from { background-position: 0 0; } to { background-position: 40px 40px; } }
+
+.fx-flow { stroke-dasharray: 5 9; animation: fx-flow 2.6s linear infinite; }
+.fx-flow-slow { stroke-dasharray: 3 11; animation: fx-flow 6s linear infinite; }
+.fx-flow-rev { stroke-dasharray: 5 9; animation: fx-flow-rev 3.2s linear infinite; }
+.fx-pulse { animation: fx-pulse 3s ease-in-out infinite; }
+.fx-spin { transform-box: fill-box; transform-origin: center; animation: fx-spin 16s linear infinite; }
+.fx-spin-rev { transform-box: fill-box; transform-origin: center; animation: fx-spin-rev 12s linear infinite; }
+.fx-float { animation: fx-float 4.5s ease-in-out infinite; }
+.fx-twinkle { animation: fx-twinkle 3.4s ease-in-out infinite; }
+
+/* Blueprint grid background for the dark stage */
+.fx-blueprint {
+  background-color: #0a1020;
+  background-image:
+    linear-gradient(rgba(120, 160, 230, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 160, 230, 0.10) 1px, transparent 1px),
+    linear-gradient(rgba(120, 160, 230, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 160, 230, 0.045) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+}
+
+/* Soft vignette so the stage focuses toward the center */
+.fx-vignette {
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 45%,
+    transparent 40%,
+    rgba(5, 8, 16, 0.55) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-flow,
+  .fx-flow-slow,
+  .fx-flow-rev,
+  .fx-pulse,
+  .fx-spin,
+  .fx-spin-rev,
+  .fx-float,
+  .fx-twinkle,
+  .fx-blink-cursor {
+    animation: none !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   The X-Ray — homepage scanner experience (/)
+   A scanner sweeps each photo, revealing the engineered systems layer
+   underneath. Dark deep-navy stage; the revealed side is a glowing
+   blueprint grid. Scrubbing lives in the React orchestrator; this is
+   the engineered-layer texture + a couple of intro ambients only.
+   ────────────────────────────────────────────────────────────────── */
+
+/* The "engineered" backdrop revealed under each photo */
+.xr-grid {
+  background-color: #070b14;
+  background-image:
+    linear-gradient(rgba(120, 170, 230, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 170, 230, 0.12) 1px, transparent 1px),
+    linear-gradient(rgba(120, 170, 230, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 170, 230, 0.05) 1px, transparent 1px),
+    radial-gradient(ellipse 70% 60% at 65% 50%, rgba(20, 40, 70, 0.55), transparent 70%);
+  background-size: 140px 140px, 140px 140px, 28px 28px, 28px 28px, 100% 100%;
+}
+
+@keyframes xr-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(7px); }
+}
+.xr-bounce { animation: xr-bounce 1.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .xr-bounce {
+    animation: none !important;
+  }
+}
