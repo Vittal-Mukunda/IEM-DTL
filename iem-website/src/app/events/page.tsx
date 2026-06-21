@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Events & Activities",
   description:
     "Events, seminars, workshops, and student activities at the IEM Department, RVCE — IDEA association, industry visits, expert lectures, and conferences.",
+  alternates: { canonical: "/events" },
 };
 
 export default function EventsPage() {

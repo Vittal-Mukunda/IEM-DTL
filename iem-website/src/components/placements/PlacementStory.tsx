@@ -100,8 +100,8 @@ export default function PlacementStory() {
       <section ref={chartRef}>
         <h2 className="text-2xl font-bold text-primary mb-1">Package Trends</h2>
         <p className="text-text-muted mb-6">
-          Average and highest package over four placement seasons. Tap a point
-          to explore that year.
+          Average and highest package over four placement seasons. Hover a point
+          — or use the year buttons below — to explore that season.
         </p>
 
         <div className="relative rounded-2xl border border-gray-200 bg-white p-3 sm:p-5">
@@ -116,6 +116,8 @@ export default function PlacementStory() {
               viewBox={`0 0 ${CW} ${CH}`}
               className="absolute inset-0 h-full w-full"
               preserveAspectRatio="xMidYMid meet"
+              aria-hidden="true"
+              focusable="false"
             >
               {/* y gridlines */}
               {[0, 6, 12, 18, 24].map((g) => (

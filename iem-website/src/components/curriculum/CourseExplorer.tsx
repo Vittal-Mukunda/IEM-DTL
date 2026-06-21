@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import {
@@ -17,6 +17,27 @@ export default function CourseExplorer() {
   const reduced = useReducedMotion();
   const [filter, setFilter] = useState<string | null>(null);
   const [selected, setSelected] = useState<CurriculumCourse | null>(null);
+  const close = useCallback(() => setSelected(null), []);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const lastFocused = useRef<HTMLElement | null>(null);
+
+  // While the modal is open: lock body scroll, close on Escape, move focus
+  // into the dialog, and restore focus to the trigger on close.
+  useEffect(() => {
+    if (!selected) return;
+    lastFocused.current = document.activeElement as HTMLElement | null;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    dialogRef.current?.focus();
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+      lastFocused.current?.focus?.();
+    };
+  }, [selected, close]);
 
   const courses = useMemo(
     () =>
@@ -96,17 +117,19 @@ export default function CourseExplorer() {
             <button
               type="button"
               aria-label="Close"
-              onClick={() => setSelected(null)}
+              onClick={close}
               className="absolute inset-0 bg-primary-dark/40 backdrop-blur-sm"
             />
             <motion.div
+              ref={dialogRef}
+              tabIndex={-1}
               role="dialog"
               aria-modal="true"
               aria-label={`${selected.name} details`}
               initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.92, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.25, ease: [0.21, 0.65, 0.32, 0.95] }}
-              className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl"
+              className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl focus:outline-none"
             >
               <div
                 className="h-1.5 w-full rounded-t-2xl"
@@ -132,7 +155,7 @@ export default function CourseExplorer() {
                   </div>
                   <button
                     type="button"
-                    onClick={() => setSelected(null)}
+                    onClick={close}
                     aria-label="Close"
                     className="shrink-0 rounded-full p-1.5 text-text-muted hover:bg-surface hover:text-primary"
                   >
@@ -164,6 +187,7 @@ export default function CourseExplorer() {
                             alt={f.name}
                             width={48}
                             height={48}
+                            sizes="48px"
                             className="h-full w-full object-cover object-top"
                           />
                         </div>

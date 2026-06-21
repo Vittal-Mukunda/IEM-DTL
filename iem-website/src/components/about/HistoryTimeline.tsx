@@ -46,7 +46,7 @@ export default function HistoryTimeline() {
                     onClick={() => go(i)}
                     aria-current={isActive ? "step" : undefined}
                     aria-label={`${h.year}: ${h.title}`}
-                    className="group flex flex-col items-center focus:outline-none"
+                    className="group flex flex-col items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-light focus-visible:ring-offset-2"
                   >
                     <span className="relative flex h-5 w-5 items-center justify-center">
                       {isActive && !reduced && (

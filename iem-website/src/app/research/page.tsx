@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Research",
   description:
     "Research at IEM, RVCE — 202 journal articles, h-index 8, 8 research themes spanning OR, supply chain, manufacturing, quality, analytics, and sustainability.",
+  alternates: { canonical: "/research" },
 };
 
 export default function ResearchPage() {

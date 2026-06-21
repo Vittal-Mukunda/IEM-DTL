@@ -1,3 +1,8 @@
+/** Canonical production URL for this site. Single source of truth for
+ *  metadataBase, sitemap, robots, and JSON-LD. Update here when the domain
+ *  changes (e.g. a custom domain replaces the Vercel preview URL). */
+export const siteUrl = "https://iem-rvce.vercel.app";
+
 export const siteConfig = {
   name: "Department of Industrial Engineering & Management",
   shortName: "IEM",
@@ -8,6 +13,7 @@ export const siteConfig = {
   email: "hod.im@rvce.edu.in",
   address:
     "Department of IEM, RVCE, Mysore Road, R.V. Vidyaniketan Post, Bengaluru – 560 059, Karnataka, India",
+  /** Official department page on the RVCE site (external reference). */
   website: "https://rvce.edu.in/department/iem/",
   socialLinks: {
     facebook: "https://www.facebook.com/idearvce/",
@@ -52,7 +58,7 @@ export const faculty: FacultyMember[] = [
     publications: 8,
     scholarUrl: "https://scholar.google.co.in/citations?user=kTAMzq0AAAAJ",
     orcid: "0000-0003-1592-5578",
-    profile: "https://rvce.edu.in/department/iem/dr-rajeswara-rao-k-v-s/",
+    linkedin: "https://www.linkedin.com/in/getkvsrr/",
   },
   {
     name: "Dr. K N Subramanya",
@@ -379,10 +385,40 @@ export const events: DeptEvent[] = [
     upcoming: true,
   },
   {
+    day: "Sep",
+    monthYear: "2025",
+    title: "Design Thinking & AI — Faculty Development Programme",
+    text: "A five-day FDP on Design Thinking and Artificial Intelligence applied to Civil Engineering and Education, attended by 60 participants. IEM-RVCE faculty led a full-day hands-on session as guest resource persons at Adichunchanagiri Institute of Technology, Chikkamagalur.",
+  },
+  {
+    day: "13–14",
+    monthYear: "Jun 2025",
+    title: "AI-ML Training for ABFRL (Industry Programme)",
+    text: "A two-day intensive AI & ML training programme designed and delivered by IEM-RVCE faculty for the garment-manufacturing division of Aditya Birla Fashion & Retail (ABFRL) at its Chandapura plant — spanning eight sessions of AI-ML concepts and hands-on coding.",
+  },
+  {
     day: "16–18",
     monthYear: "May 2025",
     title: "EduAIthon 2025",
     text: "“Breaking Barriers: Simplifying Complex Engineering Concepts” — an institute innovation event.",
+  },
+  {
+    day: "Jan",
+    monthYear: "2025",
+    title: "ISQ Symposium 2025",
+    text: "A two-day symposium of the Indian Society for Quality (ISQ) organized by the Department of IEM, RVCE, including an industry visit to Sansera Engineering.",
+  },
+  {
+    day: "Feb",
+    monthYear: "2024",
+    title: "International Certificate on Smart Manufacturing (with FH Dortmund)",
+    text: "A seven-week India–Germany programme with FH Dortmund University — three weeks hosted at RVCE and four at TU Dortmund — bringing RVCE and German students together. IEM faculty led a hands-on Power BI session on “Data Visualization in Smart Manufacturing.”",
+  },
+  {
+    day: "27–28",
+    monthYear: "Feb 2024",
+    title: "Rosenheim University Academic Visit",
+    text: "Prof. Andreas Doleshel and Prof. Peter Zentgraft of Rosenheim University, Germany, visited RVCE — conducting sessions for visiting THWS students and exploring research collaboration with IEM-RVCE faculty.",
   },
   {
     day: "23–24",
@@ -406,7 +442,7 @@ export const events: DeptEvent[] = [
     day: "21–25",
     monthYear: "Jun 2021",
     title: "AICTE-ATAL FDP — Operational Excellence through Digitalisation of Supply Chain",
-    text: "A 5-day faculty development programme conducted by the Department of IEM with around 200 participants from across India. (Shared by Dr. Ramaa A on LinkedIn.)",
+    text: "A 5-day faculty development programme conducted by the Department of IEM with around 200 participants from across India.",
   },
   {
     day: "Jul",
@@ -424,7 +460,7 @@ export const events: DeptEvent[] = [
     day: "2019",
     monthYear: "Ongoing",
     title: "Indo-German Collaboration with FHWS, Germany",
-    text: "Design-thinking workshops and an undergraduate collaboration between RVCE/IEM and Hochschule Würzburg-Schweinfurt (FHWS), Germany. (Shared by Dr. Vikram N Bahadurdesai on LinkedIn.)",
+    text: "Design-thinking workshops and an undergraduate collaboration between RVCE/IEM and THWS — Technical University of Applied Sciences Würzburg-Schweinfurt (formerly FHWS), Germany.",
   },
 ];
 
@@ -749,7 +785,7 @@ export const faqs = [
   {
     question: "What labs and facilities are available?",
     answer:
-      "The department has a Machine Shop, ERP/Simulation Lab, Measurement & Gauging Lab, Industrial Engineering Lab, Ergonomics Lab, IDEA Lab (IoT, 1st year), Design Thinking Lab (2nd year), and four Hi-Tech classrooms with LCD projectors.",
+      "The department runs eight specialised laboratories — Nondestructive Testing, Machine Shop, Computer (ERP/Simulation), Metrology & Inspection, Industrial Engineering, Ergonomics, CNC & Robotics, and Statistical Quality Control — alongside the first-year IDEA Lab (IoT), a Design Thinking Lab, and four Hi-Tech classrooms with LCD projectors.",
   },
   {
     question: "Are there internship and industry exposure opportunities?",

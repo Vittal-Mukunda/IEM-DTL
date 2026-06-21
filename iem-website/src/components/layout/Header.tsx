@@ -19,6 +19,16 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close the mobile menu on Escape while it is open.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   return (
     <header
       className="sticky top-0 z-50 bg-background/95 backdrop-blur transition-all duration-200 border-b-[3px]"
@@ -83,6 +93,7 @@ export default function Header() {
             style={{ borderRadius: "var(--wobble-sm)" }}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
           >
             <svg
               className="w-6 h-6 text-primary"
@@ -111,7 +122,10 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <nav className="lg:hidden border-t-[3px] border-dashed border-primary bg-background px-4 py-3">
+        <nav
+          id="mobile-nav"
+          className="lg:hidden border-t-[3px] border-dashed border-primary bg-background px-4 py-3"
+        >
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (

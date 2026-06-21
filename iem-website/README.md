@@ -79,22 +79,30 @@ Source photos are resized/recompressed by `npm run optimize:images`
 AVIF/WebP variants at request time. Re-running the script is safe — files that
 wouldn't shrink are skipped.
 
+## Environment variables
+
+None. The site is fully static — there are no API routes, forms, databases,
+cookies, or secrets, so no `.env` file is required to build or run it.
+
 ## Deploying to Vercel
 
-1. Push this folder to a GitHub/GitLab/Bitbucket repository.
+1. Push the repository to GitHub/GitLab/Bitbucket.
 2. Go to [vercel.com/new](https://vercel.com/new) and import the repository.
-3. Vercel auto-detects Next.js — no configuration needed. Click **Deploy**.
+3. Set the **Root Directory** to `iem-website` (the repo root also holds the
+   research dossier, which is not part of the app).
+4. Vercel auto-detects Next.js — framework preset, build command
+   (`next build`), and output are all detected automatically. Click **Deploy**.
 
-Or with the CLI:
+Or with the CLI, from inside `iem-website/`:
 
 ```bash
 npm i -g vercel
 vercel           # follow prompts; `vercel --prod` for production
 ```
 
-After deploying, update the production domain in three places:
-`metadataBase` in `src/app/layout.tsx`, `BASE_URL` in `src/app/sitemap.ts`,
-and the URL in `src/app/robots.ts`.
+The production URL lives in one place — `siteUrl` in `src/lib/data.ts`, which
+feeds `metadataBase`, the sitemap, `robots.txt`, and the JSON-LD. Update it once
+when a custom domain replaces the default Vercel URL.
 
 ## Content sources
 

@@ -1,9 +1,12 @@
 // ──────────────────────────────────────────────────────────────────
-//  "One Degree. Infinite Futures." — narrative data for /futures.
-//  The six ecosystems mirror `curriculumDomains` in data.ts (same ids
-//  and colors) but are framed as CAREER worlds, not syllabus topics.
-//  Ordered to the brief: Ops → Supply Chain → Quality → Design &
-//  Manufacturing → Management & HR → Finance & Marketing.
+//  "One Degree. Infinite Futures." — career-world narrative data for the
+//  X-Ray homepage experience (consumed via xrayData.ts).
+//  The six ecosystems mirror the six `curriculumDomains` in data.ts by id,
+//  but are framed as CAREER worlds, not syllabus topics, and use brighter
+//  glow colors tuned for the dark X-Ray stage (so the colors intentionally
+//  differ from the curriculum palette).
+//  Ordered: Ops → Supply Chain → Quality → Design & Manufacturing →
+//  Management & HR → Finance & Marketing.
 // ──────────────────────────────────────────────────────────────────
 
 export type MotifId =

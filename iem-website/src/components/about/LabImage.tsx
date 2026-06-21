@@ -1,18 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 /**
  * Lab photo with a graceful fallback.
  *
- * Several lab photos are hot-linked from the official RVCE site
- * (rvce.edu.in), which is intermittently slow / blocks hot-linking
- * (403 / 504). A raw <img> would render the browser's broken-image
- * glyph in those cases. Instead, on error we swap to an on-theme
- * sketch placeholder so the card always looks intentional.
+ * The lab photos ship locally in /public, so they go through next/image
+ * (AVIF/WebP, responsive sizes). If a file ever fails to load, we swap to an
+ * on-theme sketch placeholder so the card always looks intentional rather than
+ * rendering the browser's broken-image glyph.
  *
- * Stays a plain <img> (not next/image) so remote hosts don't need to
- * be allow-listed in next.config's remotePatterns.
+ * `className` sizes the frame (e.g. "w-full h-40"); the image fills it.
  */
 export default function LabImage({
   src,
@@ -51,13 +50,15 @@ export default function LabImage({
   }
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
-      alt={alt}
-      loading="lazy"
-      onError={() => setFailed(true)}
-      className={className}
-    />
+    <div className={`relative overflow-hidden ${className ?? ""}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        onError={() => setFailed(true)}
+        className="object-cover"
+      />
+    </div>
   );
 }

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { labs, hodMessage } from "@/lib/data";
+import { labs, hodMessage, professionalSocieties } from "@/lib/data";
 import HistoryTimeline from "@/components/about/HistoryTimeline";
 import LabImage from "@/components/about/LabImage";
 
 export const metadata: Metadata = {
   title: "About the Department",
   description:
-    "Learn about the Department of Industrial Engineering & Management at RVCE — history since 1985, vision, mission, accreditation, labs, and future roadmap.",
+    "Learn about the Department of Industrial Engineering & Management at RVCE — history since 1980, vision, mission, accreditation, labs, and future roadmap.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
@@ -189,16 +190,15 @@ export default function AboutPage() {
             Professional Society Associations
           </h2>
           <div className="flex flex-wrap gap-3">
-            {["IIIE", "ORSI", "IIMM", "SIVAM", "NIQR", "QCFI", "ISQ"].map(
-              (s) => (
-                <span
-                  key={s}
-                  className="px-4 py-2 bg-accent/10 text-primary font-medium rounded-full text-sm border border-accent/20"
-                >
-                  {s}
-                </span>
-              )
-            )}
+            {professionalSocieties.map((s) => (
+              <span
+                key={s.abbr}
+                title={s.name}
+                className="px-4 py-2 bg-accent/10 text-primary font-medium rounded-full text-sm border border-accent/20"
+              >
+                {s.abbr}
+              </span>
+            ))}
           </div>
         </section>
 

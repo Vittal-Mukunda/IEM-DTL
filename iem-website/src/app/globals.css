@@ -11,8 +11,9 @@
   --primary: #2d2d2d;      /* ink — headings, banners, borders */
   --primary-light: #2d5da1;/* blue ballpoint — links, hover    */
   --primary-dark: #232323; /* deep ink — chalkboard sections   */
-  --accent: #ff4d4d;       /* red correction marker */
-  --accent-light: #ff8585; /* light red             */
+  --accent: #d92d2d;       /* red correction marker — darkened to meet WCAG AA
+                              (4.8:1 on paper/white) for small text & white-on-red */
+  --accent-light: #ff8585; /* light red — decorative only (used on dark fills) */
   --surface: #fbf6ec;      /* light paper section   */
   --surface-dark: #e5e0d8; /* old paper / erased pencil */
   --text-muted: #6f6a61;   /* faded pencil          */
@@ -296,40 +297,19 @@ a.card-sketch:hover,
 }
 
 /* ──────────────────────────────────────────────────────────────────
-   Futures — "Living Blueprint" scroll experience (/futures)
-   Dark drafting-table world. Thin glowing strokes, flowing dashes,
-   meshing gears, twinkling career constellation. Ambient motion only;
-   scroll choreography lives in the React orchestrator.
+   Ambient SVG motion utilities for the X-Ray "engineered layer"
+   (see XraySystems.tsx). Thin glowing strokes that flow, pulse, and
+   spin while a world is active; the scroll choreography itself lives in
+   the React orchestrator.
    ────────────────────────────────────────────────────────────────── */
 @keyframes fx-flow { to { stroke-dashoffset: -240; } }
-@keyframes fx-flow-rev { to { stroke-dashoffset: 240; } }
 @keyframes fx-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 @keyframes fx-spin { to { transform: rotate(360deg); } }
-@keyframes fx-spin-rev { to { transform: rotate(-360deg); } }
-@keyframes fx-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-@keyframes fx-twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.95; } }
-@keyframes fx-blink-cursor { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
-@keyframes fx-grain-drift { from { background-position: 0 0; } to { background-position: 40px 40px; } }
 
 .fx-flow { stroke-dasharray: 5 9; animation: fx-flow 2.6s linear infinite; }
 .fx-flow-slow { stroke-dasharray: 3 11; animation: fx-flow 6s linear infinite; }
-.fx-flow-rev { stroke-dasharray: 5 9; animation: fx-flow-rev 3.2s linear infinite; }
 .fx-pulse { animation: fx-pulse 3s ease-in-out infinite; }
 .fx-spin { transform-box: fill-box; transform-origin: center; animation: fx-spin 16s linear infinite; }
-.fx-spin-rev { transform-box: fill-box; transform-origin: center; animation: fx-spin-rev 12s linear infinite; }
-.fx-float { animation: fx-float 4.5s ease-in-out infinite; }
-.fx-twinkle { animation: fx-twinkle 3.4s ease-in-out infinite; }
-
-/* Blueprint grid background for the dark stage */
-.fx-blueprint {
-  background-color: #0a1020;
-  background-image:
-    linear-gradient(rgba(120, 160, 230, 0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 160, 230, 0.10) 1px, transparent 1px),
-    linear-gradient(rgba(120, 160, 230, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 160, 230, 0.045) 1px, transparent 1px);
-  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
-}
 
 /* Soft vignette so the stage focuses toward the center */
 .fx-vignette {
@@ -343,13 +323,8 @@ a.card-sketch:hover,
 @media (prefers-reduced-motion: reduce) {
   .fx-flow,
   .fx-flow-slow,
-  .fx-flow-rev,
   .fx-pulse,
-  .fx-spin,
-  .fx-spin-rev,
-  .fx-float,
-  .fx-twinkle,
-  .fx-blink-cursor {
+  .fx-spin {
     animation: none !important;
   }
 }

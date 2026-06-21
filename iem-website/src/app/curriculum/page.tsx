@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Curriculum & Academics",
   description:
     "B.E. Industrial Engineering & Management curriculum at RVCE — course structure, labs, pedagogy, evaluation, and experiential learning across all 4 years.",
+  alternates: { canonical: "/curriculum" },
 };
 
 const yearProgression = [

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { faqs } from "@/lib/data";
+import { jsonLdScript } from "@/lib/jsonLd";
 import FAQAccordion from "@/components/faq/FAQAccordion";
 
 export const metadata: Metadata = {
   title: "FAQ — Industrial Engineering & Management",
   description:
     "Frequently asked questions about B.E. Industrial Engineering & Management at RVCE — placements, curriculum, careers, eligibility, and more.",
+  alternates: { canonical: "/faq" },
 };
 
 export default function FAQPage() {
@@ -26,7 +28,7 @@ export default function FAQPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(faqJsonLd) }}
       />
 
       <section className="bg-primary text-white py-16 border-b-4 border-accent">

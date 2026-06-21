@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const BASE_URL = "https://iem-rvce.vercel.app";
+import { siteUrl as BASE_URL } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [

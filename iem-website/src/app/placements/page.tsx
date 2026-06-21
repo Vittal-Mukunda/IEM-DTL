@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Placements & Careers",
   description:
     "IEM RVCE placement statistics — ₹21.45 LPA highest package, ₹12.46 LPA average (2024–25), 70%+ placement rate. Recruiters include Airbus, Cisco, Flipkart, Intel, Micron.",
+  alternates: { canonical: "/placements" },
 };
 
 export default function PlacementsPage() {

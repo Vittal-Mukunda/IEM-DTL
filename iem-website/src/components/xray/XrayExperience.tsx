@@ -94,7 +94,12 @@ export default function XrayExperience() {
       const rel = (p - INTRO_END) / W;
       const idx = clamp(Math.floor(rel), 0, worlds.length - 1);
       const t = rel - idx;
-      const s = clamp((t - 0.16) / 0.62);
+      // Short lead-in / trail give the cross-world opacity fade room to
+      // resolve; smoothstep easing then lets the scanner glide to rest at
+      // each end instead of snapping from constant speed to a dead stop —
+      // that velocity discontinuity is what read as a "stop" between worlds.
+      const raw = clamp((t - 0.1) / 0.82);
+      const s = raw * raw * (3 - 2 * raw);
       scan.set(s);
       const st = s < 0.06 ? 0 : s < 0.55 ? 1 : 2;
       if (st !== stageRef.current) {

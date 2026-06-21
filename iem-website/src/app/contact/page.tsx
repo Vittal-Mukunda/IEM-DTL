@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contact the Department of Industrial Engineering & Management at RVCE, Bengaluru — address, phone, email, and directions.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
@@ -182,6 +183,7 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
                 title="RVCE Location on Google Maps"
               />
             </div>

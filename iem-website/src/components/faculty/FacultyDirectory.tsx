@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import {
   faculty,
@@ -42,17 +42,22 @@ function SocialLinks({ f, size = "xs" }: { f: FacultyMember; size?: "xs" | "sm" 
 export default function FacultyDirectory() {
   const [selected, setSelected] = useState<FacultyMember | null>(null);
   const close = useCallback(() => setSelected(null), []);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const lastFocused = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!selected) return;
+    lastFocused.current = document.activeElement as HTMLElement | null;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+    dialogRef.current?.focus();
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      lastFocused.current?.focus?.();
     };
   }, [selected, close]);
 
@@ -188,7 +193,9 @@ export default function FacultyDirectory() {
           aria-label={`${selected.name} profile`}
         >
           <div
-            className="bg-white w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl shadow-2xl max-h-[90vh] overflow-y-auto"
+            ref={dialogRef}
+            tabIndex={-1}
+            className="bg-white w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl shadow-2xl max-h-[90vh] overflow-y-auto focus:outline-none"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}

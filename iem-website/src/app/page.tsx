@@ -1,4 +1,5 @@
-import { siteConfig } from "@/lib/data";
+import { siteConfig, siteUrl } from "@/lib/data";
+import { jsonLdScript } from "@/lib/jsonLd";
 import XrayExperience from "@/components/xray/XrayExperience";
 
 const collegeJsonLd = {
@@ -6,7 +7,7 @@ const collegeJsonLd = {
   "@type": "CollegeOrUniversity",
   name: "Department of Industrial Engineering and Management, R.V. College of Engineering",
   alternateName: "IEM RVCE",
-  url: siteConfig.website,
+  url: siteUrl,
   email: siteConfig.email,
   telephone: siteConfig.phone,
   address: {
@@ -18,6 +19,7 @@ const collegeJsonLd = {
     addressCountry: "IN",
   },
   sameAs: [
+    siteConfig.website,
     siteConfig.socialLinks.facebook,
     siteConfig.socialLinks.linkedin,
     siteConfig.socialLinks.academia,
@@ -29,7 +31,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collegeJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(collegeJsonLd) }}
       />
       <XrayExperience />
     </>
