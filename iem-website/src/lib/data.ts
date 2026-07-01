@@ -863,12 +863,123 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/faculty", label: "Faculty" },
   { href: "/curriculum", label: "Curriculum" },
+  { href: "/resources", label: "Resources" },
   { href: "/research", label: "Research" },
   { href: "/placements", label: "Placements" },
   { href: "/events", label: "Events" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
+
+// ── Study resources / notes, grouped by semester folder ──────────────
+// Notes are attached by adding entries to a folder's `items` array (loose
+// files) or grouping them under a named `subfolders` entry (e.g. a subject).
+// label = display name, file = path under /public.
+export interface ResourceItem {
+  label: string;
+  file: string;
+  size?: string;
+}
+export interface ResourceSubfolder {
+  name: string;
+  items: ResourceItem[];
+}
+export interface ResourceFolder {
+  sem: number;
+  title: string;
+  items: ResourceItem[];
+  subfolders: ResourceSubfolder[];
+}
+
+// Ordinal helper for folder titles (3rd, 4th, … 8th).
+const ordinal = (n: number) => {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return `${n}${s[(v - 20) % 10] || s[v] || s[0]}`;
+};
+
+// Per-semester subject subfolders. Keyed by semester number; add subjects
+// here as notes are collected.
+const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
+  4: [
+    {
+      name: "Statistics for Data Analytics",
+      items: [
+        {
+          label: "Unit 1",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-1.pdf",
+          size: "590 KB",
+        },
+        {
+          label: "Unit 2",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-2.pdf",
+          size: "557 KB",
+        },
+        {
+          label: "Unit 3",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-3.pdf",
+          size: "408 KB",
+        },
+        {
+          label: "Unit 4",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-4.pdf",
+          size: "459 KB",
+        },
+        {
+          label: "Unit 5",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-5.pdf",
+          size: "636 KB",
+        },
+        {
+          label: "Master Notes (All Units)",
+          file: "/notes/sem4/statistics-for-data-analytics/master-all-units.pdf",
+          size: "2.1 MB",
+        },
+      ],
+    },
+    {
+      name: "CAD/CAM Robotics",
+      items: [
+        {
+          label: "Unit 1",
+          file: "/notes/sem4/cad-cam-robotics/unit-1.pdf",
+          size: "4.5 MB",
+        },
+        {
+          label: "Unit 2",
+          file: "/notes/sem4/cad-cam-robotics/unit-2.pdf",
+          size: "2.4 MB",
+        },
+        {
+          label: "Unit 3",
+          file: "/notes/sem4/cad-cam-robotics/unit-3.pdf",
+          size: "974 KB",
+        },
+        {
+          label: "Unit 4",
+          file: "/notes/sem4/cad-cam-robotics/unit-4.pdf",
+          size: "3.5 MB",
+        },
+        {
+          label: "Unit 5",
+          file: "/notes/sem4/cad-cam-robotics/unit-5.pdf",
+          size: "975 KB",
+        },
+      ],
+    },
+  ],
+};
+
+// Semesters 3 → 8. Loose `items` start empty; subject notes live under
+// `subfolders`.
+export const resourceFolders: ResourceFolder[] = [3, 4, 5, 6, 7, 8].map(
+  (sem) => ({
+    sem,
+    title: `${ordinal(sem)} Semester Resources`,
+    items: [],
+    subfolders: semesterSubfolders[sem] ?? [],
+  }),
+);
 
 export interface SyllabusDoc {
   label: string;

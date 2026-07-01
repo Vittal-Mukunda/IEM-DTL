@@ -301,6 +301,18 @@ a.card-sketch:hover,
 }
 
 /* ──────────────────────────────────────────────────────────────────
+   Resources page — collapsible subject subfolders (<details>/<summary>).
+   Rotate the chevron when the folder is open. (Done in plain CSS because
+   Tailwind v4's group-open variant isn't wired up in this project.)
+   ────────────────────────────────────────────────────────────────── */
+.res-chevron {
+  transition: transform 0.2s ease;
+}
+details[open] > summary .res-chevron {
+  transform: rotate(90deg);
+}
+
+/* ──────────────────────────────────────────────────────────────────
    Homepage — "Six worlds. One degree." scroll narrative (/)
    A normal downward scroll. Each career is a full-screen panel that
    PINS (position: sticky) inside a taller track, so it rests on screen
