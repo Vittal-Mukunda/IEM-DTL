@@ -967,6 +967,36 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
+    {
+      name: "Operations Research",
+      items: [
+        {
+          label: "Unit 1",
+          file: "/notes/sem4/operations-research/unit-1.pdf",
+          size: "2.1 MB",
+        },
+        {
+          label: "Unit 2",
+          file: "/notes/sem4/operations-research/unit-2.pdf",
+          size: "760 KB",
+        },
+        {
+          label: "Unit 3",
+          file: "/notes/sem4/operations-research/unit-3.pdf",
+          size: "1.2 MB",
+        },
+        {
+          label: "Unit 4",
+          file: "/notes/sem4/operations-research/unit-4.pdf",
+          size: "1.7 MB",
+        },
+        {
+          label: "Unit 5",
+          file: "/notes/sem4/operations-research/unit-5.pdf",
+          size: "818 KB",
+        },
+      ],
+    },
   ],
 };
 
