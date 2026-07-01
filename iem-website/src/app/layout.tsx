@@ -1,25 +1,34 @@
 import type { Metadata } from "next";
-import { Kalam, Patrick_Hand } from "next/font/google";
+import { Source_Serif_4, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { siteUrl } from "@/lib/data";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-// Headings — thick felt-tip marker
-// Only ever rendered bold (every .font-display use forces weight 700),
-// so we ship a single weight instead of two.
-const kalam = Kalam({
-  variable: "--font-kalam",
+// Headings — Source Serif 4: an academic text serif drawn for long-form
+// scholarship. Reads as a university / research publication, not a startup.
+const heading = Source_Serif_4({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
-// Body — legible handwriting
-const patrickHand = Patrick_Hand({
-  variable: "--font-patrick",
+// Body — Source Sans 3: the purpose-built humanist companion to Source
+// Serif. Shared metrics, highly legible at UI sizes.
+const body = Source_Sans_3({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Labels / index numbers — IBM Plex Mono: an engineering-instrument
+// register for kickers, section indices, and readouts.
+const code = IBM_Plex_Mono({
+  variable: "--font-code",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -71,7 +80,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${kalam.variable} ${patrickHand.variable} h-full antialiased`}
+      className={`${heading.variable} ${body.variable} ${code.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <a

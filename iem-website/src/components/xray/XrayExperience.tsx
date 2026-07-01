@@ -1,508 +1,380 @@
 "use client";
 
 // ──────────────────────────────────────────────────────────────────
-//  "The X-Ray" — IEM RVCE homepage.
+//  "Six worlds. One degree." — IEM RVCE homepage.
 //
-//  A scanner sweeps across six photographs of the real world; each one
-//  dissolves into the engineered systems an Industrial Engineer designs
-//  and runs underneath it. One continuous pinned scroll track, no
-//  sections, no fade-in blocks.
+//  A normal, top-to-bottom scroll narrative. After a hero, six career
+//  worlds are told in sequence; each is a full-screen panel that PINS
+//  (position: sticky) inside a taller track, so it rests on screen for
+//  a stretch of scrolling before releasing to the next — that pin is
+//  the deliberate "pause" between careers. Content reveals top-to-bottom
+//  (each line enters from above, y:-28 → 0) via motion `whileInView`,
+//  then a finale converges the careers.
 //
-//  Reliability notes (hard-won in this Next 16 + motion v12 repo):
-//   • Scene VISIBILITY is driven by React STATE derived from scroll
-//     (phase / activeWorld / textStage via useMotionValueEvent), then
-//     crossfaded with CSS transition-opacity. Scroll-linked `opacity`
-//     MotionValues are NOT used — they compile to native ScrollTimeline
-//     here and never reach 0 (old scenes linger).
-//   • Only a CONTINUOUS transform-like value is scrubbed: the scanner
-//     position, pushed into a CSS custom property (--line) on the stage.
-//     CSS clip-path reads it, so the wipe scrubs smoothly per frame.
-//   • No AnimatePresence (exit unmount stalls here). Swaps use keyed
-//     remount; the finale/HUD use state-gated `animate`.
-//   • Reduced-motion swap is gated behind a `mounted` flag so SSR and
-//     first client render both show the scroll version (no hydration
-//     mismatch); the static version takes over after mount.
+//  Reliability notes:
+//   • Reveals are IntersectionObserver-backed `whileInView`, NOT
+//     scroll-scrubbed MotionValues — this avoids the ScrollTimeline
+//     opacity-stuck bug that the old X-ray build fought.
+//   • The pause is pure CSS sticky (see .career-track / .career-panel
+//     in globals.css). No ancestor of a pinned panel may have
+//     overflow:hidden or a transform or iOS Safari breaks sticky — the
+//     tree here keeps them clear.
+//   • Reduced motion is handled in ONE tree (no separate static twin):
+//     a `mounted` flag keeps SSR + first client render identical, then
+//     motion is neutralized (initial=false, jump to final state) and the
+//     CSS drops the pin/snap so it degrades to plain downward flow.
 // ──────────────────────────────────────────────────────────────────
 
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValue,
-  useMotionValueEvent,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import {
   worlds,
   introPhoto,
   careerConstellation,
   futureEmployers,
 } from "./xrayData";
-import { SYSTEMS } from "./XraySystems";
 
-const INTRO_END = 0.06;
-const FINALE_START = 0.9;
-const W = (FINALE_START - INTRO_END) / worlds.length;
+const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const clamp = (n: number, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, n));
-
-type Phase = "intro" | "world" | "finale";
+// Top-to-bottom cascade: children enter from ABOVE and descend into
+// place, in reading order.
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.06 } },
+};
+const item: Variants = {
+  hidden: { opacity: 0, y: -28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
+};
+const chipWrap: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.05 } },
+};
+const chip: Variants = {
+  hidden: { opacity: 0, y: -14, scale: 0.96 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: EASE } },
+};
+const watermark: Variants = {
+  hidden: { opacity: 0, y: -40 },
+  show: { opacity: 0.06, y: 0, transition: { duration: 0.9, ease: EASE } },
+};
 
 export default function XrayExperience() {
   const reduced = useReducedMotion();
   // false on the server + first client render (keeps hydration in sync),
-  // true thereafter — lets the reduced-motion static swap take over
-  // without a setState-in-effect.
+  // true thereafter — lets the reduced-motion neutralization take over
+  // without a setState-in-effect or a hydration mismatch.
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
     () => false,
   );
+  const still = mounted && reduced;
 
-  const trackRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: trackRef,
-    offset: ["start start", "end end"],
-  });
+  // Which career is centered — lights the right-edge progress rail.
+  const [active, setActive] = useState(0);
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
-  const [phase, setPhase] = useState<Phase>("intro");
-  const [activeWorld, setActiveWorld] = useState(0);
-  const [textStage, setTextStage] = useState(0);
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const idx = Number((e.target as HTMLElement).dataset.idx);
+          if (!Number.isNaN(idx)) setActive(idx);
+        }
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+    );
+    for (const el of sectionRefs.current) if (el) io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
-  const phaseRef = useRef<Phase>("intro");
-  const worldRef = useRef(0);
-  const stageRef = useRef(0);
-
-  // scan: 0 → 1 across one world; --line is the boundary x (100% → 0%)
-  const scan = useMotionValue(0);
-  const linePct = useTransform(scan, (v) => `${((1 - v) * 100).toFixed(2)}%`);
-
-  useMotionValueEvent(scrollYProgress, "change", (raw) => {
-    const p = clamp(raw);
-    let next: Phase;
-    if (p < INTRO_END) {
-      next = "intro";
-      scan.set(0);
-    } else if (p >= FINALE_START) {
-      next = "finale";
-      scan.set(1);
-    } else {
-      next = "world";
-      const rel = (p - INTRO_END) / W;
-      const idx = clamp(Math.floor(rel), 0, worlds.length - 1);
-      const t = rel - idx;
-      // Short lead-in / trail give the cross-world opacity fade room to
-      // resolve; smoothstep easing then lets the scanner glide to rest at
-      // each end instead of snapping from constant speed to a dead stop —
-      // that velocity discontinuity is what read as a "stop" between worlds.
-      const raw = clamp((t - 0.1) / 0.82);
-      const s = raw * raw * (3 - 2 * raw);
-      scan.set(s);
-      const st = s < 0.06 ? 0 : s < 0.55 ? 1 : 2;
-      if (st !== stageRef.current) {
-        stageRef.current = st;
-        setTextStage(st);
-      }
-      if (idx !== worldRef.current) {
-        worldRef.current = idx;
-        setActiveWorld(idx);
-      }
-    }
-    if (next !== phaseRef.current) {
-      phaseRef.current = next;
-      setPhase(next);
-    }
-  });
-
-  if (mounted && reduced) return <XrayStatic />;
-
-  const w = worlds[activeWorld];
-  const inWorld = phase === "world";
+  // One reveal contract, motion-off for reduced-motion users (jump
+  // straight to the final visible state — never leave text at opacity 0).
+  type Reveal = {
+    initial: false | "hidden";
+    animate?: "show";
+    whileInView?: "show";
+    viewport?: { once: boolean; amount: number };
+  };
+  const reveal: Reveal = still
+    ? { initial: false, animate: "show" }
+    : {
+        initial: "hidden",
+        whileInView: "show",
+        viewport: { once: false, amount: 0.4 },
+      };
 
   return (
-    <section
-      ref={trackRef}
-      className="relative bg-[#070b14]"
-      style={{ height: "820vh" }}
-    >
-      <motion.div
-        className="sticky top-0 h-screen w-full overflow-hidden bg-[#070b14]"
-        style={{ ["--line" as string]: linePct }}
-      >
-        {/* ── World visuals: engineered layer (bottom) + photo (clipped, top) ── */}
-        {worlds.map((world, i) => {
-          const Sys = SYSTEMS[world.id];
-          const visible = inWorld && i === activeWorld;
-          return (
-            <div
-              key={world.id}
-              className={`absolute inset-0 transition-opacity duration-700 ${
-                visible ? "opacity-100" : "opacity-0"
-              }`}
-              aria-hidden={!visible}
-            >
-              {/* engineered layer */}
-              <div className="absolute inset-0 xr-grid">
-                <Sys color={world.color} active={visible} />
-              </div>
-              {/* reality layer — clipped to the left of the scan line */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  clipPath: "inset(0 calc(100% - var(--line)) 0 0)",
-                  WebkitClipPath: "inset(0 calc(100% - var(--line)) 0 0)",
-                }}
-              >
-                <Image
-                  src={world.photo}
-                  alt={world.realCaption}
-                  fill
-                  // Only the first world is preloaded; the rest stream in as
-                  // the scanner approaches them (they're well below the fold).
-                  priority={i === 0}
-                  loading={i === 0 ? undefined : "lazy"}
-                  sizes="100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[#070b14]/25" />
-              </div>
-            </div>
-          );
-        })}
+    <div className="home-scroll bg-[#070b14] text-white">
+      {/* ── Hero ── */}
+      <section className="snap-start relative flex min-h-[92svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+        <Image
+          src={introPhoto}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-[0.28]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070b14]/70 via-[#070b14]/60 to-[#070b14]/95" />
+        <div className="pointer-events-none absolute inset-0 fx-vignette" />
 
-        {/* ── Legibility scrim ── */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#070b14]/90 via-[#070b14]/35 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070b14]/85 via-transparent to-[#070b14]/55" />
-
-        {/* ── Scan line ── */}
-        <div
-          className={`pointer-events-none absolute inset-y-0 z-20 transition-opacity duration-500 ${
-            inWorld ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ left: "var(--line)" }}
-        >
-          <div
-            className="absolute inset-y-0 -left-px w-[2px]"
-            style={{ background: w.color, boxShadow: `0 0 24px 3px ${w.color}` }}
-          />
-          <div
-            className="absolute inset-y-0 -left-16 w-16"
-            style={{
-              background: `linear-gradient(90deg, transparent, ${w.color}22)`,
-            }}
-          />
-          <span
-            className="absolute top-[24%] left-3 whitespace-nowrap font-mono text-[11px] tracking-[0.25em]"
-            style={{ color: w.color }}
+        <motion.div {...reveal} variants={container} className="relative max-w-4xl">
+          <motion.span
+            variants={item}
+            className="font-mono text-xs uppercase tracking-[0.4em] text-[#7ec8bf]"
           >
-            ▸ SCANNING
-          </span>
-        </div>
-
-        {/* ── Per-world captions (keyed remount = replays entrance) ── */}
-        {inWorld && (
-          <div className="absolute inset-0 z-30">
-            <motion.div
-              key={activeWorld}
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-              className="absolute left-[6%] right-[6%] top-[12%] max-w-[34rem] sm:right-auto sm:top-[26%]"
-            >
-              <div
-                className="font-mono text-sm tracking-[0.4em]"
-                style={{ color: w.color }}
-              >
-                {w.no} · {w.scanLabel}
-              </div>
-              <h2 className="mt-3 font-display text-5xl leading-[1.02] text-white sm:text-6xl">
-                {w.label}
-              </h2>
-              <div
-                className="mt-4 h-1 w-24 rounded-full"
-                style={{ background: w.color }}
-              />
-              <p className="mt-5 text-lg leading-snug text-white/85 sm:text-xl">
-                {w.problem}
-              </p>
-            </motion.div>
-
-            {/* engineered-side readout: the job + careers + industries */}
-            <div className="absolute left-[6%] right-[6%] top-[52%] w-auto text-left sm:left-auto sm:right-[5%] sm:top-[24%] sm:w-[24rem] sm:text-right">
-              <motion.p
-                animate={{
-                  opacity: textStage >= 1 ? 1 : 0,
-                  y: textStage >= 1 ? 0 : 12,
-                }}
-                transition={{ duration: 0.4 }}
-                className="font-mono text-xs uppercase tracking-[0.2em] text-white/55"
-              >
-                what the work is
-              </motion.p>
-              <motion.p
-                animate={{
-                  opacity: textStage >= 1 ? 1 : 0,
-                  y: textStage >= 1 ? 0 : 12,
-                }}
-                transition={{ duration: 0.4, delay: 0.05 }}
-                className="mt-1 text-xl font-semibold leading-snug text-white"
-              >
-                {w.work}
-              </motion.p>
-
-              <motion.div
-                animate={{ opacity: textStage >= 2 ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
-                className="mt-6 flex flex-wrap justify-start gap-2 sm:justify-end"
-              >
-                {w.careers.map((c, i) => (
-                  <motion.span
-                    key={c}
-                    animate={{
-                      opacity: textStage >= 2 ? 1 : 0,
-                      scale: textStage >= 2 ? 1 : 0.85,
-                    }}
-                    transition={{ duration: 0.3, delay: 0.05 * i }}
-                    className="rounded-full border px-3 py-1 text-sm text-white backdrop-blur-sm"
-                    style={{
-                      borderColor: `${w.color}99`,
-                      background: `${w.color}1f`,
-                    }}
-                  >
-                    {c}
-                  </motion.span>
-                ))}
-              </motion.div>
-
-              <motion.div
-                animate={{ opacity: textStage >= 2 ? 0.7 : 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="mt-5 font-mono text-xs tracking-wide text-white/70"
-              >
-                hires in: {w.industries.join(" · ")}
-              </motion.div>
-            </div>
-
-            {/* reality tag, bottom-left over the photo */}
-            <div className="absolute bottom-[7%] left-[6%] flex items-center gap-2 font-mono text-xs tracking-wide text-white/60">
-              <span className="inline-block h-2 w-2 rounded-full bg-white/70" />
-              {w.realCaption}
-            </div>
-          </div>
-        )}
-
-        {/* ── Intro ── */}
-        <div
-          className={`absolute inset-0 z-30 transition-opacity duration-700 ${
-            phase === "intro" ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-        >
-          <Image
-            src={introPhoto}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#070b14]/70 via-[#070b14]/55 to-[#070b14]/90" />
-          <div className="relative flex h-full flex-col items-center justify-center px-6 text-center">
-            <span className="font-mono text-xs uppercase tracking-[0.45em] text-[#5ad1c4]">
-              IEM · RV College of Engineering
-            </span>
-            <h1 className="mt-6 max-w-4xl font-display text-4xl leading-[1.08] text-white sm:text-6xl md:text-7xl">
-              Industrial Engineering
-              <br />
-              <span className="text-[#5ad1c4]">&amp; Management</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-white/75 sm:text-xl">
-              An NBA-accredited B.E. program at RV College of Engineering —
-              blending engineering precision with management strategy to shape
-              graduates who design, optimize, and lead the systems behind modern
-              industry.
-            </p>
-            <div className="mt-14 flex flex-col items-center gap-2 text-white/60">
-              <span className="font-mono text-xs tracking-[0.3em]">SCROLL TO SCAN</span>
-              <span className="xr-bounce text-2xl">↓</span>
-            </div>
-          </div>
-        </div>
-
-        {/* ── Finale: convergence of careers ── */}
-        <Finale active={phase === "finale"} />
-
-        {/* ── HUD: world progress dots ── */}
-        <div
-          className={`pointer-events-none absolute right-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 sm:flex transition-opacity duration-500 ${
-            inWorld ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {worlds.map((world, i) => (
-            <div
-              key={world.id}
-              className="h-2.5 w-2.5 rounded-full border transition-all duration-300"
-              style={{
-                borderColor: world.color,
-                background: i === activeWorld ? world.color : "transparent",
-                transform: i === activeWorld ? "scale(1.4)" : "scale(1)",
-              }}
-            />
-          ))}
-        </div>
-
-        {/* grain / vignette */}
-        <div className="pointer-events-none absolute inset-0 z-10 fx-vignette" />
-      </motion.div>
-    </section>
-  );
-}
-
-/* ── Finale scene ── */
-function Finale({ active }: { active: boolean }) {
-  return (
-    <div
-      className={`absolute inset-0 z-30 transition-opacity duration-700 ${
-        active ? "opacity-100" : "pointer-events-none opacity-0"
-      }`}
-    >
-      <div className="absolute inset-0 xr-grid" />
-      <div className="pointer-events-none absolute inset-0 fx-vignette" />
-      <div className="relative flex h-full flex-col items-center justify-center px-6 text-center">
-        <span className="font-mono text-xs uppercase tracking-[0.4em] text-[#5ad1c4]">
-          one degree
-        </span>
-        <h2 className="mt-4 font-display text-5xl leading-tight text-white sm:text-7xl">
-          Infinite futures.
-        </h2>
-        <p className="mt-4 max-w-2xl text-base text-white/70 sm:text-lg">
-          Six worlds, one degree. Where IEM graduates from RVCE end up.
-        </p>
-
-        <motion.div
-          initial={false}
-          animate={active ? "on" : "off"}
-          variants={{ on: { transition: { staggerChildren: 0.025 } } }}
-          className="mt-8 flex max-w-4xl flex-wrap items-center justify-center gap-2"
-        >
-          {careerConstellation.map((c) => (
-            <motion.span
-              key={c}
-              variants={{
-                off: { opacity: 0, y: 14 },
-                on: { opacity: 1, y: 0 },
-              }}
-              className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/90"
-            >
-              {c}
-            </motion.span>
-          ))}
-        </motion.div>
-
-        <div className="mt-10 font-mono text-xs uppercase tracking-[0.3em] text-white/45">
-          {futureEmployers.join("   ·   ")}
-        </div>
-
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/curriculum"
-            className="rounded-full bg-[#5ad1c4] px-6 py-3 font-semibold text-[#06121f] transition-transform hover:scale-105"
-          >
-            Explore the curriculum
-          </Link>
-          <Link
-            href="/placements"
-            className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
-          >
-            See where they land
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
-          >
-            Talk to the department
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ──────────────────────────────────────────────────────────────────
-   Reduced-motion / no-scroll fallback — same story, told statically.
-   ────────────────────────────────────────────────────────────────── */
-function XrayStatic() {
-  return (
-    <div className="bg-[#070b14] text-white">
-      <section className="relative flex min-h-[70vh] flex-col items-center justify-center px-6 py-24 text-center">
-        <Image src={introPhoto} alt="" fill sizes="100vw" className="object-cover opacity-25" />
-        <div className="absolute inset-0 bg-[#070b14]/70" />
-        <div className="relative">
-          <span className="font-mono text-xs uppercase tracking-[0.4em] text-[#5ad1c4]">
             IEM · RV College of Engineering
-          </span>
-          <h1 className="mt-5 max-w-3xl font-display text-4xl leading-tight sm:text-6xl">
-            Industrial Engineering <span className="text-[#5ad1c4]">&amp; Management</span>
+          </motion.span>
+          {/* h1 stays statically visible: LCP / SEO anchor that survives
+              a JS or hydration failure. */}
+          <h1 className="mt-6 font-display text-4xl leading-[1.08] text-white sm:text-6xl md:text-7xl">
+            Industrial Engineering
+            <br />
+            <span className="text-[#5ad1c4]">&amp; Management</span>
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-white/75">
+          <motion.p
+            variants={item}
+            className="mx-auto mt-6 max-w-xl text-lg text-white/80 sm:text-xl"
+          >
             An NBA-accredited B.E. program at RV College of Engineering —
             blending engineering precision with management strategy to shape
             graduates who design, optimize, and lead the systems behind modern
             industry.
-          </p>
+          </motion.p>
+        </motion.div>
+
+        <div className="absolute bottom-10 flex flex-col items-center gap-2 text-white/60">
+          <span className="font-mono text-xs tracking-[0.3em]">SCROLL TO EXPLORE</span>
+          <span className="xr-bounce text-2xl">↓</span>
         </div>
       </section>
 
-      {worlds.map((w) => (
-        <section key={w.id} className="relative min-h-[60vh] overflow-hidden">
-          <Image src={w.photo} alt={w.realCaption} fill sizes="100vw" className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070b14]/95 via-[#070b14]/70 to-[#070b14]/30" />
-          <div className="relative max-w-2xl px-6 py-16 sm:px-12">
-            <div className="font-mono text-sm tracking-[0.3em]" style={{ color: w.color }}>
-              {w.no} · {w.scanLabel}
-            </div>
-            <h2 className="mt-2 font-display text-4xl sm:text-5xl">{w.label}</h2>
-            <div className="mt-3 h-1 w-20 rounded-full" style={{ background: w.color }} />
-            <p className="mt-4 text-lg text-white/85">{w.problem}</p>
-            <p className="mt-2 text-lg font-semibold text-white">{w.work}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {w.careers.map((c) => (
-                <span
-                  key={c}
-                  className="rounded-full border px-3 py-1 text-sm"
-                  style={{ borderColor: `${w.color}99`, background: `${w.color}1f` }}
+      {/* ── Section intro ── */}
+      <section className="snap-start relative flex min-h-[60svh] flex-col items-center justify-center px-6 py-24 text-center">
+        <motion.div {...reveal} variants={container} className="max-w-2xl">
+          <motion.p
+            variants={item}
+            className="font-mono text-xs uppercase tracking-[0.4em] text-white/50"
+          >
+            One degree
+          </motion.p>
+          <motion.h2
+            variants={item}
+            className="mt-4 font-display text-4xl text-white sm:text-5xl"
+          >
+            Six worlds. One degree.
+          </motion.h2>
+          <motion.p variants={item} className="mt-5 text-lg text-white/75">
+            Industrial Engineering is the layer beneath modern industry — the
+            systems that make it faster, leaner, and smarter. Keep scrolling
+            through the six worlds an IEM graduate can go on to shape.
+          </motion.p>
+        </motion.div>
+      </section>
+
+      {/* ── Six career worlds (each pins = the pause) ── */}
+      {worlds.map((w, i) => (
+        <section
+          key={w.id}
+          data-idx={i}
+          ref={(el) => {
+            sectionRefs.current[i] = el;
+          }}
+          aria-labelledby={`career-${w.id}`}
+          className="career-track snap-start"
+        >
+          <div className="career-panel">
+            <Image
+              src={w.photo}
+              alt={w.realCaption}
+              fill
+              loading={i === 0 ? undefined : "lazy"}
+              sizes="100vw"
+              className="object-cover opacity-[0.35]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#070b14]/85 via-[#070b14]/70 to-[#070b14]/92" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070b14]/85 via-[#070b14]/30 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 fx-vignette" />
+
+            {/* ghosted index numeral for depth */}
+            <motion.span
+              {...reveal}
+              variants={watermark}
+              aria-hidden="true"
+              className="ghost-num pointer-events-none absolute right-[3%] top-1/2 -translate-y-1/2 select-none font-display text-[42vw] font-bold leading-none text-white sm:text-[26vw]"
+            >
+              {w.no}
+            </motion.span>
+
+            <motion.div
+              {...reveal}
+              variants={container}
+              className="relative mx-auto w-full max-w-6xl px-6 py-24 sm:px-10"
+            >
+              <div className="max-w-[40rem]">
+                <motion.div
+                  variants={item}
+                  className="font-mono text-sm tracking-[0.35em]"
+                  style={{ color: w.color }}
                 >
-                  {c}
-                </span>
-              ))}
-            </div>
-            <div className="mt-4 font-mono text-xs text-white/60">
-              hires in: {w.industries.join(" · ")}
-            </div>
+                  {w.no} · {w.scanLabel}
+                </motion.div>
+                <motion.h2
+                  id={`career-${w.id}`}
+                  variants={item}
+                  className="mt-3 font-display text-5xl leading-[1.03] text-white sm:text-6xl"
+                >
+                  {w.label}
+                </motion.h2>
+                <motion.div
+                  variants={item}
+                  className="mt-4 h-1 w-24 rounded-full"
+                  style={{ background: w.color }}
+                />
+                <motion.p
+                  variants={item}
+                  className="mt-5 text-xl leading-snug text-white/90 sm:text-2xl"
+                >
+                  {w.problem}
+                </motion.p>
+                <motion.p
+                  variants={item}
+                  className="mt-6 font-mono text-xs uppercase tracking-[0.25em] text-white/55"
+                >
+                  What the work is
+                </motion.p>
+                <motion.p
+                  variants={item}
+                  className="mt-1 text-lg font-semibold leading-snug text-white sm:text-xl"
+                >
+                  {w.work}
+                </motion.p>
+                <motion.div
+                  variants={chipWrap}
+                  className="mt-6 flex flex-wrap gap-2"
+                >
+                  {w.careers.map((c) => (
+                    <motion.span
+                      key={c}
+                      variants={chip}
+                      className="rounded-full border px-3 py-1 text-sm text-white backdrop-blur-sm"
+                      style={{ borderColor: `${w.color}99`, background: `${w.color}1f` }}
+                    >
+                      {c}
+                    </motion.span>
+                  ))}
+                </motion.div>
+                <motion.div
+                  variants={item}
+                  className="mt-6 font-mono text-xs tracking-wide text-white/70"
+                >
+                  Hires in: {w.industries.join(" · ")}
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </section>
       ))}
 
-      <section className="px-6 py-24 text-center">
-        <h2 className="font-display text-4xl sm:text-6xl">One degree. Infinite futures.</h2>
-        <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
-          {careerConstellation.map((c) => (
-            <span key={c} className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/90">
-              {c}
-            </span>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link href="/curriculum" className="rounded-full bg-[#5ad1c4] px-6 py-3 font-semibold text-[#06121f]">
-            Explore the curriculum
-          </Link>
-          <Link href="/placements" className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white">
-            See where they land
-          </Link>
-        </div>
+      {/* ── Finale ── */}
+      <section
+        className="snap-start relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 py-24 text-center"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, #0c1524, #070b14)",
+        }}
+      >
+        <div className="pointer-events-none absolute inset-0 fx-vignette" />
+        <motion.div {...reveal} variants={container} className="relative">
+          <motion.span
+            variants={item}
+            className="font-mono text-xs uppercase tracking-[0.4em] text-[#5ad1c4]"
+          >
+            one degree
+          </motion.span>
+          <motion.h2
+            variants={item}
+            className="mt-4 font-display text-5xl leading-tight text-white sm:text-7xl"
+          >
+            Infinite futures.
+          </motion.h2>
+          <motion.p
+            variants={item}
+            className="mx-auto mt-4 max-w-2xl text-base text-white/70 sm:text-lg"
+          >
+            Six worlds, one degree. Where IEM graduates from RVCE end up.
+          </motion.p>
+
+          <motion.div
+            variants={chipWrap}
+            className="mx-auto mt-8 flex max-w-4xl flex-wrap items-center justify-center gap-2"
+          >
+            {careerConstellation.map((c) => (
+              <motion.span
+                key={c}
+                variants={chip}
+                className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-sm text-white/90"
+              >
+                {c}
+              </motion.span>
+            ))}
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mt-10 font-mono text-xs uppercase tracking-[0.3em] text-white/45"
+          >
+            {futureEmployers.join("   ·   ")}
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mt-9 flex flex-wrap items-center justify-center gap-3"
+          >
+            <Link
+              href="/curriculum"
+              className="rounded-full bg-[#5ad1c4] px-6 py-3 font-semibold text-[#06121f] transition-transform hover:scale-105"
+            >
+              Explore the curriculum
+            </Link>
+            <Link
+              href="/placements"
+              className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              See where they land
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-full border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Talk to the department
+            </Link>
+          </motion.div>
+        </motion.div>
       </section>
+
+      {/* ── Progress rail ── */}
+      <div
+        className="pointer-events-none fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 lg:flex"
+        aria-hidden="true"
+      >
+        {worlds.map((w, i) => (
+          <span
+            key={w.id}
+            className="h-2.5 w-2.5 rounded-full border transition-all duration-300"
+            style={{
+              borderColor: w.color,
+              background: i === active ? w.color : "transparent",
+              transform: i === active ? "scale(1.4)" : "scale(1)",
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }

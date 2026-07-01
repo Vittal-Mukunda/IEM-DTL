@@ -40,9 +40,9 @@
   --color-surface-dark: var(--surface-dark);
   --color-text-muted: var(--text-muted);
   --color-postit: var(--postit);
-  --font-sans: var(--font-patrick);
-  --font-display: var(--font-kalam);
-  --font-mono: var(--font-patrick);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+  --font-mono: var(--font-code);
 }
 
 body {
@@ -51,20 +51,23 @@ body {
   background-image: radial-gradient(var(--surface-dark) 1px, transparent 1px);
   background-size: 24px 24px;
   color: var(--foreground);
-  font-family: var(--font-patrick, "Comic Sans MS", system-ui, cursive);
-  font-size: 1.05rem;
+  font-family: var(--font-body, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif);
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
-/* Everything handwritten: headings in marker, body in pen */
+/* Academic serif headings, humanist-sans body */
 h1,
 h2,
 h3,
 h4,
 .font-display {
-  font-family: var(--font-kalam, "Comic Sans MS", system-ui, cursive);
-  font-weight: 700;
+  font-family: var(--font-heading, ui-serif, Georgia, "Times New Roman", serif);
+  font-weight: 600;
   text-wrap: balance;
-  letter-spacing: 0.2px;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -124,9 +127,9 @@ a.card-sketch:hover,
   gap: 0.5rem;
   padding: 0.7rem 1.5rem;
   min-height: 3rem;
-  font-family: var(--font-patrick, system-ui, cursive);
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
   color: var(--ink);
   background: #ffffff;
   border: 3px solid var(--ink);
@@ -173,9 +176,10 @@ a.card-sketch:hover,
   background: var(--postit);
   border: 2px solid var(--ink);
   border-radius: var(--wobble-sm);
-  font-family: var(--font-kalam, system-ui, cursive);
-  font-weight: 700;
-  font-size: 0.85rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
   color: var(--ink);
   box-shadow: 3px 3px 0 0 rgba(45, 45, 45, 0.18);
   transform: rotate(-2deg);
@@ -190,7 +194,7 @@ a.card-sketch:hover,
   background: #ffffff;
   border: 2px solid var(--ink);
   border-radius: var(--wobble-sm);
-  font-family: var(--font-patrick, system-ui, cursive);
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
   font-size: 1rem;
   color: var(--ink);
   outline: none;
@@ -297,21 +301,16 @@ a.card-sketch:hover,
 }
 
 /* ──────────────────────────────────────────────────────────────────
-   Ambient SVG motion utilities for the X-Ray "engineered layer"
-   (see XraySystems.tsx). Thin glowing strokes that flow, pulse, and
-   spin while a world is active; the scroll choreography itself lives in
-   the React orchestrator.
+   Homepage — "Six worlds. One degree." scroll narrative (/)
+   A normal downward scroll. Each career is a full-screen panel that
+   PINS (position: sticky) inside a taller track, so it rests on screen
+   for a stretch of scrolling before releasing to the next — that pin is
+   the deliberate "pause" between careers. Content reveals top-to-bottom
+   via motion whileInView (see XrayExperience.tsx). A gentle proximity
+   scroll-snap seats each panel when the reader comes to rest.
    ────────────────────────────────────────────────────────────────── */
-@keyframes fx-flow { to { stroke-dashoffset: -240; } }
-@keyframes fx-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-@keyframes fx-spin { to { transform: rotate(360deg); } }
 
-.fx-flow { stroke-dasharray: 5 9; animation: fx-flow 2.6s linear infinite; }
-.fx-flow-slow { stroke-dasharray: 3 11; animation: fx-flow 6s linear infinite; }
-.fx-pulse { animation: fx-pulse 3s ease-in-out infinite; }
-.fx-spin { transform-box: fill-box; transform-origin: center; animation: fx-spin 16s linear infinite; }
-
-/* Soft vignette so the stage focuses toward the center */
+/* Soft vignette so each panel focuses toward the center */
 .fx-vignette {
   background: radial-gradient(
     ellipse 80% 70% at 50% 45%,
@@ -320,33 +319,51 @@ a.card-sketch:hover,
   );
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .fx-flow,
-  .fx-flow-slow,
-  .fx-pulse,
-  .fx-spin {
-    animation: none !important;
+/* Career track + pinned panel. Base (mobile / reduced-motion) is plain
+   flow so nothing is clipped or force-held; the pin + snap only switch
+   on when motion is welcome. */
+.career-track {
+  position: relative;
+}
+.career-panel {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The extra height beyond the 100svh panel IS the pause: the sticky
+     panel freezes on screen while this slack scrolls past. Kept short so
+     the pause is brief — a beat, not a hold.
+     No scroll-snap: proximity snap on these tall sticky tracks fought the
+     user (jerking back toward snap points on rest = the "stuck" feel).
+     The sticky pin alone gives the pause; free scrolling stays smooth. */
+  .career-track {
+    height: 150vh;
   }
 }
 
-/* ──────────────────────────────────────────────────────────────────
-   The X-Ray — homepage scanner experience (/)
-   A scanner sweeps each photo, revealing the engineered systems layer
-   underneath. Dark deep-navy stage; the revealed side is a glowing
-   blueprint grid. Scrubbing lives in the React orchestrator; this is
-   the engineered-layer texture + a couple of intro ambients only.
-   ────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* No pin — each career is just a full-screen block in normal downward
+     flow. The box grows with its content (min-height, auto height) so
+     in-flow text never clips; overflow:hidden stays on so the decorative
+     ghost numeral can't spill and create a horizontal scrollbar. */
+  .career-panel {
+    position: relative;
+  }
 
-/* The "engineered" backdrop revealed under each photo */
-.xr-grid {
-  background-color: #070b14;
-  background-image:
-    linear-gradient(rgba(120, 170, 230, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 170, 230, 0.12) 1px, transparent 1px),
-    linear-gradient(rgba(120, 170, 230, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 170, 230, 0.05) 1px, transparent 1px),
-    radial-gradient(ellipse 70% 60% at 65% 50%, rgba(20, 40, 70, 0.55), transparent 70%);
-  background-size: 140px 140px, 140px 140px, 28px 28px, 28px 28px, 100% 100%;
+  /* Scroll-reveal text starts at opacity:0 (motion writes it inline during
+     SSR). CSS applies at first paint — before hydration — so reduced-motion
+     readers see the text immediately with no flash of hidden content. The
+     decorative ghost numeral (.ghost-num) is excluded and keeps its faint
+     opacity. */
+  .home-scroll [style*="opacity"]:not(.ghost-num) {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @keyframes xr-bounce {
