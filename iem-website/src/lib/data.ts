@@ -346,40 +346,62 @@ export const placementData = [
   },
 ];
 
-// Recruiters drawn from the last four placement drives (2022–23 → 2025–26).
-export const recruiters = [
-  "Skyworks",
-  "Micron",
-  "GlobalFoundries",
-  "Applied Materials",
-  "Intel",
-  "Cisco",
-  "HPE",
+export interface RecruiterOffer {
+  company: string;
+  /** Annual CTC as recorded in the placement sheet, e.g. "₹22.5 LPA".
+   *  A range ("₹8–17.5 LPA") means multiple roles/offers at that company. */
+  ctc: string;
+  role: string;
+}
+
+// Company-wise offers from the current 2025–26 drive — package and role as
+// recorded in the department's placement sheet, highest package first.
+export const recruiterOffers: RecruiterOffer[] = [
+  { company: "Skyworks", ctc: "₹22.5 LPA", role: "Foundry Operations Intern / Supply Chain Analyst Intern" },
+  { company: "HPE", ctc: "₹8–17.5 LPA", role: "Supply Chain Analyst / Digital Transformation Analyst" },
+  { company: "Applied Materials", ctc: "₹15–17.5 LPA", role: "Supplier Engineer / Buyer" },
+  { company: "Blinkit (Eternal)", ctc: "₹17 LPA", role: "Associate Program Manager" },
+  { company: "Micron", ctc: "₹13.17 LPA", role: "Manufacturing Engineer" },
+  { company: "Schneider Electric", ctc: "₹12 LPA", role: "Industrialization Quality / R&D" },
+  { company: "GlobalFoundries", ctc: "₹12 LPA", role: "Supply Chain Intern" },
+  { company: "Hyperface", ctc: "₹11 LPA", role: "Product Manager Intern" },
+  { company: "Bosch", ctc: "₹11 LPA", role: "Technical Graduate Trainee" },
+  { company: "Honda", ctc: "₹10 LPA", role: "Graduate Engineer Trainee" },
+  { company: "Airbus", ctc: "₹10 LPA", role: "SAP QM Functional Analyst" },
+  { company: "Stackbox", ctc: "₹10 LPA", role: "Supply Chain & Operations Analyst" },
+  { company: "EY", ctc: "₹9.19 LPA", role: "Associate Consultant – PAS" },
+  { company: "AkzoNobel", ctc: "₹9 LPA", role: "Graduate Engineer Trainee" },
+  { company: "Havells", ctc: "₹8.5 LPA", role: "Young Engineers Program" },
+  { company: "Tejas Networks", ctc: "₹7.5 LPA", role: "Industrial Engineer / Supply Chain & Operations Analyst" },
+  { company: "SBM Offshore", ctc: "₹7.4 LPA", role: "Supply Chain Trainee" },
+  { company: "Gemba Concepts", ctc: "₹6 LPA", role: "Lean Consultant" },
+  { company: "The Math Company", ctc: "₹5.5 LPA", role: "Trainee Analyst" },
+  { company: "TTK Prestige", ctc: "₹5.5 LPA", role: "Graduate Engineer Trainee" },
+  { company: "GEA", ctc: "₹5 LPA", role: "Graduate Engineer Trainee" },
+  { company: "Mahindra Aerospace", ctc: "₹4.5 LPA", role: "Industrial Engineer" },
+  { company: "Hachidori Robotics", ctc: "₹3.6 LPA", role: "Solution Engineer (Technical)" },
+];
+
+// Notable recruiters from the preceding drives (2022–23 → 2024–25) whose
+// current-year package isn't listed above.
+export const otherRecruiters = [
   "Amazon",
   "J.P. Morgan",
+  "Cisco",
+  "Intel",
   "Deloitte",
-  "EY",
   "Genpact",
   "Grant Thornton",
-  "Airbus",
-  "Honda",
-  "Bosch",
   "Volvo",
   "Hyundai",
-  "Schneider Electric",
   "Honeywell",
-  "AkzoNobel",
-  "Havells",
   "Titan",
   "Flipkart",
-  "Blinkit",
   "Licious",
   "o9 Solutions",
   "Blue Yonder",
   "Tredence",
-  "The Math Company",
   "Ingersoll Rand",
-  "Tejas Networks",
 ];
 
 export const professionalSocieties = [

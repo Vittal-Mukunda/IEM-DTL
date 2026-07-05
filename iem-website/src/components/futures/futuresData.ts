@@ -158,12 +158,12 @@ export const careerConstellation: string[] = [
 
 // Where graduates land — a small, real sample (mirrors data.ts recruiters).
 export const futureEmployers = [
+  "Skyworks",
+  "Micron",
+  "GlobalFoundries",
   "Airbus",
   "Cisco",
+  "Amazon",
   "Flipkart",
   "Intel",
-  "Micron",
-  "Titan",
-  "Accenture",
-  "GE",
 ];

@@ -4,7 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import Counter from "@/components/cinematic/Counter";
 import TiltCard from "@/components/cinematic/TiltCard";
-import { placementData, recruiters } from "@/lib/data";
+import { placementData, recruiterOffers, otherRecruiters } from "@/lib/data";
 
 /* Chronological (oldest -> newest) for the trend story. */
 const series = [...placementData].sort((a, b) =>
@@ -371,23 +371,64 @@ export default function PlacementStory() {
         </div>
       </section>
 
-      {/* ── D. Recruiters ─────────────────────────────────── */}
+      {/* ── D. Recruiters & packages ──────────────────────── */}
       <section>
-        <h2 className="text-2xl font-bold text-primary mb-6">Top Recruiters</h2>
-        <div className="flex flex-wrap gap-3">
-          {recruiters.map((r, i) => (
-            <motion.span
-              key={r}
-              initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.35, delay: (i % 10) * 0.04 }}
-              whileHover={{ y: -3, scale: 1.05 }}
-              className="cursor-default rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm hover:border-primary/30 hover:text-primary"
-            >
-              {r}
-            </motion.span>
-          ))}
+        <h2 className="text-2xl font-bold text-primary mb-1">
+          Recruiters &amp; Packages
+        </h2>
+        <p className="text-text-muted mb-6">
+          Companies that hired from the current 2025–26 drive — the CTC offered
+          and the role, highest package first.
+        </p>
+
+        <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white">
+          <table className="w-full min-w-[560px] text-left text-sm">
+            <thead>
+              <tr className="border-b border-gray-200 bg-surface text-primary">
+                <th className="px-4 py-3 font-semibold">Company</th>
+                <th className="px-4 py-3 font-semibold whitespace-nowrap">
+                  Package (CTC)
+                </th>
+                <th className="px-4 py-3 font-semibold">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recruiterOffers.map((o, i) => (
+                <tr
+                  key={o.company}
+                  className={i % 2 ? "bg-surface/40" : "bg-white"}
+                >
+                  <td className="px-4 py-3 font-medium text-gray-800">
+                    {o.company}
+                  </td>
+                  <td className="px-4 py-3 font-bold text-accent whitespace-nowrap">
+                    {o.ctc}
+                  </td>
+                  <td className="px-4 py-3 text-text-muted">{o.role}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-2 text-xs text-text-muted">
+          CTC = annual cost-to-company as recorded in the department placement
+          sheet; a range means multiple roles or offers at that company.
+        </p>
+
+        <div className="mt-8">
+          <h3 className="text-lg font-bold text-primary mb-3">
+            Other recruiters from recent drives
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {otherRecruiters.map((r) => (
+              <span
+                key={r}
+                className="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm"
+              >
+                {r}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
     </div>
