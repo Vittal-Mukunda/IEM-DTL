@@ -13,6 +13,8 @@
     "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "motion": "^12.40.0",
     "next": "16.2.9",
     "pdfjs-dist": "^4.10.38",
