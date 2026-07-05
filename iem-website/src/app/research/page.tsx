@@ -62,6 +62,92 @@ export default function ResearchPage() {
           </p>
         </section>
 
+        {/* Vision & Mission */}
+        <div className="grid md:grid-cols-2 gap-8 mb-14">
+          <section className="bg-surface rounded-xl p-6 border border-gray-100">
+            <h2 className="text-xl font-bold text-primary mb-4">Vision</h2>
+            <blockquote className="text-gray-700 leading-relaxed italic border-l-4 border-accent pl-4">
+              &ldquo;Imparting innovation and value based education in Industrial
+              Engineering and Management for steering organizations to global
+              standards with an emphasis on sustainable and inclusive
+              development.&rdquo;
+            </blockquote>
+          </section>
+          <section className="bg-surface rounded-xl p-6 border border-gray-100">
+            <h2 className="text-xl font-bold text-primary mb-4">Mission</h2>
+            <ol className="space-y-3 text-gray-700 text-sm leading-relaxed list-decimal list-inside">
+              <li>
+                Impart scientific knowledge, engineering and managerial skills
+                for driving organizations to global excellence.
+              </li>
+              <li>
+                Promote a culture of training, consultancy, research and
+                entrepreneurship interventions among students.
+              </li>
+              <li>
+                Institute collaborative academic and research exchange programs
+                with nationally and globally renowned academia, industries and
+                organizations.
+              </li>
+              <li>
+                Establish and nurture centres of excellence in niche areas of
+                Industrial and Systems Engineering.
+              </li>
+            </ol>
+          </section>
+        </div>
+
+        {/* PEOs */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-primary mb-6">
+            Program Educational Objectives (PEOs)
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              "Conceive, design, implement and operate integrated systems, focusing on appropriate measures of performance at strategic, tactical and operational levels.",
+              "Develop competency to adapt to changing roles for achieving organizational excellence.",
+              "Design and develop sustainable technologies and solutions for the betterment of society.",
+              "Pursue entrepreneurial ventures with a focus on creativity and innovation for developing newer products, processes and systems.",
+            ].map((peo, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-lg p-5 border border-gray-100 shadow-sm"
+              >
+                <span className="text-xs font-bold text-accent">
+                  PEO {i + 1}
+                </span>
+                <p className="text-sm text-gray-700 mt-2 leading-relaxed">
+                  {peo}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* PSOs */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-primary mb-6">
+            Program Specific Outcomes (PSOs)
+          </h2>
+          <div className="space-y-4">
+            {[
+              "Design, develop, implement and improve integrated systems that involve people, materials, information, equipment and energy.",
+              "Apply statistical methods, simulation tools, optimisation techniques and metaheuristics to analyse systems and support effective decision making.",
+              "Understand and demonstrate the engineering aspects of management tasks such as planning, organisation, leadership and control, along with the human element across various sectors of the economy.",
+            ].map((pso, i) => (
+              <div
+                key={i}
+                className="flex gap-4 bg-surface rounded-lg p-4 border border-gray-100"
+              >
+                <span className="text-lg font-bold text-primary shrink-0">
+                  PSO{i + 1}
+                </span>
+                <p className="text-sm text-gray-700 leading-relaxed">{pso}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Research Themes */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-primary mb-6">

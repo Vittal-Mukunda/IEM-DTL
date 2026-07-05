@@ -605,6 +605,14 @@ export const curriculumCourses: CurriculumCourse[] = [
     faculty: ["Dr. Shobha N S"],
   },
   {
+    code: "IM253AI",
+    name: "Work and Systems Design",
+    domain: "ops",
+    description:
+      "Work study, method and time study, ergonomics, and workplace layout to improve productivity and design efficient, human-centred work systems.",
+    faculty: ["Dr. Rajeswara Rao K V S", "Dr. Vikram N Bahadurdesai"],
+  },
+  {
     code: "21IM62",
     name: "Global Supply Chain Management",
     domain: "scm",
@@ -1079,6 +1087,29 @@ export const syllabusDocs: SyllabusDoc[] = [
     file: "/syllabus/IEM-2022-4th-year-VII-VIII.pdf",
     size: "2.9 MB",
   },
+];
+
+// ── Department newsletters ───────────────────────────────────────────
+// PDFs render inline (embedded viewer) on the About page — readers scroll
+// through them on-site without downloading. Drop the PDF into
+// `public/newsletters/` and add an entry here; the About page picks it up
+// automatically. Leave the array empty to show the "coming soon" placeholder.
+export interface Newsletter {
+  /** Display title, e.g. "IEM Newsletter — Spring 2026" */
+  title: string;
+  /** Path under /public, e.g. "/newsletters/spring-2026.pdf" */
+  file: string;
+  /** Optional edition label, e.g. "Spring 2026" */
+  edition?: string;
+}
+
+export const newsletters: Newsletter[] = [
+  // Example (uncomment and drop the PDF into public/newsletters/):
+  // {
+  //   title: "IEM Newsletter — Spring 2026",
+  //   file: "/newsletters/spring-2026.pdf",
+  //   edition: "Spring 2026",
+  // },
 ];
 
 export const hodMessage = {
