@@ -213,18 +213,16 @@ a.card-sketch:hover,
   text-underline-offset: 5px;
   text-decoration-thickness: 2px;
 }
-.wavy-hover {
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-decoration-style: wavy;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 2px;
-  transition: text-decoration-color 0.15s ease;
+/* Red glow on hover — nav links (header) & footer links. No underline. */
+.glow-hover {
+  transition: color 0.15s ease, text-shadow 0.15s ease;
 }
-.wavy-hover:hover { text-decoration-color: var(--accent); }
-/* footer link strike-through on hover */
-.strike-hover { transition: color 0.15s ease; }
-.strike-hover:hover { text-decoration: line-through; }
+.glow-hover:hover {
+  color: var(--accent);
+  text-shadow:
+    0 0 6px rgba(217, 45, 45, 0.55),
+    0 0 14px rgba(255, 133, 133, 0.5);
+}
 
 /* ── Tape & thumbtack decorations ──────────────────────────────── */
 .tape { position: relative; }

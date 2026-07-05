@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     template: "%s | IEM, RVCE",
   },
   description:
-    "Department of Industrial Engineering & Management at R.V. College of Engineering (RVCE), Bengaluru. NBA-accredited B.E. program blending engineering with management. 70%+ placements, ₹21.45 LPA highest package.",
+    "Department of Industrial Engineering & Management at R.V. College of Engineering (RVCE), Bengaluru. NBA-accredited B.E. program blending engineering with management. 70%+ placements, ₹22.5 LPA highest package.",
   keywords: [
     "Industrial Engineering and Management",
     "RVCE",
@@ -62,13 +62,13 @@ export const metadata: Metadata = {
     siteName: "IEM Department, RVCE",
     title: "Industrial Engineering & Management | RVCE, Bengaluru",
     description:
-      "NBA-accredited B.E. program blending engineering with management. 70%+ placements, ₹21.45 LPA highest package.",
+      "NBA-accredited B.E. program blending engineering with management. 70%+ placements, ₹22.5 LPA highest package.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Industrial Engineering & Management | RVCE, Bengaluru",
     description:
-      "NBA-accredited B.E. program blending engineering with management. 70%+ placements, ₹21.45 LPA highest package.",
+      "NBA-accredited B.E. program blending engineering with management. 70%+ placements, ₹22.5 LPA highest package.",
   },
 };
 

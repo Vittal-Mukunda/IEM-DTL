@@ -26,7 +26,7 @@ export const siteConfig = {
 
 export const stats = [
   { label: "UG Intake", value: "60", suffix: "seats/year" },
-  { label: "Highest Package", value: "₹21.45", suffix: "LPA" },
+  { label: "Highest Package", value: "₹22.5", suffix: "LPA" },
   { label: "Placement Rate", value: "70%+", suffix: "3-year avg" },
   { label: "Faculty Strength", value: "14", suffix: "members" },
   { label: "Research Papers", value: "202", suffix: "journal articles" },
@@ -303,63 +303,83 @@ export const facultyDetails: Record<string, FacultyDetail> = {
   },
 };
 
+// Derived from the department's placement records for the last four drives
+// (2022–23 → 2025–26). `companies` = distinct recruiters on campus,
+// `offers` = total offers made, `selected` = offers accepted (offers minus
+// declined, where recorded). `avgLPA`/`maxLPA` are the mean and highest CTC
+// across all offers with a disclosed annual package (the 2025–26 average
+// reflects the department's official reported figure). 2025–26 is the
+// current, still-ongoing drive.
 export const placementData = [
   {
-    year: "2024–25",
-    companies: 12,
-    offers: 35,
-    selected: 31,
-    avgLPA: 12.46,
-    maxLPA: 21.45,
+    year: "2025–26",
+    companies: 23,
+    offers: 48,
+    selected: 42,
+    avgLPA: 12.45,
+    maxLPA: 22.5,
     ongoing: true,
   },
   {
+    year: "2024–25",
+    companies: 28,
+    offers: 49,
+    selected: 40,
+    avgLPA: 9.5,
+    maxLPA: 21.45,
+  },
+  {
     year: "2023–24",
-    companies: 30,
-    offers: 53,
-    selected: 51,
-    avgLPA: 8.39,
-    maxLPA: 20.0,
+    companies: 31,
+    offers: 52,
+    selected: 52,
+    avgLPA: 9.23,
+    maxLPA: 18.0,
   },
   {
     year: "2022–23",
     companies: 35,
-    offers: 49,
-    selected: 49,
-    avgLPA: 9.06,
-    maxLPA: 18.99,
-  },
-  {
-    year: "2021–22",
-    companies: 38,
-    offers: 66,
-    selected: 42,
-    avgLPA: 9.03,
-    maxLPA: 14.95,
+    offers: 50,
+    selected: 50,
+    avgLPA: 9.18,
+    maxLPA: 16.76,
   },
 ];
 
+// Recruiters drawn from the last four placement drives (2022–23 → 2025–26).
 export const recruiters = [
-  "Airbus",
-  "Cisco",
-  "Flipkart",
-  "Genpact",
-  "GlobalFoundries",
-  "Hewlett-Packard",
-  "Intel",
+  "Skyworks",
   "Micron",
-  "Titan",
-  "TCS",
-  "GE",
-  "L&T",
-  "Infosys",
-  "Cognizant",
-  "Tech Mahindra",
+  "GlobalFoundries",
+  "Applied Materials",
+  "Intel",
+  "Cisco",
+  "HPE",
+  "Amazon",
+  "J.P. Morgan",
+  "Deloitte",
+  "EY",
+  "Genpact",
+  "Grant Thornton",
+  "Airbus",
+  "Honda",
+  "Bosch",
   "Volvo",
-  "Accenture",
-  "Fidelity",
-  "IBM",
-  "Wipro",
+  "Hyundai",
+  "Schneider Electric",
+  "Honeywell",
+  "AkzoNobel",
+  "Havells",
+  "Titan",
+  "Flipkart",
+  "Blinkit",
+  "Licious",
+  "o9 Solutions",
+  "Blue Yonder",
+  "Tredence",
+  "The Math Company",
+  "Ingersoll Rand",
+  "Tejas Networks",
 ];
 
 export const professionalSocieties = [
@@ -769,7 +789,7 @@ export const faqs = [
   {
     question: "What are the placement prospects?",
     answer:
-      "Official data shows over 70% placement rate over the last 3 years. The highest package for 2024–25 is ₹21.45 LPA with an average of ₹12.46 LPA. Recruiters include Airbus, Cisco, Flipkart, Intel, Micron, Titan, and 20+ more companies.",
+      "Official data shows over 70% placement rate over the last 3 years. For the current 2025–26 drive the highest package is ₹22.5 LPA with an average of ₹12.45 LPA. Recruiters include Skyworks, Micron, GlobalFoundries, Applied Materials, Intel, Cisco, Airbus, Amazon, and 80+ more companies across the last four years.",
   },
   {
     question: "What jobs can I get with an IEM degree?",
@@ -817,12 +837,12 @@ export const faqs = [
     question:
       "What are the average, median and highest packages in recent years?",
     answer:
-      "For 2024–25 the department's figures are an average of about ₹12.46 LPA and a highest of ₹21.45 LPA (students estimate the median in the ₹10–12 LPA range). Earlier years: 2023–24 — avg ₹8.39 LPA, highest ₹20 LPA; 2022–23 — avg ₹9.06 LPA, highest ₹18.99 LPA.",
+      "For the current 2025–26 drive the department's figures are an average of about ₹12.45 LPA and a highest of ₹22.5 LPA. Recent years: 2024–25 — avg ₹9.5 LPA, highest ₹21.45 LPA; 2023–24 — avg ₹9.23 LPA, highest ₹18 LPA; 2022–23 — avg ₹9.18 LPA, highest ₹16.76 LPA.",
   },
   {
     question: "Which companies recruit from IEM, and for what roles?",
     answer:
-      "Regular recruiters include GlobalFoundries, Micron, Intel, Cisco, Genpact, Flipkart, Titan, Airbus, TCS, Infosys and Accenture; students also report firms like Skyworks and operations/lean-consulting companies. Roles are mostly in data analytics, supply-chain management, operations and quality.",
+      "Regular recruiters include Skyworks, Micron, GlobalFoundries, Applied Materials, Intel, Cisco, HPE, Amazon, J.P. Morgan, Deloitte, EY, Genpact, Airbus, Honda, Bosch and Volvo, alongside operations/lean-consulting firms like Gemba Concepts. Roles are mostly in data analytics, supply-chain management, operations and quality.",
   },
   {
     question:

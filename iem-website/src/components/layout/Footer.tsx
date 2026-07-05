@@ -34,7 +34,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-base text-gray-300 hover:text-accent strike-hover"
+                    className="text-base text-gray-300 glow-hover"
                   >
                     {link.label}
                   </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="hover:text-accent strike-hover"
+                  className="glow-hover"
                 >
                   {siteConfig.email}
                 </a>
@@ -59,7 +59,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="hover:text-accent strike-hover"
+                  className="glow-hover"
                 >
                   {siteConfig.phone}
                 </a>
@@ -69,7 +69,7 @@ export default function Footer() {
                   href={siteConfig.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-accent strike-hover"
+                  className="glow-hover"
                 >
                   Official RVCE Site
                 </a>

@@ -4,7 +4,7 @@ import PlacementStory from "@/components/placements/PlacementStory";
 export const metadata: Metadata = {
   title: "Placements & Careers",
   description:
-    "IEM RVCE placement statistics — ₹21.45 LPA highest package, ₹12.46 LPA average (2024–25), 70%+ placement rate. Recruiters include Airbus, Cisco, Flipkart, Intel, Micron.",
+    "IEM RVCE placement statistics — ₹22.5 LPA highest package, ₹12.45 LPA average (2025–26 drive), 70%+ placement rate. Recruiters include Skyworks, Micron, GlobalFoundries, Airbus, Amazon.",
   alternates: { canonical: "/placements" },
 };
 
@@ -15,8 +15,8 @@ export default function PlacementsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold mb-3">Placements &amp; Careers</h1>
           <p className="text-lg text-gray-200 max-w-2xl">
-            70%+ placement rate, ₹21.45 LPA highest package, and 20+ recruiters
-            across manufacturing, IT, consulting, and finance.
+            70%+ placement rate, ₹22.5 LPA highest package, and 80+ recruiters
+            across manufacturing, semiconductors, IT, consulting, and finance.
           </p>
         </div>
       </section>

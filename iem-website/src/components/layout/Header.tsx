@@ -75,10 +75,10 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-2 text-base transition-transform duration-100 hover:-rotate-2 ${
+                  className={`px-3 py-2 text-base ${
                     active
                       ? "text-primary wavy-underline font-bold"
-                      : "text-text-muted hover:text-primary wavy-hover"
+                      : "text-text-muted glow-hover"
                   }`}
                 >
                   {link.label}
@@ -136,7 +136,7 @@ export default function Header() {
                 className={`block px-3 py-2.5 text-lg ${
                   active
                     ? "text-primary wavy-underline font-bold"
-                    : "text-text-muted hover:text-primary"
+                    : "text-text-muted glow-hover"
                 }`}
               >
                 {link.label}

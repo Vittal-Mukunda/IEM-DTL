@@ -4,7 +4,6 @@ import { useMemo, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import Counter from "@/components/cinematic/Counter";
 import TiltCard from "@/components/cinematic/TiltCard";
-import Tilt3D from "@/components/cinematic/Tilt3D";
 import { placementData, recruiters } from "@/lib/data";
 
 /* Chronological (oldest -> newest) for the trend story. */
@@ -63,10 +62,10 @@ export default function PlacementStory() {
       <section>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { v: 21.45, dec: 2, pre: "₹", suf: "", label: "LPA highest, 2024–25", hot: true },
-            { v: 12.46, dec: 2, pre: "₹", suf: "", label: "LPA average, 2024–25" },
+            { v: 22.5, dec: 2, pre: "₹", suf: "", label: "LPA highest, 2025–26", hot: true },
+            { v: 12.45, dec: 2, pre: "₹", suf: "", label: "LPA average, 2025–26" },
             { v: 70, dec: 0, pre: "", suf: "%+", label: "3-Year Placement Rate" },
-            { v: 20, dec: 0, pre: "", suf: "+", label: "Recruiting Companies" },
+            { v: 80, dec: 0, pre: "", suf: "+", label: "Recruiters (4-year)" },
           ].map((s, i) => (
             <motion.div
               key={s.label}
@@ -106,12 +105,7 @@ export default function PlacementStory() {
 
         <div className="relative rounded-2xl border border-gray-200 bg-white p-3 sm:p-5">
           <div className="relative w-full" style={{ aspectRatio: `${CW} / ${CH}` }}>
-           <Tilt3D
-             className="absolute inset-0"
-             innerClassName="absolute inset-0"
-             perspective={1400}
-             max={7}
-           >
+           <div className="absolute inset-0">
             <svg
               viewBox={`0 0 ${CW} ${CH}`}
               className="absolute inset-0 h-full w-full"
@@ -245,14 +239,14 @@ export default function PlacementStory() {
               style={{
                 left: `${(xAt(tip) / CW) * 100}%`,
                 top: `${(yAt(series[tip].maxLPA) / CH) * 100 - 3}%`,
-                transform: "translate(-50%, -100%) translateZ(60px)",
+                transform: "translate(-50%, -100%)",
               }}
             >
               <p className="font-semibold text-primary">{series[tip].year}</p>
               <p className="text-primary-light">Max ₹{series[tip].maxLPA} LPA</p>
               <p className="text-accent">Avg ₹{series[tip].avgLPA} LPA</p>
             </div>
-           </Tilt3D>
+           </div>
           </div>
 
           <div className="mt-3 flex gap-6 text-xs text-text-muted">
@@ -312,7 +306,7 @@ export default function PlacementStory() {
 
         <div className="grid gap-6 lg:grid-cols-3">
           {/* funnel */}
-          <TiltCard className="lg:col-span-2 rounded-2xl border border-gray-200 bg-white p-5 sm:p-6">
+          <div className="lg:col-span-2 rounded-2xl border border-gray-200 bg-white p-5 sm:p-6">
             <div className="space-y-5">
               {funnel.map((f, i) => (
                 <div key={f.label}>
@@ -349,7 +343,7 @@ export default function PlacementStory() {
               <span className="font-semibold text-primary">{row.year}</span>
               {row.ongoing && " (drive ongoing)"}.
             </p>
-          </TiltCard>
+          </div>
 
           {/* package readout */}
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
