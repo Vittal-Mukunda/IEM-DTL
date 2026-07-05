@@ -1,22 +1,20 @@
-"use client";
-
-import { useState } from "react";
 import type { Newsletter } from "@/lib/data";
 
 /**
- * Inline newsletter reader.
+ * Newsletter reader for the About page.
  *
- * Each newsletter PDF is embedded in an <iframe> so visitors read it right on
- * the page — scrolling through it in place — rather than downloading it or
+ * The most recent edition is embedded in an <iframe> so visitors read it right
+ * on the page — scrolling through it in place — rather than downloading it or
  * opening a new tab. The `#toolbar=0&navpanes=0` hints ask the browser's PDF
  * viewer to hide its download/print chrome for a cleaner in-page read.
+ *
+ * Older editions are offered as download links (the `download` attribute saves
+ * the PDF rather than embedding it).
  *
  * With no newsletters configured (see `newsletters` in lib/data.ts) it renders
  * an intentional "coming soon" placeholder instead of an empty frame.
  */
 export default function NewsletterViewer({ items }: { items: Newsletter[] }) {
-  const [active, setActive] = useState(0);
-
   if (items.length === 0) {
     return (
       <div className="rounded-2xl border border-dashed border-primary/20 bg-surface p-10 text-center">
@@ -46,41 +44,23 @@ export default function NewsletterViewer({ items }: { items: Newsletter[] }) {
     );
   }
 
-  const current = items[Math.min(active, items.length - 1)];
+  const [latest, ...past] = items;
 
   return (
     <div>
-      {items.length > 1 && (
-        <div className="mb-4 flex flex-wrap gap-2">
-          {items.map((n, i) => (
-            <button
-              key={n.file}
-              type="button"
-              onClick={() => setActive(i)}
-              className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
-                i === active
-                  ? "border-transparent bg-primary text-white"
-                  : "border-gray-200 text-text-muted hover:text-primary"
-              }`}
-            >
-              {n.edition ?? n.title}
-            </button>
-          ))}
-        </div>
-      )}
-
+      {/* Latest edition — embedded for in-page reading */}
       <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
         <div className="flex items-center justify-between gap-4 border-b border-gray-100 px-5 py-3">
           <div className="min-w-0">
             <p className="truncate font-semibold text-primary">
-              {current.title}
+              {latest.title}
             </p>
-            {current.edition && (
-              <p className="text-xs text-text-muted">{current.edition}</p>
-            )}
+            <p className="text-xs text-text-muted">
+              {latest.edition ? `${latest.edition} · ` : ""}Latest edition
+            </p>
           </div>
           <a
-            href={current.file}
+            href={latest.file}
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 text-xs font-medium text-primary-light hover:underline"
@@ -89,12 +69,42 @@ export default function NewsletterViewer({ items }: { items: Newsletter[] }) {
           </a>
         </div>
         <iframe
-          key={current.file}
-          src={`${current.file}#toolbar=0&navpanes=0&view=FitH`}
-          title={current.title}
+          src={`${latest.file}#toolbar=0&navpanes=0&view=FitH`}
+          title={latest.title}
           className="h-[70vh] max-h-[900px] min-h-[480px] w-full bg-surface"
         />
       </div>
+
+      {/* Past editions — download links */}
+      {past.length > 0 && (
+        <div className="mt-8">
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-muted">
+            Past editions
+          </h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {past.map((n) => (
+              <a
+                key={n.file}
+                href={n.file}
+                download
+                className="group flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/5 text-xs font-bold text-primary">
+                  PDF
+                </div>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold text-primary">
+                    {n.edition ?? n.title}
+                  </p>
+                  <p className="text-xs font-medium text-accent">
+                    Download ↓
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

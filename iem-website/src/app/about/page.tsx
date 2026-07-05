@@ -6,6 +6,8 @@ import {
   professionalSocieties,
   studentAchievements,
   newsletters,
+  alumniSpeaks,
+  notableAlumni,
 } from "@/lib/data";
 import HistoryTimeline from "@/components/about/HistoryTimeline";
 import LabImage from "@/components/about/LabImage";
@@ -95,41 +97,69 @@ export default function AboutPage() {
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-primary mb-2">Alumni Speak</h2>
           <p className="text-text-muted mb-6 max-w-2xl">
-            Our graduates work across operations, supply chain, analytics,
-            consulting, and manufacturing worldwide. Their stories are on the
-            way.
+            Our graduates lead across product, operations, supply chain,
+            analytics and entrepreneurship worldwide. In their words, from the
+            department&apos;s newsletter:
           </p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-dashed border-primary/15 bg-surface p-6"
+          <div className="grid gap-4 lg:grid-cols-3">
+            {alumniSpeaks.map((a) => (
+              <figure
+                key={a.name}
+                className="flex flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
               >
                 <svg
-                  className="h-8 w-8 text-accent/40"
+                  className="h-8 w-8 text-accent/50"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
                 >
                   <path d="M7.17 6A5.17 5.17 0 002 11.17V18h6.83v-6.83H5.6A3.6 3.6 0 019.17 8V6H7.17zm10 0A5.17 5.17 0 0012 11.17V18h6.83v-6.83H15.6A3.6 3.6 0 0119.17 8V6h-2z" />
                 </svg>
-                <div className="mt-4 space-y-2" aria-hidden="true">
-                  <div className="h-2.5 w-full rounded-full bg-primary/10" />
-                  <div className="h-2.5 w-11/12 rounded-full bg-primary/10" />
-                  <div className="h-2.5 w-2/3 rounded-full bg-primary/10" />
-                </div>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className="h-9 w-9 rounded-full bg-primary/10" />
-                  <div className="space-y-1.5">
-                    <div className="h-2 w-24 rounded-full bg-primary/10" />
-                    <div className="h-2 w-16 rounded-full bg-primary/10" />
-                  </div>
-                </div>
-              </div>
+                <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-gray-700">
+                  {a.quote}
+                </blockquote>
+                <figcaption className="mt-5 border-t border-gray-100 pt-4">
+                  <p className="font-semibold text-primary">{a.name}</p>
+                  <p className="text-sm text-accent">{a.role}</p>
+                  <p className="text-xs text-text-muted mt-0.5">
+                    IEM · {a.batch}
+                  </p>
+                </figcaption>
+              </figure>
             ))}
           </div>
+
+          <div className="mt-8 rounded-2xl border border-gray-100 bg-surface p-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-text-muted mb-4">
+              Alumni who give back
+            </h3>
+            <p className="text-sm text-text-muted mb-4 max-w-3xl">
+              Graduates regularly return to mentor students, judge final-year
+              projects, and open industry doors:
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {notableAlumni.map((a) => (
+                <div
+                  key={a.name}
+                  className="rounded-lg border border-gray-100 bg-white p-4"
+                >
+                  <p className="font-semibold text-primary text-sm">
+                    {a.name}
+                    {a.batch && (
+                      <span className="font-normal text-text-muted">
+                        {" "}
+                        · {a.batch}
+                      </span>
+                    )}
+                  </p>
+                  <p className="text-xs text-text-muted mt-1">{a.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <p className="text-sm text-text-muted mt-4">
-            Featured alumni stories coming soon. Are you an IEM alumnus?{" "}
+            Are you an IEM alumnus?{" "}
             <a
               href="https://in.linkedin.com/school/rvcengineering/"
               target="_blank"

@@ -431,6 +431,126 @@ export const events: DeptEvent[] = [
     upcoming: true,
   },
   {
+    day: "28",
+    monthYear: "Apr 2026",
+    title: "Expert Talk — Electronics Manufacturing Industry in India & Globally",
+    text: "Dr. Ing. Sirous Etemadi on India's semiconductor ecosystem under the PLI scheme and global trends in automotive electronics, IoT and smart manufacturing. Organised by the Placement Department (coordinator Dr. Ramaa A).",
+  },
+  {
+    day: "27",
+    monthYear: "Apr 2026",
+    title: "Seminar — Business Culture of Japanese Companies",
+    text: "Kazumitsu Kuroda (Japan Productivity Center) on Kaizen, Monozukuri and Omotenashi — the cultural roots of Japanese quality. 250 participants; coordinated by Dr. Ramaa A.",
+  },
+  {
+    day: "24",
+    monthYear: "Apr 2026",
+    title: "Industrial Visit — Amazon Fulfilment Centre (BLR8), Bengaluru",
+    text: "24 students explored large-scale warehouse operations — Warehouse Management System (WMS), barcode scanning, conveyor systems and automated dimensioning. Coordinator: Prof. Bhaskar M G.",
+  },
+  {
+    day: "22",
+    monthYear: "Apr 2026",
+    title: "“Study in Europe” Awareness Event",
+    text: "RVCE–INDOGERMAN Collaborative Cell hosted delegates from leading European universities on scholarships, visas and admissions, at the Design Thinking Huddle. 100 students; coordinator Dr. Vikram N B.",
+  },
+  {
+    day: "30 Mar – 3 Apr",
+    monthYear: "2026",
+    title: "AMISE 5.0 — Conference Paper Presentations",
+    text: "Students and faculty presented three papers on AI in manufacturing (video summarization, screw-presence detection, assembly-line balancing) at AMISE 5.0, Dayananda Sagar Academy of Technology & Management.",
+  },
+  {
+    day: "24–26",
+    monthYear: "Mar 2026",
+    title: "AUKOM 1 — Metrology Training & Certification",
+    text: "A 3-day AUKOM Level 1 course with Carl Zeiss India on coordinate measuring machines (CMMs), precision measurement and quality assurance. 70 students certified. Coordinator: Prof. Nandini B.",
+  },
+  {
+    day: "Jan–Feb",
+    monthYear: "2026",
+    title: "Turing Award Laureate Prof. Jeffrey D. Ullman visits RVCE",
+    text: "The Turing Award-winning computer scientist spoke on the impact of AI in education — that AI aids coding but strong fundamentals remain essential, and AI is a collaborator, not a replacement.",
+  },
+  {
+    day: "23.02 – 13.03",
+    monthYear: "2026",
+    title: "International Certificate Course — Smart Manufacturing (Batch 3)",
+    text: "Jointly offered by RVCE and Fachhochschule Dortmund (Germany); 26 RVCE and 7 FH Dortmund participants. Batch 3 inaugurated 23 Feb; FH Dortmund delegates also visited the VTU Regional Office.",
+  },
+  {
+    day: "18",
+    monthYear: "Feb 2026",
+    title: "MoU — Fintech Center of Excellence × Cettlx (VealthX)",
+    text: "A Memorandum of Understanding for training and software development in the fintech domain, valid until 2030, to build industry-relevant student skills.",
+  },
+  {
+    day: "20–22",
+    monthYear: "Nov 2025",
+    title: "CSITSS-2025 — 9th IEEE International Conference",
+    text: "Computational Systems & Information Technology for Sustainable Solutions, hosted at RVCE in association with Florida International University and FH Dortmund; technically co-sponsored by IEEE Bangalore Section.",
+  },
+  {
+    day: "24",
+    monthYear: "Nov 2025",
+    title: "MoU — MSGP Infra Tech (Sustainable Waste Management & Circular Economy)",
+    text: "RVCE signed an MoU with MSGP Infra Tech Pvt. Ltd. for training and capacity building in sustainable waste management and circular economy, spanning the IEM, CSE, ECE and ET departments.",
+  },
+  {
+    day: "13",
+    monthYear: "Dec 2025",
+    title: "BeeHive 2.0 — Case-let Competition",
+    text: "An IDEA case-study contest facilitated by Dr. M. A. Narasimha Murthy (Senior Director, Infineon Technologies), sharpening students' analytical reasoning and industry mindset.",
+  },
+  {
+    day: "3–5",
+    monthYear: "Nov 2025",
+    title: "ICEAMST-2025 — 3rd International Conference",
+    text: "Emerging Applications of Material Science and Technology, conducted at RVCE, with department faculty as local-arrangement, web and conference chairs.",
+  },
+  {
+    day: "3–7",
+    monthYear: "Nov 2025",
+    title: "23rd Asian Network for Quality (ANQ) Congress",
+    text: "Department faculty served as organisers and contributors at the ANQ Congress, MS Ramaiah University of Applied Sciences — strengthening international collaboration in quality management.",
+  },
+  {
+    day: "25",
+    monthYear: "Aug 2025",
+    title: "Graduation Ceremony 2025 — Chief Guest ISRO Chairman",
+    text: "RVCE's convocation at Poornima Palace, with Dr. V. Narayanan, Chairman of ISRO, as chief guest. The department graduated 49 students; Diya K Mutha won the Gold Medal for first rank.",
+  },
+  {
+    day: "22",
+    monthYear: "Sep 2025",
+    title: "MoU — HOF University of Applied Sciences, Germany",
+    text: "RVCE's sixth German partner institution. A visiting HOF delegation toured the MG and WIRIN Labs, complementing existing ties with THWS, THR and HTW Dresden.",
+  },
+  {
+    day: "8",
+    monthYear: "Jul 2025",
+    title: "RVCE–Berlin Talent Event",
+    text: "Hosted with E-Cell and the Indo-German Collaborative Cell; chief guest Senator Franziska Giffey (Berlin) with a delegation of German CEOs. Keynote on Berlin's startup ecosystem and a “Bengaluru to Berlin” panel.",
+  },
+  {
+    day: "16",
+    monthYear: "Sep 2025",
+    title: "MANTHAN 2025 — “Green Pay” wins at FKCCI",
+    text: "An IEM team (Nihal, Chinmaya, Disha, Devdeekshith) placed 4th of 537 teams with a ₹75,000 cash award at the FKCCI business-plan competition. Mentor: Dr. Ramaa A.",
+  },
+  {
+    day: "23–24",
+    monthYear: "Jan 2025",
+    title: "Symposium — Digital Transformation through Quality 4.0",
+    text: "Organised by the ISQ Bangalore Chapter and RVCE, with an industry visit to Carl Zeiss and Sansera Engineering as part of the Quality 4.0 track.",
+  },
+  {
+    day: "Mar",
+    monthYear: "2025",
+    title: "MoU — Tata Technologies CIIIT (₹50 crore)",
+    text: "RVCE and Tata Technologies established the Center for Invention, Innovation, Incubation & Training on campus — a first-of-its-kind southern-India initiative in smart manufacturing and Industry 4.0.",
+  },
+  {
     day: "Sep",
     monthYear: "2025",
     title: "Design Thinking & AI — Faculty Development Programme",
@@ -1103,13 +1223,295 @@ export interface Newsletter {
   edition?: string;
 }
 
+// "THE INSIGHT" — the IDEA student-association newsletter. Ordered most
+// recent first: the top entry renders inline on the About page; the rest are
+// offered as downloads.
 export const newsletters: Newsletter[] = [
-  // Example (uncomment and drop the PDF into public/newsletters/):
-  // {
-  //   title: "IEM Newsletter — Spring 2026",
-  //   file: "/newsletters/spring-2026.pdf",
-  //   edition: "Spring 2026",
-  // },
+  {
+    title: "The Insight — March–April 2026",
+    file: "/newsletters/idea-newsletter-mar-apr-2026.pdf",
+    edition: "March–April 2026",
+  },
+  {
+    title: "The Insight — January–February 2026",
+    file: "/newsletters/idea-newsletter-jan-feb-2026.pdf",
+    edition: "January–February 2026",
+  },
+  {
+    title: "The Insight — November–December 2025",
+    file: "/newsletters/idea-newsletter-nov-dec-2025.pdf",
+    edition: "November–December 2025",
+  },
+  {
+    title: "The Insight — September–October 2025",
+    file: "/newsletters/idea-newsletter-sep-oct-2025.pdf",
+    edition: "September–October 2025",
+  },
+  {
+    title: "The Insight — July–August 2025",
+    file: "/newsletters/idea-newsletter-jul-aug-2025.pdf",
+    edition: "July–August 2025",
+  },
+  {
+    title: "The Insight — May–June 2025",
+    file: "/newsletters/idea-newsletter-may-jun-2025.pdf",
+    edition: "May–June 2025",
+  },
+  {
+    title: "The Insight — March–April 2025",
+    file: "/newsletters/idea-newsletter-mar-apr-2025.pdf",
+    edition: "March–April 2025",
+  },
+  {
+    title: "The Insight — January–February 2025",
+    file: "/newsletters/idea-newsletter-jan-feb-2025.pdf",
+    edition: "January–February 2025",
+  },
+];
+
+export interface AlumniSpeak {
+  name: string;
+  /** Batch / years at RVCE, e.g. "2007–2011" */
+  batch: string;
+  /** Current role & organisation */
+  role: string;
+  /** Short pull-quote or summary drawn from their newsletter feature */
+  quote: string;
+  /** Newsletter edition the feature appeared in */
+  edition: string;
+}
+
+// Alumni featured in "Alumni Speaks" across newsletter editions.
+export const alumniSpeaks: AlumniSpeak[] = [
+  {
+    name: "Sainath Jain",
+    batch: "2007–2011",
+    role: "Founder, HIVADO",
+    quote:
+      "IEM is the only course I know that hands you both halves of the world — the analytical mind of an engineer and the strategic eye of a manager — and trusts you to put them together.",
+    edition: "March–April 2026",
+  },
+  {
+    name: "Veena Anantchandran Madhur",
+    batch: "2004–2008",
+    role: "Director, Product Management, Palo Alto Networks",
+    quote:
+      "Industrial Engineering is fundamentally about systems thinking — understanding how technology, people and processes interact. That mindset shaped every stage of my career, from Intel and Nintendo to Microsoft.",
+    edition: "January–February 2026",
+  },
+  {
+    name: "Sunder Madaakshira",
+    batch: "1990–1994",
+    role: "Chief Marketing Officer, Sinch India",
+    quote:
+      "What I learnt at RVCE, and specifically in the Industrial & Production Engineering department, has served me very well over the years. When I see RVCE today, I say 'Those ARE the days' instead of 'Those WERE the days.'",
+    edition: "November–December 2025",
+  },
+];
+
+export interface NotableAlumnus {
+  name: string;
+  role: string;
+  batch?: string;
+}
+
+// Alumni who returned to mentor, judge projects, or partner with the
+// department (from newsletter features).
+export const notableAlumni: NotableAlumnus[] = [
+  { name: "Mahidar Jayaram", role: "Director, Wyzmindz", batch: "1998" },
+  { name: "Nishith Raj", role: "Director, Product Management, Zepto" },
+  {
+    name: "Manoj K Y",
+    role: "Planning Analyst (formerly Aditya Birla Fashion & Retail)",
+  },
+  { name: "Revathi J", role: "Business Transformation Manager, Accenture" },
+  { name: "Harshita U Kumar", role: "Product Manager, Target" },
+];
+
+export interface Patent {
+  title: string;
+  applicationNo?: string;
+  status: string;
+  date?: string;
+  inventors: string;
+}
+
+// Patents filed / granted with department faculty (from newsletters).
+export const patents: Patent[] = [
+  {
+    title: "GENESIS: Automated Urban Layout Planning System and Method Thereof",
+    applicationNo: "202641030239 A",
+    status: "Published",
+    date: "Published 27 March 2026",
+    inventors: "Rajeswara Rao K V S (IEM), Somesh Nandi (AIML), et al.",
+  },
+  {
+    title:
+      "Real-Time Robotic Ecosystem for Multi-Class Segregation and Monitoring of Electronic Waste",
+    applicationNo: "202541099530",
+    status: "Filed",
+    date: "Filed 15 October 2025",
+    inventors:
+      "Ramakanth Kumar P, Hemavathy R, Dr. K N Subramanya, H R Aneesh Tejas, Hitesh S P",
+  },
+  {
+    title:
+      "A Multi-Layered Mask with Hydrophobic Nanofibers as a Functional Layer with a Smart Valve for Protection against Aerosol Transmission of COVID-19",
+    applicationNo: "202041019902",
+    status: "Granted",
+    date: "04 February 2025",
+    inventors:
+      "Dr. Shireesha G, Prof. Sudha R Karbari, Dr. Uttara Kumari M, Dr. Subramanya K N",
+  },
+  {
+    title: "Laser Marking Machine",
+    applicationNo: "444771-001",
+    status: "Applied",
+    date: "Filed 20 January 2025",
+    inventors: "Dr. Bharatish A, Muhammad Anas, Dr. Vijaya Kumar M N, Vineeth Rao",
+  },
+  {
+    title: "Flat Plate Solar Collector with Wavy Shaped Riser Tubes",
+    status: "Granted (Design)",
+    date: "Filed 08 August 2023",
+    inventors:
+      "Lakshmikant Shivanayak, Gowreesh Subramanya S, Sreenivasalu Reddy N, Vijaya Kumar M N, Channaveerayya, Kailash",
+  },
+];
+
+export interface FundedProject {
+  title: string;
+  faculty: string;
+  agency: string;
+  amount: string;
+}
+
+// Sponsored / consultancy projects (from newsletters).
+export const fundedProjects: FundedProject[] = [
+  {
+    title:
+      "AI-based Automated Threat Detection and Incident Response System",
+    faculty: "Dr. Ramakanth Kumar, Dr. Minal, Dr. Pavithra, Dr. Ramaa A, Dr. Shilpa",
+    agency: "Secureinteli Technologies Pvt Ltd",
+    amount: "₹20,00,000",
+  },
+  {
+    title:
+      "Impact Damage Assessment of 3D-Woven Composites Using Fiber Bragg Grating (FBG) Sensors for Aerospace Applications",
+    faculty: "Dr. Ramesh S Sharma, Dr. Vijayakumar M N, Dr. Somesh Nandi",
+    agency: "RSST Seed Grant under FIRF (Prototype Development, TRL 4)",
+    amount: "₹4,00,000",
+  },
+];
+
+export interface Publication {
+  title: string;
+  authors: string;
+  venue: string;
+  scope?: "International" | "National";
+}
+
+// A selection of recent student–faculty publications reported in the IDEA
+// newsletters (2025–2026). Not exhaustive — see the newsletters for the full
+// record.
+export const publications: Publication[] = [
+  {
+    title:
+      "Domain-Adaptive Transfer Learning for Privacy-Preserving Scam Call Detection",
+    authors: "Ibrahim Bagwan, Adheesh Mudgal, B. Nandini",
+    venue: "IEEE Access, Vol. 14, pp. 39391–39399 (2026)",
+    scope: "International",
+  },
+  {
+    title:
+      "Imparting System-Development Skills and Project Based Learning to First-Year Engineering Students",
+    authors:
+      "C. P. Ravikumar, S. Kendaganna Swamy, K. N. Subramanya, P. M. Rajashree, P. Shruthi",
+    venue: "IETE Journal of Education (Taylor & Francis), 2026",
+    scope: "International",
+  },
+  {
+    title:
+      "A Digital Twin Framework for Dual-Path Estimation of Battery State of Charge and State of Health Using Hybrid Physics-Informed Machine Learning",
+    authors:
+      "Andhe Dharani, Siva Subbarao Patange, M. Krishna, Raja Vidya, R. Bindu, K. N. Subramanya",
+    venue: "IEEE Access (Scopus)",
+    scope: "International",
+  },
+  {
+    title:
+      "Forecast Accuracy Improvement and Purchase Order Automation Using a Multi-Model Approach in Semiconductor Supply Chain: A Case Study",
+    authors:
+      "J. Gohitha Maheshwari, N. Tanushri, Ramana Gowda, Vatsal Singh Bhutiyal, K. V. S. Rajeswara Rao",
+    venue: "IEEE Access, Vol. 14 (Scopus)",
+    scope: "International",
+  },
+  {
+    title:
+      "A Comprehensive Review of Temperature Monitoring and Cold-Chain Integrity Across IoT in Vaccine Storage",
+    authors: "Yashwanth L, Sneha S. Shrigiri, Sinchana Chetan, Ritika S. Ghattad",
+    venue: "IJESE, Vol. 14, Issue 3",
+    scope: "International",
+  },
+  {
+    title:
+      "Psychological Profiling of Digital Dependency Using Machine Learning and Behavioral Clustering Techniques",
+    authors: "C. Bindu Ashwini, C. S. Harsha, B. M. Sreekar, Harshith K. Murthy",
+    venue: "IEEE Access, Vol. 14 (Scopus)",
+    scope: "International",
+  },
+  {
+    title:
+      "A Comparative Study and Review of Optimization Methods for Strategic Allocation of EV Charging Stations",
+    authors:
+      "Dr. C. K. Nagendra Gupta, Rishabh Patawri, Samadrito Mukherjee, Satyam Kumar",
+    venue: "Industrial Engineering Journal, Vol. XIX, Issue 01",
+    scope: "National",
+  },
+  {
+    title:
+      "Plasmonics-Driven Graphene Electronics for Beyond-5G and 6G Communication Systems",
+    authors: "Dr. Vikram N. Bahadurdesai",
+    venue: "Journal of Material Science",
+    scope: "International",
+  },
+  {
+    title:
+      "Competitiveness Enablers in Handicraft Toy Manufacturing Industries Based on ISM-Fuzzy MICMAC Analysis",
+    authors: "V. Meghasree, Dr. C. K. Nagendra Guptha",
+    venue: "IEEE Access, Vol. 13 (June 2025)",
+    scope: "International",
+  },
+  {
+    title:
+      "Technology-Driven Methodology for Wind Resource Assessment and Energy Yield Optimization in Wind Farm Development",
+    authors: "Inchara N Aradhya, Suraj R S, R Chandra Kumar, Prof. Nandini B",
+    venue: "14th ICRCET (IFERP), Scopus-indexed",
+    scope: "International",
+  },
+  {
+    title:
+      "Stochastic Profit Optimization in Agile Supply Chains Using Monte Carlo Simulations and Markov Decision Processes",
+    authors:
+      "Siddhanth N Kagganty, Tulasi Ram K Naik, Inchara N Aradhya, Nishaanth S, Nivya Muchikel, Y Sailaja",
+    venue: "IEEE Conference",
+    scope: "International",
+  },
+  {
+    title:
+      "Quality 4.0 in Higher Education Institutions: A Framework for Digital Transformation (Best Paper Award)",
+    authors: "Dr. Ramaa A, Dr. Subramanya K N",
+    venue: "Symposium on Digital Transformation through Quality 4.0 (ISQ × RVCE)",
+    scope: "National",
+  },
+  {
+    title:
+      "AI-Driven Quality Management: Transforming Operational Excellence in the Digital Era",
+    authors:
+      "N. S. Narahari, K. N. Subramanya, C. K. Nagendraguptha, M. N. Vijayakumar",
+    venue: "23rd Asian Network for Quality (ANQ) Congress 2025",
+    scope: "International",
+  },
 ];
 
 export const hodMessage = {
@@ -1169,5 +1571,101 @@ export const studentAchievements: StudentAchievement[] = [
     title: "Institute-wide student teams open to IEM",
     detail:
       "Team Antariksh (student satellites), Ashwa Racing (Formula SAE), E-Cell, and IEEE/ACM chapters.",
+  },
+  {
+    tag: "First Place",
+    title: "Ashwa Racing — Formula Bharat 2026",
+    detail:
+      "Srividya Sriraman, Pranav Ramakrishnan and Syed Nadeem secured 2nd place in the Business Plan Presentation and P6 overall at Kari Motor Speedway, Coimbatore.",
+  },
+  {
+    tag: "Hackathon",
+    title: "1st Place — “The Lazarus Missions: Nuclear Winter”",
+    detail:
+      "Adhar Chaudhari (2nd sem) won the UG Batch 2029 category at the hackathon by IEEE CIS, NIT Karnataka.",
+  },
+  {
+    tag: "Best Paper",
+    title: "Electrostatic Foam Suppression Module",
+    detail:
+      "Shreni C Shetty and R Shradha (with peers) published in IJRASET and won Best Paper — First Prize at Jain (Deemed-to-be University), School of Sciences.",
+  },
+  {
+    tag: "Case Comp",
+    title: "1st Place — Case Alchemy, BITS Goa",
+    detail:
+      "Team Equilibrium (Ningraju M, Sriram Hegde) topped 444 teams with a five-year strategic roadmap for an EV-battery-components manufacturer.",
+  },
+  {
+    tag: "Business Plan",
+    title: "MANTHAN 2025 — “Green Pay” (FKCCI)",
+    detail:
+      "An IEM team placed 4th out of 537 teams with a ₹75,000 cash award at the FKCCI business-plan competition.",
+  },
+  {
+    tag: "Dance",
+    title: "Team Enigma — intercollegiate champions",
+    detail:
+      "Saptarshi Mandal helped Team Enigma secure 1st place in Western dance across St. Xavier's, BMSCE, IIT Bangalore, Mount Carmel, NMIT, JSS, SJB and more.",
+  },
+  {
+    tag: "Sports",
+    title: "Women's Football — VTU champions",
+    detail:
+      "The RVCE Women's Football Team (the college's first-ever) won the VTU Tournament 2026 and the CMRIT tournament, with IEM students Poorvi Girish and Disha Agarwal on the team.",
+  },
+  {
+    tag: "Sports",
+    title: "Cricket, Kho-Kho, Hockey & Basketball at the state and national level",
+    detail:
+      "Pavan R. Sheshagiri won the VTU Inter-Collegiate State-Level Cricket Tournament; the Kho-Kho team won the VTU Interzone and South Zone titles; Sai Samyam V took bronze at the U-23 National Basketball Championship; and the Men's Basketball team were VTU South Division champions.",
+  },
+  {
+    tag: "Sports",
+    title: "Archery — VTU State-Level runner-up",
+    detail:
+      "Hemavathi A secured 2nd place in the Indian Women Category (30 m) at the VTU State-Level Archery Championship.",
+  },
+  {
+    tag: "Debate",
+    title: "Vimarsha BMSCE Debating Tournament — Runner-Up",
+    detail:
+      "Maanav Talwar reached the runner-up position, showcasing strong public speaking and critical thinking.",
+  },
+  {
+    tag: "Design Thinking",
+    title: "IASF Design Thinking — Runner-Up (“Caffeine Trap”)",
+    detail:
+      "Shiksha Pandey, Anvitha R, Satvik Paliwal and Shaurya Kesarwani were runners-up at the IUCEE Annual Student Forum, Hyderabad.",
+  },
+  {
+    tag: "Chapter Award",
+    title: "IUCEE — Best Student Chapter Award",
+    detail:
+      "RVCE received the Best Student Chapter Award at the IUCEE Annual Student Forum (IASF) 2025.",
+  },
+  {
+    tag: "Quiz",
+    title: "IIMM Materials Management Day — 1st & 2nd places",
+    detail:
+      "IEM teams took first (Abhishek S, Chinmaya Nadig) and second (Eshwar R, T Ankshith Shetty) place in the IIMM quiz; Gohitha Maheshwari J won the Technical Essay Competition.",
+  },
+  {
+    tag: "Innovation",
+    title: "Technex'25, IIT Varanasi — IoT Competition",
+    detail:
+      "Nikhitha Sunil and team advanced with “Smart Home Automation Using RFID and Solar PV,” after winning the zonal round at RVCE.",
+  },
+  {
+    tag: "Gold Medal",
+    title: "Diya K Mutha — Department topper, Class of 2025",
+    detail:
+      "First rank (CGPA 9.36) with the 'Sri A Chamaraju' Gold Medal and the 'Sri M Prahalada Rao Award' for best performance in the Industrial Engineering stream.",
+  },
+  {
+    tag: "Global",
+    title: "The Dortmund Project — Circular Economy research",
+    detail:
+      "Dhanush A P worked with FH Dortmund students on a Circular Economy Readiness Index (CERI) spanning India, Germany and Colombia, under an ASA-Programme-funded project.",
   },
 ];

@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { researchThemes, researchMetrics, faculty } from "@/lib/data";
+import {
+  researchThemes,
+  researchMetrics,
+  faculty,
+  patents,
+  publications,
+  fundedProjects,
+} from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Research",
@@ -235,6 +242,92 @@ export default function ResearchPage() {
                 className="bg-white rounded-lg p-4 border border-gray-100 shadow-sm text-sm font-medium text-gray-700"
               >
                 {item}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Sponsored Projects */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-primary mb-6">
+            Sponsored Projects &amp; Consultancy
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {fundedProjects.map((p) => (
+              <div
+                key={p.title}
+                className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm"
+              >
+                <p className="font-semibold text-primary leading-snug">
+                  {p.title}
+                </p>
+                <p className="text-sm text-text-muted mt-2">{p.faculty}</p>
+                <div className="mt-3 flex items-center justify-between text-sm">
+                  <span className="text-gray-600">{p.agency}</span>
+                  <span className="font-bold text-accent">{p.amount}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Patents */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-primary mb-6">Patents</h2>
+          <div className="space-y-3">
+            {patents.map((p) => (
+              <div
+                key={p.title}
+                className="flex flex-col gap-2 rounded-lg border border-gray-100 bg-surface p-5 sm:flex-row sm:items-start sm:justify-between"
+              >
+                <div className="min-w-0">
+                  <p className="font-medium text-gray-800">{p.title}</p>
+                  <p className="text-xs text-text-muted mt-1">{p.inventors}</p>
+                  {p.applicationNo && (
+                    <p className="text-xs text-text-muted mt-0.5">
+                      Application No: {p.applicationNo}
+                      {p.date ? ` · ${p.date}` : ""}
+                    </p>
+                  )}
+                </div>
+                <span className="shrink-0 self-start rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  {p.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Recent Publications */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold text-primary mb-2">
+            Recent Student–Faculty Publications
+          </h2>
+          <p className="text-text-muted mb-6 max-w-2xl">
+            A selection from 2025–2026, reported in the department&apos;s{" "}
+            <a href="/about" className="text-primary hover:underline">
+              IDEA newsletters
+            </a>
+            . Dozens more appear across the editions.
+          </p>
+          <div className="space-y-3">
+            {publications.map((pub) => (
+              <div
+                key={pub.title}
+                className="rounded-lg border border-gray-100 bg-white p-5 shadow-sm"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <p className="font-medium text-gray-800 leading-snug">
+                    {pub.title}
+                  </p>
+                  {pub.scope && (
+                    <span className="shrink-0 rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-semibold text-accent">
+                      {pub.scope}
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-text-muted mt-2">{pub.authors}</p>
+                <p className="text-xs text-primary-light mt-1">{pub.venue}</p>
               </div>
             ))}
           </div>
