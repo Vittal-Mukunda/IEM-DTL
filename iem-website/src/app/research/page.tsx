@@ -183,37 +183,46 @@ export default function ResearchPage() {
           <div className="space-y-3">
             {researchFaculty
               .sort((a, b) => (b.publications ?? 0) - (a.publications ?? 0))
-              .map((f) => (
-                <div
-                  key={f.email}
-                  className="flex items-center justify-between bg-surface rounded-lg px-5 py-3 border border-gray-100"
-                >
-                  <div>
-                    <p className="font-medium text-primary text-sm">
-                      {f.name}
-                    </p>
-                    <p className="text-xs text-text-muted">
-                      {f.specialization}
-                    </p>
+              .map((f) => {
+                // Prefer Google Scholar; fall back to ResearchGate so faculty
+                // without a Scholar profile (e.g. Dr. Ramaa A) still link out.
+                const profileUrl = f.scholarUrl ?? f.researchgate;
+                const profileLabel = f.scholarUrl
+                  ? "Google Scholar profile"
+                  : "ResearchGate profile";
+                return (
+                  <div
+                    key={f.email}
+                    className="flex items-center justify-between bg-surface rounded-lg px-5 py-3 border border-gray-100"
+                  >
+                    <div>
+                      <p className="font-medium text-primary text-sm">
+                        {f.name}
+                      </p>
+                      <p className="text-xs text-text-muted">
+                        {f.specialization}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-bold text-primary">
+                        {f.publications}
+                      </span>
+                      <span className="text-xs text-text-muted">pubs</span>
+                      {profileUrl && (
+                        <a
+                          href={profileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${f.name} — ${profileLabel}`}
+                          className="text-xs text-primary-light hover:underline"
+                        >
+                          Profile →
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold text-primary">
-                      {f.publications}
-                    </span>
-                    <span className="text-xs text-text-muted">pubs</span>
-                    {f.scholarUrl && (
-                      <a
-                        href={f.scholarUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-primary-light hover:underline"
-                      >
-                        Profile →
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
           </div>
           <p className="text-xs text-text-muted mt-3">
             IRINS shows 8 of 14 faculty with linked profiles. Additional

@@ -213,7 +213,14 @@ a.card-sketch:hover,
   text-underline-offset: 5px;
   text-decoration-thickness: 2px;
 }
-/* Red glow on hover — nav links (header) & footer links. No underline. */
+/* Red glow on hover — nav links (header) & footer links. No underline:
+   force text-decoration off in every state so no browser default (or the
+   accent-coloured underline links otherwise inherit) can show through. */
+.glow-hover,
+.glow-hover:hover,
+.glow-hover:focus {
+  text-decoration: none;
+}
 .glow-hover {
   transition: color 0.15s ease, text-shadow 0.15s ease;
 }

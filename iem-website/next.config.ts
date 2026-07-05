@@ -7,9 +7,14 @@ import type { NextConfig } from "next";
  * fall back to 'unsafe-inline' — required by Next's hydration bootstrap
  * and Tailwind's injected styles. Everything else is locked down.
  *
- *   frame-src www.google.com   → Contact-page Maps embed
- *   img-src  data: blob: https → next/image + Maps tiles
- *   font-src 'self'            → next/font self-hosts the Google fonts
+ *   frame-src 'self' www.google.com → same-origin newsletter PDF viewer
+ *                                     (About page) + Contact-page Maps embed
+ *   img-src  data: blob: https      → next/image + Maps tiles
+ *   font-src 'self'                 → next/font self-hosts the Google fonts
+ *
+ * Framing is kept locked to our own origin (`frame-ancestors 'self'` +
+ * `X-Frame-Options: SAMEORIGIN`): external sites still cannot embed the site,
+ * but the About page can embed its own newsletter PDFs in an <iframe>.
  */
 // React's dev runtime needs eval() for debugging; production never does.
 const scriptSrc =
@@ -23,12 +28,15 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  "frame-src https://www.google.com",
+  "frame-src 'self' https://www.google.com",
   "connect-src 'self'",
+  // Same-origin pdf.js worker (public/pdfjs) powers the newsletter book reader;
+  // blob: covers pdf.js's fallback worker path.
+  "worker-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
-  "frame-ancestors 'none'",
+  "frame-ancestors 'self'",
   "upgrade-insecure-requests",
 ].join("; ");
 
@@ -39,7 +47,7 @@ const securityHeaders = [
     value: "max-age=63072000; includeSubDomains; preload",
   },
   { key: "X-Content-Type-Options", value: "nosniff" },
-  { key: "X-Frame-Options", value: "DENY" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-DNS-Prefetch-Control", value: "on" },
   {

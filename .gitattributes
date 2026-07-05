@@ -1,0 +1,17 @@
+# Treat binary assets as binary so autocrlf never rewrites their bytes.
+# (Prevents PDF/image corruption on checkout — esp. on Linux CI like Vercel.)
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.avif  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.docx  binary
+*.xlsx  binary
+*.pptx  binary

@@ -12,6 +12,7 @@ import {
 import HistoryTimeline from "@/components/about/HistoryTimeline";
 import LabImage from "@/components/about/LabImage";
 import NewsletterViewer from "@/components/about/NewsletterViewer";
+import StudentAchievements from "@/components/about/StudentAchievements";
 
 export const metadata: Metadata = {
   title: "About the Department",
@@ -204,29 +205,16 @@ export default function AboutPage() {
           </p>
         </section>
 
-        {/* 6 — Student Achievements */}
+        {/* 6 — Student Achievements (grouped into categories) */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-primary mb-6">
+          <h2 className="text-2xl font-bold text-primary mb-2">
             Student Achievements
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {studentAchievements.map((a) => (
-              <div
-                key={a.title}
-                className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm"
-              >
-                <span className="inline-block text-xs font-semibold text-accent bg-accent/10 px-2 py-0.5 rounded-full uppercase tracking-wide mb-3">
-                  {a.tag}
-                </span>
-                <h3 className="font-semibold text-primary text-sm leading-snug">
-                  {a.title}
-                </h3>
-                <p className="text-sm text-text-muted mt-2 leading-relaxed">
-                  {a.detail}
-                </p>
-              </div>
-            ))}
-          </div>
+          <p className="text-text-muted mb-8 max-w-2xl">
+            Grouped by area — academics, research, technical work, competitions,
+            sport, culture and community.
+          </p>
+          <StudentAchievements achievements={studentAchievements} />
         </section>
 
         {/* 7 — Accreditation & Affiliations */}

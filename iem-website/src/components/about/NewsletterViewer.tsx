@@ -1,12 +1,13 @@
 import type { Newsletter } from "@/lib/data";
+import NewsletterReader from "@/components/about/NewsletterReader";
 
 /**
  * Newsletter reader for the About page.
  *
- * The most recent edition is embedded in an <iframe> so visitors read it right
- * on the page — scrolling through it in place — rather than downloading it or
- * opening a new tab. The `#toolbar=0&navpanes=0` hints ask the browser's PDF
- * viewer to hide its download/print chrome for a cleaner in-page read.
+ * The most recent edition opens as a page-turning book (see NewsletterReader →
+ * NewsletterBook): the whole edition is rendered to pages you flip through in
+ * place, like a printed magazine. It degrades gracefully — to a scrollable PDF
+ * frame, then to open/download links — if a browser can't render it.
  *
  * Older editions are offered as download links (the `download` attribute saves
  * the PDF rather than embedding it).
@@ -68,11 +69,7 @@ export default function NewsletterViewer({ items }: { items: Newsletter[] }) {
             Open full screen &rarr;
           </a>
         </div>
-        <iframe
-          src={`${latest.file}#toolbar=0&navpanes=0&view=FitH`}
-          title={latest.title}
-          className="h-[70vh] max-h-[900px] min-h-[480px] w-full bg-surface"
-        />
+        <NewsletterReader item={latest} />
       </div>
 
       {/* Past editions — download links */}
