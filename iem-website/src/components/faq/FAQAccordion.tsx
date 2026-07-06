@@ -45,13 +45,17 @@ export default function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
               </svg>
             </button>
           </h3>
-          {openIndex === i && (
-            <div id={`faq-answer-${i}`} className="px-5 pb-4">
-              <p className="text-sm text-text-muted leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
-          )}
+          {/* Kept in the DOM (hidden when closed) so aria-controls always
+              resolves and find-in-page can search the answers. */}
+          <div
+            id={`faq-answer-${i}`}
+            hidden={openIndex !== i}
+            className="px-5 pb-4"
+          >
+            <p className="text-sm text-text-muted leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
         </div>
       ))}
     </div>

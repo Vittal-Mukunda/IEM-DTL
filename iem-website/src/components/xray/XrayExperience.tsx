@@ -189,14 +189,17 @@ export default function XrayExperience() {
           className="career-track snap-start"
         >
           <div className="career-panel">
-            <Image
-              src={w.photo}
-              alt={w.realCaption}
-              fill
-              loading={i === 0 ? undefined : "lazy"}
-              sizes="100vw"
-              className="object-cover opacity-[0.35]"
-            />
+            {/* next/image needs a non-sticky positioned parent for `fill` */}
+            <div className="absolute inset-0">
+              <Image
+                src={w.photo}
+                alt={w.realCaption}
+                fill
+                loading={i === 0 ? undefined : "lazy"}
+                sizes="100vw"
+                className="object-cover opacity-[0.35]"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-b from-[#070b14]/85 via-[#070b14]/70 to-[#070b14]/92" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#070b14]/85 via-[#070b14]/30 to-transparent" />
             <div className="pointer-events-none absolute inset-0 fx-vignette" />

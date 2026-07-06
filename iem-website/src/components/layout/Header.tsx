@@ -124,7 +124,7 @@ export default function Header() {
       {mobileOpen && (
         <nav
           id="mobile-nav"
-          className="lg:hidden border-t-[3px] border-dashed border-primary bg-background px-4 py-3"
+          className="lg:hidden border-t-[3px] border-dashed border-primary bg-background px-4 py-3 max-h-[calc(100svh-5.25rem)] overflow-y-auto"
         >
           {navLinks.map((link) => {
             const active = pathname === link.href;

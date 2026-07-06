@@ -43,6 +43,12 @@ export default function PlacementStory() {
   const tip = hover ?? active;
   const row = series[active];
 
+  // Tooltip anchor as a % of the chart box. Near the top of the chart there
+  // is no headroom, so the tooltip flips below the point instead of poking
+  // out of the card.
+  const tipTopPct = (yAt(series[tip].maxLPA) / CH) * 100;
+  const tipBelow = tipTopPct < 30;
+
   const areaPath = useMemo(
     () =>
       `${linePath("maxLPA")} L ${xAt(series.length - 1)} ${baseline} L ${xAt(0)} ${baseline} Z`,
@@ -233,13 +239,15 @@ export default function PlacementStory() {
               ))}
             </svg>
 
-            {/* floating tooltip — lifted toward the viewer in 3D */}
+            {/* floating tooltip — clamped so it never leaves the chart box */}
             <div
-              className="pointer-events-none absolute z-10 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs shadow-lg"
+              className="pointer-events-none absolute z-10 whitespace-nowrap rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs shadow-lg"
               style={{
-                left: `${(xAt(tip) / CW) * 100}%`,
-                top: `${(yAt(series[tip].maxLPA) / CH) * 100 - 3}%`,
-                transform: "translate(-50%, -100%)",
+                left: `clamp(64px, ${(xAt(tip) / CW) * 100}%, calc(100% - 64px))`,
+                top: `${tipBelow ? tipTopPct + 4 : tipTopPct - 3}%`,
+                transform: tipBelow
+                  ? "translate(-50%, 0)"
+                  : "translate(-50%, -100%)",
               }}
             >
               <p className="font-semibold text-primary">{series[tip].year}</p>
