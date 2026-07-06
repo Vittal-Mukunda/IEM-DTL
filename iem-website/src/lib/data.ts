@@ -1,7 +1,7 @@
 /** Canonical production URL for this site. Single source of truth for
  *  metadataBase, sitemap, robots, and JSON-LD. Update here when the domain
  *  changes (e.g. a custom domain replaces the Vercel preview URL). */
-export const siteUrl = "https://iem-rvce.vercel.app";
+export const siteUrl = "https://iemrvce.vercel.app";
 
 export const siteConfig = {
   name: "Department of Industrial Engineering & Management",
