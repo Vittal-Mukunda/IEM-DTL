@@ -13,7 +13,7 @@ export default function PlacementsPage() {
     <>
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-3">Placements &amp; Careers</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">Placements &amp; Careers</h1>
           <p className="text-lg text-gray-200 max-w-2xl">
             70%+ placement rate, ₹22.5 LPA highest package, and 80+ recruiters
             across manufacturing, semiconductors, IT, consulting, and finance.
@@ -69,10 +69,10 @@ export default function PlacementsPage() {
                 key={path.area}
                 className="bg-surface rounded-xl p-5 border border-gray-100"
               >
-                <h3 className="font-semibold text-primary text-sm mb-2">
+                <h3 className="font-semibold text-primary text-base mb-2">
                   {path.area}
                 </h3>
-                <p className="text-xs text-text-muted leading-relaxed">
+                <p className="text-sm text-text-muted leading-relaxed">
                   {path.roles}
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function PlacementsPage() {
             Higher Education Pathways
           </h2>
           <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
-            <div className="grid sm:grid-cols-2 gap-4 text-sm text-gray-700">
+            <div className="grid sm:grid-cols-2 gap-4 text-base text-gray-700">
               <div>
                 <p className="font-semibold text-primary mb-2">MBA</p>
                 <p>

@@ -13,7 +13,7 @@ export default function EventsPage() {
     <>
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-3">Events &amp; Activities</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">Events &amp; Activities</h1>
           <p className="text-lg text-gray-200 max-w-2xl">
             Conferences, workshops, industry visits, and the IDEA student
             association.
@@ -113,7 +113,7 @@ export default function EventsPage() {
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-text-muted mt-1">{ev.text}</p>
+                    <p className="text-base text-text-muted mt-1">{ev.text}</p>
                   </div>
                 </div>
               </div>

@@ -51,18 +51,20 @@ export default function Header() {
               height={820}
               priority
               className={`w-auto transition-[height] duration-300 ${
-                scrolled ? "h-9" : "h-11"
+                scrolled ? "h-10" : "h-12"
               }`}
             />
+            {/* Department lockup — shown wherever there's room: from sm up,
+                except lg→xl where the full nav row needs the width. */}
             <span
-              className="hidden xl:block w-px self-stretch bg-primary/15"
+              className="hidden sm:block lg:hidden xl:block w-px self-stretch bg-primary/15"
               aria-hidden="true"
             />
-            <div className="hidden xl:block">
-              <p className="text-sm font-display font-bold text-primary leading-tight">
+            <div className="hidden sm:block lg:hidden xl:block">
+              <p className="text-base font-display font-bold text-primary leading-tight">
                 Industrial Engineering
               </p>
-              <p className="text-xs text-text-muted leading-tight">
+              <p className="text-sm text-text-muted leading-tight">
                 &amp; Management
               </p>
             </div>

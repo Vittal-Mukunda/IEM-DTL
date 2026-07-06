@@ -37,7 +37,7 @@ export default function CurriculumPage() {
     <>
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-3">Curriculum &amp; Academics</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">Curriculum &amp; Academics</h1>
           <p className="text-lg text-gray-200 max-w-2xl">
             How the 4-year autonomous B.E. program is structured, taught, and
             assessed.
@@ -242,7 +242,7 @@ export default function CurriculumPage() {
             Internship Options
           </h2>
           <div className="bg-surface rounded-xl p-6 border border-gray-100">
-            <ul className="space-y-3 text-sm text-gray-700">
+            <ul className="space-y-3 text-base text-gray-700">
               <li className="flex items-start gap-3">
                 <span className="mt-1 w-2 h-2 rounded-full bg-primary shrink-0" />
                 In-house at RVCE department (~3 weeks)

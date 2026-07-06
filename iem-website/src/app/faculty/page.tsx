@@ -13,7 +13,7 @@ export default function FacultyPage() {
     <>
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-3">Faculty</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">Faculty</h1>
           <p className="text-lg text-gray-200 max-w-2xl">
             The 14 academics who teach the courses, supervise the research, and
             shape the department.{" "}

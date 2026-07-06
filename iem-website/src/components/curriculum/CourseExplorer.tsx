@@ -165,7 +165,7 @@ export default function CourseExplorer() {
                   </button>
                 </div>
 
-                <p className="mt-4 text-sm leading-relaxed text-gray-700">
+                <p className="mt-4 text-base leading-relaxed text-gray-700">
                   {selected.description}
                 </p>
 

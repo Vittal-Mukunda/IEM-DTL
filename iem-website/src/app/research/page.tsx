@@ -24,7 +24,7 @@ export default function ResearchPage() {
     <>
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-3">Research</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">Research</h1>
           <p className="text-lg text-gray-200 max-w-2xl">
             A VTU-recognized Research Centre publishing across 8 thematic
             areas.
@@ -82,7 +82,7 @@ export default function ResearchPage() {
           </section>
           <section className="bg-surface rounded-xl p-6 border border-gray-100">
             <h2 className="text-xl font-bold text-primary mb-4">Mission</h2>
-            <ol className="space-y-3 text-gray-700 text-sm leading-relaxed list-decimal list-inside">
+            <ol className="space-y-3 text-gray-700 text-base leading-relaxed list-decimal list-inside">
               <li>
                 Impart scientific knowledge, engineering and managerial skills
                 for driving organizations to global excellence.
@@ -123,7 +123,7 @@ export default function ResearchPage() {
                 <span className="text-xs font-bold text-accent">
                   PEO {i + 1}
                 </span>
-                <p className="text-sm text-gray-700 mt-2 leading-relaxed">
+                <p className="text-base text-gray-700 mt-2 leading-relaxed">
                   {peo}
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function ResearchPage() {
                 <span className="text-lg font-bold text-primary shrink-0">
                   PSO{i + 1}
                 </span>
-                <p className="text-sm text-gray-700 leading-relaxed">{pso}</p>
+                <p className="text-base text-gray-700 leading-relaxed">{pso}</p>
               </div>
             ))}
           </div>

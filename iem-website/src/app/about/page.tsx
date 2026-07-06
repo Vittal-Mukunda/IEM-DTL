@@ -27,7 +27,7 @@ export default function AboutPage() {
       {/* Page Header */}
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-3">About the Department</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">About the Department</h1>
           <p className="text-lg text-gray-200 max-w-2xl">
             History, newsletters, alumni, labs, student achievements, and
             accreditation.
@@ -58,7 +58,7 @@ export default function AboutPage() {
               {hodMessage.paragraphs.map((p, i) => (
                 <p
                   key={i}
-                  className="text-gray-700 leading-relaxed mb-3 text-sm sm:text-base"
+                  className="text-gray-700 leading-relaxed mb-3 text-base"
                 >
                   {p}
                 </p>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 >
                   <path d="M7.17 6A5.17 5.17 0 002 11.17V18h6.83v-6.83H5.6A3.6 3.6 0 019.17 8V6H7.17zm10 0A5.17 5.17 0 0012 11.17V18h6.83v-6.83H15.6A3.6 3.6 0 0119.17 8V6h-2z" />
                 </svg>
-                <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-gray-700">
+                <blockquote className="mt-3 flex-1 text-base leading-relaxed text-gray-700">
                   {a.quote}
                 </blockquote>
                 <figcaption className="mt-5 border-t border-gray-100 pt-4">
@@ -153,7 +153,7 @@ export default function AboutPage() {
                       </span>
                     )}
                   </p>
-                  <p className="text-xs text-text-muted mt-1">{a.role}</p>
+                  <p className="text-sm text-text-muted mt-1">{a.role}</p>
                 </div>
               ))}
             </div>

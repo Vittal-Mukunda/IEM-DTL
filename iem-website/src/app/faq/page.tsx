@@ -33,7 +33,7 @@ export default function FAQPage() {
 
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-3">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">
             Frequently Asked Questions
           </h1>
           <p className="text-lg text-gray-200 max-w-2xl">
@@ -83,10 +83,10 @@ export default function FAQPage() {
                 key={i}
                 className="bg-surface rounded-xl p-5 border border-gray-100"
               >
-                <p className="text-sm font-semibold text-red-600 mb-2">
+                <p className="text-base font-semibold text-red-600 mb-2">
                   Myth: &ldquo;{item.myth}&rdquo;
                 </p>
-                <p className="text-sm text-gray-700">
+                <p className="text-base text-gray-700">
                   <span className="font-semibold text-green-700">
                     Reality:
                   </span>{" "}

@@ -97,7 +97,7 @@ export default function FacultyDirectory() {
                 {hod.name}
               </button>
               <p className="text-text-muted mt-1">{hod.designation}</p>
-              <p className="text-sm text-gray-600 mt-2">{hod.specialization}</p>
+              <p className="text-base text-gray-600 mt-2">{hod.specialization}</p>
               <a
                 href={`mailto:${hod.email}`}
                 className="inline-block mt-3 text-sm text-primary hover:text-primary-light transition-colors"
@@ -145,14 +145,14 @@ export default function FacultyDirectory() {
               <button
                 type="button"
                 onClick={() => setSelected(f)}
-                className="font-semibold text-primary text-sm text-left hover:text-primary-light transition-colors"
+                className="font-semibold text-primary text-base text-left hover:text-primary-light transition-colors"
               >
                 {f.name}
               </button>
-              <p className="text-xs text-accent font-medium mt-0.5">
+              <p className="text-sm text-accent font-medium mt-0.5">
                 {f.designation}
               </p>
-              <p className="text-xs text-text-muted mt-2 leading-relaxed">
+              <p className="text-sm text-text-muted mt-2 leading-relaxed">
                 {f.specialization}
               </p>
               <div className="mt-3 flex items-center justify-between">
@@ -238,7 +238,7 @@ export default function FacultyDirectory() {
             {/* Body */}
             <div className="p-6 space-y-4">
               {detail?.bio && (
-                <p className="text-sm text-gray-700 leading-relaxed">
+                <p className="text-base text-gray-700 leading-relaxed">
                   {detail.bio}
                 </p>
               )}
@@ -248,7 +248,7 @@ export default function FacultyDirectory() {
                   <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-1">
                     Experience
                   </p>
-                  <p className="text-sm text-gray-700">{detail.experience}</p>
+                  <p className="text-base text-gray-700">{detail.experience}</p>
                 </div>
               )}
 
@@ -257,7 +257,7 @@ export default function FacultyDirectory() {
                   <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-1">
                     Qualifications
                   </p>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-base text-gray-700">
                     {detail.qualification}
                   </p>
                 </div>
@@ -267,7 +267,7 @@ export default function FacultyDirectory() {
                 <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-1">
                   Areas of Interest
                 </p>
-                <p className="text-sm text-gray-700">
+                <p className="text-base text-gray-700">
                   {selected.specialization}
                 </p>
               </div>
@@ -277,7 +277,7 @@ export default function FacultyDirectory() {
                   <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-1">
                     Publications
                   </p>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-base text-gray-700">
                     {selected.publications}+ publications
                   </p>
                 </div>

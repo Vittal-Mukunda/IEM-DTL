@@ -13,7 +13,7 @@ export default function ContactPage() {
     <>
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-3">Contact Us</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">Contact Us</h1>
           <p className="text-lg text-gray-200 max-w-2xl">
             Get in touch with the IEM department at RVCE.
           </p>
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-primary">Address</p>
-                  <p className="text-sm text-text-muted mt-1">
+                  <p className="text-base text-text-muted mt-1">
                     {siteConfig.address}
                   </p>
                 </div>
@@ -78,11 +78,11 @@ export default function ContactPage() {
                   <p className="font-semibold text-primary">Email</p>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="text-sm text-primary-light hover:underline"
+                    className="text-base text-primary-light hover:underline"
                   >
                     {siteConfig.email}
                   </a>
-                  <p className="text-xs text-text-muted mt-1">
+                  <p className="text-sm text-text-muted mt-1">
                     HoD: Dr. Rajeswara Rao K V S
                   </p>
                 </div>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                   <p className="font-semibold text-primary">Phone</p>
                   <a
                     href={`tel:${siteConfig.phone}`}
-                    className="text-sm text-primary-light hover:underline"
+                    className="text-base text-primary-light hover:underline"
                   >
                     {siteConfig.phone}
                   </a>
@@ -137,7 +137,7 @@ export default function ContactPage() {
                     href={siteConfig.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-primary-light hover:underline"
+                    className="text-base text-primary-light hover:underline break-all"
                   >
                     {siteConfig.website}
                   </a>

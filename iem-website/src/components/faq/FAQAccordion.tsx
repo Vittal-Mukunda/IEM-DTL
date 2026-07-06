@@ -24,7 +24,7 @@ export default function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
               aria-expanded={openIndex === i}
               aria-controls={`faq-answer-${i}`}
             >
-              <span className="font-sans font-medium text-sm text-gray-800 pr-4">
+              <span className="font-sans font-medium text-base text-gray-800 pr-4">
                 {faq.question}
               </span>
               <svg
@@ -52,7 +52,7 @@ export default function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
             hidden={openIndex !== i}
             className="px-5 pb-4"
           >
-            <p className="text-sm text-text-muted leading-relaxed">
+            <p className="text-base text-text-muted leading-relaxed">
               {faq.answer}
             </p>
           </div>
