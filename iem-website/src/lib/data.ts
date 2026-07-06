@@ -1071,6 +1071,348 @@ const ordinal = (n: number) => {
 // Per-semester subject subfolders. Keyed by semester number; add subjects
 // here as notes are collected.
 const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
+  3: [
+    {
+      name: "Work Systems Design",
+      items: [
+        {
+          label: "Course Notes (All Units)",
+          file: "/notes/sem3/work-systems-design/course-notes-all-units.pdf",
+          size: "1.4 MB",
+        },
+        {
+          label: "Handwritten Notes (All Units)",
+          file: "/notes/sem3/work-systems-design/handwritten-notes-all-units.pdf",
+          size: "27 MB",
+        },
+        {
+          label: "Unit 1 – Nature of Work (Notes)",
+          file: "/notes/sem3/work-systems-design/unit-1-nature-of-work-notes.pdf",
+          size: "3.5 MB",
+        },
+        {
+          label: "Unit 1 – Worker-Machine Systems (Handwritten)",
+          file: "/notes/sem3/work-systems-design/unit-1-worker-machine-systems-handwritten.pdf",
+          size: "6.3 MB",
+        },
+        {
+          label: "Unit 2 – Automation Strategies",
+          file: "/notes/sem3/work-systems-design/unit-2-automation-strategies.pdf",
+          size: "56 KB",
+        },
+        {
+          label: "Unit 3 – Work Measurement",
+          file: "/notes/sem3/work-systems-design/unit-3-work-measurement.pdf",
+          size: "228 KB",
+        },
+        {
+          label: "Unit 5 – Ergonomics (Handwritten)",
+          file: "/notes/sem3/work-systems-design/unit-5-ergonomics-handwritten.pdf",
+          size: "2.1 MB",
+        },
+        {
+          label: "Unit 5 – Industrial Accidents & Injuries",
+          file: "/notes/sem3/work-systems-design/unit-5-industrial-accidents-and-injuries.pdf",
+          size: "88 KB",
+        },
+        {
+          label: "Unit 1 – Essay Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-1-essay-question-bank.pdf",
+          size: "284 KB",
+        },
+        {
+          label: "Unit 2 – Essay Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-2-essay-question-bank.pdf",
+          size: "304 KB",
+        },
+        {
+          label: "Unit 3 – Essay Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-3-essay-question-bank.pdf",
+          size: "372 KB",
+        },
+        {
+          label: "Unit 4 – Essay Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-4-essay-question-bank.pdf",
+          size: "316 KB",
+        },
+        {
+          label: "Unit 5 – Essay Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-5-essay-question-bank.pdf",
+          size: "300 KB",
+        },
+        {
+          label: "Unit 1 – MCQ Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-1-mcq-question-bank.pdf",
+          size: "256 KB",
+        },
+        {
+          label: "Unit 2 – MCQ Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-2-mcq-question-bank.pdf",
+          size: "248 KB",
+        },
+        {
+          label: "Unit 3 – MCQ Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-3-mcq-question-bank.pdf",
+          size: "272 KB",
+        },
+        {
+          label: "Unit 4 – MCQ Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-4-mcq-question-bank.pdf",
+          size: "256 KB",
+        },
+        {
+          label: "Unit 5 – MCQ Question Bank",
+          file: "/notes/sem3/work-systems-design/unit-5-mcq-question-bank.pdf",
+          size: "252 KB",
+        },
+        {
+          label: "CIE Question Papers (2022-23)",
+          file: "/notes/sem3/work-systems-design/cie-question-papers-2022-23.pdf",
+          size: "1.6 MB",
+        },
+        {
+          label: "SEE Question Paper (April 2024)",
+          file: "/notes/sem3/work-systems-design/see-question-paper-april-2024.pdf",
+          size: "100 KB",
+        },
+        {
+          label: "SEE Question Papers (Collection)",
+          file: "/notes/sem3/work-systems-design/see-question-papers-collection.pdf",
+          size: "552 KB",
+        },
+      ],
+    },
+    {
+      name: "Manufacturing Processes",
+      items: [
+        {
+          label: "Unit 1 – Introduction to Manufacturing",
+          file: "/notes/sem3/manufacturing-processes/unit-1-introduction-to-manufacturing.pdf",
+          size: "2.0 MB",
+        },
+        {
+          label: "Unit 2 – Metal Forming Processes",
+          file: "/notes/sem3/manufacturing-processes/unit-2-metal-forming-processes.pdf",
+          size: "1.6 MB",
+        },
+        {
+          label: "Unit 3 – Welding Processes",
+          file: "/notes/sem3/manufacturing-processes/unit-3-welding-processes.pdf",
+          size: "1.5 MB",
+        },
+        {
+          label: "Unit 4 – Cutting Tool Technology",
+          file: "/notes/sem3/manufacturing-processes/unit-4-cutting-tool-technology.pdf",
+          size: "2.4 MB",
+        },
+        {
+          label: "Unit 5 – Drilling & Machine Tools",
+          file: "/notes/sem3/manufacturing-processes/unit-5-drilling-and-machine-tools.pdf",
+          size: "1.7 MB",
+        },
+        {
+          label: "CIE 1 Notes",
+          file: "/notes/sem3/manufacturing-processes/cie-1-notes.pdf",
+          size: "328 KB",
+        },
+      ],
+    },
+    {
+      name: "Digital Metrology",
+      items: [
+        {
+          label: "Unit 1 – Generalized Measurement System",
+          file: "/notes/sem3/digital-metrology/unit-1-generalized-measurement-system.pdf",
+          size: "1.2 MB",
+        },
+        {
+          label: "Unit 1 – Characteristics & Errors",
+          file: "/notes/sem3/digital-metrology/unit-1-characteristics-and-errors.pdf",
+          size: "1.5 MB",
+        },
+        {
+          label: "Unit 1 – Transducers",
+          file: "/notes/sem3/digital-metrology/unit-1-transducers.pdf",
+          size: "452 KB",
+        },
+        {
+          label: "Unit 2 – Sensors",
+          file: "/notes/sem3/digital-metrology/unit-2-sensors.pdf",
+          size: "676 KB",
+        },
+        {
+          label: "Unit 3 – Limits, Fits & Tolerances",
+          file: "/notes/sem3/digital-metrology/unit-3-limits-fits-and-tolerances.pdf",
+          size: "4.6 MB",
+        },
+        {
+          label: "Unit 4 – Optical Interferometry & Form Measurements",
+          file: "/notes/sem3/digital-metrology/unit-4-optical-interferometry-and-form-measurements.pdf",
+          size: "11 MB",
+        },
+        {
+          label: "Unit 4 – Laser Metrology",
+          file: "/notes/sem3/digital-metrology/unit-4-laser-metrology.pdf",
+          size: "668 KB",
+        },
+        {
+          label: "Unit 5 – Coordinate Measuring Machines",
+          file: "/notes/sem3/digital-metrology/unit-5-coordinate-measuring-machines.pdf",
+          size: "2.1 MB",
+        },
+        {
+          label: "Unit 5 – CMM (Reading Material)",
+          file: "/notes/sem3/digital-metrology/unit-5-cmm-reading-material.pdf",
+          size: "424 KB",
+        },
+        {
+          label: "CIE 1 Notes",
+          file: "/notes/sem3/digital-metrology/cie-1-notes.pdf",
+          size: "352 KB",
+        },
+        {
+          label: "Model Question Paper (IM235AI)",
+          file: "/notes/sem3/digital-metrology/model-question-paper-im235ai.pdf",
+          size: "252 KB",
+        },
+        {
+          label: "Model Question Paper (2021 Scheme)",
+          file: "/notes/sem3/digital-metrology/model-question-paper-2021-scheme.pdf",
+          size: "120 KB",
+        },
+      ],
+    },
+    {
+      name: "Mathematics III (MA231TB)",
+      items: [
+        {
+          label: "Syllabus",
+          file: "/notes/sem3/mathematics-iii/syllabus-ma231tb.pdf",
+          size: "404 KB",
+        },
+        {
+          label: "Unit 1 – Statistics",
+          file: "/notes/sem3/mathematics-iii/unit-1-statistics.pdf",
+          size: "1.2 MB",
+        },
+        {
+          label: "Unit 1 – Statistics (Written Notes)",
+          file: "/notes/sem3/mathematics-iii/unit-1-statistics-written-notes.pdf",
+          size: "7.3 MB",
+        },
+        {
+          label: "Statistics – Supplementary Notes",
+          file: "/notes/sem3/mathematics-iii/statistics-supplementary-notes.pdf",
+          size: "608 KB",
+        },
+        {
+          label: "Curve Fitting & Correlation",
+          file: "/notes/sem3/mathematics-iii/curve-fitting-and-correlation.pdf",
+          size: "980 KB",
+        },
+        {
+          label: "Curve Fitting – Solved Examples",
+          file: "/notes/sem3/mathematics-iii/curve-fitting-solved-examples.pdf",
+          size: "428 KB",
+        },
+        {
+          label: "Laplace Transforms – Notes",
+          file: "/notes/sem3/mathematics-iii/laplace-transforms-notes.pdf",
+          size: "1.1 MB",
+        },
+        {
+          label: "Complex Analysis – Notes",
+          file: "/notes/sem3/mathematics-iii/complex-analysis-notes.pdf",
+          size: "536 KB",
+        },
+        {
+          label: "Unit 5 – Numerical Methods for PDE",
+          file: "/notes/sem3/mathematics-iii/unit-5-numerical-methods-for-pde.pdf",
+          size: "380 KB",
+        },
+        {
+          label: "Assignment – Laplace Transforms",
+          file: "/notes/sem3/mathematics-iii/assignment-laplace-transforms.pdf",
+          size: "172 KB",
+        },
+        {
+          label: "Assignment – Inverse Laplace Transforms",
+          file: "/notes/sem3/mathematics-iii/assignment-inverse-laplace-transforms.pdf",
+          size: "136 KB",
+        },
+        {
+          label: "Assignment 2 – Numerical Methods for PDE",
+          file: "/notes/sem3/mathematics-iii/assignment-2-numerical-methods-for-pde.pdf",
+          size: "452 KB",
+        },
+        {
+          label: "Tutorial Sheets – Statistics",
+          file: "/notes/sem3/mathematics-iii/tutorial-sheets-statistics.pdf",
+          size: "320 KB",
+        },
+        {
+          label: "MATLAB Manual (Experiential Learning)",
+          file: "/notes/sem3/mathematics-iii/matlab-manual-experiential-learning.pdf",
+          size: "760 KB",
+        },
+        {
+          label: "Model Question Paper",
+          file: "/notes/sem3/mathematics-iii/model-question-paper.pdf",
+          size: "228 KB",
+        },
+        {
+          label: "SEE Question Paper (April 2024)",
+          file: "/notes/sem3/mathematics-iii/see-question-paper-april-2024.pdf",
+          size: "296 KB",
+        },
+      ],
+    },
+    {
+      name: "Lab Manuals",
+      items: [
+        {
+          label: "Digital Metrology Lab Manual",
+          file: "/notes/sem3/lab-manuals/digital-metrology-lab-manual.pdf",
+          size: "11 MB",
+        },
+        {
+          label: "Manufacturing Processes Lab Manual",
+          file: "/notes/sem3/lab-manuals/manufacturing-processes-lab-manual.pdf",
+          size: "5.8 MB",
+        },
+        {
+          label: "Work Systems Design Lab Manual",
+          file: "/notes/sem3/lab-manuals/work-systems-design-lab-manual.pdf",
+          size: "5.6 MB",
+        },
+      ],
+    },
+    {
+      name: "Question Papers (CIE & SEE)",
+      items: [
+        {
+          label: "CIE 1 Question Papers (2024-25)",
+          file: "/notes/sem3/question-papers/cie-1-question-papers-2024-25.pdf",
+          size: "3.8 MB",
+        },
+        {
+          label: "CIE 2 Question Papers (2024-25)",
+          file: "/notes/sem3/question-papers/cie-2-question-papers-2024-25.pdf",
+          size: "2.6 MB",
+        },
+        {
+          label: "CIE 3 Question Papers (2024-25)",
+          file: "/notes/sem3/question-papers/cie-3-question-papers-2024-25.pdf",
+          size: "3.0 MB",
+        },
+        {
+          label: "SEE Question Papers (Collection)",
+          file: "/notes/sem3/question-papers/see-question-papers-collection.pdf",
+          size: "4.1 MB",
+        },
+      ],
+    },
+  ],
   4: [
     {
       name: "Statistics for Data Analytics",
