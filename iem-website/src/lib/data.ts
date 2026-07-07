@@ -693,149 +693,211 @@ export const curriculumDomains: CurriculumDomain[] = [
 export interface CurriculumCourse {
   code: string;
   name: string;
+  /** semester (3–8) in which the course is offered (2022 scheme) */
+  sem: number;
   /** matches a CurriculumDomain id */
   domain: string;
   description: string;
-  /** faculty names — must match entries in `faculty` exactly */
+  /** faculty names — must match entries in `faculty` exactly; empty when
+   * the allocation varies year to year or the course is taught by another
+   * department */
   faculty: string[];
 }
 
+// Core (non-elective) courses of the 2022 scheme, semesters 3–8, as listed
+// in the official scheme & syllabus booklets. Elective groups (Basket
+// courses, Professional Core Electives, Institutional Electives, NPTEL,
+// Ability Enhancement) and audit/bridge courses are intentionally excluded.
+// Semester 8 carries only the Major Project (IM481P).
 export const curriculumCourses: CurriculumCourse[] = [
+  // ── Semester 3 ──
   {
-    code: "IM244AI",
-    name: "Operations Research",
+    code: "MA231TB",
+    name: "Statistics, Laplace Transform and Numerical Methods",
+    sem: 3,
     domain: "ops",
     description:
-      "Mathematical models for decision making. Covers linear programming, queuing, inventory, and network optimization applied to industrial systems.",
-    faculty: ["Dr. Shobha N S", "Dr. Vivekanand S Gogi"],
+      "Statistics, curve fitting, Laplace transforms, complex analysis, and numerical methods for PDEs — the mathematical toolkit behind the analytics-heavy semesters that follow.",
+    faculty: [],
   },
+  {
+    code: "IM233AI",
+    name: "Work Systems Design",
+    sem: 3,
+    domain: "ops",
+    description:
+      "Work study, method and time study, work measurement, and workplace design to improve productivity and design efficient, human-centred work systems. Theory with integrated lab.",
+    faculty: ["Dr. Rajeswara Rao K V S", "Dr. Vikram N Bahadurdesai"],
+  },
+  {
+    code: "IM234AI",
+    name: "Manufacturing Processes",
+    sem: 3,
+    domain: "design",
+    description:
+      "How raw material becomes finished product — metal forming, welding, cutting tool technology, drilling, and machine tools. Theory with integrated lab.",
+    faculty: [],
+  },
+  {
+    code: "IM235AI",
+    name: "Digital Metrology",
+    sem: 3,
+    domain: "quality",
+    description:
+      "Measurement systems, sensors and transducers, limits, fits and tolerances, laser interferometry, and coordinate measuring machines. Theory with integrated lab.",
+    faculty: ["Prof. B Nandini"],
+  },
+
+  // ── Semester 4 ──
   {
     code: "IM241AT",
     name: "Statistics for Data Analytics",
+    sem: 4,
     domain: "ops",
     description:
       "Probability, distributions, hypothesis testing, and regression. The statistical foundation for analytics and quality work.",
     faculty: ["Dr. M N Vijayakumar", "Dr. Vikram N Bahadurdesai"],
   },
   {
-    code: "21E6F3",
-    name: "Systems Engineering",
-    domain: "ops",
-    description:
-      "A whole-system view of designing and managing complex engineered systems across their full life cycle.",
-    faculty: ["Dr. Shobha N S"],
-  },
-  {
-    code: "IM253AI",
-    name: "Work and Systems Design",
-    domain: "ops",
-    description:
-      "Work study, method and time study, ergonomics, and workplace layout to improve productivity and design efficient, human-centred work systems.",
-    faculty: ["Dr. Rajeswara Rao K V S", "Dr. Vikram N Bahadurdesai"],
-  },
-  {
-    code: "21IM62",
-    name: "Global Supply Chain Management",
-    domain: "scm",
-    description:
-      "Sourcing, logistics, and distribution across borders. Inventory strategy, network design, and coordination in global supply networks.",
-    faculty: ["Dr. K N Subramanya", "Dr. Ramaa A"],
-  },
-  {
-    code: "21IM65E1",
-    name: "Lean Manufacturing System",
-    domain: "scm",
-    description:
-      "Eliminating waste with the Toyota Production System. Value stream mapping, pull systems, kanban, and continuous flow.",
-    faculty: ["Dr. K N Subramanya"],
-  },
-  {
-    code: "21IM63",
-    name: "Quality Assurance",
-    domain: "quality",
-    description:
-      "Building quality into products and processes. Inspection, statistical process control, reliability, and quality systems.",
-    faculty: ["Dr. Ramaa A", "Dr. Vikram N Bahadurdesai"],
-  },
-  {
-    code: "21IM65E2",
-    name: "Total Quality Management",
-    domain: "quality",
-    description:
-      "An organization-wide approach to continuous improvement. Six Sigma, customer focus, and a culture of quality.",
-    faculty: ["Dr. Vivekanand S Gogi", "Dr. Ramaa A"],
-  },
-  {
-    code: "21IM67",
-    name: "Human Resource Management",
-    domain: "mgmt",
-    description:
-      "Recruiting, developing, and retaining people. Organizational behavior, performance, and the human side of operations.",
-    faculty: ["Dr. Rajeswara Rao K V S", "Dr. N S Narahari", "Prof. B Nandini"],
-  },
-  {
-    code: "21HSI61B",
-    name: "Principles of Management and Economics",
-    domain: "mgmt",
-    description:
-      "Core management functions and microeconomic reasoning for engineers who will lead teams and read markets.",
-    faculty: ["Dr. C K Nagendra Gupta", "Prof. Bhaskar M G"],
-  },
-  {
-    code: "18G7H16",
-    name: "Advanced Course in Entrepreneurship",
-    domain: "mgmt",
-    description:
-      "From idea to venture. Business models, funding, and the design-thinking-to-startup pipeline the department encourages.",
-    faculty: ["Prof. B Nandini", "Prof. Bhaskar M G"],
-  },
-  {
     code: "IM343AI",
     name: "CAD/CAM & Robotics",
+    sem: 4,
     domain: "design",
     description:
-      "Computer-aided design and manufacturing with robotics and automation for digitally integrated factories.",
+      "Computer-aided design and manufacturing with robotics and automation for digitally integrated factories. Theory with integrated lab.",
     faculty: ["Prof. Shruthi M N"],
   },
   {
-    code: "18IM47",
-    name: "Design Thinking",
-    domain: "design",
+    code: "IM244AI",
+    name: "Operations Research",
+    sem: 4,
+    domain: "ops",
     description:
-      "A structured, user-centered approach to problem solving. Empathize, define, ideate, prototype, and test.",
-    faculty: ["Prof. Shruthi M N", "Prof. Bhaskar M G"],
-  },
-  {
-    code: "18IM72",
-    name: "Product Design and Development",
-    domain: "design",
-    description:
-      "Turning concepts into manufacturable products. Requirements, design for manufacturing, and development workflows.",
-    faculty: ["Prof. Shruthi M N"],
+      "Mathematical models for decision making. Covers linear programming, queuing, inventory, and network optimization applied to industrial systems. Theory with integrated lab.",
+    faculty: ["Dr. Shobha N S", "Dr. Vivekanand S Gogi"],
   },
   {
     code: "IM345AT",
     name: "Marketing Management",
+    sem: 4,
     domain: "finance",
     description:
       "Understanding markets and customers. Segmentation, positioning, the marketing mix, and go-to-market strategy.",
     faculty: ["Prof. B Nandini"],
   },
   {
-    code: "18IM43",
-    name: "Engineering Economy and Costing",
-    domain: "finance",
+    code: "HS248AT",
+    name: "Universal Human Values",
+    sem: 4,
+    domain: "mgmt",
     description:
-      "Time value of money, cost analysis, and investment decisions for engineering projects.",
-    faculty: ["Prof. Bhaskar M G"],
+      "Harmony in the self, in relationships, in society, and with nature — the ethics and values foundation for professional life.",
+    faculty: [],
+  },
+
+  // ── Semester 5 ──
+  {
+    code: "HS351TA",
+    name: "Entrepreneurship and Intellectual Property Rights",
+    sem: 5,
+    domain: "mgmt",
+    description:
+      "From idea to venture — opportunity recognition, business models, and funding — plus patents, copyrights, and trademarks to protect what you create.",
+    faculty: ["Dr. Chitra B T", "Prof. B Nandini", "Prof. Bhaskar M G"],
   },
   {
-    code: "21E6F8",
-    name: "Elements of Financial Management",
+    code: "IM352IA",
+    name: "Operations Management",
+    sem: 5,
+    domain: "ops",
+    description:
+      "Planning and running production systems — forecasting, capacity, aggregate planning, scheduling, and inventory. Theory and practice.",
+    faculty: ["Dr. Shobha N S", "Prof. Bhaskar M G"],
+  },
+  {
+    code: "IM353IA",
+    name: "Quality Assurance",
+    sem: 5,
+    domain: "quality",
+    description:
+      "Building quality into products and processes. Inspection, statistical process control, reliability, and quality systems. Theory and practice.",
+    faculty: ["Dr. Ramaa A", "Dr. Vikram N Bahadurdesai"],
+  },
+  {
+    code: "IM254TA",
+    name: "Finance Accounting and Costing",
+    sem: 5,
     domain: "finance",
     description:
-      "Reading financial statements, managing capital, and making sound money decisions inside an organization.",
-    faculty: ["Dr. C K Nagendra Gupta"],
+      "Financial statements, cost accounting, budgeting, and engineering economics — reading the numbers behind management decisions.",
+    faculty: ["Dr. C K Nagendra Gupta", "Prof. Bhaskar M G"],
+  },
+
+  // ── Semester 6 ──
+  {
+    code: "HS261TA",
+    name: "Principles of Management and Economics",
+    sem: 6,
+    domain: "mgmt",
+    description:
+      "Core management functions and microeconomic reasoning for engineers who will lead teams and read markets.",
+    faculty: ["Dr. C K Nagendra Gupta", "Prof. Bhaskar M G"],
+  },
+  {
+    code: "IM362IA",
+    name: "Supply Chain Management",
+    sem: 6,
+    domain: "scm",
+    description:
+      "Sourcing, logistics, and distribution. Inventory strategy, network design, and coordination across supply networks. Theory and practice.",
+    faculty: ["Dr. K N Subramanya", "Dr. Ramaa A"],
+  },
+  {
+    code: "IM363IA",
+    name: "Ergonomics",
+    sem: 6,
+    domain: "ops",
+    description:
+      "Human factors engineering — anthropometry, workplace and equipment design fitted to human capabilities and limitations. Theory and practice.",
+    faculty: ["Dr. Rajeswara Rao K V S"],
+  },
+  {
+    code: "IM364TA",
+    name: "Human Resource Management & Analytics",
+    sem: 6,
+    domain: "mgmt",
+    description:
+      "Recruiting, developing, and retaining people — organizational behavior and performance, with analytics applied to workforce decisions.",
+    faculty: ["Dr. Rajeswara Rao K V S", "Dr. N S Narahari", "Prof. B Nandini"],
+  },
+
+  // ── Semester 7 ──
+  {
+    code: "HS271TA",
+    name: "Indian Knowledge System",
+    sem: 7,
+    domain: "mgmt",
+    description:
+      "India's traditional knowledge systems — science, technology, philosophy, and governance — and their relevance to modern engineering practice.",
+    faculty: [],
+  },
+  {
+    code: "IM372IA",
+    name: "Product Design & Development",
+    sem: 7,
+    domain: "design",
+    description:
+      "Turning concepts into manufacturable products. Requirements, design for manufacturing, and development workflows. Theory with integrated lab.",
+    faculty: ["Prof. Shruthi M N"],
+  },
+  {
+    code: "IM373TA",
+    name: "Total Quality Management",
+    sem: 7,
+    domain: "quality",
+    description:
+      "An organization-wide approach to continuous improvement. Six Sigma, customer focus, and a culture of quality.",
+    faculty: ["Dr. Vivekanand S Gogi", "Dr. Ramaa A"],
   },
 ];
 
@@ -1510,6 +1572,29 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
+    // Core courses still awaiting notes — placeholders, empty until uploaded.
+    { name: "Marketing Management", items: [] },
+    { name: "Universal Human Values", items: [] },
+  ],
+  // Sems 5–7: one folder per core course (2022 scheme); notes not yet
+  // provided, so all start as placeholders. Sem 8 has no taught courses
+  // (Major Project only), so it stays without subfolders.
+  5: [
+    { name: "Entrepreneurship & Intellectual Property Rights", items: [] },
+    { name: "Operations Management", items: [] },
+    { name: "Quality Assurance", items: [] },
+    { name: "Finance Accounting and Costing", items: [] },
+  ],
+  6: [
+    { name: "Principles of Management and Economics", items: [] },
+    { name: "Supply Chain Management", items: [] },
+    { name: "Ergonomics", items: [] },
+    { name: "Human Resource Management & Analytics", items: [] },
+  ],
+  7: [
+    { name: "Indian Knowledge System", items: [] },
+    { name: "Product Design & Development", items: [] },
+    { name: "Total Quality Management", items: [] },
   ],
 };
 

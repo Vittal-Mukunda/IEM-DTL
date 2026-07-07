@@ -102,13 +102,15 @@ export default function ResourcesPage() {
                       <p className="text-xs text-text-muted mt-0.5">
                         {hasContent
                           ? `${total} item${total > 1 ? "s" : ""}`
-                          : "No resources yet"}
+                          : folder.subfolders.length > 0
+                            ? `${folder.subfolders.length} subjects · notes coming soon`
+                            : "No resources yet"}
                       </p>
                     </div>
                   </div>
 
                   <div className="p-5 flex-1 space-y-5">
-                    {!hasContent && (
+                    {!hasContent && folder.subfolders.length === 0 && (
                       <p className="text-sm text-text-muted italic">
                         Resources coming soon.
                       </p>
@@ -124,16 +126,22 @@ export default function ResourcesPage() {
                             {sf.name}
                           </h3>
                           <span className="ml-auto text-xs text-text-muted">
-                            {sf.items.length}
+                            {sf.items.length > 0 ? sf.items.length : "soon"}
                           </span>
                         </summary>
-                        <ul className="mt-2 ml-2 space-y-2 pl-6 border-l-2 border-accent/30">
-                          {sf.items.map((item) => (
-                            <li key={item.file}>
-                              <FileLink item={item} />
-                            </li>
-                          ))}
-                        </ul>
+                        {sf.items.length > 0 ? (
+                          <ul className="mt-2 ml-2 space-y-2 pl-6 border-l-2 border-accent/30">
+                            {sf.items.map((item) => (
+                              <li key={item.file}>
+                                <FileLink item={item} />
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="mt-2 ml-2 pl-6 border-l-2 border-accent/30 text-sm text-text-muted italic">
+                            Notes coming soon.
+                          </p>
+                        )}
                       </details>
                     ))}
 

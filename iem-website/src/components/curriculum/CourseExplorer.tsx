@@ -12,10 +12,13 @@ import {
 
 const facultyByName = new Map(faculty.map((f) => [f.name, f]));
 const domainById = new Map(curriculumDomains.map((d) => [d.id, d]));
+const semesters = Array.from(
+  new Set(curriculumCourses.map((c) => c.sem)),
+).sort((a, b) => a - b);
 
 export default function CourseExplorer() {
   const reduced = useReducedMotion();
-  const [filter, setFilter] = useState<string | null>(null);
+  const [filter, setFilter] = useState<number | null>(null);
   const [selected, setSelected] = useState<CurriculumCourse | null>(null);
   const close = useCallback(() => setSelected(null), []);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -39,72 +42,90 @@ export default function CourseExplorer() {
     };
   }, [selected, close]);
 
-  const courses = useMemo(
+  const groups = useMemo(
     () =>
-      filter
-        ? curriculumCourses.filter((c) => c.domain === filter)
-        : curriculumCourses,
+      semesters
+        .filter((s) => filter === null || s === filter)
+        .map((s) => ({
+          sem: s,
+          courses: curriculumCourses.filter((c) => c.sem === s),
+        })),
     [filter],
   );
 
   return (
     <div>
-      {/* Domain filter chips */}
+      {/* Semester filter chips */}
       <div className="flex flex-wrap gap-2">
         <FilterChip
-          label="All courses"
+          label="All semesters"
           active={filter === null}
           onClick={() => setFilter(null)}
         />
-        {curriculumDomains.map((d) => (
+        {semesters.map((s) => (
           <FilterChip
-            key={d.id}
-            label={d.label}
-            color={d.color}
-            active={filter === d.id}
-            onClick={() => setFilter(d.id)}
+            key={s}
+            label={`Sem ${s}`}
+            active={filter === s}
+            onClick={() => setFilter(s)}
           />
         ))}
       </div>
 
-      {/* Course grid */}
-      <motion.div layout className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {courses.map((c) => {
-            const d = domainById.get(c.domain);
-            return (
-              <motion.button
-                key={c.code}
-                type="button"
-                layout
-                initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.25 }}
-                whileHover={reduced ? undefined : { y: -3 }}
-                onClick={() => setSelected(c)}
-                className="group flex flex-col rounded-xl border border-gray-200 bg-white p-4 text-left shadow-sm transition-shadow hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                style={{ borderLeftWidth: 4, borderLeftColor: d?.color }}
-              >
-                <span className="font-mono text-xs text-text-muted">
-                  {c.code}
-                </span>
-                <span className="mt-1 font-semibold text-primary leading-snug">
-                  {c.name}
-                </span>
-                <span className="mt-3 flex items-center justify-between">
-                  <span
-                    className="text-xs font-medium"
-                    style={{ color: d?.color }}
-                  >
-                    {d?.label}
+      {/* Course grid, grouped by semester */}
+      {groups.map((g) => (
+        <section key={g.sem} aria-label={`Semester ${g.sem} courses`}>
+          <h3 className="mt-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-wider text-accent">
+            Semester {g.sem}
+            <span className="h-px flex-1 bg-gray-200" aria-hidden="true" />
+            <span className="font-normal normal-case tracking-normal text-text-muted">
+              {g.courses.length} core course{g.courses.length > 1 ? "s" : ""}
+            </span>
+          </h3>
+          <motion.div
+            layout
+            className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {g.courses.map((c) => {
+              const d = domainById.get(c.domain);
+              return (
+                <motion.button
+                  key={c.code}
+                  type="button"
+                  layout
+                  initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  whileHover={reduced ? undefined : { y: -3 }}
+                  onClick={() => setSelected(c)}
+                  className="group flex flex-col rounded-xl border border-gray-200 bg-white p-4 text-left shadow-sm transition-shadow hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  style={{ borderLeftWidth: 4, borderLeftColor: d?.color }}
+                >
+                  <span className="font-mono text-xs text-text-muted">
+                    {c.code}
                   </span>
-                  <span className="text-xs text-text-muted group-hover:text-primary">
-                    {c.faculty.length} faculty &rarr;
+                  <span className="mt-1 font-semibold text-primary leading-snug">
+                    {c.name}
                   </span>
-                </span>
-              </motion.button>
-            );
-          })}
-      </motion.div>
+                  <span className="mt-3 flex items-center justify-between">
+                    <span
+                      className="text-xs font-medium"
+                      style={{ color: d?.color }}
+                    >
+                      {d?.label}
+                    </span>
+                    <span className="text-xs text-text-muted group-hover:text-primary">
+                      {c.faculty.length > 0
+                        ? `${c.faculty.length} faculty →`
+                        : "Details →"}
+                    </span>
+                  </span>
+                </motion.button>
+              );
+            })}
+          </motion.div>
+        </section>
+      ))}
 
       {/* Detail modal */}
       {selected && (
@@ -150,7 +171,7 @@ export default function CourseExplorer() {
                       {selected.name}
                     </h3>
                     <p className="font-mono text-xs text-text-muted">
-                      {selected.code}
+                      {selected.code} · Semester {selected.sem}
                     </p>
                   </div>
                   <button
@@ -169,46 +190,58 @@ export default function CourseExplorer() {
                   {selected.description}
                 </p>
 
-                <h4 className="mt-6 mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
-                  Taught by
-                </h4>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {selected.faculty.map((name) => {
-                    const f = facultyByName.get(name);
-                    if (!f) return null;
-                    return (
-                      <div
-                        key={name}
-                        className="flex items-center gap-3 rounded-xl border border-gray-100 bg-surface p-3"
-                      >
-                        <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-primary/15">
-                          <Image
-                            src={f.photo}
-                            alt={f.name}
-                            width={48}
-                            height={48}
-                            sizes="48px"
-                            className="h-full w-full object-cover object-top"
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="truncate text-sm font-semibold text-primary">
-                            {f.name}
-                          </p>
-                          <p className="truncate text-xs text-text-muted">
-                            {f.designation}
-                          </p>
-                          <a
-                            href={`mailto:${f.email}`}
-                            className="truncate text-xs text-primary-light hover:underline"
+                {selected.faculty.length > 0 ? (
+                  <>
+                    <h4 className="mt-6 mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
+                      Taught by
+                    </h4>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {selected.faculty.map((name) => {
+                        const f = facultyByName.get(name);
+                        if (!f) return null;
+                        return (
+                          <div
+                            key={name}
+                            className="flex items-center gap-3 rounded-xl border border-gray-100 bg-surface p-3"
                           >
-                            {f.email}
-                          </a>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                            <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-primary/15">
+                              <Image
+                                src={f.photo}
+                                alt={f.name}
+                                width={48}
+                                height={48}
+                                sizes="48px"
+                                className="h-full w-full object-cover object-top"
+                              />
+                            </div>
+                            <div className="min-w-0">
+                              <p className="truncate text-sm font-semibold text-primary">
+                                {f.name}
+                              </p>
+                              <p className="truncate text-xs text-text-muted">
+                                {f.designation}
+                              </p>
+                              <a
+                                href={`mailto:${f.email}`}
+                                className="truncate text-xs text-primary-light hover:underline"
+                              >
+                                {f.email}
+                              </a>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </>
+                ) : (
+                  <p className="mt-6 text-sm text-text-muted">
+                    Faculty allocation for this course varies by year — see the{" "}
+                    <a href="/faculty" className="text-primary hover:underline">
+                      Faculty page
+                    </a>{" "}
+                    for the full department roster.
+                  </p>
+                )}
               </div>
             </motion.div>
           </motion.div>

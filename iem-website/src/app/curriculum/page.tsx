@@ -102,18 +102,25 @@ export default function CurriculumPage() {
           </div>
         </section>
 
-        {/* Representative Courses */}
+        {/* Core Courses by Semester */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-primary mb-2">
-            Representative Courses
+            Courses Offered — Semesters 3 to 8
           </h2>
           <p className="text-text-muted mb-6 max-w-2xl">
-            Filter by knowledge area, then open any course to see what it covers
-            and who teaches it.
+            Every core course of the 2022 scheme, semester by semester. Open
+            any course to see what it covers and who teaches it. Elective
+            groups (Professional Core Electives, Institutional Electives,
+            Basket and NPTEL courses) are not listed here — the full options
+            are in the syllabus booklets below.
           </p>
           <CourseExplorer />
           <p className="text-sm text-text-muted mt-4">
-            Schemes in force: 2018, 2021, 2022, and 2025 (latest).
+            Alongside these courses, the scheme carries an Interdisciplinary
+            Project in Semester 6 (IM367P) and a Summer Internship in Semester
+            7 (IM376SI), while Semester 8 is dedicated entirely to the Major
+            Project (IM481P). Schemes in force: 2018, 2021, 2022, and 2025
+            (latest).
           </p>
         </section>
 
