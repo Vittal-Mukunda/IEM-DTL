@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resourceFolders, type ResourceItem } from "@/lib/data";
+import GPACalculator from "@/components/resources/GPACalculator";
 
 export const metadata: Metadata = {
   title: "Resources & Notes",
@@ -143,6 +144,22 @@ export default function ResourcesPage() {
               );
             })}
           </div>
+        </section>
+
+        {/* GPA calculator */}
+        <section id="gpa-calculator" aria-label="GPA calculator" className="mt-14">
+          <div className="mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary">
+              GPA Calculator
+            </h2>
+            <p className="text-gray-700 leading-relaxed mt-2 max-w-3xl">
+              Enter your CIE, Lab SEE and Semester End marks to compute your
+              grade points and SGPA. Add or remove subjects to match your
+              semester, and use the target table to see the Sem End marks you
+              still need for each grade.
+            </p>
+          </div>
+          <GPACalculator />
         </section>
       </div>
     </>

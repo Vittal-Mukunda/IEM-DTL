@@ -1031,14 +1031,14 @@ export const faqs = [
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/faculty", label: "Faculty" },
-  { href: "/curriculum", label: "Curriculum" },
-  { href: "/resources", label: "Resources" },
-  { href: "/research", label: "Research" },
   { href: "/placements", label: "Placements" },
+  { href: "/curriculum", label: "Curriculum" },
+  { href: "/faculty", label: "Faculty" },
+  { href: "/resources", label: "Resources" },
   { href: "/events", label: "Events" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/research", label: "Research" },
   { href: "/contact", label: "Contact" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 // ── Study resources / notes, grouped by semester folder ──────────────
