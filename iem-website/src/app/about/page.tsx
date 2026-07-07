@@ -164,7 +164,7 @@ export default function AboutPage() {
             <a
               href="https://in.linkedin.com/school/rvcengineering/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="text-primary hover:underline"
             >
               Connect with us on LinkedIn

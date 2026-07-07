@@ -14,7 +14,8 @@ export const siteConfig = {
   address:
     "Department of IEM, RVCE, Mysore Road, R.V. Vidyaniketan Post, Bengaluru – 560 059, Karnataka, India",
   /** Official department page on the RVCE site (external reference). */
-  website: "https://rvce.edu.in/department/iem/",
+  website:
+    "https://rvce.edu.in/department/iem/department_of_industrial_engineering_and_management/",
   socialLinks: {
     facebook: "https://www.facebook.com/idearvce/",
     linkedin:

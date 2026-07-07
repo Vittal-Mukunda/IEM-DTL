@@ -153,7 +153,12 @@ export default function CurriculumPage() {
           <p className="text-sm text-text-muted mt-4">
             Also available: the{" "}
             <span className="font-medium text-primary">2025 scheme</span> and
-            earlier 2021/2018 schemes from the department office.
+            earlier 2021/2018 schemes from the department office. Semester-wise
+            lecture notes and study material are on the{" "}
+            <a href="/resources" className="text-primary hover:underline">
+              Resources page
+            </a>
+            .
           </p>
         </section>
 
@@ -206,6 +211,16 @@ export default function CurriculumPage() {
               </ul>
             </div>
           </div>
+          <p className="text-sm text-text-muted mt-4">
+            Want to see where your marks land? Use the{" "}
+            <a
+              href="/resources#gpa-calculator"
+              className="text-primary hover:underline"
+            >
+              GPA calculator
+            </a>{" "}
+            to compute your SGPA from CIE and Sem End marks.
+          </p>
         </section>
 
         {/* Pedagogy */}

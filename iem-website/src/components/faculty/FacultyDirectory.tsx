@@ -28,7 +28,12 @@ function SocialLinks({ f, size = "xs" }: { f: FacultyMember; size?: "xs" | "sm" 
           key={l.href}
           href={l.href}
           target="_blank"
-          rel="noopener noreferrer"
+          // LinkedIn serves bot traffic a 999, so keep crawlers off those URLs
+          rel={
+            l.href.includes("linkedin.com")
+              ? "noopener noreferrer nofollow"
+              : "noopener noreferrer"
+          }
           className={cls}
           onClick={(e) => e.stopPropagation()}
         >

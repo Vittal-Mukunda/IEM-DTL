@@ -106,7 +106,11 @@ export default function PlacementsPage() {
               <div>
                 <p className="font-semibold text-primary mb-2">PhD</p>
                 <p>
-                  Including via RVCE&apos;s own VTU-recognized Research Centre.
+                  Including via RVCE&apos;s own VTU-recognized{" "}
+                  <a href="/research" className="text-primary hover:underline">
+                    Research Centre
+                  </a>
+                  .
                 </p>
               </div>
               <div>

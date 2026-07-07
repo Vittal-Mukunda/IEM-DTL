@@ -21,6 +21,14 @@ export default function ContactPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <p className="text-base text-text-muted mb-8">
+          Have a question about the branch, placements or curriculum? Many are
+          already answered on the{" "}
+          <a href="/faq" className="text-primary hover:underline">
+            FAQ page
+          </a>
+          .
+        </p>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Details */}
           <div>
@@ -137,9 +145,9 @@ export default function ContactPage() {
                     href={siteConfig.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base text-primary-light hover:underline break-all"
+                    className="text-base text-primary-light hover:underline"
                   >
-                    {siteConfig.website}
+                    IEM Department on the official RVCE website
                   </a>
                 </div>
               </div>
@@ -152,7 +160,7 @@ export default function ContactPage() {
                 <a
                   href={siteConfig.socialLinks.facebook}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="px-4 py-2 bg-primary/5 text-primary text-sm rounded-lg hover:bg-primary/10 transition-colors"
                 >
                   Facebook (IDEA)
@@ -160,7 +168,7 @@ export default function ContactPage() {
                 <a
                   href={siteConfig.socialLinks.linkedin}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="px-4 py-2 bg-primary/5 text-primary text-sm rounded-lg hover:bg-primary/10 transition-colors"
                 >
                   LinkedIn

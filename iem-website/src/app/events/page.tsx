@@ -38,7 +38,7 @@ export default function EventsPage() {
               <a
                 href="https://www.facebook.com/idearvce/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="text-sm text-primary font-medium hover:text-primary-light transition-colors"
               >
                 IDEA on Facebook →
@@ -46,7 +46,7 @@ export default function EventsPage() {
               <a
                 href="https://in.linkedin.com/in/industrial-engineering-and-management-rv-college-of-engineering-358538299"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="text-sm text-primary font-medium hover:text-primary-light transition-colors"
               >
                 IEM on LinkedIn →
@@ -124,7 +124,7 @@ export default function EventsPage() {
             <a
               href="https://www.facebook.com/idearvce/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="text-primary hover:underline"
             >
               IDEA Facebook page

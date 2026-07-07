@@ -240,7 +240,12 @@ export default function ResearchPage() {
           </div>
           <p className="text-xs text-text-muted mt-3">
             IRINS shows 8 of 14 faculty with linked profiles. Additional
-            publications via Google Scholar / ResearchGate.
+            publications via Google Scholar / ResearchGate. Full bios and
+            qualifications are on the{" "}
+            <a href="/faculty" className="text-primary hover:underline">
+              Faculty page
+            </a>
+            .
           </p>
         </section>
 

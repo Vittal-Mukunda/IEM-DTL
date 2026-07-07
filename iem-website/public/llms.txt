@@ -1,0 +1,30 @@
+# Department of Industrial Engineering & Management, RVCE
+
+> Official website of the Department of Industrial Engineering & Management (IEM) at R.V. College of Engineering (RVCE), Bengaluru, India. An NBA-accredited B.E. program blending engineering with management — operations research, supply chain, quality engineering, analytics and sustainability. 60 seats/year, 70%+ placement rate (3-year average), ₹22.5 LPA highest package, 202 journal articles, VTU-recognized Research Centre.
+
+Key facts:
+- Program: B.E. in Industrial Engineering & Management (NBA-accredited, VTU Autonomous)
+- Institution: R.V. College of Engineering, Mysore Road, Bengaluru – 560 059, Karnataka, India
+- Intake: 60 undergraduate seats per year
+- Placements: 70%+ average rate, ₹22.5 LPA highest package; recruiters across tech, consulting, e-commerce, banking and manufacturing
+- Research: 202 journal articles, 213 Scopus citations, h-index 8, 5 patents, ₹24,00,000 sponsored funding
+- Faculty: 14 members across operations research, supply chain, quality, ergonomics, analytics and management
+- Contact: hod.im@rvce.edu.in, +91-80-6717-8021
+
+## Pages
+
+- [Home](https://iemrvce.vercel.app/): Department overview, program highlights and career outcomes of an IEM graduate
+- [About](https://iemrvce.vercel.app/about): Department history, labs, student achievements and IDEA newsletters
+- [Placements](https://iemrvce.vercel.app/placements): Placement statistics, packages, recruiters and alumni outcomes
+- [Curriculum](https://iemrvce.vercel.app/curriculum): Semester-wise course explorer, syllabus documents and scheme
+- [Faculty](https://iemrvce.vercel.app/faculty): Faculty directory with qualifications, specialisations and research profiles
+- [Resources](https://iemrvce.vercel.app/resources): Semester-wise study notes, question papers and a GPA calculator for students
+- [Events](https://iemrvce.vercel.app/events): Department events, workshops and student activities
+- [Research](https://iemrvce.vercel.app/research): Research metrics, sponsored projects, publications, patents and research themes
+- [Contact](https://iemrvce.vercel.app/contact): Address, phone, email and location map
+- [FAQ](https://iemrvce.vercel.app/faq): Common questions about the IEM branch, placements, curriculum and campus life
+
+## Optional
+
+- [Official RVCE department page](https://rvce.edu.in/department/iem/department_of_industrial_engineering_and_management/): The department's page on the main RVCE website
+- [Sitemap](https://iemrvce.vercel.app/sitemap.xml): Full list of pages and downloadable PDFs (notes, newsletters, syllabus)

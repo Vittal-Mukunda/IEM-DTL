@@ -64,8 +64,16 @@ export default function ResourcesPage() {
             </p>
             <p className="text-sm text-text-muted leading-relaxed mt-4">
               New resources are added regularly. If a folder is empty, notes for
-              that semester will be uploaded soon — check back later, or reach
-              out to the department if you need something specific.
+              that semester will be uploaded soon — check back later, or{" "}
+              <Link href="/contact" className="text-primary hover:underline">
+                reach out to the department
+              </Link>{" "}
+              if you need something specific. Looking for the official syllabus
+              and scheme? See the{" "}
+              <Link href="/curriculum" className="text-primary hover:underline">
+                Curriculum page
+              </Link>
+              .
             </p>
           </div>
         </section>
