@@ -117,9 +117,9 @@ export default function GPACalculator() {
 
   return (
     <div className="space-y-6">
-      {/* Marks table */}
+      {/* Marks table (desktop) */}
       <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="hidden lg:block overflow-x-auto">
           <table className="w-full min-w-[1020px] text-sm">
             <thead>
               <tr className="bg-primary/5 text-left text-primary">
@@ -271,6 +271,148 @@ export default function GPACalculator() {
           </table>
         </div>
 
+        {/* Subject cards (mobile / tablet) */}
+        <div className="lg:hidden divide-y divide-gray-100">
+          {rows.map((row) => {
+            const type = COURSE_TYPES[row.type];
+            return (
+              <div key={row.id} className="p-4 space-y-3">
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={row.name}
+                    onChange={(e) => update(row.id, { name: e.target.value })}
+                    placeholder="Subject name"
+                    aria-label="Subject name"
+                    className={`${inputCls} font-medium`}
+                  />
+                  <button
+                    onClick={() => removeRow(row.id)}
+                    aria-label={`Remove ${row.name || "subject"}`}
+                    title="Remove subject"
+                    className="w-9 h-9 shrink-0 inline-flex items-center justify-center rounded-md border border-gray-200 text-text-muted hover:text-white hover:bg-accent transition-colors"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <select
+                  value={row.type}
+                  onChange={(e) => {
+                    const t = e.target.value as CourseType;
+                    update(row.id, {
+                      type: t,
+                      credits: String(COURSE_TYPES[t].defaultCredits),
+                      labSee: COURSE_TYPES[t].hasLab ? row.labSee : "",
+                    });
+                  }}
+                  aria-label="Course type"
+                  className={inputCls}
+                >
+                  {Object.entries(COURSE_TYPES).map(([key, t]) => (
+                    <option key={key} value={key}>
+                      {t.label}
+                    </option>
+                  ))}
+                </select>
+                <div className="grid grid-cols-2 gap-3">
+                  <label className="block">
+                    <span className="block text-xs text-text-muted mb-1">
+                      CIE Total
+                    </span>
+                    <input
+                      type="number"
+                      min={0}
+                      value={row.cie}
+                      onChange={(e) => update(row.id, { cie: e.target.value })}
+                      placeholder="0"
+                      className={inputCls}
+                    />
+                  </label>
+                  {type.hasLab && (
+                    <label className="block">
+                      <span className="block text-xs text-text-muted mb-1">
+                        Lab SEE
+                      </span>
+                      <input
+                        type="number"
+                        min={0}
+                        value={row.labSee}
+                        onChange={(e) =>
+                          update(row.id, { labSee: e.target.value })
+                        }
+                        placeholder="0"
+                        className={inputCls}
+                      />
+                    </label>
+                  )}
+                  <label className="block">
+                    <span className="block text-xs text-text-muted mb-1">
+                      Sem End
+                    </span>
+                    <input
+                      type="number"
+                      min={0}
+                      value={row.semEnd}
+                      onChange={(e) =>
+                        update(row.id, { semEnd: e.target.value })
+                      }
+                      placeholder="0"
+                      className={inputCls}
+                    />
+                  </label>
+                  <label className="block">
+                    <span className="block text-xs text-text-muted mb-1">
+                      Credits
+                    </span>
+                    <input
+                      type="number"
+                      min={0}
+                      value={row.credits}
+                      onChange={(e) =>
+                        update(row.id, { credits: e.target.value })
+                      }
+                      className={inputCls}
+                    />
+                  </label>
+                </div>
+                <div className="flex items-center justify-between rounded-lg bg-primary/5 px-3 py-2 text-sm text-gray-800">
+                  <span>
+                    Total{" "}
+                    <span className="font-bold tabular-nums">
+                      {totalMarks(row)}
+                    </span>
+                  </span>
+                  <span>
+                    GP{" "}
+                    <span className="font-bold tabular-nums">
+                      {gradePoints(row)}
+                    </span>
+                  </span>
+                  <span>
+                    Weighted{" "}
+                    <span className="font-bold tabular-nums">
+                      {num(row.credits) * gradePoints(row)}
+                    </span>
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         <div className="px-4 py-3 border-t border-gray-100">
           <button onClick={addRow} className="btn-sketch text-sm !min-h-0 !py-2">
             + Add Subject
@@ -311,7 +453,7 @@ export default function GPACalculator() {
           </p>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[560px] text-sm">
+          <table className="w-full text-sm">
             <thead>
               <tr className="text-left text-primary border-b border-gray-100">
                 <th className="px-4 py-2.5 font-semibold">Subject</th>
