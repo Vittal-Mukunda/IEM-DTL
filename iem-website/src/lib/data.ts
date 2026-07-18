@@ -1673,7 +1673,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      name: "Question Papers (CIE)",
+      name: "Question Papers (CIE & SEE)",
       items: [
         {
           label: "CIE 1",
@@ -1689,6 +1689,21 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "CIE 3",
           file: "/notes/sem4/question-papers/cie-3.pdf",
           size: "9.7 MB",
+        },
+        {
+          label: "IM241AT – Question Paper",
+          file: "/notes/sem4/question-papers/im241at-question-paper.pdf",
+          size: "169 KB",
+        },
+        {
+          label: "Supplementary Examinations",
+          file: "/notes/sem4/question-papers/supplementary-examinations.pdf",
+          size: "556 KB",
+        },
+        {
+          label: "SEE – Past Year Question Papers",
+          file: "/notes/sem4/question-papers/see-past-year-question-papers.pdf",
+          size: "4.4 MB",
         },
       ],
     },
