@@ -1692,8 +1692,77 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
+    {
+      name: "Marketing Management",
+      items: [
+        {
+          label: "Digital Marketing – Master Notes",
+          file: "/notes/sem4/marketing-management/digital-marketing-master-notes.pdf",
+          size: "2.9 MB",
+        },
+        {
+          label: "Modern Marketing Blueprint",
+          file: "/notes/sem4/marketing-management/modern-marketing-blueprint.pdf",
+          size: "16 MB",
+        },
+        {
+          label: "The Digital Strategy Blueprint",
+          file: "/notes/sem4/marketing-management/the-digital-strategy-blueprint.pdf",
+          size: "14 MB",
+        },
+        {
+          label: "Product Lifecycle Playbook",
+          file: "/notes/sem4/marketing-management/product-lifecycle-playbook.pdf",
+          size: "14 MB",
+        },
+        {
+          label: "The Content Marketing Engine",
+          file: "/notes/sem4/marketing-management/the-content-marketing-engine.pdf",
+          size: "13 MB",
+        },
+        {
+          label: "Content Engineering Blueprint",
+          file: "/notes/sem4/marketing-management/content-engineering-blueprint.pdf",
+          size: "14 MB",
+        },
+        {
+          label: "SEO & Digital Visibility Blueprint",
+          file: "/notes/sem4/marketing-management/seo-digital-visibility-blueprint.pdf",
+          size: "14 MB",
+        },
+        {
+          label: "Search Everywhere Optimization",
+          file: "/notes/sem4/marketing-management/search-everywhere-optimization.pdf",
+          size: "9.6 MB",
+        },
+        {
+          label: "The Social Strategy Stack",
+          file: "/notes/sem4/marketing-management/the-social-strategy-stack.pdf",
+          size: "15 MB",
+        },
+        {
+          label: "Modern Email Playbook",
+          file: "/notes/sem4/marketing-management/modern-email-playbook.pdf",
+          size: "11 MB",
+        },
+        {
+          label: "CIE 1 – Scheme of Valuation (April 2026)",
+          file: "/notes/sem4/marketing-management/cie-1-scheme-of-valuation-april-2026.pdf",
+          size: "220 KB",
+        },
+        {
+          label: "CIE 2 – Scheme & Solution (May 2026)",
+          file: "/notes/sem4/marketing-management/cie-2-scheme-and-solution-may-2026.pdf",
+          size: "398 KB",
+        },
+        {
+          label: "CIE 3 – Scheme & Solution (June 2026)",
+          file: "/notes/sem4/marketing-management/cie-3-scheme-and-solution-june-2026.pdf",
+          size: "204 KB",
+        },
+      ],
+    },
     // Core courses still awaiting notes — placeholders, empty until uploaded.
-    { name: "Marketing Management", items: [] },
     { name: "Universal Human Values", items: [] },
   ],
   // Sems 5–7: one folder per core course (2022 scheme). Where question
