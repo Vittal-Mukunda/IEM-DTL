@@ -1243,6 +1243,11 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem3/work-systems-design/see-question-papers-collection.pdf",
           size: "552 KB",
         },
+        {
+          label: "Textbook",
+          file: "/notes/sem3/work-systems-design/work-systems-design-textbook.pdf",
+          size: "4.0 MB",
+        },
       ],
     },
     {
@@ -1277,6 +1282,26 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "CIE 1 Notes",
           file: "/notes/sem3/manufacturing-processes/cie-1-notes.pdf",
           size: "328 KB",
+        },
+        {
+          label: "Unit 1 – Class Notes",
+          file: "/notes/sem3/manufacturing-processes/unit-1.pdf",
+          size: "2.7 MB",
+        },
+        {
+          label: "Unit 3 – Class Notes",
+          file: "/notes/sem3/manufacturing-processes/unit-3.pdf",
+          size: "891 KB",
+        },
+        {
+          label: "Unit 4 – Class Notes",
+          file: "/notes/sem3/manufacturing-processes/unit-4.pdf",
+          size: "2.5 MB",
+        },
+        {
+          label: "Unit 5 – Class Notes",
+          file: "/notes/sem3/manufacturing-processes/unit-5.pdf",
+          size: "3.5 MB",
         },
       ],
     },
@@ -1428,6 +1453,26 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem3/mathematics-iii/see-question-paper-april-2024.pdf",
           size: "296 KB",
         },
+        {
+          label: "Unit 4 – Notes",
+          file: "/notes/sem3/mathematics-iii/unit-4-notes.pdf",
+          size: "1.8 MB",
+        },
+        {
+          label: "Unit 4 – Inverse Laplace Transform",
+          file: "/notes/sem3/mathematics-iii/unit-4-inverse-laplace-transform.pdf",
+          size: "900 KB",
+        },
+        {
+          label: "Unit 3 – Laplace Transform Tutorial Sheets",
+          file: "/notes/sem3/mathematics-iii/unit-3-laplace-transform-tutorial-sheets.pdf",
+          size: "658 KB",
+        },
+        {
+          label: "Laplace Equation",
+          file: "/notes/sem3/mathematics-iii/laplace-equation.pdf",
+          size: "5.5 MB",
+        },
       ],
     },
     {
@@ -1473,6 +1518,21 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem3/question-papers/see-question-papers-collection.pdf",
           size: "4.1 MB",
         },
+        {
+          label: "CIE 2 (Additional Set)",
+          file: "/notes/sem3/question-papers/cie-2.pdf",
+          size: "11 MB",
+        },
+        {
+          label: "CIE 3 (Additional Set)",
+          file: "/notes/sem3/question-papers/cie-3.pdf",
+          size: "11 MB",
+        },
+        {
+          label: "Mathematics III – Question Paper (MAT231TB)",
+          file: "/notes/sem3/question-papers/mat231tb-question-paper.pdf",
+          size: "5.7 MB",
+        },
       ],
     },
   ],
@@ -1509,6 +1569,46 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "Master Notes (All Units)",
           file: "/notes/sem4/statistics-for-data-analytics/master-all-units.pdf",
           size: "2.1 MB",
+        },
+        {
+          label: "Unit 1 – Detailed Notes",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-1-notes.pdf",
+          size: "21 MB",
+        },
+        {
+          label: "Unit 2 – Detailed Notes",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-2-notes.pdf",
+          size: "13 MB",
+        },
+        {
+          label: "Unit 3 – Estimation Notes",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-3-estimation-notes.pdf",
+          size: "34 MB",
+        },
+        {
+          label: "Unit 4 – Detailed Notes",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-4-notes.pdf",
+          size: "3.0 MB",
+        },
+        {
+          label: "Unit 5 – Detailed Notes",
+          file: "/notes/sem4/statistics-for-data-analytics/unit-5-notes.pdf",
+          size: "28 MB",
+        },
+        {
+          label: "Question Bank with Solutions (Unitwise)",
+          file: "/notes/sem4/statistics-for-data-analytics/question-bank-with-solutions-unitwise.pdf",
+          size: "447 KB",
+        },
+        {
+          label: "Question Bank – All Units (Part B)",
+          file: "/notes/sem4/statistics-for-data-analytics/question-bank-all-units-part-b.docx",
+          size: "635 KB",
+        },
+        {
+          label: "Question Bank – Units 2 & 3",
+          file: "/notes/sem4/statistics-for-data-analytics/question-bank-units-2-and-3.docx",
+          size: "175 KB",
         },
       ],
     },
@@ -1572,26 +1672,152 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
+    {
+      name: "Question Papers (CIE)",
+      items: [
+        {
+          label: "CIE 1",
+          file: "/notes/sem4/question-papers/cie-1.pdf",
+          size: "19 MB",
+        },
+        {
+          label: "CIE 2",
+          file: "/notes/sem4/question-papers/cie-2.pdf",
+          size: "8.9 MB",
+        },
+        {
+          label: "CIE 3",
+          file: "/notes/sem4/question-papers/cie-3.pdf",
+          size: "9.7 MB",
+        },
+      ],
+    },
     // Core courses still awaiting notes — placeholders, empty until uploaded.
     { name: "Marketing Management", items: [] },
     { name: "Universal Human Values", items: [] },
   ],
-  // Sems 5–7: one folder per core course (2022 scheme); notes not yet
-  // provided, so all start as placeholders. Sem 8 has no taught courses
-  // (Major Project only), so it stays without subfolders.
+  // Sems 5–7: one folder per core course (2022 scheme). Where question
+  // papers are available they live under a shared "Question Papers"
+  // subfolder; subject folders fill in as notes are collected. Sem 8 has no
+  // taught courses (Major Project only), so it stays without subfolders.
   5: [
+    {
+      name: "Question Papers (CIE)",
+      items: [
+        {
+          label: "CIE 1 (2024-25)",
+          file: "/notes/sem5/question-papers/cie-1-2024-25.pdf",
+          size: "5.0 MB",
+        },
+        {
+          label: "CIE 1",
+          file: "/notes/sem5/question-papers/cie-1.pdf",
+          size: "4.9 MB",
+        },
+        {
+          label: "CIE 2 (2024-25)",
+          file: "/notes/sem5/question-papers/cie-2-2024-25.pdf",
+          size: "4.4 MB",
+        },
+        {
+          label: "CIE 2",
+          file: "/notes/sem5/question-papers/cie-2.pdf",
+          size: "4.0 MB",
+        },
+        {
+          label: "CIE 3",
+          file: "/notes/sem5/question-papers/cie-3.pdf",
+          size: "2.5 MB",
+        },
+        {
+          label: "Scanned Paper (June 2026)",
+          file: "/notes/sem5/question-papers/scanned-paper-jun-2026.pdf",
+          size: "4.5 MB",
+        },
+      ],
+    },
     { name: "Entrepreneurship & Intellectual Property Rights", items: [] },
     { name: "Operations Management", items: [] },
     { name: "Quality Assurance", items: [] },
     { name: "Finance Accounting and Costing", items: [] },
   ],
   6: [
+    {
+      name: "Question Papers (CIE)",
+      items: [
+        {
+          label: "CIE 1 (2024-25)",
+          file: "/notes/sem6/question-papers/cie-1-2024-25.pdf",
+          size: "12 MB",
+        },
+        {
+          label: "CIE 2 (2024-25)",
+          file: "/notes/sem6/question-papers/cie-2-2024-25.pdf",
+          size: "11 MB",
+        },
+        {
+          label: "CIE 2 (2025-26)",
+          file: "/notes/sem6/question-papers/cie-2-2025-26.pdf",
+          size: "5.9 MB",
+        },
+        {
+          label: "CIE 2",
+          file: "/notes/sem6/question-papers/cie-2.pdf",
+          size: "7.2 MB",
+        },
+        {
+          label: "CIE 3 (2024-25)",
+          file: "/notes/sem6/question-papers/cie-3-2024-25.pdf",
+          size: "7.5 MB",
+        },
+        {
+          label: "CIE 3 (2025-26)",
+          file: "/notes/sem6/question-papers/cie-3-2025-26.pdf",
+          size: "11 MB",
+        },
+      ],
+    },
     { name: "Principles of Management and Economics", items: [] },
     { name: "Supply Chain Management", items: [] },
     { name: "Ergonomics", items: [] },
     { name: "Human Resource Management & Analytics", items: [] },
   ],
   7: [
+    {
+      name: "Question Papers (CIE)",
+      items: [
+        {
+          label: "CIE 1 (2024-25)",
+          file: "/notes/sem7/question-papers/cie-1-2024-25.pdf",
+          size: "12 MB",
+        },
+        {
+          label: "CIE 1 (2025-26)",
+          file: "/notes/sem7/question-papers/cie-1-2025-26.pdf",
+          size: "4.5 MB",
+        },
+        {
+          label: "CIE 2 (2024-25)",
+          file: "/notes/sem7/question-papers/cie-2-2024-25.pdf",
+          size: "13 MB",
+        },
+        {
+          label: "CIE 2 (2025-26)",
+          file: "/notes/sem7/question-papers/cie-2-2025-26.pdf",
+          size: "11 MB",
+        },
+        {
+          label: "CIE 3 (2024-25)",
+          file: "/notes/sem7/question-papers/cie-3-2024-25.pdf",
+          size: "13 MB",
+        },
+        {
+          label: "CIE 3 (2025-26)",
+          file: "/notes/sem7/question-papers/cie-3-2025-26.pdf",
+          size: "12 MB",
+        },
+      ],
+    },
     { name: "Indian Knowledge System", items: [] },
     { name: "Product Design & Development", items: [] },
     { name: "Total Quality Management", items: [] },
