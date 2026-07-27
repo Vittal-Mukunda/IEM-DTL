@@ -1533,6 +1533,41 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem3/question-papers/mat231tb-question-paper.pdf",
           size: "5.7 MB",
         },
+        {
+          label: "Work Systems Design – CIE Question Papers (2022-23)",
+          file: "/notes/sem3/work-systems-design/cie-question-papers-2022-23.pdf",
+          size: "1.6 MB",
+        },
+        {
+          label: "Work Systems Design – SEE Question Paper (April 2024)",
+          file: "/notes/sem3/work-systems-design/see-question-paper-april-2024.pdf",
+          size: "100 KB",
+        },
+        {
+          label: "Work Systems Design – SEE Question Papers (Collection)",
+          file: "/notes/sem3/work-systems-design/see-question-papers-collection.pdf",
+          size: "552 KB",
+        },
+        {
+          label: "Digital Metrology – Model Question Paper (IM235AI)",
+          file: "/notes/sem3/digital-metrology/model-question-paper-im235ai.pdf",
+          size: "252 KB",
+        },
+        {
+          label: "Digital Metrology – Model Question Paper (2021 Scheme)",
+          file: "/notes/sem3/digital-metrology/model-question-paper-2021-scheme.pdf",
+          size: "120 KB",
+        },
+        {
+          label: "Mathematics III – Model Question Paper",
+          file: "/notes/sem3/mathematics-iii/model-question-paper.pdf",
+          size: "228 KB",
+        },
+        {
+          label: "Mathematics III – SEE Question Paper (April 2024)",
+          file: "/notes/sem3/mathematics-iii/see-question-paper-april-2024.pdf",
+          size: "296 KB",
+        },
       ],
     },
   ],
@@ -1724,6 +1759,41 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem4/question-papers/see-past-year-question-papers.pdf",
           size: "4.4 MB",
+        },
+        {
+          label: "CAD/CAM Robotics – SEE (June/July 2025, IM343AI)",
+          file: "/notes/sem4/cad-cam-robotics/see-question-paper-june-july-2025-im343ai.pdf",
+          size: "207 KB",
+        },
+        {
+          label: "CAD/CAM Robotics – SEE (Sep/Oct 2024, IM343AI)",
+          file: "/notes/sem4/cad-cam-robotics/see-question-paper-sep-oct-2024-im343ai.pdf",
+          size: "158 KB",
+        },
+        {
+          label: "CAD/CAM Robotics – SEE (October 2023, 21IM43)",
+          file: "/notes/sem4/cad-cam-robotics/see-question-paper-october-2023-21im43.pdf",
+          size: "157 KB",
+        },
+        {
+          label: "Operations Research – SEE (Sep/Oct 2024, June/July 2025)",
+          file: "/notes/sem4/operations-research/see-question-papers-2024-and-2025.pdf",
+          size: "1.5 MB",
+        },
+        {
+          label: "Marketing Management – CIE 1 Scheme of Valuation (April 2026)",
+          file: "/notes/sem4/marketing-management/cie-1-scheme-of-valuation-april-2026.pdf",
+          size: "220 KB",
+        },
+        {
+          label: "Marketing Management – CIE 2 Scheme & Solution (May 2026)",
+          file: "/notes/sem4/marketing-management/cie-2-scheme-and-solution-may-2026.pdf",
+          size: "398 KB",
+        },
+        {
+          label: "Marketing Management – CIE 3 Scheme & Solution (June 2026)",
+          file: "/notes/sem4/marketing-management/cie-3-scheme-and-solution-june-2026.pdf",
+          size: "204 KB",
         },
       ],
     },
