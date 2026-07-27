@@ -1640,6 +1640,21 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem4/cad-cam-robotics/unit-5.pdf",
           size: "975 KB",
         },
+        {
+          label: "SEE – June/July 2025 (IM343AI)",
+          file: "/notes/sem4/cad-cam-robotics/see-question-paper-june-july-2025-im343ai.pdf",
+          size: "207 KB",
+        },
+        {
+          label: "SEE – Sep/Oct 2024 (IM343AI)",
+          file: "/notes/sem4/cad-cam-robotics/see-question-paper-sep-oct-2024-im343ai.pdf",
+          size: "158 KB",
+        },
+        {
+          label: "SEE – October 2023 (21IM43)",
+          file: "/notes/sem4/cad-cam-robotics/see-question-paper-october-2023-21im43.pdf",
+          size: "157 KB",
+        },
       ],
     },
     {
@@ -1669,6 +1684,11 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "Unit 5",
           file: "/notes/sem4/operations-research/unit-5.pdf",
           size: "818 KB",
+        },
+        {
+          label: "SEE – Past Year Papers (Sep/Oct 2024, June/July 2025)",
+          file: "/notes/sem4/operations-research/see-question-papers-2024-and-2025.pdf",
+          size: "1.5 MB",
         },
       ],
     },
