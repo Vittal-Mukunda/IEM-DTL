@@ -4,7 +4,7 @@
     {
       "name": "iem-dev",
       "runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
-      "runtimeArgs": ["iem-website/node_modules/next/dist/bin/next", "dev", "iem-website", "-p", "3000"],
+      "runtimeArgs": ["iem-website/node_modules/next/dist/bin/next", "dev", "iem-website"],
       "port": 3000,
       "autoPort": true
     }

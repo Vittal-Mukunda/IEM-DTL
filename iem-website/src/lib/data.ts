@@ -1746,6 +1746,35 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       name: "Marketing Management",
       items: [
         {
+          label:
+            "Study Text – Unit I: Introduction to Digital Marketing and Content Marketing",
+          file: "/notes/sem4/marketing-management/unit1.pdf",
+          size: "599 KB",
+        },
+        {
+          label:
+            "Study Text – Unit II: Social Media Marketing and Search Engine Optimization",
+          file: "/notes/sem4/marketing-management/unit2.pdf",
+          size: "525 KB",
+        },
+        {
+          label:
+            "Study Text – Unit III: Web Analytics, Google Analytics and E-mail Marketing",
+          file: "/notes/sem4/marketing-management/unit3.pdf",
+          size: "428 KB",
+        },
+        {
+          label: "Study Text – Unit IV: Web Design and Mobile Marketing",
+          file: "/notes/sem4/marketing-management/unit4.pdf",
+          size: "431 KB",
+        },
+        {
+          label:
+            "Study Text – Unit V: Conversion Optimization and Digital Analytics",
+          file: "/notes/sem4/marketing-management/unit5.pdf",
+          size: "396 KB",
+        },
+        {
           label: "Digital Marketing – Master Notes",
           file: "/notes/sem4/marketing-management/digital-marketing-master-notes.pdf",
           size: "2.9 MB",
