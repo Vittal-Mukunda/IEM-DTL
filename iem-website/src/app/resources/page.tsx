@@ -169,10 +169,11 @@ export default function ResourcesPage() {
               GPA Calculator
             </h2>
             <p className="text-gray-700 leading-relaxed mt-2 max-w-3xl">
-              Enter your CIE, Lab SEE and Semester End marks to compute your
-              grade points and SGPA. Add or remove subjects to match your
-              semester, and use the target table to see the Sem End marks you
-              still need for each grade.
+              Pick a semester &mdash; subjects, course types and credits are
+              pre-filled from the IEM scheme for the 3rd through 7th semesters.
+              Enter your CIE, Lab SEE and Semester End marks to compute grade
+              points, SGPA and CGPA across semesters, and use the target table
+              to see the Sem End marks you still need for each grade.
             </p>
           </div>
           <GPACalculator />

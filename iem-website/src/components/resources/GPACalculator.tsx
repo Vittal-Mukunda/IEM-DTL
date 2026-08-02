@@ -1,37 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
-
-// Grade boundaries per course type — [10, 9, 8, 7] grade-point cutoffs on
-// total marks (CIE + Lab SEE + Sem End). Below the last cutoff scores 0.
-const COURSE_TYPES = {
-  lab: {
-    label: "Theory + Lab",
-    thresholds: [268, 240, 210, 180],
-    hasLab: true,
-    defaultCredits: 4,
-  },
-  theory: {
-    label: "Theory (200 marks)",
-    thresholds: [180, 160, 140, 120],
-    hasLab: false,
-    defaultCredits: 4,
-  },
-  basket: {
-    label: "Basket Course",
-    thresholds: [179, 161, 141, 121],
-    hasLab: false,
-    defaultCredits: 3,
-  },
-  small: {
-    label: "Theory (100 marks)",
-    thresholds: [90, 80, 70, 60],
-    hasLab: false,
-    defaultCredits: 2,
-  },
-} as const;
-
-type CourseType = keyof typeof COURSE_TYPES;
+import {
+  COURSE_TYPES,
+  semesterSchemes,
+  type CourseType,
+  type SemesterScheme,
+} from "@/lib/gpaScheme";
 
 interface SubjectRow {
   id: number;
@@ -43,15 +18,19 @@ interface SubjectRow {
   credits: string;
 }
 
-const DEFAULT_SUBJECTS: SubjectRow[] = [
-  { id: 0, name: "OR", type: "lab", cie: "", labSee: "", semEnd: "", credits: "4" },
-  { id: 1, name: "CAD", type: "lab", cie: "", labSee: "", semEnd: "", credits: "4" },
-  { id: 2, name: "Mathematics", type: "theory", cie: "", labSee: "", semEnd: "", credits: "4" },
-  { id: 3, name: "Basket Course", type: "basket", cie: "", labSee: "", semEnd: "", credits: "3" },
-  { id: 4, name: "UHV", type: "small", cie: "", labSee: "", semEnd: "", credits: "2" },
-  { id: 5, name: "DTL", type: "small", cie: "", labSee: "", semEnd: "", credits: "2" },
-  { id: 6, name: "NPTEL", type: "small", cie: "", labSee: "", semEnd: "", credits: "2" },
-];
+const rowsFromScheme = (scheme: SemesterScheme): SubjectRow[] =>
+  scheme.courses.map((c, i) => ({
+    id: i,
+    name: c.name,
+    type: c.type,
+    cie: "",
+    labSee: "",
+    semEnd: "",
+    credits: String(c.credits),
+  }));
+
+const initialRows = (): Record<number, SubjectRow[]> =>
+  Object.fromEntries(semesterSchemes.map((s) => [s.sem, rowsFromScheme(s)]));
 
 const num = (s: string) => {
   const v = parseFloat(s);
@@ -80,17 +59,32 @@ function requiredSemEnd(row: SubjectRow, cutoff: number) {
   return Math.max(0, cutoff - num(row.cie) - lab);
 }
 
+const hasMarks = (rows: SubjectRow[]) =>
+  rows.some((r) => r.cie !== "" || r.labSee !== "" || r.semEnd !== "");
+
+function semesterTotals(rows: SubjectRow[]) {
+  const credits = rows.reduce((n, r) => n + num(r.credits), 0);
+  const weighted = rows.reduce((n, r) => n + num(r.credits) * gradePoints(r), 0);
+  return { credits, weighted, sgpa: credits > 0 ? weighted / credits : 0 };
+}
+
 export default function GPACalculator() {
-  const [rows, setRows] = useState<SubjectRow[]>(DEFAULT_SUBJECTS);
-  const nextId = useRef(DEFAULT_SUBJECTS.length);
+  const [activeSem, setActiveSem] = useState(semesterSchemes[0].sem);
+  const [bySem, setBySem] = useState<Record<number, SubjectRow[]>>(initialRows);
+  const nextId = useRef(1000);
+
+  const scheme = semesterSchemes.find((s) => s.sem === activeSem)!;
+  const rows = bySem[activeSem];
+
+  const setRows = (fn: (rs: SubjectRow[]) => SubjectRow[]) =>
+    setBySem((all) => ({ ...all, [activeSem]: fn(all[activeSem]) }));
 
   const update = (id: number, patch: Partial<SubjectRow>) =>
     setRows((rs) => rs.map((r) => (r.id === id ? { ...r, ...patch } : r)));
 
-  const removeRow = (id: number) =>
-    setRows((rs) => rs.filter((r) => r.id !== id));
+  const removeRow = (id: number) => setRows((rs) => rs.filter((r) => r.id !== id));
 
-  const addRow = () => {
+  const addRow = () =>
     setRows((rs) => [
       ...rs,
       {
@@ -103,20 +97,85 @@ export default function GPACalculator() {
         credits: String(COURSE_TYPES.small.defaultCredits),
       },
     ]);
-  };
 
-  const totalCredits = rows.reduce((n, r) => n + num(r.credits), 0);
-  const totalWeighted = rows.reduce(
-    (n, r) => n + num(r.credits) * gradePoints(r),
-    0,
-  );
-  const cgpa = totalCredits > 0 ? totalWeighted / totalCredits : 0;
+  const resetSemester = () =>
+    setBySem((all) => ({ ...all, [activeSem]: rowsFromScheme(scheme) }));
+
+  const { credits: totalCredits, weighted: totalWeighted, sgpa } =
+    semesterTotals(rows);
+
+  // CGPA across every semester the student has actually entered marks for.
+  const filled = semesterSchemes
+    .map((s) => ({ scheme: s, rows: bySem[s.sem] }))
+    .filter((s) => hasMarks(s.rows))
+    .map((s) => ({ ...s, ...semesterTotals(s.rows) }));
+  const cgpaCredits = filled.reduce((n, s) => n + s.credits, 0);
+  const cgpa =
+    cgpaCredits > 0
+      ? filled.reduce((n, s) => n + s.weighted, 0) / cgpaCredits
+      : 0;
 
   const inputCls =
     "w-full rounded-md border border-gray-200 px-2 py-1.5 text-sm text-gray-800 focus:outline-none focus:border-primary/60 focus:ring-2 focus:ring-primary/15";
 
   return (
     <div className="space-y-6">
+      {/* Semester picker */}
+      <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 sm:p-5">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-sm font-semibold text-primary mr-1">
+            Semester
+          </span>
+          {semesterSchemes.map((s) => {
+            const active = s.sem === activeSem;
+            return (
+              <button
+                key={s.sem}
+                onClick={() => setActiveSem(s.sem)}
+                aria-pressed={active}
+                className={`min-w-[3.25rem] rounded-lg px-3 py-1.5 text-sm font-semibold border transition-colors ${
+                  active
+                    ? "bg-primary text-white border-primary"
+                    : "bg-white text-gray-700 border-gray-200 hover:border-primary/50 hover:text-primary"
+                }`}
+              >
+                {s.label}
+                {hasMarks(bySem[s.sem]) && (
+                  <span
+                    className={`ml-1.5 inline-block w-1.5 h-1.5 rounded-full align-middle ${
+                      active ? "bg-white" : "bg-accent"
+                    }`}
+                    aria-label="marks entered"
+                  />
+                )}
+              </button>
+            );
+          })}
+          <button
+            onClick={resetSemester}
+            className="ml-auto text-sm text-text-muted hover:text-accent underline underline-offset-2"
+          >
+            Reset {scheme.label} sem
+          </button>
+        </div>
+        <p className="text-xs text-text-muted mt-3 leading-relaxed">
+          Subjects, course types and credits are pre-filled from the IEM scheme
+          for the {scheme.label} semester
+          {scheme.totalCredits ? ` (${scheme.totalCredits} credits)` : ""}.
+          Electives are listed by their group — rename them to the course you
+          took. Marks stay saved as you switch between semesters.
+          {scheme.partial && (
+            <>
+              {" "}
+              <span className="text-accent">
+                Any additional rows in your scheme table (audit, ability
+                enhancement or 0-credit courses) can be added below.
+              </span>
+            </>
+          )}
+        </p>
+      </div>
+
       {/* Marks table (desktop) */}
       <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
         <div className="hidden lg:block overflow-x-auto">
@@ -435,11 +494,75 @@ export default function GPACalculator() {
           </p>
         </div>
         <div className="bg-primary rounded-xl shadow-sm p-5 text-center text-white">
-          <p className="text-sm text-gray-200">Your SGPA</p>
+          <p className="text-sm text-gray-200">
+            SGPA &middot; {scheme.label} Semester
+          </p>
           <p className="text-3xl font-bold mt-1 tabular-nums">
-            {cgpa.toFixed(2)}
+            {sgpa.toFixed(2)}
           </p>
         </div>
+      </div>
+
+      {/* CGPA across semesters */}
+      <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+        <div className="px-4 py-3 bg-primary/5 border-b border-gray-100">
+          <h3 className="font-semibold text-primary">CGPA Across Semesters</h3>
+          <p className="text-xs text-text-muted mt-0.5">
+            Credit-weighted across every semester you have entered marks for.
+          </p>
+        </div>
+        {filled.length === 0 ? (
+          <p className="px-4 py-5 text-sm text-text-muted italic">
+            Enter marks in one or more semesters to see your CGPA.
+          </p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-primary border-b border-gray-100">
+                  <th className="px-4 py-2.5 font-semibold">Semester</th>
+                  <th className="px-3 py-2.5 font-semibold text-right">
+                    Credits
+                  </th>
+                  <th className="px-3 py-2.5 font-semibold text-right">
+                    Weighted GP
+                  </th>
+                  <th className="px-4 py-2.5 font-semibold text-right">SGPA</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filled.map((s) => (
+                  <tr key={s.scheme.sem} className="border-t border-gray-100">
+                    <td className="px-4 py-2 text-gray-800">
+                      {s.scheme.label} Semester
+                    </td>
+                    <td className="px-3 py-2 text-right text-gray-800 tabular-nums">
+                      {s.credits}
+                    </td>
+                    <td className="px-3 py-2 text-right text-gray-800 tabular-nums">
+                      {s.weighted}
+                    </td>
+                    <td className="px-4 py-2 text-right font-semibold text-gray-800 tabular-nums">
+                      {s.sgpa.toFixed(2)}
+                    </td>
+                  </tr>
+                ))}
+                <tr className="border-t-2 border-primary/20 bg-primary/5">
+                  <td className="px-4 py-2.5 font-semibold text-primary">
+                    CGPA
+                  </td>
+                  <td className="px-3 py-2.5 text-right font-semibold text-primary tabular-nums">
+                    {cgpaCredits}
+                  </td>
+                  <td className="px-3 py-2.5" />
+                  <td className="px-4 py-2.5 text-right font-bold text-primary tabular-nums">
+                    {cgpa.toFixed(2)}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
 
       {/* Required Sem End marks for each grade */}
@@ -449,7 +572,8 @@ export default function GPACalculator() {
             Required Sem End Marks for Target Grade
           </h3>
           <p className="text-xs text-text-muted mt-0.5">
-            Based on the CIE (and Lab SEE) marks entered above.
+            Based on the CIE (and Lab SEE) marks entered for the {scheme.label}{" "}
+            semester above.
           </p>
         </div>
         <div className="overflow-x-auto">
@@ -493,30 +617,43 @@ export default function GPACalculator() {
         <h3 className="font-semibold text-primary mb-2">Grading Scale</h3>
         <ul className="text-sm text-gray-700 space-y-1.5 leading-relaxed">
           <li>
-            <span className="font-medium">Theory + Lab (4 credits):</span>{" "}
+            <span className="font-medium">
+              Theory + Lab, 300 marks (CIE 100 + Lab 50 + SEE 100 + Lab SEE 50):
+            </span>{" "}
             268+ = 10 &middot; 240&ndash;267 = 9 &middot; 210&ndash;239 = 8
             &middot; 180&ndash;209 = 7
           </li>
           <li>
-            <span className="font-medium">Theory, 200 marks (4 credits):</span>{" "}
+            <span className="font-medium">
+              Theory, 200 marks (CIE 100 + SEE 100):
+            </span>{" "}
             180+ = 10 &middot; 160&ndash;179 = 9 &middot; 140&ndash;159 = 8
             &middot; 120&ndash;139 = 7
           </li>
           <li>
-            <span className="font-medium">Basket Course (3 credits):</span>{" "}
-            179+ = 10 &middot; 161&ndash;178 = 9 &middot; 141&ndash;160 = 8
-            &middot; 121&ndash;140 = 7
+            <span className="font-medium">Basket Course, 200 marks:</span> 179+
+            = 10 &middot; 161&ndash;178 = 9 &middot; 141&ndash;160 = 8 &middot;
+            121&ndash;140 = 7
           </li>
           <li>
-            <span className="font-medium">Theory, 100 marks (2 credits):</span>{" "}
+            <span className="font-medium">
+              Theory / Lab, 100 marks (CIE 50 + SEE 50):
+            </span>{" "}
             90+ = 10 &middot; 80&ndash;89 = 9 &middot; 70&ndash;79 = 8 &middot;
             60&ndash;69 = 7
           </li>
+          <li>
+            <span className="font-medium">NPTEL, 50 marks (SEE only):</span> 45+
+            = 10 &middot; 40&ndash;44 = 9 &middot; 35&ndash;39 = 8 &middot;
+            30&ndash;34 = 7
+          </li>
         </ul>
         <p className="text-xs text-text-muted mt-3">
-          Totals below the 7-grade-point cutoff score 0 grade points. Enter CIE,
-          Lab SEE (for lab courses) and Sem End marks &mdash; totals, grade
-          points and SGPA update automatically.
+          Projects and the summer internship are graded 100 CIE + 100 SEE, so
+          they use the same 200-mark scale as theory courses. Totals below the
+          7-grade-point cutoff score 0 grade points. Enter CIE, Lab SEE (for lab
+          courses) and Sem End marks &mdash; totals, grade points, SGPA and CGPA
+          update automatically.
         </p>
       </div>
     </div>
