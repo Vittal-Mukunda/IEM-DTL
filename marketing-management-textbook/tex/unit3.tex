@@ -1,0 +1,876 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Marketing Management (IM345AT) -- Volume 3 of 5
+%  UNIT III : Web Analytics, Google Analytics and E-mail Marketing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{MMTextbook}
+
+\unitnumber{III}
+\unittitle{Web Analytics, Google Analytics and E-mail Marketing}
+\unitsubtitle{Measurement, reporting, and the owned channel with the highest
+conversion rate in digital marketing}
+\unithours{07 Hours}
+\volumeno{3}
+
+\makeindex[intoc=true,columns=2,title=Index]
+
+\hypersetup{
+  pdftitle={Marketing Management IM345AT -- Unit III: Web Analytics, Google
+             Analytics and E-mail Marketing},
+  pdfsubject={Semester IV, Department of Industrial Engineering and Management,
+              RV College of Engineering},
+  pdfkeywords={web analytics, Google Analytics, e-mail marketing, conversion,
+               IM345AT, marketing management}
+}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\pagestyle{mmfront}
+
+\halftitlepage
+\maintitlepage
+
+\colophonpage{%
+\textbf{\coursetitle\ ---\ The Study Text}\\[2pt]
+Volume 3 of 5 \textbullet\ Unit III: Web Analytics, Google Analytics and E-mail
+Marketing\\[10pt]
+%
+Prepared for the course \coursetitle\ (\coursecode), Semester IV, of the
+\coursedept, \courseinstitute.\\[10pt]
+%
+\textbf{Sources.} The syllabus, course outcomes, assessment rubrics and
+reference-book list reproduced in the front matter are transcribed from the
+official course document. The previous-year questions in Appendix~B are
+transcribed from RVCE Continuous Internal Evaluation and Semester End
+Examination papers for this course, and where an official scheme of valuation
+was released the model answers follow it. The explanatory text is compiled from
+classroom lecture notes and, where those were incomplete, from the prescribed
+reference texts.\\[10pt]
+%
+\textbf{Typography.} Set in Nimbus Roman with URW Gothic display headings.
+Composed in \LaTeX{} using the \texttt{MMTextbook} class written for this
+series. The visual design is derived from \emph{The Legrand Orange Book}
+template by Mathias Legrand, with modifications by Vel, distributed through
+LaTeXTemplates.com under a Creative Commons BY-NC-SA 4.0 licence; the class
+re-implements that design language on standard CTAN packages. All figures are
+drawn in \TikZ{} and \texttt{pgfplots}.\\[10pt]
+%
+\textbf{Status.} Unofficial student-compiled study material. Not issued,
+endorsed or verified by the Department or by RV College of Engineering.\\[10pt]
+%
+2026 edition.}
+
+% ---------------------------------------------------------------- preface
+\frontchapter{Preface to Volume 3}
+
+Unit~III is where digital marketing stops being persuasion and becomes
+measurement. The two halves of the unit are the instrument and the channel: web
+analytics is how a business finds out what actually happened, and e-mail
+marketing is the one channel whose audience the business owns outright.
+
+The connection between them is not incidental. Web analytics converts anonymous
+traffic into evidence, and without it digital marketing forfeits the single
+structural advantage it holds over traditional marketing --- measurability. E-mail
+is the channel that most rewards that evidence, because it is the only major
+channel where the marketer can segment, personalise, trigger and re-send without
+asking an algorithm's permission.
+
+Chapters~1 to~3 cover web analytics and Google Analytics; Chapters~4 to~7 cover
+e-mail marketing. The chapter sequence follows the syllabus phrase order exactly,
+and Appendix~A records the mapping.
+
+One characteristic of this unit deserves stating in advance, because it changes
+how the material should be learned. Almost every past-paper question in Unit~III
+is \emph{applied}: you are given a business --- an e-commerce site, an e-learning
+platform, a travel agency, a skincare startup, an online business targeting
+college students --- and asked to build a plan or diagnose a failure. General
+commentary scores badly on such questions. What scores is a named framework
+applied to the specific case. This volume therefore states each framework
+explicitly and by name --- the six-stage measurement funnel, the seven-node
+e-mail plan, the eight-step goal setup, the eight-step segmentation guide --- and
+then works it through on a real scenario so the pattern is visible.
+
+Unlike Volumes~1 and~2, this volume has no appendix of off-syllabus material.
+Every topic in the source notes for Unit~III maps to a phrase in the unit
+descriptor, so nothing had to be set aside.
+
+\vspace{12pt}
+\noindent\emph{The whole of the course syllabus is reproduced overleaf. The
+unit covered by this volume is Unit~III.}
+
+% ------------------------------------------------- conventions & syllabus
+\input{mm-howtouse}
+\input{mm-syllabus}
+
+% ---------------------------------------------------------------- contents
+\cleardoublepage
+\pdfbookmark[0]{Contents}{toc}
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagestyle{mmmain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Web Analytics --- Fundamentals and Role}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Web Analytics \& Google Analytics.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What web analytics is, and why it matters in digital marketing.
+\item Traditional marketing analysis against web analytics-based analysis.
+\item The three metric families: volume, quality, action.
+\item The core metrics, precisely defined --- including the distinction between
+      bounce\ix{bounce} rate and exit rate, and between dimensions and metrics.
+\item The dual lens of website analytics and social analytics.
+\item The eight roles of web analytics and the seven benefits of analysing site
+      data.
+\item How to align analytics KPIs with organisational goals.
+\item A/B testing\ix{A/B testing} and conversion rate optimisation.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Definition and Importance}
+
+\begin{definitionbox}[Web Analytics]
+\keytermas{Web analytics}{web analytics} is the process of collecting,
+measuring, analysing and reporting website data in order to understand and
+optimise web usage.
+\pyq{CIE-II, 26 May 2026 --- 2 M}
+\end{definitionbox}
+
+\noindent\textbf{Importance in digital marketing:} it helps understand customer
+behaviour; measures campaign effectiveness; improves website performance; and
+supports better marketing decisions.
+
+\begin{keybox}[Why This Is the Foundation of the Whole Discipline]
+Web analytics converts anonymous traffic into evidence. Without it, digital
+marketing loses the one structural advantage it holds over traditional
+marketing --- measurability.
+\end{keybox}
+
+\section{Traditional Marketing Analysis Against Web Analytics}
+
+\begin{keybox}[High Yield]
+\pyq{CIE-II, 26 May 2026 --- 10 M}
+Learn at least seven rows, and attach an example to each.
+\end{keybox}
+
+\begin{mmlongtable}{Traditional marketing analysis against web analytics-based analysis}{tab:tradvsweb}%
+{@{}P{0.16\textwidth}P{0.36\textwidth}P{0.41\textwidth}@{}}
+\rowcolor{ocre}\thd{Aspect} & \thd{Traditional Marketing Analysis} & \thd{Web Analytics-Based Analysis}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Aspect} & \thd{Traditional Marketing Analysis} & \thd{Web Analytics-Based Analysis}\\
+\midrule
+\endhead
+\rlab{Data collection} & Surveys and interviews & Real-time online tracking\\
+\rowcolor{tablealt}
+\rlab{Speed} & Slow & Instant\\
+\rlab{Accuracy} & Limited --- relies on recall and self-reporting & Highly
+accurate --- records actual behaviour\\
+\rowcolor{tablealt}
+\rlab{Customer tracking} & Difficult & Easy\\
+\rlab{Cost} & Expensive & Cost-effective\\
+\rowcolor{tablealt}
+\rlab{Measurement} & Estimated results & Measurable KPIs\\
+\rlab{Sample} & A sample of respondents & The entire population of visitors\\
+\rowcolor{tablealt}
+\rlab{Attribution} & Largely guesswork & Channel- and campaign-level
+attribution\\
+\rlab{Feedback loop} & Post-campaign & Continuous, mid-campaign\\
+\rowcolor{tablealt}
+\rlab{Example} & A focus group is asked whether an advertisement was memorable &
+Google Analytics shows exactly how many people saw the advertisement, clicked,
+browsed and purchased\\
+\end{mmlongtable}
+
+\section{The Three Metric Families}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    fam/.style={rounded corners=4pt,line width=1pt,align=center,
+                text width=3.35cm,inner sep=8pt,font=\sffamily\scriptsize}]
+  \node[fam,draw=ocre,fill=ocrepale,text=slate] (v) at (0,0)
+    {\textbf{\textcolor{ocredark}{VOLUME}}\\[3pt]
+     \textit{Are we being seen?}\ \ (attract)\\[5pt]
+     impressions\\ visits and sessions\\ reach};
+  \node[fam,draw=deepblue,fill=deepbluepale,text=slate] (q) at (4.05,0)
+    {\textbf{\textcolor{deepblue}{QUALITY}}\\[3pt]
+     \textit{Are we relevant?}\ \ (engage)\\[5pt]
+     bounce rate\\ session duration\\ sentiment};
+  \node[fam,draw=greenok,fill=greenpale,text=slate] (a) at (8.1,0)
+    {\textbf{\textcolor{greenok}{ACTION}}\\[3pt]
+     \textit{Are they engaging?}\ \ (measure)\\[5pt]
+     click-through rate\\ conversion rate\\ engagement rate};
+  \draw[-{Latex[length=2.4mm]},slate,line width=0.9pt] (v)--(q);
+  \draw[-{Latex[length=2.4mm]},slate,line width=0.9pt] (q)--(a);
+\end{tikzpicture}
+\caption[The three metric families]%
+        {The three families in sequence. A reading in one family cannot be
+         interpreted without the others: high volume with poor quality is wasted
+         acquisition, and good quality with no action is a missing call to
+         action.}
+\label{fig:metricfamilies}
+\end{figure}
+
+\begin{mmlongtable}{The three metric families}{tab:metricfam3}%
+{@{}P{0.13\textwidth}P{0.24\textwidth}P{0.56\textwidth}@{}}
+\rowcolor{ocre}\thd{Family} & \thd{Question it answers} & \thd{Metrics}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Family} & \thd{Question it answers} & \thd{Metrics}\\
+\midrule
+\endhead
+\rlab{Volume} & Are we being seen? (attract) & \textbf{Impressions} --- the
+number of times content is seen. \textbf{Visits or sessions} --- total times
+people have been to the site. \textbf{Reach} --- total users receiving brand
+content.\\
+\rowcolor{tablealt}
+\rlab{Quality} & Are we relevant? (engage) & \textbf{Bounce rate} --- people
+arriving and leaving without visiting another page. \textbf{Session duration}
+--- time spent per visit. \textbf{Sentiment} --- positive, negative or neutral
+brand mentions.\\
+\rlab{Action} & Are they engaging? (measure) & \textbf{Click-through rate} ---
+the percentage of people who see content and click. \textbf{Conversion rate}
+--- the percentage who buy against who arrived. \textbf{Engagement rate} ---
+the ratio of people taking action to the total who saw the content.\\
+\end{mmlongtable}
+
+\section{Core Metrics, Precisely Defined}
+
+\begin{description}
+\item[Users or unique visitors] The number of distinct individuals who visited
+the site in a period, de-duplicated by client identifier.
+\item[Sessions or visits] A group of interactions by one user within a given time
+frame. A single user may generate many sessions.
+\item[Pageviews] The total number of pages loaded. \emph{Unique} pageviews counts
+a page once per session.
+\item[Bounce rate] The percentage of visitors who leave a website after viewing
+only one page without any interaction.
+\item[Exit rate] The percentage of sessions that ended on a given page.
+\item[Average session duration] The mean time users spend per session; a proxy
+for content depth and interest.
+\item[Pages per session] The average number of pages viewed per session; a
+measure of site exploration.
+\item[Conversion rate] The percentage of sessions or users completing a defined
+goal --- purchase, sign-up, download, enquiry.
+\item[Goal or conversion] A specific, valuable, trackable user action that the
+site is designed to produce.
+\item[Acquisition channel] The grouping that describes where a session came from
+--- organic search\ix{organic search}, paid search, direct, referral, social, e-mail, display.
+\item[New against returning visitors] The split between first-time and repeat
+users; a retention signal.
+\end{description}
+
+\begin{warnbox}[Bounce Rate Is Not Exit Rate]
+Every session that bounces also exits, but not every exit is a bounce. A bounce
+is a single-page session with no interaction; an exit is simply the last page of
+\emph{any} session.
+
+\smallskip
+The practical consequence: an exit is not necessarily a failure. An
+order-confirmation page \emph{should} have a high exit rate, because the user has
+finished. Treating exit rate as a fault indicator therefore leads to
+`optimising' pages that are already working.
+\end{warnbox}
+
+\begin{definitionbox}[Dimensions and Metrics]
+\keytermas{Dimensions}{dimension} are the \emph{attributes} of the data --- the
+qualitative descriptors that answer ``what'' or ``where'': city, device, browser,
+source and medium, page path, landing page.
+
+\keytermas{Metrics}{metric} are the \emph{quantitative} measurements --- the
+numbers: sessions, users, pageviews, bounce rate, revenue.
+
+\smallskip
+In a report, dimensions form the rows and metrics form the columns.
+\pyq{SEE, Oct/Nov 2023 --- 2 M}
+\end{definitionbox}
+
+\section{Bounce Rate and Website Performance Assessment}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{CIE-II, 26 May 2026; SEE, Jun/Jul 2025 --- 2 M}
+Bounce rate is the percentage of visitors who leave a website after viewing only
+one page without any interaction.
+
+\smallskip
+\textbf{Effect on performance evaluation.} A high bounce rate indicates that
+visitors are not finding what they expected --- signalling poor content
+relevance, slow page load, confusing design, weak calls to action or mismatched
+traffic. It therefore acts as an early diagnostic of both \emph{content quality}
+and \emph{traffic quality}, and correlates with lower conversion rates.
+\end{exambox}
+
+\begin{warnbox}[Always Read Bounce Rate in Context]
+A high bounce is not automatically a fault. A blog post that answers a question
+completely, or a contact page that supplies a phone number, may legitimately show
+a high bounce rate because the visitor's need was met on that single page. The
+diagnosis depends on what the page was \emph{for}.
+\end{warnbox}
+
+\section{The Dual Lens --- Website Analytics and Social Analytics}
+
+\begin{mmlongtable}{The website footprint and the social echo}{tab:duallens}%
+{@{}P{0.13\textwidth}P{0.42\textwidth}P{0.38\textwidth}@{}}
+\rowcolor{ocre}\thd{} & \thd{The Website Footprint} & \thd{The Social Echo}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{} & \thd{The Website Footprint} & \thd{The Social Echo}\\
+\midrule
+\endhead
+\rlab{Focus} & On-site behaviour and technical specifications & Off-site
+popularity and brand conversation\\
+\rowcolor{tablealt}
+\rlab{Key data} & Device type, make and model; browser, resolution, operating
+system; language and location; new against returning visitors; traffic sources;
+funnel conversion from start to end of purchase & Mentions; followers; buzz, a
+combined popularity measure; share of voice, conversations about you against the
+competition; sentiment\\
+\rlab{Major players} & Google Analytics, Adobe Analytics, Webtrends &
+Facebook Insights, X Analytics, Hootsuite\\
+\end{mmlongtable}
+
+\section{The Role of Web Analytics in Digital Marketing}
+
+\begin{keybox}[High Yield]
+``Explain the role of web analytics in digital marketing. How can businesses
+benefit from analysing website data?''
+\pyq{CIE-II, 7 May 2025 --- 10 M}
+The question has two halves; answer both. The roles are what analytics
+\emph{does}; the benefits are what the business \emph{gets}.
+\end{keybox}
+
+\begin{enumerate}
+\item \sfb{Measurement of effectiveness} --- establishes which campaigns,
+      channels and creatives actually produce results.
+\item \sfb{Understanding customer behaviour} --- reveals the real path users
+      take, not the path the business assumed.
+\item \sfb{Conversion optimisation} --- locates the exact step at which
+      prospects abandon.
+\item \sfb{Budget allocation} --- directs spend to the lowest cost per
+      acquisition.
+\item \sfb{Content strategy} --- identifies which topics and formats attract and
+      hold the audience.
+\item \sfb{Technical improvement} --- surfaces slow pages, broken journeys and
+      device-specific failures.
+\item \sfb{Segmentation and personalisation} --- enables different treatment of
+      different audiences.
+\item \sfb{Forecasting and target-setting} --- historical data makes goals
+      realistic and progress measurable.
+\end{enumerate}
+
+\subsection{Benefits of analysing website data}
+
+\begin{itemize}
+\item Higher conversion rates, from evidence-based fixes rather than opinion.
+\item Lower customer acquisition cost, through better channel allocation.
+\item Improved user experience and reduced bounce.
+\item Faster detection of problems --- a tracking break, a broken checkout, a
+      traffic collapse.
+\item Better content decisions and less wasted production effort.
+\item Demonstrable ROI, which protects and justifies the marketing budget.
+\item Competitive advantage, from acting on data faster than rivals do.
+\end{itemize}
+
+\section{Aligning Analytics KPIs With Organisational Goals}
+
+\begin{exambox}[Model Answer --- 10 Marks]
+\pyq{CIE-I, 16 Apr 2026 --- 10 M}
+\begin{enumerate}
+\item \sfb{Identify business goals} --- increase sales, brand awareness\ix{brand awareness}, lead
+      generation.
+\item \sfb{Map goals to relevant KPIs.} Sales growth \ra{} conversion rate,
+      revenue, cart-abandonment rate. Brand awareness \ra{} website traffic,
+      impressions, reach. Lead generation\ix{lead generation} \ra{} form submissions, sign-ups.
+      Customer engagement \ra{} bounce rate, session duration, pages per visit.
+\item \sfb{Use SMART\ix{SMART} KPIs} --- Specific, Measurable, Achievable, Relevant,
+      Time-bound. For example: increase conversion rate by 10\% in three months.
+\item \sfb{Use analytics tools} --- track the KPIs through Google Analytics\ix{Google Analytics} and
+      dashboards.
+\item \sfb{Monitor and optimise continuously} --- analyse data regularly and
+      modify strategy on the basis of measured performance.
+\end{enumerate}
+\end{exambox}
+
+\section{A/B Testing and Conversion Rate Optimisation}
+
+\begin{definitionbox}[A/B Testing and CRO]
+\keytermas{A/B testing}{A/B testing}, also called split testing, is showing two
+versions of a page or element to two randomly assigned halves of the traffic
+simultaneously, and measuring which produces a statistically significantly
+better outcome on a defined goal.
+
+\keytermas{Conversion rate optimisation}{conversion rate optimisation} (CRO) is
+the systematic process of increasing the percentage of visitors who complete a
+desired action, using analytics, user research and controlled experiments.
+\end{definitionbox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    pg/.style={draw=slate!55,line width=0.8pt,minimum width=2.5cm,
+               minimum height=1.9cm,align=center,font=\sffamily\scriptsize,
+               text=slate}]
+  \node[draw=slate,line width=1pt,fill=white,rounded corners=3pt,
+        minimum width=2.6cm,minimum height=0.85cm,align=center,
+        font=\sffamily\bfseries\scriptsize,text=slate] (t) at (0,2.1)
+        {INCOMING TRAFFIC};
+
+  \node[pg,fill=ocrepale] (a) at (-2.0,0)  {\textbf{VERSION A}\\[3pt] the control\\[3pt] 50\% of traffic};
+  \node[pg,fill=deepbluepale] (b) at (2.0,0) {\textbf{VERSION B}\\[3pt] the variant\\[3pt] 50\% of traffic};
+
+  \draw[-{Latex[length=2.3mm]},ocre,line width=1pt]     (t.south) -- (-2.0,1.0);
+  \draw[-{Latex[length=2.3mm]},deepblue,line width=1pt] (t.south) -- ( 2.0,1.0);
+
+  \node[draw=greenok,line width=1pt,fill=greenpale,rounded corners=3pt,
+        minimum width=6.2cm,minimum height=0.85cm,align=center,
+        font=\sffamily\bfseries\scriptsize,text=greenok] (m) at (0,-1.7)
+        {MEASURE ONE GOAL, RUN TO STATISTICAL SIGNIFICANCE};
+  \draw[-{Latex[length=2.3mm]},slate,line width=0.9pt] (-2.0,-1.0) -- (-1.4,-1.28);
+  \draw[-{Latex[length=2.3mm]},slate,line width=0.9pt] ( 2.0,-1.0) -- ( 1.4,-1.28);
+
+  \node[anchor=west,align=left,text width=4.6cm,font=\sffamily\scriptsize,
+        text=slate] at (3.7,0.4)
+    {\textbf{One variable at a time.}\\[3pt]
+     Changing two elements at once means a win cannot be attributed to either
+     of them.};
+  \node[anchor=west,align=left,text width=4.6cm,font=\sffamily\scriptsize,
+        text=ocredark] at (3.7,-1.7)
+    {A 10\% lift applies to \emph{all} future traffic at no extra acquisition
+     cost --- which is why CRO compounds.};
+\end{tikzpicture}
+\caption[The A/B testing mechanism]%
+        {A/B testing splits traffic simultaneously rather than sequentially, so
+         that seasonality, campaign timing and traffic-mix changes affect both
+         versions equally.}
+\label{fig:abtest}
+\end{figure}
+
+\begin{itemize}
+\item \sfb{Significance.} It replaces opinion and seniority with evidence;
+      isolates the effect of a single variable; produces compounding gains, since
+      a 10\% lift applies to all future traffic at zero additional acquisition
+      cost; reduces the risk of large redesigns by testing incrementally; and
+      reveals genuine user preference, which frequently contradicts internal
+      assumption.
+\item \sfb{What to test.} Headlines; calls to action --- text, colour, position;
+      hero images; form length and field order; page layout; pricing
+      presentation; trust signals; and the checkout flow.
+\item \sfb{Process.} Analyse data to find the weakest step \ra{} form a
+      hypothesis (``shortening the form from nine fields to four will raise
+      submissions'') \ra{} build the variant \ra{} split traffic \ra{} run to
+      statistical significance \ra{} implement the winner \ra{} repeat.
+\item \sfb{Tools.} VWO, Optimizely and AB Tasty for the experiments, plus Hotjar\ix{Hotjar}
+      and Microsoft Clarity for the qualitative diagnosis that generates the
+      hypotheses in the first place.
+\end{itemize}
+
+\begin{summarybox}
+Web analytics collects, measures, analyses and reports website data to understand
+and optimise web usage; it is what makes digital marketing measurable at all.
+Against traditional analysis it wins on speed, accuracy, cost, sample size,
+attribution and the continuity of its feedback loop. Metrics fall into three
+families --- volume, quality and action --- and no family can be read alone.
+Bounce rate is a single-page no-interaction session and must be read in context;
+exit rate is merely the last page of any session. Dimensions are attributes and
+form the rows; metrics are numbers and form the columns. Web analytics plays
+eight roles from measuring effectiveness to forecasting, and yields seven
+business benefits from higher conversion to demonstrable ROI. KPIs are aligned to
+goals in five steps. A/B testing and CRO replace opinion with evidence and
+compound, because a lift applies to all future traffic at no extra acquisition
+cost.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Google Analytics Tools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Google Analytics Tools.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The purpose of Google Analytics.
+\item Its key features --- the four to name, and the full list.
+\item Acquisition channels, and the optimisation action for each.
+\item The seven report families.
+\item The eight-step process for setting up and tracking goals.
+\item Google Tag Manager\ix{Google Tag Manager} --- its contribution and its governance risks.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Purpose}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{CIE-II, 7 May 2025 --- 2 M}
+The main purpose of \keytermas{Google Analytics}{Google Analytics} is to collect,
+measure and report data about website and app users --- who they are, how they
+arrived, what they did and whether they converted --- so that businesses can
+understand user behaviour, evaluate marketing performance and make
+evidence-based decisions to improve traffic quality and conversions.
+\end{exambox}
+
+\section{Key Features}
+
+\begin{exambox}[Four Features --- 2 Marks]
+\pyq{CIE-II, 26 May 2026 --- 2 M}
+(1) Traffic source analysis, (2) bounce rate measurement, (3) user demographics
+tracking, (4) conversion and goal tracking.
+\end{exambox}
+
+\noindent A fuller list, for eight- and ten-mark answers:
+
+\begin{itemize}
+\item \sfb{Real-time reporting} --- who is on the site right now, and what they
+      are doing.
+\item \sfb{Audience reports} --- demographics, interests, geography, language,
+      technology and device.
+\item \sfb{Acquisition reports} --- which channels, sources, mediums and
+      campaigns delivered the traffic.
+\item \sfb{Behaviour and engagement reports} --- landing pages, exit pages, site
+      content performance, site search, page load times.
+\item \sfb{Conversion and goal tracking} --- destination, duration,
+      pages-per-session and event goals; assigning monetary value to conversions.
+\item \sfb{E-commerce tracking} --- product performance, shopping and checkout
+      behaviour, average order value, revenue.
+\item \sfb{Funnel visualisation} --- where users drop out of a defined
+      multi-step path.
+\item \sfb{Segments} --- isolating a subset of users, for example mobile users
+      from paid search who did not convert.
+\item \sfb{Attribution and model comparison} --- how credit for a conversion is
+      distributed across touchpoints.
+\item \sfb{Custom dashboards, reports and alerts.}
+\item \sfb{Audience building and remarketing lists} exported to the advertising
+      platform.
+\item \sfb{Integrations} --- Google Ads, Search Console, BigQuery, Google Tag
+      Manager, Looker Studio.
+\end{itemize}
+
+\section{Acquisition Channels}
+
+\begin{keybox}[High Yield]
+``Discuss the concept of `Acquisition channels' in Google Analytics. How can
+business use this information to optimize their marketing efforts?''
+\pyq{SEE, Oct/Nov 2023, Q5a --- 8 M}
+\end{keybox}
+
+\begin{mmlongtable}{Acquisition channels and their optimisation actions}{tab:channels3}%
+{@{}P{0.17\textwidth}P{0.37\textwidth}P{0.39\textwidth}@{}}
+\rowcolor{ocre}\thd{Channel} & \thd{What it means} & \thd{Typical optimisation action}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Channel} & \thd{What it means} & \thd{Typical optimisation action}\\
+\midrule
+\endhead
+\rlab{Organic search} & Unpaid clicks from search engines & Invest in SEO for the
+pages and queries already converting\\
+\rowcolor{tablealt}
+\rlab{Paid search} & Clicks from search advertisements & Shift budget to keywords
+with the lowest cost per conversion\\
+\rlab{Direct} & Users typing the URL or using bookmarks --- also the catch-all for
+untagged traffic & Build brand; audit for missing UTM tags inflating this
+bucket\\
+\rowcolor{tablealt}
+\rlab{Referral} & Links from other websites & Nurture the partnerships and
+publications actually sending buyers\\
+\rlab{Organic social} & Unpaid social posts & Double down on the platform
+delivering engaged traffic\\
+\rowcolor{tablealt}
+\rlab{Paid social} & Social advertising & Reallocate spend by cost per result\\
+\rlab{E-mail} & Clicks from e-mail campaigns & Increase send frequency to the
+highest-converting segments\\
+\rowcolor{tablealt}
+\rlab{Display} & Banner and remarketing advertisements & Refine placements and
+exclude low-quality inventory\\
+\rlab{Affiliates} & Partner-driven traffic & Adjust commission by partner
+quality\\
+\end{mmlongtable}
+
+\begin{exambox}[How the Business Uses This]
+It identifies which channels deliver not just volume but \emph{converting}
+volume; it exposes the cost per acquisition of each channel so that budget can be
+reallocated; it reveals \emph{assisted conversions}, where a channel contributes
+without taking the last click; it enables channel-specific landing page
+optimisation; and it prevents the classic error of judging a channel by traffic
+when it should be judged by revenue.
+\end{exambox}
+
+\begin{warnbox}[An Inflated ``Direct'' Bucket Is a Measurement Fault]
+Direct traffic should be people who typed the URL or used a bookmark. In practice
+it is also where every untagged link ends up --- an e-mail without UTM
+parameters, a link in a PDF, a QR code. A large and growing Direct channel is
+therefore more often a tagging failure than a brand success, and it silently
+steals credit from the channels that earned it.
+\end{warnbox}
+
+\section{Report Families}
+
+\begin{keybox}[High Yield]
+``List and explain the various reports that can be generated using Google
+Analytics.''
+\pyq{SEE, Oct/Nov 2023, Q6b --- 8 M}
+\end{keybox}
+
+\begin{mmlongtable}{The report families in Google Analytics}{tab:reports}%
+{@{}P{0.24\textwidth}P{0.69\textwidth}@{}}
+\rowcolor{ocre}\thd{Report family} & \thd{What it tells you}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Report family} & \thd{What it tells you}\\
+\midrule
+\endhead
+\rlab{Real-time} & Active users right now, their pages, sources and locations ---
+used to verify a campaign launch or a tag deployment\\
+\rowcolor{tablealt}
+\rlab{Audience / User} & Who the visitors are: demographics, interests,
+geography, language, technology, devices, new against returning, user lifetime
+value, cohort retention\\
+\rlab{Acquisition / Traffic acquisition} & Where users came from --- channel,
+source and medium, campaign, plus advertising and Search Console integration\\
+\rowcolor{tablealt}
+\rlab{Behaviour / Engagement} & What users did on the site --- pages and screens,
+landing pages, exit pages, site search, page timings, events\\
+\rlab{Conversions / Monetisation} & Goal completions, goal value, funnel
+visualisation, e-commerce revenue, product performance, checkout behaviour,
+purchase journey\\
+\rowcolor{tablealt}
+\rlab{Attribution / Advertising} & How conversion credit is distributed across
+touchpoints; model comparison\\
+\rlab{Custom reports and Explorations} & User-defined combinations of dimensions
+and metrics; funnel explorations, path explorations, segment overlap\\
+\end{mmlongtable}
+
+\section{Setting Up and Tracking Goals}
+
+\begin{keybox}[High Yield]
+``Describe the process of setting up and tracking goals in Google Analytics.''
+\pyq{SEE, Oct/Nov 2023, Q10b --- 6 M}
+\end{keybox}
+
+\begin{enumerate}
+\item \sfb{Define what a conversion means} for the business --- a purchase, a
+      form submission, a newsletter sign-up, a brochure download, a call click.
+\item \sfb{Choose the goal type} --- destination (a thank-you URL is reached),
+      duration (a session exceeds a set time), pages or screens per session, or
+      event (a specific interaction such as a video play or a button click). In
+      GA4 these are configured as events marked as conversions.
+\item \sfb{Implement the tracking} --- deploy the tag via Google Tag Manager,
+      define the trigger, and fire the event on the qualifying action.
+\item \sfb{Assign a monetary value} to the goal where possible, so that
+      non-transactional conversions can still be compared and optimised.
+\item \sfb{Configure the funnel} --- define the required steps preceding the
+      goal, so that drop-off is visible step by step.
+\item \sfb{Verify} using real-time reports and debug mode \emph{before} relying
+      on the data.
+\item \sfb{Track and report} --- monitor conversion rate by channel, campaign,
+      device and landing page.
+\item \sfb{Act on the findings} --- fix the step with the largest drop-off,
+      reallocate budget to the highest-converting channels, and A/B test the
+      weakest page.
+\end{enumerate}
+
+\begin{keybox}[Why Goal Tracking Matters]
+Without goals, analytics measures \emph{activity} rather than \emph{outcome}.
+Goals are what convert traffic reports into ROI reports.
+\end{keybox}
+
+\section{Google Tag Manager}
+
+\begin{keybox}[High Yield]
+``Critically evaluate the contribution of Google Tag Manager in optimizing
+marketing channels for global companies.''
+\pyq{SEE, Jun/Jul 2025, Q6b --- 8 M}
+The word \emph{critically} requires both halves: the contribution \emph{and} the
+limitations. An answer giving only the benefits is incomplete.
+\end{keybox}
+
+\begin{definitionbox}[Google Tag Manager]
+\keytermas{Google Tag Manager}{Google Tag Manager} is a container that lets
+marketers deploy, edit and version tracking tags without editing site code.
+\end{definitionbox}
+
+\subsection{The contribution}
+
+\begin{itemize}
+\item It lets marketers deploy, edit and version tracking tags without a
+      developer, which collapses the change cycle from weeks to minutes.
+\item It standardises the data layer across dozens of regional sites, so that
+      global reporting is comparable.
+\item It centralises consent management, which is essential under GDPR and
+      similar regimes.
+\item It reduces page weight by loading tags asynchronously.
+\item It enables rapid A/B and campaign experimentation.
+\item It provides preview and version rollback, reducing the risk of breaking
+      measurement.
+\end{itemize}
+
+\subsection{The critical view}
+
+\begin{warnbox}[Where Tag Manager Becomes the Problem]
+It can become a governance problem: untracked tag sprawl, duplicate conversion
+firing, degraded page performance, and security exposure if publish rights are
+granted too widely.
+
+\smallskip
+It also does not fix a poor measurement plan. It only makes deploying one
+faster.
+\end{warnbox}
+
+\begin{summarybox}
+Google Analytics collects, measures and reports data about users --- who they
+are, how they arrived, what they did and whether they converted. The four
+features to name are traffic source analysis, bounce rate measurement,
+demographics tracking, and conversion and goal tracking; the fuller list adds
+real-time, audience, acquisition, behaviour, e-commerce, funnels, segments,
+attribution, dashboards, remarketing audiences and integrations. Acquisition
+channels group traffic by origin, each with its own optimisation action, and the
+purpose of the report is to judge channels by revenue rather than volume. Reports
+fall into seven families. Goals are configured in eight steps, verified before
+being trusted, and are what turn traffic reports into ROI reports. Tag Manager
+collapses the deployment cycle and standardises global measurement, but
+introduces governance risk and cannot substitute for a measurement plan.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Web Analytics Tools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Web Analytics Tools.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The main web analytics tools other than Google Analytics, and what each is
+      good at.
+\item How quantitative and qualitative tools combine --- the ``what'' and the
+      ``why''.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Tools Other Than Google Analytics}
+
+\begin{exambox}[Two Tools --- 2 Marks]
+``Name any two popular web analytics tools other than Google Analytics.''
+\pyq{CIE-II, 7 May 2025 --- 2 M}
+\textbf{Adobe Analytics} and \textbf{Matomo}. Also acceptable: Webtrends,
+Mixpanel, Hotjar, Microsoft Clarity, Kissmetrics, Piwik PRO, Heap, Amplitude,
+Crazy Egg, SimilarWeb.
+\end{exambox}
+
+\begin{mmlongtable}{Web analytics tools and their strengths}{tab:watools}%
+{@{}P{0.26\textwidth}P{0.67\textwidth}@{}}
+\rowcolor{ocre}\thd{Tool} & \thd{Strength}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Tool} & \thd{Strength}\\
+\midrule
+\endhead
+\rlab{Adobe Analytics} & Enterprise-grade segmentation, attribution and
+integration with the Adobe Experience Cloud\\
+\rowcolor{tablealt}
+\rlab{Matomo} \newline {\scriptsize formerly Piwik} & Open-source and
+self-hostable; full data ownership and privacy compliance\\
+\rlab{Webtrends} & A long-established enterprise web analytics platform\\
+\rowcolor{tablealt}
+\rlab{Mixpanel and Amplitude} & Product analytics --- event-based funnels,
+cohorts and retention for apps and software services\\
+\rlab{Hotjar, Microsoft Clarity, Crazy Egg} & Qualitative behaviour ---
+heatmaps, scroll maps, click maps and session recordings\\
+\rowcolor{tablealt}
+\rlab{Kissmetrics} & Person-level tracking across sessions and devices\\
+\rlab{SimilarWeb} & Competitive traffic estimation and benchmarking\\
+\rowcolor{tablealt}
+\rlab{Google Search Console} & Search-side data --- impressions, clicks, average
+position, indexing and Core Web Vitals\\
+\rlab{Google Tag Manager} & Central deployment and version control of all
+tracking tags without editing site code\\
+\rowcolor{tablealt}
+\rlab{Looker Studio} & Dashboarding and reporting across multiple data sources\\
+\end{mmlongtable}
+
+\section{The Quantitative and the Qualitative}
+
+\begin{keybox}[High Yield]
+``Demonstrate how tools like Google Analytics and Hotjar can be used to develop
+insights into user behavior and improve marketing decisions.''
+\pyq{SEE, Jun/Jul 2025, Q7a --- 8 M}
+The organising idea for the answer: analytics gives the \textbf{what},
+behavioural tools give the \textbf{why}, and neither is sufficient alone.
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    side/.style={rounded corners=4pt,line width=1pt,align=left,
+                 text width=4.85cm,inner sep=8pt,font=\sffamily\scriptsize,
+                 text=slate}]
+  \node[side,draw=deepblue,fill=deepbluepale] (q) at (0,0)
+    {\textbf{\textcolor{deepblue}{GOOGLE ANALYTICS --- the \emph{what}}}\\[4pt]
+     which channels deliver traffic\\
+     which landing pages bounce\\
+     where users drop out of checkout\\
+     which segments convert\\
+     what each channel costs per acquisition\\[4pt]
+     \textit{quantitative, complete, anonymous}};
+  \node[side,draw=ocre,fill=ocrepale] (h) at (5.55,0)
+    {\textbf{\textcolor{ocredark}{HOTJAR --- the \emph{why}}}\\[4pt]
+     heatmaps: what attracts attention\\
+     scroll maps: is the CTA ever reached\\
+     click maps: rage clicks on dead elements\\
+     recordings: hesitation and confusion\\
+     on-page surveys: the reason, in their words\\[4pt]
+     \textit{qualitative, sampled, observed}};
+
+  % text width is required as well as align=center: without it the node never
+  % wraps and grows to the width of its longest unbroken line.
+  \node[draw=greenok,line width=1pt,fill=greenpale,rounded corners=4pt,
+        minimum width=10.4cm,text width=10.1cm,align=center,
+        font=\sffamily\scriptsize,text=slate,inner sep=6pt] at (2.78,-2.55)
+    {\textbf{\textcolor{greenok}{THE COMBINED WORKFLOW}}\\[3pt]
+     analytics shows the pricing page loses 60\% of visitors \ra{} recordings
+     reveal users clicking a non-clickable comparison table \ra{} the table is
+     made interactive \ra{} an A/B test validates the change \ra{} analytics
+     confirms the improved funnel conversion};
+\end{tikzpicture}
+\caption[Quantitative and qualitative analytics combined]%
+        {Analytics locates the problem; behavioural tools explain it. A funnel
+         report can say \emph{where} users leave but never \emph{why}, and a
+         session recording can show why but never how often.}
+\label{fig:whatwhy}
+\end{figure}
+
+\begin{exambox}[Marketing Decisions Improved]
+Budget reallocation, landing page redesign priority, form simplification, content
+placement and mobile-specific fixes --- each grounded in evidence rather than
+opinion.
+\end{exambox}
+
+\begin{summarybox}
+Beyond Google Analytics, the toolset divides by job: Adobe Analytics for
+enterprise attribution, Matomo for self-hosted data ownership, Mixpanel and
+Amplitude for product event analytics, Hotjar and Clarity for qualitative
+behaviour, Kissmetrics for person-level tracking, SimilarWeb for competitive
+benchmarking, Search Console for search-side data, Tag Manager for deployment and
+Looker Studio for reporting. Quantitative tools answer what happened and how
+often; qualitative tools answer why. The productive workflow alternates between
+them: analytics locates a drop-off, recordings explain it, a test validates the
+fix, and analytics confirms the result.
+\end{summarybox}
+
+\input{unit3-email}
+\input{unit3-appendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+\printindex
+
+\end{document}

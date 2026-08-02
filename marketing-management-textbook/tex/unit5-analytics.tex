@@ -1,0 +1,609 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Unit V, second half: Digital Analytics (Chapters 5-7)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{The Evolution of Digital Analytics}
+
+\syllabusstrip{Digital Analytics: Evolution of Digital Analytics.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What digital analytics is, and how it differs from web analytics.
+\item How digital analytics influences business decisions.
+\item The six eras of the discipline --- what each measured, with what tools, and
+      what each could not do.
+\item The direction of travel across all six.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Definition}
+
+\begin{definitionbox}[Digital Analytics]
+\keytermas{Digital analytics}{digital analytics} is the collection, measurement,
+analysis and interpretation of digital data in order to improve business
+performance and customer experience.
+\pyq{CIE-III, Jun 2026 --- 2 M}
+\end{definitionbox}
+
+\begin{keybox}[Digital Analytics Is Not Web Analytics]
+The distinction matters and is worth stating explicitly in any answer.
+
+\smallskip
+\textbf{Web analytics} is confined to website behaviour. \textbf{Digital
+analytics} is broader --- it unifies website, mobile app, social, e-mail, paid
+media, CRM, offline and support data into a single view of the customer, and its
+purpose is to \emph{inform business decisions} rather than merely to report on a
+channel.
+\end{keybox}
+
+\section{How Digital Analytics Influences Business Decisions}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{CIE-III, Jun 2026 --- 2 M}
+Digital analytics provides customer insights and performance data that help
+businesses improve marketing strategies and customer engagement.
+
+\smallskip
+Concretely, it determines where budget is allocated, which products are
+developed, which segments are targeted, which experiences are fixed first, and
+what the business forecasts.
+\end{exambox}
+
+\section{The Six Eras}
+
+\begin{keybox}[High Yield]
+``Trace the evolution of digital analytics and its growing importance in
+delivering a seamless end-to-end customer experience.''
+\pyq{Improvement CIE, 4 Jun 2025 --- 10 M}
+Give the eras \emph{with their limitations}: the limitation of each era is what
+motivated the next, and that causal chain is the argument the question is asking
+for.
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    era/.style={draw=ocre,line width=0.85pt,fill=ocrepale,rounded corners=3pt,
+                minimum height=1.5cm,text width=1.55cm,align=center,
+                font=\sffamily\bfseries\scriptsize,text=slate,inner sep=3pt}]
+  \draw[rulegrey,line width=1pt] (-0.4,0) -- (11.6,0);
+
+  \node[era] (e1) at (0.55,1.15)  {1\\ server logs\\[-1pt]{\scriptsize\mdseries 1990s}};
+  \node[era] (e2) at (2.75,-1.15) {2\\ page-tag web analytics\\[-1pt]{\scriptsize\mdseries early 2000s}};
+  \node[era] (e3) at (4.75,1.15)  {3\\ visitor \& goal analytics\\[-1pt]{\scriptsize\mdseries mid 2000s}};
+  \node[era] (e4) at (6.75,-1.15) {4\\ multi-channel \& social\\[-1pt]{\scriptsize\mdseries 2010s}};
+  \node[era] (e5) at (8.75,1.15)  {5\\ user-centric, event-based\\[-1pt]{\scriptsize\mdseries late 2010s}};
+  \node[era,draw=greenok,fill=greenpale] (e6) at (10.85,-1.15)
+     {6\\ unified, predictive, privacy-first\\[-1pt]{\scriptsize\mdseries present}};
+
+  \foreach \n/\x in {e1/0.55,e3/4.75,e5/8.75}{
+    \draw[ocre,line width=0.8pt] (\x,0) -- (\x,0.4);
+    \fill[ocre] (\x,0) circle (0.075);}
+  \foreach \n/\x in {e2/2.75,e4/6.75}{
+    \draw[ocre,line width=0.8pt] (\x,0) -- (\x,-0.4);
+    \fill[ocre] (\x,0) circle (0.075);}
+  \draw[greenok,line width=0.8pt] (10.85,0) -- (10.85,-0.4);
+  \fill[greenok] (10.85,0) circle (0.075);
+
+  \node[anchor=north,text=slatelight,font=\sffamily\scriptsize\itshape,
+        align=center,text width=11.8cm] at (5.6,-2.35)
+    {counting files \ra{} counting visits \ra{} counting conversions \ra{}
+     understanding people \ra{} predicting behaviour};
+\end{tikzpicture}
+\caption[The six eras of digital analytics]%
+        {Six eras. Each was created by the limitation of the one before it, and
+         each moved analytics closer to the customer and closer to the boardroom.}
+\label{fig:sixeras}
+\end{figure}
+
+\begin{mmlongtable}{The six eras of digital analytics}{tab:sixeras}%
+{@{}P{0.167\textwidth}P{0.245\textwidth}P{0.235\textwidth}P{0.265\textwidth}@{}}
+\rowcolor{ocre}\thd{Era} & \thd{What was measured} & \thd{Tools and methods} & \thd{Limitation}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Era} & \thd{What was measured} & \thd{Tools and methods} & \thd{Limitation}\\
+\midrule
+\endhead
+\rlab{1. Server log analysis} \newline {\scriptsize 1990s} & Hits, file requests,
+bandwidth & Raw server logs, log parsers & Counted files, not people; caches and
+bots corrupted the data\\
+\rowcolor{tablealt}
+\rlab{2. Page-tag web analytics} \newline {\scriptsize early 2000s} & Pageviews,
+visits, referrers, bounce rate & JavaScript tags; the first hosted analytics
+platforms & Session-based and site-siloed; no view of the person across visits\\
+\rlab{3. Visitor and goal analytics} \newline {\scriptsize mid to late 2000s} &
+Goals, funnels, e-commerce revenue, segments & Goal tracking, funnel
+visualisation, A/B testing tools & Last-click attribution; ignored the rest of the
+journey\\
+\rowcolor{tablealt}
+\rlab{4. Multi-channel and social analytics} \newline {\scriptsize 2010s} &
+Cross-channel attribution, social listening, mobile app analytics & Multi-channel
+funnels, mobile SDKs, social insight platforms & Data still fragmented across
+separate platforms\\
+\rlab{5. User-centric and event-based analytics} \newline {\scriptsize late 2010s
+onward} & The individual user across devices and sessions; every interaction as an
+event & Event-based analytics platforms, tag managers, cross-device identity &
+Requires disciplined measurement planning and governance\\
+\rowcolor{tablealt}
+\rlab{6. Unified, predictive and privacy-first analytics} \newline {\scriptsize
+present} & End-to-end customer experience; predicted churn and lifetime value;
+consent-governed first-party data & Customer data platforms, data warehouses,
+machine learning, server-side tagging, consent management & Privacy regulation and
+cookie deprecation constrain tracking; modelling replaces some observation\\
+\end{mmlongtable}
+
+\begin{keybox}[The Direction of Travel]
+The movement is consistent across all six eras: from \textbf{counting files
+\ra{} counting visits \ra{} counting conversions \ra{} understanding people
+\ra{} predicting behaviour}, and from \textbf{channel-siloed reporting \ra{} a
+unified end-to-end view}.
+
+\smallskip
+Each shift moved analytics closer to the customer and closer to the boardroom.
+\end{keybox}
+
+\begin{summarybox}
+Digital analytics is the collection, measurement, analysis and interpretation of
+digital data to improve business performance and customer experience --- broader
+than web analytics because it unifies web, app, social, e-mail, paid, CRM, offline
+and support data, and because its purpose is decision rather than report. It
+influences budget allocation, product development, segment targeting, experience
+priorities and forecasting. Six eras mark its evolution: server logs, page-tag web
+analytics, visitor and goal analytics, multi-channel and social analytics,
+user-centric event-based analytics, and unified predictive privacy-first
+analytics. Each era's limitation created the next, and the direction of travel runs
+from counting files to predicting behaviour, and from silos to a unified view.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{The End-to-End Customer Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Digital Analytics: information about end-to-end customer
+experience.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What the end-to-end customer experience means in digital analytics.
+\item Why the siloed, channel-by-channel view fails.
+\item The seven requirements for genuine end-to-end measurement.
+\item The business value it produces.
+\item How market segmentation is refined using digital analytics data.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{What It Means}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+``What is meant by the `end-to-end customer experience' in digital analytics?''
+\pyq{SEE, Jun/Jul 2025 --- 2 M}
+
+The end-to-end customer experience means measuring and understanding the
+\textbf{complete customer journey\ix{customer journey} across every touchpoint and every stage} ---
+from the first anonymous impression\ix{impression}, through research, comparison, purchase,
+delivery and support, to repeat purchase and advocacy\ix{advocacy} --- as a \textbf{single
+connected experience} rather than as a set of disconnected channel reports.
+\end{exambox}
+
+\section{Why the Siloed View Fails}
+
+\begin{itemize}
+\item A visitor may discover the brand on one social platform, research it on
+      video, compare it on search, read reviews on a marketplace and buy in a
+      store. Channel-level reporting credits only the last touch, and therefore
+      misleads budget allocation.
+\item The modern journey is not a funnel. It is a \keytermas{decision
+      constellation}{decision constellation} --- a network of micro-decisions
+      happening in different places at the same time. Optimising for visibility in
+      one place while the customer is deciding everywhere else produces the classic
+      symptom: traffic looks healthy but conversions are flat.
+\item Silos also hide experience failures that span teams --- for example, a
+      marketing promise that the fulfilment process cannot keep.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  % --- left: the siloed view
+  \node[anchor=north,text=warnred,font=\sffamily\bfseries\scriptsize] at (2.3,2.5)
+    {THE SILOED VIEW};
+  \foreach \i/\x in {1/0.6,2/1.75,3/2.9,4/4.05}{
+    \fill[warnpale] (\x-0.42,-1.5) rectangle (\x+0.42,1.9);
+    \draw[warnred!60,line width=0.8pt] (\x-0.42,-1.5) rectangle (\x+0.42,1.9);}
+  \node[rotate=90,text=slate,font=\sffamily\scriptsize] at (0.6,0.2)  {search};
+  \node[rotate=90,text=slate,font=\sffamily\scriptsize] at (1.75,0.2) {social};
+  \node[rotate=90,text=slate,font=\sffamily\scriptsize] at (2.9,0.2)  {e-mail};
+  \node[rotate=90,text=slate,font=\sffamily\scriptsize] at (4.05,0.2) {store};
+  \node[anchor=north,text=slatelight,font=\sffamily\scriptsize\itshape,
+        align=center,text width=4.4cm] at (2.3,-1.65)
+    {four reports, four last-click winners, one customer nobody can see};
+
+  % --- right: the unified view
+  \node[anchor=north,text=greenok,font=\sffamily\bfseries\scriptsize] at (8.9,2.5)
+    {THE UNIFIED VIEW};
+  \draw[greenok,line width=1pt,rounded corners=5pt,fill=greenpale]
+    (6.5,-1.5) rectangle (11.3,1.9);
+  \foreach \a/\lbl in {150/search,90/social,30/video,-30/reviews,-90/store,-150/support}{
+    \node[draw=greenok!70,line width=0.7pt,fill=white,rounded corners=2pt,
+          inner sep=2.2pt,font=\sffamily\scriptsize,text=slate]
+      (t\lbl) at ($(8.9,0.2)+(\a:1.72cm and 1.05cm)$) {\lbl};
+    \draw[greenok!60,line width=0.6pt,dashed] (t\lbl) -- (8.9,0.2);}
+  \node[circle,fill=greenok,text=white,inner sep=2.2pt,
+        font=\sffamily\bfseries\scriptsize] at (8.9,0.2) {1};
+  \node[anchor=north,text=slatelight,font=\sffamily\scriptsize\itshape,
+        align=center,text width=4.8cm] at (8.9,-1.65)
+    {one identity, one event taxonomy, multi-touch credit --- one journey};
+
+  \draw[-{Latex[length=2.6mm]},slate,line width=1pt] (4.75,0.2) -- (6.35,0.2);
+\end{tikzpicture}
+\caption[The siloed view against the unified view]%
+        {Four channel reports do not add up to one customer. The unified view is
+         what makes multi-touch attribution, journey analysis and
+         cross-channel personalisation possible at all.}
+\label{fig:siloedunified}
+\end{figure}
+
+\section{What End-to-End Analytics Requires}
+
+\begin{enumerate}
+\item A \sfb{unified customer identity} across web, app, e-mail, CRM and offline
+      systems.
+\item A \sfb{consistent event taxonomy}, so that the same action means the same
+      thing in every system.
+\item \sfb{Journey and path analysis}, not just page reports.
+\item \sfb{Multi-touch attribution} rather than last-click.
+\item \sfb{Voice-of-customer data} --- surveys, net promoter score, reviews and
+      support tickets --- joined to behavioural data.
+\item \sfb{Post-purchase and service data}, so that the measurement does not stop
+      at the transaction.
+\item \sfb{Consent and privacy governance} built into the collection layer.
+\end{enumerate}
+
+\section{Business Value}
+
+\begin{itemize}
+\item \sfb{Accurate budget allocation}, based on true contribution rather than
+      last-click credit.
+\item \sfb{Identification of the highest-friction moment} in the whole journey,
+      not merely on one page.
+\item \sfb{Personalisation that is consistent} across channels rather than
+      contradictory.
+\item \sfb{Improved retention}, because the analysis continues past the purchase.
+\item \sfb{Predictive capability} --- churn\ix{churn} risk and lifetime value modelled from
+      journey behaviour.
+\end{itemize}
+
+\section{Refining Market Segmentation With Digital Analytics}
+
+\begin{keybox}[High Yield]
+``Analyze how market segmentation can be refined using digital analytics data.''
+\pyq{SEE, Jun/Jul 2025, Q9b --- 8 M}
+\end{keybox}
+
+\begin{itemize}
+\item \sfb{From demographic to behavioural segmentation} --- traditional
+      segmentation groups by age and income; analytics groups by what people
+      actually do, which predicts purchase far better.
+\item \sfb{Value-based segmentation} --- \keytermas{RFM analysis}{RFM analysis}
+      (recency, frequency, monetary value) and lifetime-value modelling identify
+      the segments worth investing in.
+\item \sfb{Journey-stage segmentation} --- separating first-time visitors,
+      researchers, cart abandoners, first-time buyers and loyalists, each
+      requiring different messaging.
+\item \sfb{Intent-based segmentation} --- search query and on-site behaviour
+      reveal purchase intent in real time.
+\item \sfb{Channel-affinity segmentation} --- which segment responds to which
+      channel, enabling efficient allocation.
+\item \sfb{Predictive segmentation} --- machine learning models group users by
+      predicted churn risk or predicted conversion probability rather than by past
+      attributes.
+\item \sfb{Continuous refinement} --- analytics-driven segments update
+      automatically as behaviour changes, whereas survey-based segments decay from
+      the day they are created.
+\end{itemize}
+
+\begin{summarybox}
+The end-to-end customer experience means measuring the complete journey across
+every touchpoint and stage as one connected experience rather than as disconnected
+channel reports. The siloed view fails because last-click credit misleads budget
+allocation, because the modern journey is a decision constellation rather than a
+funnel, and because silos hide failures that span teams. Genuine end-to-end
+measurement requires unified identity, a consistent event taxonomy, journey
+analysis, multi-touch attribution, voice-of-customer data, post-purchase data and
+privacy governance. Its value is accurate budget allocation, identification of the
+worst friction in the whole journey, consistent personalisation, improved
+retention and predictive capability. Analytics refines segmentation from
+demographic to behavioural, value-based, journey-stage, intent-based,
+channel-affinity and predictive --- and keeps those segments current
+automatically.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{The Analyst's Influence and Role as a Change Agent}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Digital Analytics: analyst's influence on business, role as a
+change agent.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item Why data requires interpretation, and where the chain can break.
+\item The seven ways an analyst influences the business.
+\item What separates a reporting function from a change agent.
+\item What being a change agent requires, and the barriers it must overcome.
+\item Designing a holistic marketing\ix{holistic marketing} dashboard.
+\item Applying digital analytics to two worked business problems.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Data Requires Interpretation}
+
+A theme repeated throughout this unit: data requires interpretation, and errors
+compound at every step of the chain.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    stp/.style={draw=slate!55,line width=0.85pt,fill=white,rounded corners=3pt,
+                minimum height=1.05cm,text width=1.85cm,align=center,
+                font=\sffamily\bfseries\scriptsize,text=slate,inner sep=3pt}]
+  \node[stp] (c1) at (0,0)     {1. product design};
+  \node[stp,fill=ocrepale,draw=ocre] (c2) at (2.35,0)  {2. tool setup};
+  \node[stp] (c3) at (4.70,0)  {3. data output};
+  \node[stp,fill=ocrepale,draw=ocre] (c4) at (7.05,0)  {4. human interpretation};
+  \node[stp,fill=ocrepale,draw=ocre] (c5) at (9.40,0)  {5. business action};
+  \foreach \a/\b in {c1/c2,c2/c3,c3/c4,c4/c5}{
+    \draw[-{Latex[length=1.9mm]},slate!60,line width=0.85pt] (\a)--(\b);}
+
+  \node[anchor=north,align=center,text width=2.15cm,font=\sffamily\scriptsize,
+        text=warnred] at (0,-0.62)    {the product may be flawed};
+  \node[anchor=north,align=center,text width=2.15cm,font=\sffamily\scriptsize,
+        text=warnred] at (2.35,-0.62) {mis-tagged pages, duplicate tracking,
+        wrong filters};
+  \node[anchor=north,align=center,text width=2.15cm,font=\sffamily\scriptsize,
+        text=warnred] at (4.70,-0.62) {sampling, bot traffic, consent gaps};
+  \node[anchor=north,align=center,text width=2.15cm,font=\sffamily\scriptsize,
+        text=warnred] at (7.05,-0.62) {correlation read as causation; averages
+        hiding segments};
+  \node[anchor=north,align=center,text width=2.15cm,font=\sffamily\scriptsize,
+        text=warnred] at (9.40,-0.62) {the final decision may be wrong};
+
+  \draw[decorate,decoration={brace,amplitude=5pt,mirror},ocre,line width=0.8pt]
+    (1.35,-2.55) -- (10.4,-2.55);
+  \node[anchor=north,text=ocredark,font=\sffamily\bfseries\scriptsize]
+    at (5.9,-2.75) {the analyst's value lies in steps 2, 4 and 5};
+\end{tikzpicture}
+\caption[The interpretation chain]%
+        {Five steps, each of which can break. The analyst does not control step~1
+         and only partly controls step~3, which is why their contribution is
+         concentrated in instrumenting, interpreting and translating.}
+\label{fig:interpchain}
+\end{figure}
+
+\begin{mmlongtable}{Where the interpretation chain breaks}{tab:interpchain}%
+{@{}P{0.19\textwidth}P{0.35\textwidth}P{0.39\textwidth}@{}}
+\rowcolor{ocre}\thd{Step} & \thd{What happens} & \thd{Where it can go wrong}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Step} & \thd{What happens} & \thd{Where it can go wrong}\\
+\midrule
+\endhead
+\rlab{1. Product design} & Someone designs the analytics tool & The product may be
+flawed\\
+\rowcolor{tablealt}
+\rlab{2. Tool setup} & The tool is installed and preferences are set & The setup
+may be wrong --- mis-tagged pages, duplicate tracking, wrong filters\\
+\rlab{3. Data output} & The tool generates reports & Sampling, bot traffic,
+consent gaps\\
+\rowcolor{tablealt}
+\rlab{4. Human interpretation} & Someone reads the data & The interpretation may
+be wrong --- correlation read as causation, averages hiding segments\\
+\rlab{5. Business action} & Reports are used to make choices & The final decision
+may be wrong\\
+\end{mmlongtable}
+
+\begin{keybox}[The Analyst's Real Job]
+A number is not a fact and a report is not an insight. The analyst's value lies in
+steps 2, 4 and 5 --- instrumenting correctly, interpreting honestly, and
+translating the interpretation into a decision the business can act on.
+
+\smallskip
+An organisation with excellent tools and poor interpretation makes confident
+wrong decisions \emph{faster}.
+\end{keybox}
+
+\section{How the Analyst Influences the Business}
+
+\begin{enumerate}
+\item \sfb{Sets the measurement agenda.} By defining which KPIs are reported, the
+      analyst determines what the organisation pays attention to.
+\item \sfb{Arbitrates between opinions.} Analytics ends debates that seniority
+      would otherwise decide.
+\item \sfb{Reallocates money.} Channel and campaign analysis directly redirects
+      marketing budget.
+\item \sfb{Prioritises the roadmap.} Funnel analysis determines which product and
+      site fixes are built first.
+\item \sfb{Quantifies risk and opportunity.} Forecasts and cohort models inform
+      pricing, inventory and hiring.
+\item \sfb{Protects against self-deception.} The analyst is the person who reports
+      that the favourite campaign did not work.
+\item \sfb{Translates.} The analyst converts technical measurement into business
+      language that executives can act on --- and this, more than technical skill,
+      determines their influence.
+\end{enumerate}
+
+\section{The Analyst as a Change Agent}
+
+\begin{keybox}[The Syllabus Names This Explicitly]
+Reporting numbers is not change; changing what the organisation \emph{does} is.
+\end{keybox}
+
+\begin{mmlongtable}{From reporting function to change agent}{tab:changeagent}%
+{@{}P{0.45\textwidth}P{0.48\textwidth}@{}}
+\rowcolor{ocre}\thd{From (reporting function)} & \thd{To (change agent)}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{From (reporting function)} & \thd{To (change agent)}\\
+\midrule
+\endhead
+Produces scheduled reports on request & Proactively identifies problems nobody
+asked about\\
+\rowcolor{tablealt}
+Answers ``what happened?'' & Answers ``why did it happen, and what should we
+do?''\\
+Describes performance & Recommends a specific action with an expected outcome\\
+\rowcolor{tablealt}
+Owned by one team & Embedded across marketing, product, sales and service\\
+Measures after the fact & Designs experiments before decisions are made\\
+\rowcolor{tablealt}
+Presents data & Builds the business case and drives adoption of the decision\\
+\end{mmlongtable}
+
+\subsection{What being a change agent requires}
+
+\begin{itemize}
+\item \sfb{Business literacy} --- understanding the commercial model well enough
+      to know which questions matter.
+\item \sfb{Credibility} --- data quality and honest reporting, including
+      inconvenient findings.
+\item \sfb{Storytelling} --- a finding that cannot be communicated will not change
+      anything.
+\item \sfb{Stakeholder relationships} --- influence flows through trust, not
+      through dashboards.
+\item \sfb{A bias towards experimentation} --- proposing tests rather than
+      asserting opinions.
+\item \sfb{Follow-through} --- measuring whether the implemented change actually
+      worked, and saying so.
+\end{itemize}
+
+\subsection{Barriers a change agent must overcome}
+
+\begin{warnbox}[The Six Barriers]
+\begin{itemize}
+\item \sfb{Data distrust} --- ``the numbers must be wrong'' is the standard first
+      response to unwelcome findings.
+\item \sfb{HiPPO decision-making} --- the \keytermas{highest paid person's
+      opinion}{HiPPO} overriding evidence.
+\item \sfb{Vanity metrics} --- organisations preferring numbers that always go up.
+\item \sfb{Siloed ownership} of data across departments.
+\item \sfb{Privacy and consent constraints} limiting what can be measured.
+\item \sfb{Analysis paralysis} --- endless measurement substituting for decision.
+\end{itemize}
+\end{warnbox}
+
+\section{Designing a Holistic Marketing Dashboard}
+
+\begin{keybox}[High Yield]
+``Design a basic digital dashboard that reflects holistic marketing
+performance.''
+\pyq{SEE, Jun/Jul 2025, Q10a --- 8 M}
+A good dashboard answers three questions in order --- \emph{are we growing?},
+\emph{which channels are working?}, and \emph{where are we losing people?} --- and
+every metric on it must be tied to a decision someone can make.
+\end{keybox}
+
+\begin{mmlongtable}{A holistic marketing dashboard}{tab:dashboard}%
+{@{}P{0.20\textwidth}P{0.44\textwidth}P{0.29\textwidth}@{}}
+\rowcolor{ocre}\thd{Dashboard section} & \thd{Metrics} & \thd{Decision it supports}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Dashboard section} & \thd{Metrics} & \thd{Decision it supports}\\
+\midrule
+\endhead
+\rlab{1. Executive summary} & Revenue, conversions, conversion rate, customer
+acquisition cost, return on advertising spend, lifetime value against acquisition
+cost --- each against target and prior period & Is the business on plan?\\
+\rowcolor{tablealt}
+\rlab{2. Acquisition} & Sessions and conversions by channel; spend, cost per click
+and cost per acquisition per channel; new against returning & Where should the
+next rupee of budget go?\\
+\rlab{3. Engagement} & Bounce rate, session duration, pages per session, scroll
+depth, best and worst landing pages & Which content and pages need work?\\
+\rowcolor{tablealt}
+\rlab{4. Conversion funnel} & Step-by-step drop-off from landing to purchase,
+split by device & Which single step do we fix first?\\
+\rlab{5. Retention and loyalty} & Repeat purchase rate, cohort retention curves,
+churn, net promoter score, review sentiment & Are we keeping the customers we
+buy?\\
+\rowcolor{tablealt}
+\rlab{6. Channel deep-dives} & SEO --- impressions, rankings, organic sessions;
+e-mail --- open rate, click-through rate, revenue per message; social --- reach,
+engagement rate, share of voice; mobile --- installs, active users, retention &
+Which channel-level tactic needs attention?\\
+\rlab{7. Technical health} & Core Web Vitals, error rate, uptime, tracking
+integrity & Is anything silently broken?\\
+\end{mmlongtable}
+
+\begin{keybox}[Dashboard Design Principles]
+One screen, top-down importance. Show \textbf{trend}, not just the current value
+--- a number without a comparison is meaningless. Always include the
+\textbf{target} alongside the actual. \textbf{Segment} by device and channel,
+because averages hide failures. Use \textbf{colour only to signal status}, never
+for decoration. And apply the same rule as web design: \textbf{if a metric drives
+no decision, delete it.}
+\end{keybox}
+
+\section{Applying Digital Analytics --- Two Worked Scenarios}
+
+\begin{exambox}[Improving Customer Retention for a Food Delivery App]
+\pyq{CIE-III, Jun 2026 --- 10 M}
+\textbf{Official scheme answer.} The app can analyse customer ordering patterns,
+feedback and abandoned carts. Personalised offers, loyalty programmes and targeted
+notifications can improve retention. Analytics helps identify customer needs and
+improve services effectively.
+
+\smallskip
+\textbf{A fuller answer, in five steps.}
+\begin{enumerate}
+\item \sfb{Measure} --- build cohort retention curves by acquisition source, and
+      calculate churn rate, order frequency and average order value per segment.
+\item \sfb{Segment} --- identify the behaviours that distinguish retained from
+      churned users, such as ordering within the first seven days or using a saved
+      address.
+\item \sfb{Diagnose} --- analyse cart abandonment reasons, delivery-time
+      complaints and support tickets to locate the experience failure.
+\item \sfb{Act} --- trigger personalised offers based on past cuisine preference;
+      run a win-back push after 14 inactive days; introduce a subscription pass for
+      free delivery; add a loyalty streak to build habit; and fix the delivery-time
+      promise that the data shows is most often broken.
+\item \sfb{Measure again} --- track Day-30 retention, repeat order rate and
+      lifetime value against a control group, to prove the change worked.
+\end{enumerate}
+\end{exambox}
+
+\begin{exambox}[Maintaining Competitive Advantage in a Global Market]
+\pyq{CIE-III, Jun 2026 --- 10 M}
+\textbf{Official scheme answer.} Digital analytics helps understand customer
+preferences, competitor trends and campaign effectiveness. Website optimization
+improves user experience and conversions. Together, they support better
+decision-making, customer engagement and global competitiveness.
+
+\smallskip
+\textbf{A fuller answer.} Analytics provides market-by-market insight into what
+customers actually want, which channels perform in each region, and where
+competitors are gaining share. Website optimization ensures that the traffic won
+in each market \emph{converts} --- through localisation of language, currency,
+payment methods and page speed on regional networks. The combination creates a
+continuous feedback loop in which the business learns faster than its competitors.
+
+\smallskip
+\textbf{Speed of learning, not size, is the durable advantage in a global digital
+market.}
+\end{exambox}
+
+\begin{summarybox}
+Data requires interpretation, and the chain from product design through tool
+setup, data output and human interpretation to business action can break at every
+step; the analyst's value is concentrated in instrumenting, interpreting and
+translating. The analyst influences the business by setting the measurement
+agenda, arbitrating between opinions, reallocating money, prioritising the
+roadmap, quantifying risk, protecting against self-deception and translating
+measurement into business language. Becoming a change agent means moving from
+scheduled reports to proactive problem-finding, from ``what happened'' to ``what
+should we do'', and from presenting data to driving adoption --- which requires
+business literacy, credibility, storytelling, relationships, a bias towards
+experimentation and follow-through, against barriers of data distrust,
+HiPPO decision-making, vanity metrics, silos, privacy constraints and analysis
+paralysis. A holistic dashboard has seven sections, each tied to a decision, and
+any metric that drives no decision should be deleted.
+\end{summarybox}

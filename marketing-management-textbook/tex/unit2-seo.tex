@@ -1,0 +1,1096 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Unit II, second half: Search Engine Optimization (Chapters 6-11)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Search Engine Optimization Fundamentals}
+
+\syllabusstrip{Search Engine Optimization: Search Engine Optimization Fundamentals.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What SEO is, and its primary objective.
+\item Why SEO matters --- the figures that justify the investment.
+\item SEO, PPC and SEM distinguished.
+\item The anatomy of a modern search engine results page.
+\item The shift from keyword matching to intent, and E-E-A-T.
+\item The six-step SEO process, and white-hat against black-hat technique.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Definition and Objective}
+
+\begin{definitionbox}[Search Engine Optimization]
+\keytermas{Search engine optimization}{search engine optimization} (SEO) is the
+set of techniques used to improve the visibility and ranking of a website in the
+organic --- that is, unpaid --- results of search engines, thereby increasing the
+quantity and quality of traffic to that site.
+\end{definitionbox}
+
+\begin{exambox}[Primary Objective --- 2 Marks]
+\pyq{SEE, Jun/Jul 2025 --- 2 M}
+The primary objective of SEO is to increase organic visibility for relevant
+queries so that the right people --- those actively searching with intent ---
+find the site, and to increase the site's usability\ix{usability} so that they are satisfied
+when they arrive.
+
+\smallskip
+\textbf{Visibility without relevance is worthless.} Both halves of that sentence
+are required for full marks.
+\end{exambox}
+
+\section{Why SEO Matters}
+
+\begin{keybox}[The Case for Organic Search]
+\begin{itemize}
+\item Around \textbf{10 billion} searches happen every day on Google.
+\item \textbf{53\%} of all website traffic is delivered by organic search\ix{organic search} alone.
+\item Organic traffic has \textbf{infinite lifespan} --- it compounds, whereas
+      paid traffic stops the moment the budget stops.
+\item Search traffic carries the \textbf{highest buyer intent} of any channel,
+      because the user has explicitly stated their need.
+\end{itemize}
+\end{keybox}
+
+\noindent\textbf{Importance for online businesses:} lower customer acquisition
+cost; credibility, because users trust organic results more than advertisements;
+lead generation\ix{lead generation} around the clock; competitive defence; and measurable results.
+
+\section{SEO, SEM and PPC --- The Visibility Matrix}
+
+\begin{mmlongtable}{SEO, PPC and SEM distinguished}{tab:seosempcc}%
+{@{}P{0.16\textwidth}P{0.46\textwidth}P{0.31\textwidth}@{}}
+\rowcolor{ocre}\thd{Term} & \thd{Mechanism} & \thd{Cost model}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Term} & \thd{Mechanism} & \thd{Cost model}\\
+\midrule
+\endhead
+\rlab{SEO} & Drives organic results and clicks & Free per click; costs time and
+resources\\
+\rowcolor{tablealt}
+\rlab{PPC} \newline {\scriptsize pay per click} & Drives paid results;
+advertisers bid on specific keywords & The advertiser is charged per click\\
+\rlab{SEM} \newline {\scriptsize search engine marketing} & The umbrella term
+combining both organic and paid search strategies & Both\\
+\end{mmlongtable}
+
+On a search engine results page, paid listings appear at the top and bottom, with
+organic results between them.
+
+\section{The Search Engine Results Page}
+
+\begin{definitionbox}[SERP]
+The \keytermas{SERP}{SERP} is the page a search engine returns in response to a
+query. It is no longer a simple list of ten blue links.
+\end{definitionbox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    el/.style={minimum width=6.4cm,minimum height=0.62cm,align=left,
+               text width=6.0cm,font=\sffamily\scriptsize,inner sep=4pt,
+               anchor=north west}]
+  \draw[rulegrey,line width=0.9pt,rounded corners=3pt] (0,0) rectangle (6.9,-8.5);
+  \fill[tablehead,rounded corners=3pt] (0,0) rectangle (6.9,-0.55);
+  \node[anchor=west,font=\sffamily\scriptsize,text=slatelight] at (0.18,-0.28)
+    {search query};
+
+  \node[el,fill=warnpale,draw=warnred] at (0.25,-0.72)
+    {\textbf{\textcolor{warnred}{Paid results}} --- search and shopping ads};
+  \node[el,fill=ocrepale,draw=ocre] at (0.25,-1.5)
+    {\textbf{\textcolor{ocredark}{Featured snippet}} --- ``position zero''};
+  \node[el,fill=deepbluepale,draw=deepblue] at (0.25,-2.28)
+    {\textbf{\textcolor{deepblue}{Local pack}} --- three businesses, map, ratings};
+  \node[el,fill=white,draw=rulegrey] at (0.25,-3.06)
+    {\textbf{Organic result} --- title tag, URL, meta description};
+  \node[el,fill=white,draw=rulegrey] at (0.25,-3.84)
+    {\textbf{Organic result} --- with rich results: stars, FAQs, price};
+  \node[el,fill=greenpale,draw=greenok] at (0.25,-4.62)
+    {\textbf{\textcolor{greenok}{People Also Ask}} --- expandable questions};
+  \node[el,fill=white,draw=rulegrey] at (0.25,-5.40)
+    {\textbf{Image, video and news carousels}};
+  \node[el,fill=white,draw=rulegrey] at (0.25,-6.18)
+    {\textbf{Organic results} continue};
+  \node[el,fill=warnpale,draw=warnred] at (0.25,-6.96)
+    {\textbf{\textcolor{warnred}{Paid results}} --- bottom advertisements};
+  \node[el,fill=white,draw=rulegrey] at (0.25,-7.74)
+    {\textbf{Related searches}};
+
+  \draw[rulegrey,line width=0.9pt,rounded corners=3pt] (7.3,-0.72) rectangle (10.6,-4.3);
+  \node[anchor=north,align=center,text width=3.0cm,font=\sffamily\scriptsize,
+        text=slate] at (8.95,-0.95)
+    {\textbf{Knowledge panel}\\[3pt] entity information drawn from structured
+     sources and the knowledge graph};
+
+  \node[anchor=north west,align=left,text width=3.3cm,font=\sffamily\scriptsize,
+        text=slatelight] at (7.3,-4.7)
+    {\textbf{Three result types}\\[3pt]
+     \textcolor{warnred}{paid}\\
+     \textcolor{slate}{organic}\\
+     \textcolor{deepblue}{universal / vertical}\\ {\scriptsize (images, video,
+     news, local, shopping)}};
+\end{tikzpicture}
+\caption[Anatomy of a modern search engine results page]%
+        {A modern SERP. Because paid listings, the featured snippet, the local
+         pack and the knowledge panel can all precede the first ordinary organic
+         result, ranking first organically no longer means appearing first on the
+         page.}
+\label{fig:serp}
+\end{figure}
+
+\noindent Main elements and result types on a modern SERP:
+
+\begin{itemize}
+\item \sfb{Paid results} --- search advertisements at the top and bottom,
+      shopping and product listing advertisements, local service advertisements.
+\item \sfb{Organic results} --- the ranked list of web pages, each with a title
+      tag, a URL and a meta description\ix{meta description}.
+\item \sfb{Featured snippet}, known as ``position zero'' --- a direct answer
+      extracted from a page.
+\item \sfb{Knowledge panel and knowledge graph} --- entity information drawn
+      from structured sources.
+\item \sfb{Local pack or map pack} --- three local businesses with map, ratings
+      and directions.
+\item \sfb{People Also Ask} --- expandable related questions, and an excellent
+      content-research source.
+\item \sfb{Rich results} --- reviews, star ratings, FAQs, recipes and events,
+      driven by structured data markup.
+\item \sfb{Image, video and news carousels}, and related searches at the foot of
+      the page.
+\end{itemize}
+
+The three main types of result are therefore \textbf{paid}, \textbf{organic} and
+\textbf{universal or vertical} results, the last covering images, video, news,
+local and shopping.
+
+\section{The Shift From Keywords to Intent}
+
+Since 2015, Google's \keytermas{RankBrain}{RankBrain} and
+\keytermas{Hummingbird}{Hummingbird} algorithms have focused on understanding
+user intent rather than matching keyword strings. They expect high-quality
+semantic data and well-structured outlines, not keyword stuffing.
+
+\begin{keybox}[E-E-A-T]
+Google evaluates content on \textbf{Experience, Expertise, Authoritativeness and
+Trustworthiness}. Alongside this runs the link principle: \textbf{link gravity
+beats quantity} --- a large quantity of \emph{quality} links is the goal, not
+simply a large quantity of links.
+\end{keybox}
+
+\begin{warnbox}[The Post-Panda Reality]
+Keyword stuffing is dead. Google's sole objective is surfacing the most relevant
+answer to a query. If the query is ``how to make banana bread'', the content must
+provide the best, most readable, fastest answer.
+
+\smallskip
+White-hat optimisation therefore means writing naturally, organising flow well,
+and earning backlinks by creating remarkable, link-worthy data or insight.
+\end{warnbox}
+
+\section{The Six-Step SEO Process}
+
+An SEO project follows six steps. Note that SEO does not begin and end with
+initial work: ongoing success requires monitoring results and building meaningful
+content continually.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    st/.style={draw=ocre,line width=0.85pt,fill=ocrepale,rounded corners=3pt,
+               minimum height=1.5cm,text width=1.72cm,align=center,
+               font=\sffamily\bfseries\scriptsize,text=slate,inner sep=3pt}]
+  \node[st] (s1) at (0,0)     {1\\ Keyword research};
+  \node[st] (s2) at (1.98,0)  {2\\ Reporting \& goal setting};
+  \node[st] (s3) at (3.96,0)  {3\\ Content building};
+  \node[st] (s4) at (5.94,0)  {4\\ Page optimization};
+  \node[st] (s5) at (7.92,0)  {5\\ Social \& link building};
+  \node[st] (s6) at (9.90,0)  {6\\ Follow-up reporting};
+  \foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5,s5/s6}{
+    \draw[-{Latex[length=1.9mm]},ocre,line width=0.85pt] (\a)--(\b);}
+  \draw[-{Latex[length=2.1mm]},ocredark,line width=0.85pt,dashed]
+    (s6.south) -- ++(0,-0.65) -| (s1.south);
+  \node[anchor=north,text=ocredark,font=\sffamily\scriptsize\itshape]
+    at (4.95,-1.5) {SEO is a cycle: results are monitored and content built continually};
+\end{tikzpicture}
+\caption[The six-step SEO process]%
+        {The six-step process. Step~6 returns to step~1: an SEO project has no
+         completion date, only measurement intervals.}
+\label{fig:seoprocess}
+\end{figure}
+
+\begin{mmlongtable}{The six steps in detail}{tab:seosteps}%
+{@{}P{0.22\textwidth}P{0.71\textwidth}@{}}
+\rowcolor{ocre}\thd{Step} & \thd{Activity}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Step} & \thd{Activity}\\
+\midrule
+\endhead
+\rlab{1. Keyword research} & Identify a group of keyword phrases balancing high
+usage by searchers with relatively low competition. Also perform competitive
+research --- a thorough analysis against the site's seven to ten biggest
+competitors using metrics such as indexed content, inbound links, domain age and
+social following, to gauge the starting position and identify priorities.\\
+\rowcolor{tablealt}
+\rlab{2. Reporting and goal setting} & Establish the site's current position in
+the search engines and its traffic baseline --- which engines, which phrases,
+bounce rates, most popular content. Set measurable goals tied to specific
+business objectives.\\
+\rlab{3. Content building} & Content is king. High-volume, high-quality content
+gives users a reason to stay and return, and gives search engines more
+information to store, which translates directly into rankings.\\
+\rowcolor{tablealt}
+\rlab{4. Page optimization} & On-page work: page titles, text-based navigation,
+prominence of targeted keyword phrases, site map, ALT and META data, and cleaning
+up the code.\\
+\rlab{5. Social and link building} & Establish a social media presence to share
+content --- fish where the fish are --- and build high-quality inbound links.
+Google views links from high-quality sites as votes for your site.\\
+\rowcolor{tablealt}
+\rlab{6. Follow-up reporting and analysis} & Repeat the initial reporting at
+regular intervals after optimisation. Compare rankings, traffic, social signals
+and other key metrics against pre-optimisation levels to produce measurable
+results.\\
+\end{mmlongtable}
+
+\section{SEO Goals, and White Hat Against Black Hat}
+
+\begin{itemize}
+\item The ultimate goal is to \sfb{increase the site's usability} so that the
+      right people are brought in from the search engines. The purpose of the
+      site must be clearly defined so that you can ensure the site achieves it.
+\item When search visitors find that the site meets their expectations after
+      clicking through, usability is solid. If they are disappointed, the site
+      has missed its mark.
+\item \sfb{Follow the best strategies for ranking}, which requires understanding
+      how search engines want things done --- familiarise yourself with their
+      terms and conditions and webmaster guidelines.
+\item \sfb{Use white-hat techniques}, those that fall in line with what search
+      engines define as best practice.
+\end{itemize}
+
+\begin{warnbox}[Black-Hat Techniques and Their Cost]
+Keyword stuffing, cloaking, link farms, hidden text and doorway pages produce
+short-term gains and long-term penalties. A manual action or algorithmic penalty
+can remove a site from the index entirely, and recovery takes far longer than the
+gain ever lasted.
+\end{warnbox}
+
+\begin{summarybox}
+SEO improves visibility and ranking in organic results to raise the quantity and
+quality of traffic; its objective is relevance as well as visibility. It matters
+because organic search delivers about 53\% of all web traffic, carries the
+highest buyer intent\ix{buyer intent}, compounds indefinitely and costs nothing per click. SEO is
+organic, PPC is paid, SEM is the umbrella over both. A modern SERP carries paid
+results, organic results and universal results, plus featured snippets,
+knowledge panels, local packs, People Also Ask and rich results. Since 2015
+RankBrain and Hummingbird have ranked on intent rather than string matching, and
+content is judged on E-E-A-T. The process runs six steps --- keyword research,
+reporting and goals, content building, page optimisation, social and link
+building, follow-up analysis --- and cycles. White-hat technique follows engine
+guidelines; black-hat technique trades short gains for long penalties.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Keywords and the SEO Content Plan}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Keywords and SEO Content Plan.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item Why keyword research matters.
+\item Keyword types by intent and by length.
+\item The keyword sweet spot.
+\item The ten-step SEO content plan, and keyword cannibalisation.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Why Keyword Research Matters}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{CIE-II, 7 May 2025; SEE, Oct/Nov 2023 --- 2 M}
+\keytermas{Keyword research}{keyword research} is the process of identifying the
+phrases that real users type into search engines, together with their search
+volume, competition and intent.
+
+\smallskip
+It matters because without it content is optimised for phrases nobody searches,
+effort is spent on terms that cannot realistically be ranked for, and traffic
+arrives with no intent to buy.
+\end{exambox}
+
+\section{Keyword Types}
+
+\subsection{By intent}
+
+\begin{mmlongtable}{Keyword types by search intent}{tab:keywordintent}%
+{@{}P{0.24\textwidth}P{0.32\textwidth}P{0.37\textwidth}@{}}
+\rowcolor{ocre}\thd{Intent type} & \thd{What the user wants} & \thd{Example}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Intent type} & \thd{What the user wants} & \thd{Example}\\
+\midrule
+\endhead
+\rlab{Informational} & To learn something & ``what is content marketing''\\
+\rowcolor{tablealt}
+\rlab{Navigational} & To reach a specific site & ``RVCE login''\\
+\rlab{Commercial investigation} & To compare before buying & ``best trekking
+shoes under 5000''\\
+\rowcolor{tablealt}
+\rlab{Transactional} & To buy now & ``buy trekking shoes online''\\
+\end{mmlongtable}
+
+\subsection{By length}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \fill[ocre!55] (0,0) rectangle (2.1,2.55);
+  \node[text=white,font=\sffamily\bfseries\scriptsize,align=center] at (1.05,2.15) {HEAD};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=1.95cm] at (1.05,1.15)
+    {1--2 words\\ huge volume\\ brutal competition\\ vague intent};
+
+  \fill[ocre!35] (2.3,0) rectangle (4.9,1.75);
+  \node[text=slate,font=\sffamily\bfseries\scriptsize,align=center] at (3.6,1.45) {BODY};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.4cm] at (3.6,0.78)
+    {2--3 words\\ moderate volume\\ and competition};
+
+  \fill[ocre!16] (5.1,0) rectangle (11.2,0.95);
+  \node[text=slate,font=\sffamily\bfseries\scriptsize,align=center] at (8.15,0.74) {LONG TAIL};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=5.9cm] at (8.15,0.3)
+    {4+ words \ \textbullet\ \ low volume each but collectively the majority of
+     all searches \ \textbullet\ \ low competition, sharp intent, high conversion};
+
+  \draw[-{Latex[length=2.4mm]},slate,line width=0.9pt] (0,-0.4) -- (11.2,-0.4);
+  \node[anchor=north,text=slatelight,font=\sffamily\scriptsize] at (5.6,-0.5)
+    {increasing phrase length \ \textbullet\ \ decreasing competition \ \textbullet\ \ increasing intent};
+\end{tikzpicture}
+\caption[Keywords by length: the search demand curve]%
+        {The search demand curve. The long tail holds little volume per phrase
+         and most of the volume in total, which is why a site with low authority
+         competes there rather than at the head.}
+\label{fig:longtail}
+\end{figure}
+
+\section{Finding the Keyword Sweet Spot}
+
+A keyword is worth targeting only where three conditions overlap.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \begin{scope}[opacity=0.40,transparency group]
+    \fill[ocre]     (-1.3,0.6) circle (2.25);
+    \fill[deepblue] ( 1.3,0.6) circle (2.25);
+    \fill[greenok]  ( 0.0,-1.55) circle (2.25);
+  \end{scope}
+  \node[text=ocredark,font=\sffamily\bfseries\scriptsize,align=center]
+    at (-2.55,1.75) {HIGH SEARCH\\ VOLUME};
+  \node[text=deepblue,font=\sffamily\bfseries\scriptsize,align=center]
+    at ( 2.55,1.75) {LOW SEO\\ DIFFICULTY};
+  \node[text=greenok,font=\sffamily\bfseries\scriptsize,align=center]
+    at ( 0.0,-3.4)  {COMMERCIAL INTENT};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.1cm]
+    at (-2.25,0.5) {roughly 250\\ to 1,000+\\ monthly};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.1cm]
+    at ( 2.25,0.5) {under about\\ 40 KD/SD};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.4cm]
+    at ( 0.0,-2.1) {high CPC, buyer-\\ specific phrasing};
+  \node[text=white,font=\sffamily\bfseries\scriptsize,align=center]
+    at (0,-0.32) {THE SWEET\\ SPOT};
+\end{tikzpicture}
+\caption[The keyword sweet spot]%
+        {Target only the central overlap. Two out of three is a trap: volume
+         without intent is vanity, and intent without achievability is wasted
+         effort.}
+\label{fig:sweetspot2}
+\end{figure}
+
+\begin{itemize}
+\item \sfb{High search volume} --- a minimum of roughly 250 to 1,000 or more
+      monthly searches.
+\item \sfb{Low SEO difficulty} --- under about a 40 difficulty score, so that
+      ranking is realistically achievable.
+\item \sfb{Commercial intent} --- a high cost-per-click and buyer-specific
+      phrasing, indicating the searcher intends to transact.
+\end{itemize}
+
+\begin{warnbox}[Traffic Without Intent Is Useless]
+Do not optimise for clicks; optimise for revenue.
+\end{warnbox}
+
+\section{Building an SEO Content Plan}
+
+\begin{enumerate}
+\item \sfb{Define business objectives first} --- what does the site actually need
+      (sales, leads, sign-ups)?
+\item \sfb{Research keywords} and cluster them into topics rather than isolated
+      phrases.
+\item \sfb{Map intent to funnel stage} --- informational keywords become blog
+      content; commercial and transactional keywords become product and
+      comparison pages.
+\item \sfb{Audit existing content} --- decide what to keep, update, consolidate
+      or retire.
+\item \sfb{Identify content gaps} against competitors --- topics with demand
+      where nobody ranks well.
+\item \sfb{Design the site architecture} --- a pillar page per topic cluster,
+      with supporting articles internally linked to it.
+\item \sfb{Assign one primary keyword per page.}
+\item \sfb{Build the editorial calendar} with owners, deadlines and target
+      keywords.
+\item \sfb{Set measurable targets} --- rankings, impressions, organic sessions,
+      assisted conversions.
+\item \sfb{Review and iterate} monthly.
+\end{enumerate}
+
+\begin{warnbox}[Keyword Cannibalisation]
+Never let two of your own pages compete for the same term.
+\keytermas{Keyword cannibalisation}{keyword cannibalisation} splits link equity
+and click-through between two weaker pages instead of concentrating it in one
+strong page, and it leaves the search engine to choose which of your pages to
+rank --- a choice it frequently gets wrong. One primary keyword per page,
+enforced in the plan, prevents it.
+\end{warnbox}
+
+\begin{summarybox}
+Keyword research identifies the phrases users actually type, with their volume,
+competition and intent; without it, effort goes to phrases nobody searches or
+nobody buys from. Intent divides into informational, navigational, commercial
+investigation and transactional; length divides into head, body and long tail,
+with the long tail holding most total volume at low competition and high
+conversion. Target only where volume, achievable difficulty and commercial intent\ix{commercial intent}
+overlap. The content plan runs ten steps from business objectives through topic
+clustering, intent mapping, content audit, gap analysis, pillar architecture, one
+keyword per page, calendar and targets to monthly review.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{SEO and Business Objectives}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{SEO \& Business Objectives.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item How to translate each business objective into an SEO focus and a KPI.
+\item Why SEO must be designed into website development rather than retro-fitted.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Aligning SEO With Business Objectives}
+
+\begin{mmlongtable}{SEO focus and KPI by business objective}{tab:seoobjectives}%
+{@{}P{0.22\textwidth}P{0.42\textwidth}P{0.29\textwidth}@{}}
+\rowcolor{ocre}\thd{Business objective} & \thd{SEO focus} & \thd{Primary KPI}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Business objective} & \thd{SEO focus} & \thd{Primary KPI}\\
+\midrule
+\endhead
+\rlab{Increase online sales} & Transactional and product keywords; optimised
+category and product pages; rich results with reviews and price & Organic
+revenue; organic conversion rate\\
+\rowcolor{tablealt}
+\rlab{Generate leads} & Commercial-investigation keywords; comparison and ``best
+X for Y'' content; gated assets & Organic leads; cost per lead\\
+\rlab{Build brand authority} & Informational pillar content; E-E-A-T signals;
+digital PR and backlinks & Impressions; non-branded keyword coverage; referring
+domains\\
+\rowcolor{tablealt}
+\rlab{Reduce paid advertising dependence} & Rank organically for the terms
+currently being bought & Share of traffic from organic against paid\\
+\rlab{Enter a new market} & Local and language-specific SEO; localised content
+and listings & Local pack visibility; regional organic sessions\\
+\end{mmlongtable}
+
+\section{Integrating SEO Into Website Development}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+``Why is it important to integrate SEO in website development?''
+\pyq{SEE, Jun/Jul 2025 --- 2 M}
+
+\begin{itemize}
+\item Site architecture, URL structure and navigation are extremely expensive to
+      change after launch but nearly free to get right during the build.
+\item Rendering method, page speed and Core Web Vitals\ix{Core Web Vitals} are determined by
+      development decisions, not by marketing decisions.
+\item Retro-fitting SEO usually forces URL changes, which risk losing
+      accumulated ranking authority.
+\item Content structure --- heading hierarchy, schema, internal linking --- must
+      be designed into the templates.
+\item Tracking and analytics must be instrumented before launch, not after
+      traffic has been lost.
+\item It avoids launching with pages blocked by \texttt{robots.txt} or left
+      \texttt{noindex} from staging --- a classic and costly error.
+\end{itemize}
+\end{exambox}
+
+\begin{summarybox}
+Every business objective implies a different SEO focus and a different KPI:
+sales imply transactional keywords and organic revenue; leads imply comparison
+content and cost per lead\ix{cost per lead}; authority implies pillar content and referring
+domains; reducing paid dependence implies ranking for bought terms; new-market
+entry implies local and language SEO. SEO belongs in the build, not after it,
+because architecture, URLs, rendering, speed, template structure and tracking are
+all fixed at development time, and retro-fitting risks the accumulated authority
+of existing URLs.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Writing SEO Content}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Writing SEO Content.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The anatomy of a top-ranking page.
+\item The nine-point method for integrating keywords naturally.
+\item Seven considerations when writing SEO-friendly content.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Anatomy of a Top-Ranking Page}
+
+\begin{itemize}
+\item \sfb{H1 title} --- click-worthy, with the exact-match keyword.
+\item \sfb{Introduction} --- comprehensive, answering the user's core intent
+      immediately rather than after four hundred words of preamble.
+\item \sfb{Structure} --- H2 and H3 subheadings containing semantically related
+      long-tail keyword\ix{long-tail keyword} variants.
+\item \sfb{Formatting} --- short, scannable paragraphs and bulleted lists.
+\item \sfb{Rich media} --- embedded videos and infographics to increase dwell
+      time.
+\item \sfb{Architecture} --- internal links to keep users inside your ecosystem,
+      plus credible outbound links to build trust.
+\end{itemize}
+
+\section{Integrating Keywords Naturally}
+
+\begin{exambox}[The Scenario Question]
+``You are writing a blog post about a complex technical topic. Describe how you
+would integrate relevant keywords naturally into the content while ensuring it
+remains engaging and informative for readers.''
+\pyq{CIE-II, 24 Jul 2024 --- 10 M}
+\end{exambox}
+
+\begin{enumerate}
+\item \sfb{Write for the reader first, then optimise.} Draft the piece to
+      genuinely answer the question, then place keywords during editing.
+\item \sfb{Place the primary keyword in the high-value positions} --- the title
+      tag, the H1, the first hundred words, one H2, the URL slug, the meta
+      description and one image ALT attribute.
+\item \sfb{Use semantic variants and synonyms} rather than repeating the exact
+      phrase; modern algorithms understand meaning, not string matching.
+\item \sfb{Respect keyword density.} Industry practice is roughly 3--5\% for the
+      focus phrase --- enough to signal the topic, not enough to read as spam.
+\item \sfb{Answer the sub-questions surfaced in ``People Also Ask''}; each
+      becomes an H2 or H3 that naturally carries a long-tail variant.
+\item \sfb{Explain jargon on first use}, and use analogies, examples, diagrams
+      and code snippets to keep a technical topic engaging.
+\item \sfb{Break up the text} with subheadings, lists, tables and visuals every
+      few paragraphs.
+\item \sfb{Link internally} with keyword-rich but descriptive anchor text\ix{anchor text}.
+\item \sfb{Read it aloud.} If a sentence sounds unnatural because of a keyword,
+      rewrite it --- user signals now outweigh keyword placement.
+\end{enumerate}
+
+\section{Key Considerations}
+
+\begin{exambox}[Two Considerations --- 2 Marks]
+\pyq{CIE-II Quiz, 24 Jul 2024 --- 2 M}
+(1) \textbf{Match the search intent} --- the format and depth must answer what
+the user actually wants. (2) \textbf{Integrate keywords naturally} in the title,
+H1, opening paragraph and subheadings using semantic variants, at roughly 3--5\%
+density, without stuffing. Also acceptable: a unique title tag and meta
+description; a scannable structure.
+\end{exambox}
+
+\begin{itemize}
+\item \sfb{Search intent match} --- the format must match what already ranks: a
+      list, a guide, a comparison, a tool.
+\item \sfb{Originality and depth} --- content must be \emph{better} than what
+      currently occupies the SERP, not merely equivalent.
+\item \sfb{Readability} --- short sentences, plain language, scannable structure.
+\item \sfb{Freshness} --- update statistics and examples; stale content loses
+      rankings.
+\item \sfb{Unique title tags and meta descriptions} on every page.
+\item \sfb{Accessibility} --- descriptive ALT text on every meaningful image.
+\item \sfb{Comprehensiveness} --- cover the topic fully, so the user has no
+      reason to return to the SERP.
+\end{itemize}
+
+\begin{summarybox}
+A top-ranking page has a keyword-bearing H1, an introduction that answers the
+intent immediately, H2 and H3 structure carrying semantic variants, scannable
+formatting, rich media for dwell time\ix{dwell time}, and both internal and credible outbound
+links. Integrate keywords by writing for the reader first and optimising second,
+placing the primary phrase in the high-value positions, using semantic variants
+at roughly 3--5\% density, answering People Also Ask questions as subheadings,
+explaining jargon, breaking up text, linking internally with descriptive anchors,
+and reading aloud to catch unnatural phrasing. Content must match intent, exceed
+what already ranks, read easily, stay fresh, carry unique metadata, be accessible
+and be complete.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{On-Site and Off-Site SEO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{On-site \& off-site SEO.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item On-page SEO and its five key elements.
+\item Nine interlinking best practices.
+\item Technical SEO --- the defensive foundation.
+\item Off-page SEO, backlinks and brand signals.
+\item The on-site against off-site comparison.
+\item The House of SEO --- how the three layers combine.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{On-Site (On-Page) SEO}
+
+\begin{definitionbox}[On-Page SEO]
+\keytermas{On-page SEO}{on-page SEO} refers to how well a website's own content
+and code are presented to search engines. It involves ensuring that a particular
+webpage is structured so that it is found for given keywords and key phrases. It
+improves search ranking and the overall readability of the site, and --- unlike
+off-page work --- it can be improved immediately by fixing incorrect elements on
+the page.
+\end{definitionbox}
+
+\begin{mmlongtable}{The five key elements of on-page SEO}{tab:onpage}%
+{@{}P{0.16\textwidth}P{0.77\textwidth}@{}}
+\rowcolor{ocre}\thd{Element} & \thd{What to do}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Element} & \thd{What to do}\\
+\midrule
+\endhead
+\rlab{1. Page copy} & Produce original, unique, high-quality, relevant content
+continuously. Focus each piece on a single primary keyword or key phrase,
+maintaining a keyword density of about 3--5\%, mixing primary and secondary
+phrases. Quality over quantity --- depth and content intensity have outperformed
+sheer length since the 2011 algorithm update.\\
+\rowcolor{tablealt}
+\rlab{2. Title tags} & Arguably the most important element of the ``big three'',
+the others being page copy and inbound links. The title tag supplies the
+clickable link in the search result. Google limits page titles to about 70
+characters, so titles must be keyword-relevant yet concise. Order: primary
+keyword, then secondary keyword, then branded keyword at the end --- except on
+the home page.\\
+\rlab{3. Meta data} & A well-written description summarising the page, limited to
+155--160 characters. Meta keywords lost ranking influence after Google's
+September 2009 declaration because of spam abuse, though crawlers still read them
+for topicality. The meta description \emph{cannot} influence rankings but
+strongly influences click-through rate --- it works as advertising copy for the
+organic result, and Google highlights matching keywords in bold.\\
+\rowcolor{tablealt}
+\rlab{4. Heading tags} & Define the content section by section, like traditional
+headings and subheadings. There should be one \texttt{<h1>} per page containing
+the most relevant key phrase. Tags run to \texttt{<h6>}, though general practice
+uses up to \texttt{<h3>}. Place other important key phrases in \texttt{<h2>} and
+\texttt{<h3>}.\\
+\rlab{5. Interlinking} & Linking one page of your site to related pages provides
+context to both search engines and readers.\\
+\end{mmlongtable}
+
+\subsection{Interlinking best practices}
+
+\begin{enumerate}
+\item Include links in the main content of each page.
+\item Paragraph links carry the most weight.
+\item Use keyword-rich anchor text.
+\item Avoid non-descriptive anchor text such as ``read more'' or ``click here''.
+\item Link to relevant, deep pages --- not only the home page.
+\item Use breadcrumb navigation on every page.
+\item Monitor inbound links through Google Search Console\ix{Google Search Console}.
+\item Avoid multiple links to the same page from a single page.
+\item Fewer links means more authority per link.
+\end{enumerate}
+
+\section{Technical SEO --- The Defence}
+
+\begin{quotebox}
+SEO is like a sports team. To win, both defence and offence are required.
+\end{quotebox}
+
+Technical SEO is the foundation of the house: the architecture that allows the
+site to be crawled and indexed at all.
+
+\begin{itemize}
+\item Site speed and \sfb{Core Web Vitals} --- LCP, INP and CLS.
+\item Mobile friendliness and responsive design\ix{responsive design}.
+\item HTTPS security.
+\item An XML sitemap and a correct \texttt{robots.txt}.
+\item Crawlability and indexing\ix{indexing} --- no orphan pages, no broken links, no
+      redirect chains.
+\item Clean URL structure --- short, readable, keyword-bearing.
+\item Canonical tags, to prevent duplicate-content dilution.
+\item Structured data and schema markup, for rich results.
+\item Avoiding intrusive interstitials and pop-ups that block content on mobile.
+\end{itemize}
+
+\begin{exambox}[Two Technical Aspects --- 2 Marks]
+``Name two technical aspects of a website that can significantly impact its
+organic search ranking.''
+\pyq{CIE-II Quiz, 24 Jul 2024 --- 2 M}
+Best two answers: \textbf{site loading speed} (Core Web Vitals) and
+\textbf{mobile responsiveness}. Also acceptable: HTTPS security, crawlability and
+indexability, XML sitemap, URL structure.
+\end{exambox}
+
+\section{Off-Site (Off-Page) SEO}
+
+\begin{definitionbox}[Off-Page SEO]
+\keytermas{Off-page SEO}{off-page SEO} refers to a website's overall authority on
+the web, determined by what other websites say about it. It is a long-term
+process. Put simply, off-page is about your online reputation. Its central
+activity is acquiring \keytermas{backlinks}{backlink} from authority sites in
+your niche --- backlinks are the currency of any off-page strategy. Unlike
+on-page work, off-page effort is not visible on the webpage itself; it does the
+background work for a better search result.
+\end{definitionbox}
+
+\subsection{The two halves of off-page work}
+
+\noindent\sfb{1. Acquiring backlinks.} Search engines treat link popularity as a
+key ranking factor, though it is no longer the top factor, because it can be
+manipulated. After the Google Panda and Penguin updates, many effective
+old-school practices became obsolete and negatively affected large, high-ranking
+websites. Engines now focus more on content quality and engagement level than on
+the raw number of links. The success factor is not building a long list of
+inbound links but building a trail of quality links.
+
+\begin{keybox}[The Link Rule]
+Getting links from multiple \emph{relevant} domains in your industry is the key.
+\textbf{Link gravity beats quantity} --- a large quantity of quality links is the
+goal.
+\end{keybox}
+
+\noindent\sfb{2. Building brand signals} --- brand mentions, reviews, ratings,
+social sharing, PR coverage and demand generation, all of which contribute to
+E-E-A-T.
+
+\subsection{Off-page techniques}
+
+\begin{itemize}
+\item \sfb{Digital PR and link earning} --- publish original research, data or
+      tools that journalists and bloggers cite naturally.
+\item \sfb{Guest posting} on relevant, authoritative sites in the niche.
+\item \sfb{Broken-link building} --- find dead links on relevant pages and offer
+      your resource as a replacement.
+\item \sfb{Business listings and citations} --- Google Business Profile, industry
+      directories, consistent name, address and phone details.
+\item \sfb{Online reviews and ratings} on Google, industry platforms and
+      marketplaces.
+\item \sfb{Social media sharing} --- not a direct ranking factor, but it produces
+      the exposure from which links follow.
+\item \sfb{Influencer and expert collaborations} --- interviews, quotes and
+      co-created content.
+\item \sfb{Forum and community participation} --- contributing genuine value in
+      niche communities.
+\item \sfb{Unlinked-mention reclamation} --- find places where the brand is
+      mentioned without a link, and request one.
+\end{itemize}
+
+\section{On-Site Against Off-Site SEO}
+
+\begin{keybox}[High Yield]
+Asked both as a two-mark distinction and as a ten-mark analysis in the same
+paper.
+\pyq{CIE-II, 7 May 2025 --- 2 M and 10 M}
+\end{keybox}
+
+\begin{mmlongtable}{On-site against off-site SEO}{tab:onvsoff}%
+{@{}P{0.15\textwidth}P{0.39\textwidth}P{0.39\textwidth}@{}}
+\rowcolor{ocre}\thd{Basis} & \thd{On-Site (On-Page) SEO} & \thd{Off-Site (Off-Page) SEO}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Basis} & \thd{On-Site (On-Page) SEO} & \thd{Off-Site (Off-Page) SEO}\\
+\midrule
+\endhead
+\rlab{Location of work} & Within your own website & Outside your website\\
+\rowcolor{tablealt}
+\rlab{What it controls} & How content and code are presented to search engines &
+The site's authority and reputation across the web\\
+\rlab{Primary target} & Humans and crawlers reading the page & Third-party
+validators --- other sites and users\\
+\rowcolor{tablealt}
+\rlab{Core challenge} & Quality and formatting & Brand authority\\
+\rlab{Degree of control} & Complete --- you own it & Limited --- others decide\\
+\rowcolor{tablealt}
+\rlab{Speed of effect} & Immediate; can be fixed today & Slow; a long-term
+process\\
+\rlab{Techniques} & Title tags, meta descriptions, heading tags, keyword
+placement, content quality, internal linking, image ALT text, URL structure,
+site speed, mobile friendliness & Backlink building, guest posting, digital PR,
+social sharing, influencer collaboration, online reviews, business listings,
+forum participation\\
+\rowcolor{tablealt}
+\rlab{Example} & Rewriting a product page title to ``Trekking Shoes for Men ---
+Waterproof --- BrandName'' & Earning a link from a national outdoors magazine's
+``best trekking gear'' article\\
+\end{mmlongtable}
+
+\section{The House of SEO}
+
+\begin{figure}[htbp]
+\centering
+% Each line of each storey is a separately anchored node at a fixed y, so that
+% text can never grow into the storey below it.
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    ln/.style={anchor=north,align=center,font=\sffamily\scriptsize,text=slate}]
+
+  % ---- roof: off-page SEO
+  \fill[greenpale]              (0,4.3) -- (5.6,6.1) -- (11.2,4.3) -- cycle;
+  \draw[greenok,line width=1pt] (0,4.3) -- (5.6,6.1) -- (11.2,4.3) -- cycle;
+  \node[ln,text=greenok,font=\sffamily\bfseries\small] at (5.6,5.72) {OFF-PAGE SEO};
+  \node[ln,font=\sffamily\scriptsize\itshape]           at (5.6,5.26) {the roof --- the offence};
+  \node[ln,text width=8.0cm]                            at (5.6,4.90)
+    {link building, PR, ratings, demand generation, E-E-A-T};
+
+  % ---- living floor: on-page SEO
+  \fill[ocrepale]            (0.55,1.35) rectangle (10.65,4.3);
+  \draw[ocre,line width=1pt] (0.55,1.35) rectangle (10.65,4.3);
+  \node[ln,text=ocredark,font=\sffamily\bfseries\small] at (5.6,4.18) {ON-PAGE SEO};
+  \node[ln,font=\sffamily\scriptsize\itshape]           at (5.6,3.74) {the living floor};
+  \node[ln,text width=9.4cm]                            at (5.6,3.38)
+    {relevant topics, title tags, H1--H6 headings, image ALT text, multimedia};
+  \node[ln,text width=9.4cm]                            at (5.6,2.72)
+    {\textbf{goal:} publish original, error-free content better than the SERP
+     competitors};
+
+  % ---- foundation: technical SEO
+  \fill[deepbluepale]            (0.55,-1.15) rectangle (10.65,1.35);
+  \draw[deepblue,line width=1pt] (0.55,-1.15) rectangle (10.65,1.35);
+  \node[ln,text=deepblue,font=\sffamily\bfseries\small] at (5.6,1.23) {TECHNICAL SEO};
+  \node[ln,font=\sffamily\scriptsize\itshape]           at (5.6,0.79) {the foundation --- the defence};
+  \node[ln,text width=9.4cm]                            at (5.6,0.43)
+    {URL structure, HTTPS, mobile friendliness, Core Web Vitals, fast hosting};
+  \node[ln,text width=9.4cm]                            at (5.6,-0.23)
+    {\textbf{goal:} complete crawlability, indexing and seamless UX
+     infrastructure};
+
+  % ---- reading of the diagram
+  \node[ln,text=slatelight,font=\sffamily\scriptsize\itshape,text width=11cm]
+    at (5.6,-1.45)
+    {technical makes the site discoverable, on-page makes it relevant, off-page
+     makes it authoritative --- and rankings are a function of all three
+     together};
+\end{tikzpicture}
+\caption[The House of SEO]%
+        {The House of SEO. The layers are not alternatives: authority cannot
+         compensate for a site that cannot be crawled, and crawlability earns
+         nothing without content worth ranking.}
+\label{fig:houseofseo}
+\end{figure}
+
+\begin{mmlongtable}{The three layers compared}{tab:threelayers}%
+{@{}P{0.147\textwidth}P{0.255\textwidth}P{0.255\textwidth}P{0.255\textwidth}@{}}
+\rowcolor{ocre}\thd{} & \thd{Technical SEO} & \thd{On-Page SEO} & \thd{Off-Page SEO}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{} & \thd{Technical SEO} & \thd{On-Page SEO} & \thd{Off-Page SEO}\\
+\midrule
+\endhead
+\rlab{Position} & The foundation & The living floor & The roof\\
+\rowcolor{tablealt}
+\rlab{Primary target} & Search engine bots & Humans and algorithms &
+Third-party validators\\
+\rlab{Core challenge} & Discoverability and security & Quality and formatting &
+Brand authority\\
+\rowcolor{tablealt}
+\rlab{The goal} & Complete crawlability, indexing and seamless UX
+infrastructure & Publish well-written, original, error-free content better than
+SERP competitors & Enhance brand awareness and recognition; acquire high-quality
+backlinks\\
+\rlab{Elements} & URL structure, HTTPS, mobile friendliness, Core Web Vitals,
+fast hosting, avoiding intrusive interstitials & Relevant topics, title tags,
+H1--H6 headings, image ALT text, multimedia & Link building, PR, ratings, demand
+generation, E-E-A-T\\
+\end{mmlongtable}
+
+\begin{summarybox}
+On-page SEO governs how a site's own content and code are presented, through five
+elements --- page copy at 3--5\% keyword density, title tags under about 70
+characters, meta descriptions of 155--160 characters that drive click-through
+rather than ranking, one H1 per page with H2 and H3 beneath, and interlinking with
+descriptive anchor text. Technical SEO is the defensive foundation: speed, Core
+Web Vitals, mobile friendliness, HTTPS, sitemap, crawlability, clean URLs,
+canonicals and schema. Off-page SEO is authority earned elsewhere, principally
+through quality backlinks --- link gravity beats quantity --- plus brand signals.
+On-page is controllable and immediate; off-page is uncontrollable and slow. The
+House of SEO combines all three: technical makes a site discoverable, on-page
+makes it relevant, off-page makes it authoritative.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Optimizing Organic Search Ranking}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Optimize Organic Search Ranking.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The purpose of optimising organic rankings.
+\item Eleven metrics by which organic ranking is measured.
+\item The nine-step SEO audit, and a worked diagnostic example.
+\item Why good design is now good SEO.
+\item The SEO toolset.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Purpose}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{CIE-II, 7 May 2025 --- 2 M}
+The purpose of optimising organic search rankings is to appear higher in unpaid
+search results for queries with real commercial intent, thereby capturing
+sustainable, high-quality, near-zero-marginal-cost traffic; reducing dependence
+on paid advertising; and building the credibility that comes with ranking
+organically rather than paying for position.
+\end{exambox}
+
+\section{Key Metrics}
+
+\begin{mmlongtable}{Metrics for organic search performance}{tab:organicmetrics}%
+{@{}P{0.30\textwidth}P{0.63\textwidth}@{}}
+\rowcolor{ocre}\thd{Metric} & \thd{What it measures}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Metric} & \thd{What it measures}\\
+\midrule
+\endhead
+\rlab{Average position and keyword rankings} & Where the site sits for its
+target keywords\\
+\rowcolor{tablealt}
+\rlab{Organic impressions} & How often pages are shown in search results\\
+\rlab{Organic clicks and organic CTR} & How often people actually click --- and
+how compelling the title and meta description are\\
+\rowcolor{tablealt}
+\rlab{Organic sessions} & Volume of visitors arriving from unpaid search\\
+\rlab{Keyword coverage} & The number of distinct keywords ranking in the top 3,
+top 10 and top 100\\
+\rowcolor{tablealt}
+\rlab{Indexed pages} & How much of the site the engine has actually stored\\
+\rlab{Referring domains and backlink quality} & Off-page authority growth\\
+\rowcolor{tablealt}
+\rlab{Domain and page authority} & Third-party authority scoring\\
+\rlab{Bounce rate and dwell time} & Whether the traffic finds what it expected\\
+\rowcolor{tablealt}
+\rlab{Organic and assisted conversions} & Whether the traffic produces business
+value\\
+\rlab{Core Web Vitals} & Technical experience signals feeding into ranking\\
+\end{mmlongtable}
+
+\section{Conducting an SEO Audit}
+
+\begin{keybox}[High Yield]
+Examined together with the metrics of \S\,11.2.
+\pyq{CIE-II, 24 Jul 2024 --- 10 M}
+\end{keybox}
+
+\begin{enumerate}
+\item \sfb{Crawl the site} --- with Screaming Frog\ix{Screaming Frog}, SEMrush Site Audit or Ahrefs
+      Site Audit --- to find broken links, redirect chains, duplicate titles and
+      descriptions, missing H1s, thin pages and orphan pages.
+\item \sfb{Check indexation} in Google Search Console. Are the important pages
+      actually indexed? Are unimportant ones consuming crawl\ix{crawl} budget?
+\item \sfb{Audit technical health} --- speed, Core Web Vitals, mobile usability,
+      HTTPS, sitemap, \texttt{robots.txt}, canonical tags, structured data.
+\item \sfb{Audit on-page elements} --- title tags, meta descriptions, heading
+      hierarchy, keyword targeting, keyword cannibalisation, image ALT text,
+      internal linking.
+\item \sfb{Audit content} --- relevance, depth, freshness, originality, intent
+      match, and gaps against competitors.
+\item \sfb{Audit backlinks} --- referring domains, anchor-text distribution,
+      toxic links to disavow, and the link gap against competitors.
+\item \sfb{Benchmark competitors} on the same metrics, to establish relative
+      position.
+\item \sfb{Prioritise findings by impact against effort}, and produce a ranked
+      action plan.
+\item \sfb{Implement, then re-measure} at defined intervals against the
+      pre-optimisation baseline.
+\end{enumerate}
+
+\begin{examplebox}[Worked Diagnostic: an Institution That Cannot Rank for ``Online Courses'']
+\pyq{CIE-II, 24 Jul 2024 --- 10 M}
+
+\textbf{Likely issues.} Targeting head keywords far above the site's authority;
+thin course pages with duplicate descriptions; no topic-cluster architecture;
+slow, unoptimised pages; no schema markup for courses; very few referring domains
+compared with established competitors; and no student-facing informational
+content capturing early-funnel search.
+
+\textbf{Recommended actions.}
+\begin{enumerate}
+\item Shift targeting to achievable long-tail phrases --- ``online data
+      analytics course for working professionals in Bengaluru''.
+\item Build a pillar page per subject area with supporting articles internally
+      linked.
+\item Rewrite every course page with unique titles, meta descriptions, outcomes,
+      fees, faculty and FAQs.
+\item Add Course and FAQ schema for rich results.
+\item Fix speed and mobile usability.
+\item Earn links through original placement-outcome research, faculty guest
+      articles and local news coverage.
+\item Build reviews on Google Business Profile and education directories.
+\item Measure keyword coverage, organic sessions and enquiry conversions
+      monthly.
+\end{enumerate}
+\end{examplebox}
+
+\section{The Human--Algorithm Symbiosis}
+
+\begin{keybox}[Why Good Design Is Now Good SEO]
+Algorithms care about crawlability, keywords, metadata and links. Humans care
+about scanning, speed, usability and satisfaction. The \textbf{overlap} is Core
+Web Vitals --- speed and stability --- and E-E-A-T --- trust and authority.
+
+\smallskip
+Search engines have evolved to mimic human preferences. Good web usability is now
+a fundamental requirement for good SEO, not a separate concern.
+\end{keybox}
+
+\section{SEO Tools}
+
+\begin{mmlongtable}{SEO tools by category}{tab:seotools}%
+{@{}P{0.24\textwidth}P{0.69\textwidth}@{}}
+\rowcolor{ocre}\thd{Category} & \thd{Tools}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Category} & \thd{Tools}\\
+\midrule
+\endhead
+\rlab{All-in-one suites} & SEMrush, Ahrefs, Moz Pro, Ubersuggest, SE Ranking\\
+\rowcolor{tablealt}
+\rlab{Google's own tools} & Google Search Console, Google Analytics 4, Keyword
+Planner, PageSpeed Insights, Trends, Rich Results Test, Tag Manager\\
+\rlab{Keyword research} & Keyword Planner, SEMrush Keyword Magic Tool, Ahrefs
+Keywords Explorer, AnswerThePublic, AlsoAsked\\
+\rowcolor{tablealt}
+\rlab{Technical crawling} & Screaming Frog SEO Spider, Sitebulb, DeepCrawl\\
+\rlab{Backlink analysis} & Ahrefs, Majestic, Moz Link Explorer, SEMrush Backlink
+Audit\\
+\rowcolor{tablealt}
+\rlab{Rank tracking} & SEMrush Position Tracking, AccuRanker, SERPWatcher\\
+\rlab{Content optimisation} & Surfer SEO, Clearscope, Yoast SEO, Rank Math\\
+\rowcolor{tablealt}
+\rlab{Competitive intelligence} & SimilarWeb, SpyFu, BuzzSumo\\
+\end{mmlongtable}
+
+\begin{summarybox}
+Optimising organic rankings captures sustainable high-intent traffic at near-zero
+marginal cost, reduces paid dependence and confers the credibility of an organic
+listing. Performance is measured on rankings, impressions, clicks and CTR,
+sessions, keyword coverage, indexed pages, referring domains, authority scores,
+bounce\ix{bounce} and dwell, conversions and Core Web Vitals. The audit runs nine steps from
+crawl and indexation through technical, on-page, content and backlink review to
+competitor benchmarking, impact-versus-effort prioritisation, implementation and
+re-measurement. Because search engines have evolved to mimic human preference,
+good usability is now a requirement of good SEO rather than a separate concern.
+\end{summarybox}

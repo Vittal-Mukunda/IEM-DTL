@@ -1,0 +1,1368 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Marketing Management (IM345AT) -- Volume 2 of 5
+%  UNIT II : Social Media Marketing and Search Engine Optimization
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{MMTextbook}
+
+\unitnumber{II}
+\unittitle{Social Media Marketing and Search Engine Optimization}
+\unitsubtitle{Platforms, audience insight, campaign optimisation, and the
+complete search optimisation stack}
+\unithours{08 Hours}
+\volumeno{2}
+
+\makeindex[intoc=true,columns=2,title=Index]
+
+\hypersetup{
+  pdftitle={Marketing Management IM345AT -- Unit II: Social Media Marketing and
+             Search Engine Optimization},
+  pdfsubject={Semester IV, Department of Industrial Engineering and Management,
+              RV College of Engineering},
+  pdfkeywords={social media marketing, SEO, SERP, backlinks, IM345AT,
+               marketing management}
+}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\pagestyle{mmfront}
+
+\halftitlepage
+\maintitlepage
+
+\colophonpage{%
+\textbf{\coursetitle\ ---\ The Study Text}\\[2pt]
+Volume 2 of 5 \textbullet\ Unit II: Social Media Marketing and Search Engine
+Optimization\\[10pt]
+%
+Prepared for the course \coursetitle\ (\coursecode), Semester IV, of the
+\coursedept, \courseinstitute.\\[10pt]
+%
+\textbf{Sources.} The syllabus, course outcomes, assessment rubrics and
+reference-book list reproduced in the front matter are transcribed from the
+official course document. The previous-year questions in Appendix~B are
+transcribed from RVCE Continuous Internal Evaluation and Semester End
+Examination papers for this course, and where an official scheme of valuation
+was released the model answers follow it. The explanatory text is compiled from
+classroom lecture notes and, where those were incomplete, from the prescribed
+reference texts.\\[10pt]
+%
+\textbf{Typography.} Set in Nimbus Roman with URW Gothic display headings.
+Composed in \LaTeX{} using the \texttt{MMTextbook} class written for this
+series. The visual design is derived from \emph{The Legrand Orange Book}
+template by Mathias Legrand, with modifications by Vel, distributed through
+LaTeXTemplates.com under a Creative Commons BY-NC-SA 4.0 licence; the class
+re-implements that design language on standard CTAN packages. All figures are
+drawn in \TikZ{} and \texttt{pgfplots}.\\[10pt]
+%
+\textbf{Status.} Unofficial student-compiled study material. Not issued,
+endorsed or verified by the Department or by RV College of Engineering.\\[10pt]
+%
+2026 edition.}
+
+% ---------------------------------------------------------------- preface
+\frontchapter{Preface to Volume 2}
+
+Unit~II is the largest unit in the course --- eight hours against seven for each
+of the others --- and it is the unit that carries the most machinery. It has two
+halves that look separate and are not. Social media marketing distributes
+content to people; search engine optimisation makes content findable by people.
+Both are answers to the same question: how does a stranger who has never heard
+of you come to trust you enough to buy?
+
+The first half opens with a single statistic that governs everything after it.
+Roughly nine people in ten believe what their peers say about a brand, while
+fewer than half believe what the brand says about itself. Every construct in
+Chapters~1 to~5 --- the lifecycle orbit, the 4-1-1 content ratio, the algorithm
+filter, the campaign optimisation levers --- follows from that asymmetry. The
+objective is never to talk louder. It is to build something the audience will
+carry on your behalf.
+
+The second half is more mechanical and, for that reason, more reliably scored.
+Search optimisation divides into three layers that a well-known analogy calls a
+house: technical work is the foundation that makes a site discoverable, on-page
+work is the living floor that makes it relevant, and off-page work is the roof
+that makes it authoritative. Rankings are a function of all three, and a
+question that names only one has answered a third of it.
+
+Chapters~1 to~5 cover social media marketing; Chapters~6 to~11 cover search
+engine optimisation. The chapter sequence follows the syllabus phrase order
+exactly, and Appendix~A records the mapping.
+
+Two editorial notes specific to this volume.
+
+First, several topics in this unit exist in \emph{two} taught versions --- the
+customer lifecycle orbit and the 4~Rs of content scaling both appear one way in
+the lecture material and another way in a released scheme of valuation. Where
+that happens, this volume gives both, says which is which, and recommends the
+answer that satisfies either marker. Those passages are flagged with a
+\emph{Two Accepted Versions} panel.
+
+Second, one topic in the source material --- Search Everywhere Optimization,
+sometimes called SEO 2.0 --- is a forward-looking extension that no unit
+descriptor names. It is set out in Appendix~C rather than in a numbered chapter,
+for the same reason the supplementary topics of Volume~1 were: the numbered
+chapters carry the syllabus and nothing else, but genuinely useful material
+should not simply vanish.
+
+\vspace{12pt}
+\noindent\emph{The whole of the course syllabus is reproduced overleaf. The
+unit covered by this volume is Unit~II.}
+
+% ------------------------------------------------- conventions & syllabus
+\input{mm-howtouse}
+\input{mm-syllabus}
+
+% ---------------------------------------------------------------- contents
+\cleardoublepage
+\pdfbookmark[0]{Contents}{toc}
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagestyle{mmmain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Social Media Marketing --- Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Social Media Marketing: Introduction.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What social media marketing is, and its primary goal.
+\item The trust asymmetry, and why it dictates the whole strategy.
+\item The omnichannel gearbox --- three ways social media drives the business.
+\item Seven myths about social media marketing, and what is actually true.
+\item The characteristics of a competent social media marketer.
+\item The customer lifecycle orbit, and the economics of retention.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Definition and Primary Goal}
+
+\begin{definitionbox}[Social Media Marketing]
+\keytermas{Social media marketing}{social media marketing} (SMM) is a form of
+internet marketing that involves creating and sharing content on social media
+networks in order to achieve marketing and branding goals. It includes
+publishing text, images and video, running paid social advertising, and engaging
+directly with the audience.
+\end{definitionbox}
+
+\begin{exambox}[Primary Goal --- 2 Marks]
+\pyq{SEE, Jun/Jul 2025 --- 2 M}
+The primary goal of social media marketing is to build brand awareness\ix{brand awareness},
+engagement and community with a target audience on social platforms, and to
+convert that engagement into traffic, leads, sales and long-term customer
+loyalty.
+\end{exambox}
+
+\begin{warnbox}[Social Media Is Not a Series of Posts]
+The most common conceptual error in this unit is treating social media marketing
+as publishing. It is an engineered system with an audience model, a content
+ratio, a distribution algorithm to satisfy, a measurement layer and an
+optimisation loop. Every chapter that follows is a component of that system.
+\end{warnbox}
+
+\section{The Word-of-Mouth Imperative}
+
+\begin{keybox}[The Trust Asymmetry]
+Roughly \textbf{90\%} of people believe what their peers say about a brand,
+while only about \textbf{48\%} trust what businesses say directly. Audiences
+increasingly read brand-to-buyer communication as advertising, which means trust
+is the indispensable connective tissue between a brand and customer loyalty.
+
+\smallskip
+People also value word-of-mouth recommendations from friends and family about
+\textbf{41\%} more than social media recommendations --- so even inside social
+media, the personal channel outperforms the branded one.
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=11.6cm, height=4.3cm,
+  font=\sffamily\footnotesize,
+  xbar, y=0.82cm,
+  xmin=0, xmax=112,
+  xtick={0,20,40,60,80,100},
+  xticklabel={\pgfmathprintnumber{\tick}\%},
+  tick label style={font=\sffamily\scriptsize,text=slatelight},
+  axis lines=left, axis line style={rulegrey},
+  ytick=data,
+  symbolic y coords={brand,peers},
+  yticklabel style={font=\sffamily\small,text=slate,align=right},
+  nodes near coords, nodes near coords align={horizontal},
+  every node near coord/.append style={font=\sffamily\bfseries\scriptsize,
+        text=slate},
+  enlarge y limits=0.42]
+  \addplot[draw=greenok,fill=greenok!55,bar width=0.42cm] coordinates {(90,peers)};
+  \addplot[draw=warnred,fill=warnred!45,bar width=0.42cm] coordinates {(48,brand)};
+\end{axis}
+\node[anchor=west,font=\sffamily\scriptsize,text=slate,align=left]
+  at (7.3,1.35) {believe what\\ \textbf{peers} say};
+\node[anchor=west,font=\sffamily\scriptsize,text=slate,align=left]
+  at (7.3,0.05) {trust what\\ \textbf{businesses} say};
+\end{tikzpicture}
+\caption[The trust asymmetry]%
+        {The trust asymmetry. Because the peer channel is roughly twice as
+         credible as the brand channel, the strategic objective is not to speak
+         more loudly but to make the audience willing to speak for you.}
+\label{fig:trustasymmetry}
+\end{figure}
+
+\begin{keybox}[The Strategic Conclusion]
+The goal is not to talk \emph{at} the audience. It is to engineer an experience
+valuable enough that they do the marketing \emph{for} you.
+\end{keybox}
+
+\section{The Omnichannel Gearbox}
+
+Social media drives the business through three distinct mechanisms. Treating
+them as one --- ``engagement'' --- is what makes social media budgets hard to
+defend.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    gear/.style={draw=ocre,line width=1pt,fill=ocrepale,circle,
+                 minimum size=2.65cm,align=center,
+                 font=\sffamily\bfseries\scriptsize,text=slate}]
+  \node[gear] (g1) at (0,0)    {SOCIAL\\ SELLING};
+  \node[gear] (g2) at (3.5,0)  {SEO\\ FUEL};
+  \node[gear] (g3) at (7.0,0)  {OMNICHANNEL\\ SYNC};
+
+  \draw[-{Latex[length=2.3mm]},ocre,line width=1pt] (1.4,0.42) -- (2.1,0.42);
+  \draw[-{Latex[length=2.3mm]},ocre,line width=1pt] (2.1,-0.42) -- (1.4,-0.42);
+  \draw[-{Latex[length=2.3mm]},ocre,line width=1pt] (4.9,0.42) -- (5.6,0.42);
+  \draw[-{Latex[length=2.3mm]},ocre,line width=1pt] (5.6,-0.42) -- (4.9,-0.42);
+
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=3.1cm] at (0,-1.55)
+    {one-to-one sales connections; personal, relevant content straight to the
+     prospect};
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=3.1cm] at (3.5,-1.55)
+    {shares produce links and time-on-site, which lift organic ranking
+     indirectly};
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=3.1cm] at (7.0,-1.55)
+    {coordinated messaging becomes one continuous conversation, not silos};
+\end{tikzpicture}
+\caption[The omnichannel gearbox]%
+        {The three gears through which social media marketing drives business
+         outcomes. Each is measured differently, which is why they must be
+         argued for separately.}
+\label{fig:gearbox}
+\end{figure}
+
+\begin{enumerate}
+\item \sfb{Social selling} enables one-to-one sales connections. Sales teams
+      offer personal, relevant content directly to prospects, accelerating the
+      purchase decision.
+\item \sfb{SEO fuel.} Social shares push content outward. The resulting incoming
+      links and increased time-on-site engagement communicate high value to
+      search engines, indirectly lifting organic rankings.
+\item \sfb{Omnichannel synchronization.} Coordinated messaging across channels
+      creates one continuous conversation, preventing siloed and contradictory
+      customer experiences.
+\end{enumerate}
+
+\section{Seven Myths}
+
+\begin{mmlongtable}{Myths about social media marketing}{tab:myths}%
+{@{}P{0.31\textwidth}P{0.62\textwidth}@{}}
+\rowcolor{ocre}\thd{The myth} & \thd{What is actually true}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{The myth} & \thd{What is actually true}\\
+\midrule
+\endhead
+\rlab{``Social media is free.''} & The platform is free. The content, the tools,
+the paid amplification and the staff time are not.\\
+\rowcolor{tablealt}
+\rlab{``Results are immediate.''} & Community and trust compound slowly. Only
+paid reach is instant.\\
+\rlab{``You must be on every platform.''} & Presence without competence damages
+the brand. Choose platforms by where the persona already is.\\
+\rowcolor{tablealt}
+\rlab{``More followers means more sales.''} & Vanity metrics do not pay.
+Engagement rate and conversion do.\\
+\rlab{``It is only for young people, or only for B2C.''} & LinkedIn is the single
+most effective B2B channel, and every demographic is now represented.\\
+\rowcolor{tablealt}
+\rlab{``It is just posting.''} & Listening, responding, moderating and analysing
+consume more time than publishing.\\
+\rlab{``Anyone can do it.''} & It requires strategy, copywriting, design, data
+literacy and crisis judgement.\\
+\end{mmlongtable}
+
+\section{Characteristics of a Successful Social Media Marketer}
+
+\begin{itemize}
+\item \sfb{Listens more than they broadcast} --- monitors the conversation before
+      entering it.
+\item \sfb{Understands each platform's native culture} rather than cross-posting
+      identical content.
+\item \sfb{Is consistent} --- in voice, in visual identity and in publishing
+      cadence.
+\item \sfb{Is authentic and transparent} --- including, and especially, when
+      handling criticism.
+\item \sfb{Is data-literate} --- reads analytics and changes behaviour because
+      of them.
+\item \sfb{Responds fast}, especially to complaints. Social media is a public
+      service channel whether or not the brand intends it to be.
+\item \sfb{Is creative and adaptive} --- algorithms and formats change
+      constantly.
+\item \sfb{Builds relationships, not reach} --- with customers, communities and
+      influencers.
+\end{itemize}
+
+\section{The Customer Lifecycle Orbit}
+
+Social media content only works if it is matched to where the customer already
+is. The lifecycle orbit is that map.
+\pyq{CIE-II, 26 May 2026 --- 10 M}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \def\R{3.35}
+  \foreach \i/\lbl/\ang in {%
+      1/{1. AWARENESS}/90,
+      2/{2. ENGAGEMENT}/30,
+      3/{3. PURCHASE}/-30,
+      4/{4. RETENTION\\ \& LOYALTY}/-90,
+      5/{5. GROWTH}/-150,
+      6/{6. ADVOCACY}/150}{
+    \node[draw=ocre,line width=0.9pt,fill=ocrepale,rounded corners=4pt,
+          align=center,text width=2.15cm,inner sep=4.5pt,
+          font=\sffamily\bfseries\scriptsize,text=slate] (n\i) at (\ang:\R) {\lbl};}
+  \foreach \a/\b in {1/2,2/3,3/4,4/5,5/6,6/1}{
+    \draw[-{Latex[length=2.3mm]},ocre,line width=1pt]
+      (n\a) to[bend left=14] (n\b);}
+  \node[circle,draw=greenok,line width=1pt,fill=greenpale,
+        align=center,text width=1.95cm,font=\sffamily\bfseries\scriptsize,
+        text=greenok,inner sep=2pt] at (0,0) {retention is the profit engine};
+\end{tikzpicture}
+\caption[The customer lifecycle orbit]%
+        {The customer lifecycle orbit. Advocacy returns to awareness, which is
+         why the sixth stage is an acquisition channel rather than an endpoint.}
+\label{fig:orbit}
+\end{figure}
+
+\begin{mmlongtable}{The six stages of the orbit}{tab:orbit}%
+{@{}P{0.24\textwidth}P{0.69\textwidth}@{}}
+\rowcolor{ocre}\thd{Stage} & \thd{What the brand must do}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Stage} & \thd{What the brand must do}\\
+\midrule
+\endhead
+\rlab{1. Awareness} & Drive brand interest and capture attention\\
+\rowcolor{tablealt}
+\rlab{2. Engagement} & Listen to behaviours; use mid-stage messages to nudge
+towards conversion\\
+\rlab{3. Purchase} & Ensure an aligned, frictionless transaction\\
+\rowcolor{tablealt}
+\rlab{4. Retention and loyalty} & Provide continuous value; resolve issues
+rapidly\\
+\rlab{5. Growth} & Identify cross-sell and upsell opportunities through targeted
+automation\\
+\rowcolor{tablealt}
+\rlab{6. Advocacy} & Reward loyalty so that customers expand reach through their
+own networks\\
+\end{mmlongtable}
+
+\begin{keybox}[The Statistics --- Memorise These]
+\begin{itemize}
+\item Probability of selling to a \textbf{new prospect}: under 20\%.
+\item Probability of selling to an \textbf{existing customer}: over 60\%.
+\item Repeat customers spend up to \textbf{67\% more}.
+\item \textbf{49\%} of marketers achieve higher ROI by focusing on engagement.
+\end{itemize}
+This is the entire economic argument for retention marketing, and it is why the
+orbit has six stages rather than stopping at purchase.
+\end{keybox}
+
+\begin{warnbox}[Two Accepted Versions]
+The lecture material states the orbit as \emph{Awareness \ra{} Engagement \ra{}
+Purchase \ra{} Retention/Loyalty \ra{} Growth \ra{} Advocacy}, with
+probabilities of under 20\% against over 60\%.
+
+\smallskip
+The released scheme of valuation states it as \emph{Awareness \ra{}
+Consideration \ra{} Purchase \ra{} Retention \ra{} Loyalty \ra{} Advocacy}, with
+5--20\% for new prospects against 60--70\% for existing ones.
+
+\smallskip
+\textbf{Both are accepted.} If unsure, present the six-stage orbit above and
+quote the probability as ``roughly 5--20\% for new prospects against 60--70\%
+for existing customers'', which satisfies either scheme.
+\end{warnbox}
+
+\begin{summarybox}
+Social media marketing creates and shares content on social networks to achieve
+marketing and branding goals, aiming to convert engagement into traffic, leads,
+sales and loyalty. It rests on the trust asymmetry: peers are believed roughly
+twice as readily as brands, so the objective is to earn advocacy\ix{advocacy} rather than to
+broadcast. Three gears drive business value --- social selling, SEO fuel and
+omnichannel synchronisation. Seven myths must be dismantled, chief among them
+that social media is free and that follower count is a business metric. The
+customer lifecycle orbit runs awareness, engagement, purchase, retention and
+loyalty, growth, advocacy --- and because selling to an existing customer is
+roughly three times likelier than selling to a new prospect, retention rather
+than acquisition is the profit engine.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Major Social Media Platforms for Marketing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Major Social Media Platforms for Marketing.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The platform deployment matrix --- mechanic, best use and key features.
+\item The Facebook algorithm filter: what it rewards and what it penalises.
+\item Deployment tactics for X, including hashtag practice.
+\item The four-layer LinkedIn architecture.
+\item Why visual content dominates, with the supporting figures.
+\item Six criteria for choosing a platform, and the platform psychology matrix.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{The Platform Deployment Matrix}
+
+\begin{mmlongtable}{The platform deployment matrix}{tab:platforms}%
+{@{}P{0.14\textwidth}P{0.22\textwidth}P{0.30\textwidth}P{0.24\textwidth}@{}}
+\rowcolor{ocre}\thd{Platform} & \thd{Core mechanic} & \thd{Best for} & \thd{Key features}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Platform} & \thd{Core mechanic} & \thd{Best for} & \thd{Key features}\\
+\midrule
+\endhead
+\rlab{Facebook} \newline {\scriptsize 2.27 billion users} & User-centric
+algorithmic news feed & Building authentic B2C and B2B relationships; highly
+targeted paid promotion & Live Video, Groups, Tabs and Apps, Marketplace\\
+\rowcolor{tablealt}
+\rlab{Instagram} & Visual-first discovery; aspirational identity & Lifestyle,
+fashion, food, travel, direct-to-consumer brands; influencer marketing &
+Reels, Stories, Shopping tags, Explore\\
+\rlab{X (Twitter)} \newline {\scriptsize 330 million users} & Fast-paced
+real-time ``virtual watercooler'' & Thought leadership, real-time customer
+service, trend participation & Curated Lists, hashtags, live chats, Spaces\\
+\rowcolor{tablealt}
+\rlab{LinkedIn} \newline {\scriptsize 460 million users} & The world's largest
+professional network & Reaching a business mindset, B2B lead generation, talent
+recruiting & Showcase Pages, professional groups, long-form publishing\\
+\rlab{YouTube} & Dual search-and-social algorithm & Education, product
+demonstration, long-form trust building & Playlists, Shorts, chapters, end
+screens\\
+\rowcolor{tablealt}
+\rlab{Pinterest} & Visual search and planning & Home, d\'ecor, DIY, weddings,
+recipes --- high purchase intent & Rich Pins, boards\\
+\rlab{WhatsApp and Telegram} & Private messaging and broadcast & Customer
+support, order updates, community groups & Business catalogue, broadcast lists\\
+\end{mmlongtable}
+
+\section{Facebook --- The Algorithm Filter}
+
+\begin{keybox}[The Highest-Probability Ten-Mark Question in This Unit]
+The single highest-probability ten-mark question in this unit.
+\pyq{CIE-II, 26 May 2026 --- 10 M, both sets}
+\end{keybox}
+
+The Facebook algorithm determines which posts appear in users' news feeds. All
+published content enters a filter; only some emerges into organic distribution.
+
+\subsection{How Facebook evaluates content}
+
+\begin{enumerate}
+\item \sfb{User engagement history} --- what this specific user has previously
+      interacted with.
+\item \sfb{Relevance} of the content to that user.
+\item \sfb{Content type} preferred by that user --- video, image, link or text.
+\item \sfb{Timeliness} of the post.
+\item \sfb{Quality and originality.}
+\end{enumerate}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  % published content
+  \node[draw=slate,line width=0.9pt,fill=white,rounded corners=4pt,
+        minimum width=3.1cm,minimum height=1.0cm,align=center,
+        font=\sffamily\bfseries\scriptsize,text=slate] (in) at (0,0)
+        {ALL PUBLISHED\\ CONTENT};
+
+  % the filter
+  \fill[ocre!22] (2.5,1.5) -- (4.6,0.55) -- (4.6,-0.55) -- (2.5,-1.5) -- cycle;
+  \draw[ocre,line width=1pt] (2.5,1.5) -- (4.6,0.55) -- (4.6,-0.55) -- (2.5,-1.5) -- cycle;
+  \node[text=ocredark,font=\sffamily\bfseries\scriptsize,align=center]
+    at (3.45,0) {THE\\ FILTER};
+
+  \draw[-{Latex[length=2.4mm]},slate,line width=1pt] (in) -- (2.45,0);
+
+  % rewarded
+  \node[draw=greenok,line width=0.9pt,fill=greenpale,rounded corners=4pt,
+        minimum width=3.6cm,minimum height=1.0cm,align=center,
+        font=\sffamily\bfseries\scriptsize,text=greenok] (ok) at (7.3,1.35)
+        {PROPELLED THROUGH\\ organic distribution};
+  \draw[-{Latex[length=2.4mm]},greenok,line width=1pt] (4.65,0.42) -- (5.5,1.2);
+
+  % penalised
+  \node[draw=warnred,line width=0.9pt,fill=warnpale,rounded corners=4pt,
+        minimum width=3.6cm,minimum height=1.0cm,align=center,
+        font=\sffamily\bfseries\scriptsize,text=warnred] (no) at (7.3,-1.35)
+        {FILTERED OUT\\ suppressed reach};
+  \draw[-{Latex[length=2.4mm]},warnred,line width=1pt] (4.65,-0.42) -- (5.5,-1.2);
+
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=11cm] at (4.0,-2.3)
+    {evaluated on engagement history \ \textbullet\ \ relevance \ \textbullet\ \
+     preferred content type \ \textbullet\ \ timeliness \ \textbullet\ \
+     quality and originality};
+\end{tikzpicture}
+\caption[The Facebook algorithm filter]%
+        {The algorithm filter. Publishing is not distribution: content must pass
+         five evaluation criteria before any organic reach is granted.}
+\label{fig:fbfilter}
+\end{figure}
+
+\subsection{What is penalised and what is rewarded}
+
+\begin{mmlongtable}{The Facebook algorithm filter}{tab:fbfilter}%
+{@{}P{0.45\textwidth}P{0.48\textwidth}@{}}
+\rowcolor{ocre}\thd{Filtered OUT (penalised)} & \thd{Propelled THROUGH (rewarded)}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Filtered OUT (penalised)} & \thd{Propelled THROUGH (rewarded)}\\
+\midrule
+\endhead
+\textbf{Clickbait headlines} --- punished on time-spent-reading ratios and
+flagged phrases & \textbf{Time spent} --- seconds spent on a post after it fully
+loads, without manipulating engagement through contests\\
+\rowcolor{tablealt}
+\textbf{Repeated sources} --- the algorithm enforces diversity, reducing
+visibility if you post too frequently back-to-back & \textbf{Video actions} ---
+unmuting, switching to full-screen or watching in HD count as major success
+signals\\
+\textbf{Engagement bait} --- ``Like, share, comment now'' & \textbf{Live
+broadcasting} --- Facebook Live generates 300\% more watch time than recorded
+video\\
+\rowcolor{tablealt}
+\textbf{Fake news and misinformation} & \textbf{High-quality original content}\\
+\textbf{Spammy or repetitive posts} & \textbf{Meaningful interactions} --- real
+comments and discussion\\
+\rowcolor{tablealt}
+\textbf{Low-quality copied content} & \textbf{Informative and engaging posts}\\
+\textbf{Excessive promotional posts} & \textbf{Consistent posting}, and content
+that generates discussion\\
+\end{mmlongtable}
+
+\begin{warnbox}[The Trap in This Topic]
+Note that \emph{engagement bait} is penalised while \emph{meaningful
+interaction} is rewarded --- even though both produce comments. The algorithm
+distinguishes solicited engagement from earned engagement. Asking for a comment
+is punished; writing something worth commenting on is rewarded. An answer that
+lists ``comments'' as a reward without that distinction misses the point of the
+filter.
+\end{warnbox}
+
+\section{X (Twitter) --- Deployment Tactics}
+
+\begin{itemize}
+\item \sfb{The character constraint.} The limit is 280 characters, but keeping
+      posts under 100 characters yields a 17\% higher engagement rate.
+\item \sfb{Hashtag arithmetic.} Posts with hashtags get twice the engagement,
+      but using more than two causes a 17\% drop. Treat hashtags as targeted
+      visual search tags; the optimal count is one or two.
+\item \sfb{Link leverage.} Posts containing links are 86\% more likely to be
+      reshared. Use a URL shortener to track clicks.
+\item \sfb{Strategic curation.} Use Lists, public and private, to segment
+      influencers, competitors and partners. This makes curating
+      non-promotional content for the 4-1-1 rule (\S\,3.6) highly efficient.
+\end{itemize}
+
+\begin{definitionbox}[Hashtag]
+A \keyterm{hashtag} is a word or phrase preceded by the \texttt{\#} symbol that
+turns text into a clickable, searchable label grouping all posts on that topic.
+\pyq{SEE, Oct/Nov 2023 --- 2 M}
+\end{definitionbox}
+
+\noindent\textbf{Importance of the hashtag in social media marketing:} it makes
+content discoverable beyond your own followers; groups a campaign under one
+trackable label; allows participation in trending conversations; enables
+user-generated content\ix{user-generated content} collection; supports event and community marketing; and
+provides a measurable unit for campaign reporting.
+
+\section{LinkedIn --- The Professional Architecture}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    lay/.style={draw=deepblue,line width=0.9pt,minimum width=10.4cm,
+                minimum height=1.12cm,align=left,text width=9.9cm,
+                font=\sffamily\scriptsize,text=slate,inner sep=6pt}]
+  \node[lay,fill=deepbluepale] (l4) at (0,0)      {%
+     \textbf{Layer 4 --- Professional Groups (the community).}\ \ Creating or
+     joining targeted communities by industry or pain point, to demonstrate
+     thought leadership and prospect.};
+  \node[lay,fill=white] (l3) at (0,-1.2)          {%
+     \textbf{Layer 3 --- Showcase Pages (the niche).}\ \ Dedicated sub-pages
+     highlighting specific products or services for distinct audiences.};
+  \node[lay,fill=deepbluepale] (l2) at (0,-2.4)   {%
+     \textbf{Layer 2 --- Content Publishing (the voice).}\ \ Text posts, slide
+     decks and educational content to build followers; educational content
+     performs highest.};
+  \node[lay,fill=white] (l1) at (0,-3.6)          {%
+     \textbf{Layer 1 --- Profile and Company Page (the foundation).}\ \ The
+     primary branded landing page; showcases products, the employee network and
+     core messaging.};
+  \draw[-{Latex[length=2.4mm]},deepblue,line width=1pt]
+     (-5.55,-4.05) -- (-5.55,0.45);
+  \node[rotate=90,anchor=south,text=deepblue,font=\sffamily\bfseries\scriptsize]
+     at (-5.75,-1.8) {increasing depth of relationship};
+\end{tikzpicture}
+\caption[The four-layer LinkedIn architecture]%
+        {LinkedIn's four layers. Each layer presupposes the one beneath it: a
+         group presence without a credible company page converts nothing.}
+\label{fig:linkedin}
+\end{figure}
+
+\section{Visual Content --- Why It Dominates}
+
+\begin{mmlongtable}{The evidence for visual content}{tab:visual}%
+{@{}P{0.19\textwidth}P{0.55\textwidth}P{0.18\textwidth}@{}}
+\rowcolor{ocre}\thd{Finding} & \thd{Statistic} & \thd{Source}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Finding} & \thd{Statistic} & \thd{Source}\\
+\midrule
+\endhead
+\rlab{Comprehension} & People following directions with text plus illustrations
+do 323\% better & NeoMam\\
+\rowcolor{tablealt}
+\rlab{Virality} & Visual content is 40 times more likely to be shared & Buffer\\
+\rlab{Visibility} & Content with relevant images gets 94\% more views &
+KISSMetrics\\
+\rowcolor{tablealt}
+\rlab{Video dominance} & Video generates 135\% greater organic reach than photo
+posts & Socialbakers\\
+\rlab{Conversion} & 77\% of consumers have been convinced to buy after watching
+a video & Wyzowl\\
+\end{mmlongtable}
+
+\section{Choosing the Right Platform}
+
+\begin{exambox}[The Comparison Question]
+``Compare the roles of Facebook, Instagram, LinkedIn, and Twitter in social
+media marketing. How should a business choose the right platform?''
+\pyq{CIE-II, 7 May 2025 --- 10 M}
+Answer in two movements: the deployment matrix of \S\,2.1 for the comparison,
+then the six criteria below for the choice. Close with the psychology matrix.
+\end{exambox}
+
+\begin{enumerate}
+\item \sfb{Where the persona already is} --- the platform must be one the target
+      audience actively uses, not one the marketer likes.
+\item \sfb{B2C against B2B} --- Facebook and Instagram skew B2C; LinkedIn is
+      decisively B2B.
+\item \sfb{Content format capability} --- if the product is visual, Instagram
+      and YouTube; if it needs explanation, LinkedIn and YouTube; if it is
+      real-time, X.
+\item \sfb{Objective and funnel stage} --- awareness on Instagram and YouTube,
+      consideration on LinkedIn and YouTube, conversion through Facebook and
+      Instagram advertising with retargeting.
+\item \sfb{Resources} --- each platform demands a distinct content type. Better
+      to dominate two than to be mediocre on six.
+\item \sfb{Measurable ROI} --- test with small paid budgets, then concentrate
+      spend where cost per result is lowest.
+\end{enumerate}
+
+\begin{keybox}[The Platform Psychology Matrix]
+Each platform serves a distinct psychological function in the decision process,
+and this is the sharpest way to justify a platform choice.
+
+\smallskip
+\textbf{TikTok} \ra{} discovery, driven by emotion and novelty. \quad
+\textbf{YouTube} \ra{} education, built on retention and perceived expertise.
+\quad \textbf{AI assistants} \ra{} verification, demanding citations and
+semantic clarity. \quad \textbf{Amazon} \ra{} purchasing, relying on social
+proof and trust. \quad \textbf{Instagram} \ra{} aspiration, powered by
+aspirational identity. \quad \textbf{Reddit} \ra{} validation, thriving on raw
+and unfiltered authenticity. \quad \textbf{Google} \ra{} the click.
+\end{keybox}
+
+\begin{summarybox}
+Each platform has a core mechanic that determines what it is for: Facebook's
+algorithmic feed, Instagram's visual discovery, X's real-time watercooler,
+LinkedIn's professional network, YouTube's dual search-and-social algorithm,
+Pinterest's visual planning, and messaging apps' private broadcast. The Facebook
+filter evaluates engagement history, relevance, preferred content type,
+timeliness and originality; it rewards time spent, video actions, Live, original
+content and meaningful interaction, and penalises clickbait, repeated sources,
+engagement bait, misinformation, spam, copied content and excessive promotion.
+On X, brevity, one or two hashtags and links outperform. LinkedIn works in four
+layers from company page to groups. Visual and video content dominate every
+comparative metric. Choose a platform on persona location, B2C against B2B,
+format capability, funnel stage, resources and measured ROI --- and justify it
+by the platform's psychological function.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Developing Data-Driven Audience and Campaign Insights}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Developing Data-driven Audience \& Campaign Insights.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What data-driven audience insight means, in the words the scheme expects.
+\item The eight-step process for developing audience insight.
+\item The persona builder canvas.
+\item The seven layers by which analytics build an audience profile.
+\item The content lifecycle matrix --- objective, tone and format by stage.
+\item The 4-1-1 content ratio.
+\item The 4~Rs of content scaling, in both taught formulations.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{What Data-Driven Audience Insight Means}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{CIE-II, 26 May 2026 --- 2 M}
+\keytermas{Data-driven audience insight}{data-driven audience insight} in social
+media marketing refers to the process of collecting and analysing user data ---
+such as demographics, interests, online behaviour, engagement patterns and
+preferences --- from social media platforms in order to understand the target
+audience better. It enables marketers to create personalised campaigns and
+improve customer engagement.
+\end{exambox}
+
+\section{The Eight-Step Insight Process}
+
+\begin{enumerate}
+\item \sfb{Define the question.} Decide what decision the insight must support
+      --- which platform to invest in, which message to lead with, which segment
+      to target. Insight without a decision attached is a report.
+\item \sfb{Collect data} from native analytics (Meta and Instagram Insights,
+      LinkedIn Page Analytics, X Analytics, YouTube Studio), website analytics,
+      CRM records and social listening tools.
+\item \sfb{Clean and consolidate} the data into one view, so that
+      platform-specific metrics become comparable.
+\item \sfb{Segment the audience} by demographics, psychographics, behaviour and
+      lifecycle stage.
+\item \sfb{Identify patterns} --- peak activity times, best-performing formats,
+      highest-engagement topics, common objections and sentiment trends.
+\item \sfb{Build audience profiles and personas} from those patterns.
+\item \sfb{Apply the insight} --- adjust targeting, creative, tone, format,
+      posting schedule and budget allocation.
+\item \sfb{Measure and iterate} --- feed campaign results back as new data.
+\end{enumerate}
+
+\section{The Persona Builder Canvas}
+
+\begin{mmlongtable}{The persona builder canvas}{tab:canvas2}%
+{@{}P{0.26\textwidth}P{0.67\textwidth}@{}}
+\rowcolor{ocre}\thd{Quadrant} & \thd{Questions to answer}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Quadrant} & \thd{Questions to answer}\\
+\midrule
+\endhead
+\rlab{Background and goals} & What are their business goals and challenges? What
+is their team structure and job role?\\
+\rowcolor{tablealt}
+\rlab{Information sources} & Where do they consume content? Which social
+channels do they actively use --- or avoid?\\
+\rlab{Messaging and topics} & Which marketing messages speak to them? Which
+content topics capture their interest?\\
+\rowcolor{tablealt}
+\rlab{Purchase role and objections} & How much influence do they have in the
+decision? What objections do they raise during the sales process?\\
+\end{mmlongtable}
+
+The working target is four to six distinct personas --- for example Executive
+Sponsor, Decision Maker and End User in a B2B setting.
+
+\section{How Social Media Analytics Create Audience Profiles}
+
+\begin{keybox}[High Yield]
+This is an eight-mark Semester End Examination question in its own right.
+\pyq{SEE, Jun/Jul 2025, Q4a --- 8 M}
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    lyr/.style={draw=ocre,line width=0.8pt,minimum width=10.6cm,
+                minimum height=0.86cm,align=left,text width=10.1cm,
+                font=\sffamily\scriptsize,text=slate,inner sep=5pt}]
+  \node[lyr,fill=ocrepale] (a) at (0,0)     {\textbf{1. Demographic} --- verified age bands, gender split, language, city and country};
+  \node[lyr,fill=white]    (b) at (0,-0.92) {\textbf{2. Temporal} --- when followers are online, which sets the publishing schedule};
+  \node[lyr,fill=ocrepale] (c) at (0,-1.84) {\textbf{3. Interest} --- page likes, followed accounts and content affinities};
+  \node[lyr,fill=white]    (d) at (0,-2.76) {\textbf{4. Behavioural} --- what is saved, shared, commented on, watched to completion};
+  \node[lyr,fill=ocrepale] (e) at (0,-3.68) {\textbf{5. Conversational} --- the audience's own vocabulary, complaints and unmet needs};
+  \node[lyr,fill=white]    (f) at (0,-4.60) {\textbf{6. Comparative} --- competitor audience overlap, showing whom you fail to reach};
+  \node[lyr,fill=greenpale,draw=greenok] (g) at (0,-5.52) {\textbf{7. Conversion} --- social data joined to analytics and CRM: who actually \emph{buys}};
+\end{tikzpicture}
+\caption[The seven analytic layers of an audience profile]%
+        {The seven layers. Layer~4 matters more than layer~3, because saves and
+         completions reveal what the audience values rather than what it claims
+         to value; layer~7 matters most, because engagement and purchase are not
+         the same population.}
+\label{fig:sevenlayers}
+\end{figure}
+
+\begin{itemize}
+\item \sfb{Demographic layer} --- platform analytics supply verified age bands,
+      gender split, language, city and country distribution.
+\item \sfb{Temporal layer} --- when followers are online determines the
+      publishing schedule.
+\item \sfb{Interest layer} --- page likes, followed accounts and content
+      affinities reveal adjacent interests to target.
+\item \sfb{Behavioural layer} --- which posts are saved, shared, commented on or
+      watched to completion reveals what the audience actually values, as
+      opposed to what it claims to value.
+\item \sfb{Conversational layer} --- social listening surfaces the audience's own
+      vocabulary, complaints and unmet needs.
+\item \sfb{Comparative layer} --- competitor audience overlap shows which
+      segments you are failing to reach.
+\item \sfb{Conversion layer} --- linking social data to website analytics and
+      CRM shows which audience segment actually buys, not merely which one
+      engages.
+\end{itemize}
+
+\section{The Content Lifecycle Matrix}
+
+\begin{keybox}[Guaranteed Ten-Mark Question]
+``Based on the Content Lifecycle Matrix, how should a marketer adjust the
+objective, tone, and format of their content as a prospect transitions from the
+Early-Stage to the Late-Stage?''
+\pyq{CIE-II, 26 May 2026 --- 10 M}
+\end{keybox}
+
+\begin{mmlongtable}{The content lifecycle matrix}{tab:lifecyclematrix}%
+{@{}P{0.139\textwidth}P{0.257\textwidth}P{0.258\textwidth}P{0.258\textwidth}@{}}
+\rowcolor{ocre}\thd{} & \thd{Early-Stage} & \thd{Mid-Stage} & \thd{Late-Stage}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{} & \thd{Early-Stage} & \thd{Mid-Stage} & \thd{Late-Stage}\\
+\midrule
+\endhead
+\rlab{Objective} & Nudge the prospect from awareness to engagement & Nudge
+towards purchase; build trust & Drive immediate conversions\\
+\rowcolor{tablealt}
+\rlab{Tone and style} & Fun, entertaining and educational & Educational,
+engaging, goal-oriented & Informative, brand-aligned, conversion-focused\\
+\rlab{Format examples} & Curated news, helpful tips, visual content & Social
+contests, newsletter subscriptions, event invitations & Click-to-purchase, demo
+offerings, trial sign-ups\\
+\end{mmlongtable}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \draw[-{Latex[length=3mm]},ocre,line width=1.4pt] (0,0) -- (11.2,0);
+  \foreach \x/\lbl in {1.4/EARLY,5.6/MID,9.8/LATE}{
+    \fill[ocre] (\x,0) circle (0.13);
+    \node[anchor=south,text=ocredark,font=\sffamily\bfseries\scriptsize]
+      at (\x,0.22) {\lbl-STAGE};}
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,text width=3.3cm] at (1.4,-0.3)
+    {\textit{objective:} attention\\ \textit{tone:} fun\\ \textit{format:} curated, visual};
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,text width=3.3cm] at (5.6,-0.3)
+    {\textit{objective:} trust\\ \textit{tone:} educational\\ \textit{format:} participatory};
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,text width=3.3cm] at (9.8,-0.3)
+    {\textit{objective:} action\\ \textit{tone:} decisive\\ \textit{format:} transactional};
+  \node[anchor=north,text=ocredark,font=\sffamily\scriptsize\itshape,align=center,text width=11cm]
+    at (5.6,-2.35)
+    {broad \ra{} specific \quad\textbullet\quad entertaining \ra{} informative
+     \quad\textbullet\quad brand-building \ra{} conversion-driving
+     \quad\textbullet\quad ``no ask'' \ra{} ``clear ask''};
+\end{tikzpicture}
+\caption[The content lifecycle trajectory]%
+        {The trajectory the matrix describes. Each of the three rows moves in a
+         consistent direction, which is what makes the one-line answer possible.}
+\label{fig:lifecycletrajectory}
+\end{figure}
+
+\begin{exambox}[The One-Line Answer]
+As the prospect moves from early to late stage, content shifts from broad to
+specific, from entertaining to informative, from brand-building to
+conversion-driving, and from ``no ask'' to ``clear ask''. The \textbf{objective}
+moves attention \ra{} trust \ra{} action; the \textbf{tone} moves fun \ra{}
+educational \ra{} decisive; the \textbf{format} moves curated and visual \ra{}
+interactive and participatory \ra{} transactional.
+\end{exambox}
+
+\section{The Content Mix --- The 4-1-1 Rule}
+
+\begin{definitionbox}[The 4-1-1 Rule]
+Coined by Joe Pulizzi, the \keytermas{4-1-1 rule}{4-1-1 rule} governs the ratio
+of value to promotion in a social feed. For every six posts: \textbf{four}
+educational or entertaining posts carrying pure value and no ask, plus
+\textbf{one} soft promotion such as a guide or case study, plus \textbf{one}
+hard promotion such as a product demonstration or direct offer.
+\end{definitionbox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    bx/.style={minimum width=1.55cm,minimum height=1.55cm,align=center,
+               font=\sffamily\bfseries\scriptsize,rounded corners=3pt,
+               inner sep=2pt},
+    sub/.style={anchor=north,align=center,font=\sffamily\scriptsize,
+                text width=1.75cm}]
+
+  % Sub-labels are separate nodes rather than nested groups: a \\ inside a
+  % braced group within a tikz node breaks the align=center line breaker.
+  \foreach \x in {0,1.7,3.4,5.1}{
+    \node[bx,draw=greenok,fill=greenpale,text=greenok] at (\x,0) {VALUE};
+    \node[sub,text=greenok] at (\x,-0.95) {no ask};}
+
+  \node[bx,draw=ocre,fill=ocrepale,text=ocredark] at (6.8,0) {SOFT\\ PROMO};
+  \node[sub,text=ocredark] at (6.8,-0.95) {guide, case study};
+
+  \node[bx,draw=warnred,fill=warnpale,text=warnred] at (8.5,0) {HARD\\ PROMO};
+  \node[sub,text=warnred] at (8.5,-0.95) {demo, offer};
+
+  \draw[decorate,decoration={brace,amplitude=5pt},greenok,line width=0.8pt]
+    (-0.8,0.92) -- (5.9,0.92);
+  \node[anchor=south,text=greenok,font=\sffamily\bfseries\scriptsize] at (2.55,1.1) {4};
+  \node[anchor=south,text=ocredark,font=\sffamily\bfseries\scriptsize] at (6.8,0.92) {1};
+  \node[anchor=south,text=warnred,font=\sffamily\bfseries\scriptsize] at (8.5,0.92) {1};
+
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,text width=11cm]
+    at (4.25,-1.75)
+    {value far outweighs the pitch: the brand never reads as pushy, and the
+     credibility required for late-stage conversion accumulates
+     systematically};
+\end{tikzpicture}
+\caption[The 4-1-1 content ratio]%
+        {The 4-1-1 ratio. Two of every six posts may ask for something; four
+         may not.}
+\label{fig:fouroneone}
+\end{figure}
+
+\section{The 4 Rs of Content Scaling}
+
+\begin{keybox}[High Yield]
+The 4~Rs let one master asset produce many social assets, which is how a small
+team sustains a high posting cadence.
+\pyq{CIE-II, 26 May 2026 --- 10 M}
+\end{keybox}
+
+\begin{mmlongtable}{The 4 Rs of content scaling}{tab:fourrs}%
+{@{}P{0.13\textwidth}P{0.42\textwidth}P{0.38\textwidth}@{}}
+\rowcolor{ocre}\thd{R} & \thd{What it means} & \thd{Example}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{R} & \thd{What it means} & \thd{Example}\\
+\midrule
+\endhead
+\rlab{Reorganize} & Break a single master asset into smaller micro-pieces &
+Extract individual statistics from a large infographic to fuel several separate
+social posts\\
+\rowcolor{tablealt}
+\rlab{Rewrite} & Extend the investment by mining the existing content library;
+extract relevant takeaways even from older assets & Turn a two-year-old
+whitepaper's key finding into a fresh LinkedIn post\\
+\rlab{Retire} & Ruthlessly prune outdated content. Social media is
+instantaneous, and outdated information damages brand perception & Delete or
+archive posts citing superseded data or discontinued products\\
+\rowcolor{tablealt}
+\rlab{Redesign} & Refresh the visual packaging; update creative assets to make
+existing content relevant for a new segment or persona & Re-skin a B2B case
+study's graphics for a student audience\\
+\end{mmlongtable}
+
+\begin{keybox}[Why the 4 Rs Matter]
+They maximise the return on every content asset: saving time and cost,
+increasing reach, improving SEO performance, enhancing audience engagement and
+maximising ROI. One master asset can legitimately supply a month of social
+content.
+\end{keybox}
+
+\begin{warnbox}[Two Accepted Versions]
+The lecture material teaches the 4~Rs as \textbf{Reorganize, Rewrite, Retire,
+Redesign}.
+
+\smallskip
+The released scheme of valuation answers with \textbf{Repurpose, Refresh,
+Repost, Recombine} --- repurpose means convert to another format (blog \ra{}
+video \ra{} infographic); refresh means update old content with new data; repost
+means share high-performing content again at a different time; recombine means
+merge several pieces into a new asset such as an e-book or webinar.
+
+\smallskip
+\textbf{Safest strategy:} give the lecture version as the primary answer and add
+the four alternative terms as ``also described as''. The underlying logic is
+identical.
+\end{warnbox}
+
+\begin{summarybox}
+Data-driven audience insight is the collection and analysis of platform user
+data to understand the audience and personalise campaigns. It runs in eight
+steps from defining the decision through collection, consolidation,
+segmentation, pattern-finding, persona construction and application to
+iteration. Analytics build a profile in seven layers, of which the behavioural
+and conversion layers matter most. The content lifecycle matrix moves objective
+from attention to trust to action, tone from fun to educational to decisive, and
+format from curated to participatory to transactional. The 4-1-1 rule caps
+promotion at two posts in six. The 4~Rs --- reorganize, rewrite, retire,
+redesign, or equivalently repurpose, refresh, repost, recombine --- scale one
+master asset into many.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Social Media for Business}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Social Media for Business.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The nine business benefits of social media.
+\item The ten-step social media marketing plan.
+\item The tool categories and what each is for.
+\item Blogs, podcasts and webinars compared.
+\item Social media monitoring --- metrics, uses and tools.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Benefits for Business}
+
+\begin{exambox}[Four Benefits --- 2 Marks]
+\pyq{CIE-II, 26 May 2026 --- 2 M}
+Increased brand awareness; better customer interaction; cost-effective
+promotion; improved customer feedback collection.
+\end{exambox}
+
+\begin{itemize}
+\item \sfb{Increased brand awareness} and reach beyond the existing customer
+      base.
+\item \sfb{Better customer interaction} --- a direct, two-way, public channel.
+\item \sfb{Cost-effective promotion} relative to traditional media.
+\item \sfb{Improved customer feedback collection} --- unsolicited, real-time and
+      honest.
+\item \sfb{Lead generation and social selling} through personal, relevant
+      content.
+\item \sfb{Website traffic and indirect SEO benefit} from shares and links.
+\item \sfb{Competitive intelligence} --- competitors' campaigns, offers and
+      customer complaints are public.
+\item \sfb{Crisis detection} --- problems surface on social media before they
+      reach support tickets.
+\item \sfb{Community and advocacy} --- customers become an unpaid distribution
+      network.
+\end{itemize}
+
+\section{The Social Media Marketing Plan}
+
+\begin{frameworkbox}[The Ten Steps]
+1. Set goals aligned to business objectives \ra{} 2. Audit the current state
+\ra{} 3. Define the audience and personas \ra{} 4. Select platforms \ra{}
+5. Define the content strategy \ra{} 6. Build the content calendar\ix{content calendar} \ra{}
+7. Assign resources and tools \ra{} 8. Publish and engage \ra{} 9. Amplify
+\ra{} 10. Measure against KPIs and optimise the next cycle.
+\end{frameworkbox}
+
+\begin{enumerate}
+\item \sfb{Set goals} aligned to business objectives --- awareness, engagement,
+      traffic, leads, sales, retention or service.
+\item \sfb{Audit the current state} --- existing profiles, follower quality,
+      engagement benchmarks, competitor share of voice\ix{share of voice}.
+\item \sfb{Define the audience and personas} (\S\,3.1--3.3).
+\item \sfb{Select platforms} using the six criteria of \S\,2.6.
+\item \sfb{Define the content strategy} --- themes, formats, tone, the 4-1-1
+      mix, and the lifecycle matrix mapping.
+\item \sfb{Build the content calendar} --- cadence, timing, campaign moments,
+      seasonal hooks.
+\item \sfb{Assign resources and tools} --- who creates, who approves, who
+      publishes, who responds.
+\item \sfb{Publish and engage} --- respond within a defined service-level
+      window.
+\item \sfb{Amplify} --- paid boosting, employee advocacy, influencer
+      partnerships, community seeding.
+\item \sfb{Measure against KPIs} and optimise the next cycle.
+\end{enumerate}
+
+\section{Social Media Marketing Tools}
+
+\begin{mmlongtable}{Social media marketing tools by category}{tab:smmtools}%
+{@{}P{0.24\textwidth}P{0.69\textwidth}@{}}
+\rowcolor{ocre}\thd{Category} & \thd{Tools}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Category} & \thd{Tools}\\
+\midrule
+\endhead
+\rlab{Scheduling and management} & Hootsuite, Buffer, Sprout Social, Later, Zoho
+Social, Meta Business Suite\\
+\rowcolor{tablealt}
+\rlab{Design and creative} & Canva, Adobe Express, Figma, CapCut\\
+\rlab{Analytics} & Native platform insights, Sprout Social, Socialbakers, Google
+Analytics social acquisition reports\\
+\rowcolor{tablealt}
+\rlab{Listening and monitoring} & Brandwatch, Mention, Talkwalker, Google
+Alerts, Hootsuite Streams\\
+\rlab{Influencer discovery} & Upfluence, Klear, BuzzSumo\\
+\rowcolor{tablealt}
+\rlab{Link tracking} & Bitly, UTM parameters via Google's Campaign URL Builder\\
+\end{mmlongtable}
+
+\section{Publishing Blogs, Podcasts and Webinars}
+
+\begin{mmlongtable}{Blogs, podcasts and webinars compared}{tab:blogpodwebinar}%
+{@{}P{0.13\textwidth}P{0.40\textwidth}P{0.40\textwidth}@{}}
+\rowcolor{ocre}\thd{Format} & \thd{Strength} & \thd{Best used for}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Format} & \thd{Strength} & \thd{Best used for}\\
+\midrule
+\endhead
+\rlab{Blog} & Owned, indexable, compounding SEO asset; full control &
+Long-tail search capture, thought leadership, evergreen education\\
+\rowcolor{tablealt}
+\rlab{Podcast} & Intimate; consumed hands-free during commutes and workouts;
+builds strong parasocial trust & Deep interviews, category authority, a loyal
+niche audience\\
+\rlab{Webinar} & Live, interactive, high-intent; captures registration data &
+Lead generation, product demonstration, sales enablement, customer training\\
+\end{mmlongtable}
+
+\begin{keybox}[Why Webinars Are Strong Marketing Tools]
+They generate qualified leads at the point of registration, allow live objection
+handling, position the brand as an expert, can be recorded and repurposed
+indefinitely through the 4~Rs, and produce measurable attendance and engagement
+data.
+\end{keybox}
+
+\section{Social Media Monitoring}
+
+\begin{definitionbox}[Social Media Monitoring]
+\keytermas{Social media monitoring}{social media monitoring} is the practice of
+tracking mentions of your brand, competitors, products, industry keywords and
+campaign hashtags across social platforms, in order to respond to individual
+conversations and to extract aggregate insight.
+\end{definitionbox}
+
+\begin{itemize}
+\item \sfb{Key metrics:} mentions, followers, buzz (a combined popularity
+      measure), share of voice (conversations about you against conversations
+      about the competition) and sentiment (positive, negative or neutral).
+\item \sfb{Uses:} reputation management, crisis detection, customer service,
+      competitor intelligence, influencer identification and campaign
+      measurement.
+\item \sfb{Major tools:} Facebook Insights, X Analytics, Hootsuite, Brandwatch,
+      Mention, Talkwalker.
+\end{itemize}
+
+\begin{summarybox}
+Social media delivers nine business benefits, from brand awareness and two-way
+interaction to crisis detection and unpaid advocacy. The marketing plan runs ten
+steps: goals, audit, audience, platforms, content strategy, calendar, resources,
+publish and engage, amplify, measure. Tools divide into scheduling, design,
+analytics, listening, influencer discovery and link tracking. Blogs compound as
+owned SEO assets, podcasts build parasocial trust, and webinars generate
+high-intent leads at registration. Monitoring tracks mentions, followers, buzz,
+share of voice and sentiment for reputation management, crisis detection,
+service, competitor intelligence and measurement.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Creation and Optimization of Social Media Campaigns}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Creation \& Optimization of Social Media Campaigns.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The four elements required for an effective campaign.
+\item The ten-step campaign build.
+\item Campaign optimisation --- definition, purpose and the eight levers.
+\item The six metric families, and why measurement matters.
+\item Facebook and Instagram deployed across the funnel.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Elements Required for an Effective Campaign}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{CIE-II, 26 May 2026 --- 2 M}
+Four elements required for an effective social media campaign: (1) clear
+campaign objectives, (2) a defined target audience, (3) engaging and creative
+content, and (4) performance measurement and analytics.
+\end{exambox}
+
+\section{Building a Campaign, Step by Step}
+
+\begin{enumerate}
+\item \sfb{Set a SMART\ix{SMART} objective} --- for example, ``generate 500 qualified
+      leads in eight weeks at under \rupee 200 cost per lead\ix{cost per lead}''.
+\item \sfb{Define and segment the target audience} using data-driven insight.
+\item \sfb{Choose the platform mix} appropriate to that audience and objective.
+\item \sfb{Develop the creative concept} --- a single big idea, a campaign
+      hashtag, and a consistent visual identity.
+\item \sfb{Produce content mapped to the lifecycle matrix} --- early, mid and
+      late-stage assets, scaled through the 4~Rs.
+\item \sfb{Build the media plan} --- the organic calendar plus paid budget,
+      audiences and bid strategy.
+\item \sfb{Set up tracking before launch} --- UTM parameters, conversion pixels,
+      goals in analytics. Instrumenting after launch loses the baseline.
+\item \sfb{Launch and engage actively} rather than posting and leaving.
+\item \sfb{Optimise in flight} (\S\,5.3).
+\item \sfb{Report and extract learning} for the next campaign.
+\end{enumerate}
+
+\section{Campaign Optimization}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{CIE-II, 26 May 2026 --- 2 M}
+\keytermas{Campaign optimization}{campaign optimization} is the process of
+improving social media campaign performance by analysing metrics and adjusting
+content, targeting and advertisements.
+
+\smallskip
+\textbf{Purpose:} increase engagement; improve conversion rates; reduce
+marketing cost; and maximise return on investment\ix{return on investment}.
+\end{exambox}
+
+\begin{mmlongtable}{The eight optimisation levers}{tab:levers}%
+{@{}P{0.21\textwidth}P{0.72\textwidth}@{}}
+\rowcolor{ocre}\thd{Lever} & \thd{Action}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Lever} & \thd{Action}\\
+\midrule
+\endhead
+\rlab{Creative} & A/B test images, video hooks, headlines and captions; retire
+fatigued creative\\
+\rowcolor{tablealt}
+\rlab{Copy and CTA} & Test tone, length and the specific action verb\\
+\rlab{Audience and targeting} & Narrow or broaden segments; build lookalike
+audiences from converters; exclude existing customers\\
+\rowcolor{tablealt}
+\rlab{Placement} & Shift budget between feed, Stories, Reels and Explore based
+on cost per result\\
+\rlab{Timing and frequency} & Publish when the audience is active; cap frequency
+to avoid advertising fatigue\\
+\rowcolor{tablealt}
+\rlab{Budget allocation} & Move spend continuously toward the lowest
+cost-per-result ad set\\
+\rlab{Landing page} & Fix the destination, not just the advertisement ---
+message match, speed and form friction\\
+\rowcolor{tablealt}
+\rlab{Format} & Move budget toward video, where organic reach and conversion are
+strongest\\
+\end{mmlongtable}
+
+\begin{warnbox}[Optimise the Destination, Not Only the Advertisement]
+The most commonly neglected lever is the landing page. A campaign with excellent
+creative and a broken destination reports a targeting problem it does not have.
+Always check message match\ix{message match}, load speed and form friction before rebuilding the
+audience.
+\end{warnbox}
+
+\section{Key Metrics for Campaign Success}
+
+\begin{keybox}[High Yield]
+``Discuss the key metrics used to measure the success of a social media
+marketing campaign and explain the importance of it for evaluating
+performance.''
+\pyq{SEE, Oct/Nov 2023, Q3a --- 8 M}
+\end{keybox}
+
+\begin{mmlongtable}{The six metric families}{tab:metricfamilies}%
+{@{}P{0.19\textwidth}P{0.44\textwidth}P{0.30\textwidth}@{}}
+\rowcolor{ocre}\thd{Family} & \thd{Metrics} & \thd{What it tells you}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Family} & \thd{Metrics} & \thd{What it tells you}\\
+\midrule
+\endhead
+\rlab{Reach and volume} & Impressions, reach, follower growth, share of voice &
+Whether you are being seen at all\\
+\rowcolor{tablealt}
+\rlab{Engagement} & Likes, comments, shares, saves, engagement rate, video watch
+time, click-through rate & Whether the content resonates\\
+\rlab{Traffic} & Sessions from social, pages per session, bounce rate & Whether
+attention transfers to owned property\\
+\rowcolor{tablealt}
+\rlab{Conversion} & Leads, sign-ups, sales, conversion rate, cost per
+acquisition, return on ad spend & Whether it produces business value\\
+\rlab{Sentiment and advocacy} & Sentiment ratio, brand mentions, user-generated
+content volume, net promoter score & Whether perception is improving\\
+\rowcolor{tablealt}
+\rlab{Efficiency} & Cost per click, cost per thousand impressions, cost per lead
+& Whether the money is being spent well\\
+\end{mmlongtable}
+
+\begin{exambox}[Why Measurement Matters --- Six Reasons]
+It proves ROI and justifies budget; identifies which content and platforms to
+scale and which to cut; exposes underperformance early enough to correct it;
+enables benchmarking against competitors and against past campaigns; and turns
+opinion-driven decisions into evidence-driven ones.
+\end{exambox}
+
+\section{Facebook and Instagram Across the Funnel}
+
+\begin{keybox}[High Yield]
+``Analyse how businesses can utilize Facebook and Instagram for different stages
+of a marketing funnel.''
+\pyq{SEE, Jun/Jul 2025, Q3a --- 8 M}
+\end{keybox}
+
+\begin{mmlongtable}{Facebook and Instagram across the funnel}{tab:fbigfunnel}%
+{@{}P{0.19\textwidth}P{0.37\textwidth}P{0.37\textwidth}@{}}
+\rowcolor{ocre}\thd{Funnel stage} & \thd{Facebook} & \thd{Instagram}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Funnel stage} & \thd{Facebook} & \thd{Instagram}\\
+\midrule
+\endhead
+\rlab{Awareness (top)} & Broad-reach video advertising, Page posts, Facebook
+Live, Groups seeding & Reels, Explore placement, influencer collaborations,
+brand Stories\\
+\rowcolor{tablealt}
+\rlab{Consideration (middle)} & Lead advertisements, carousel product
+advertisements, Messenger conversations, community Groups, event promotion &
+Story polls and question stickers, guides, tutorial Reels, saved-post content,
+reposted user content\\
+\rlab{Conversion (bottom)} & Dynamic product advertisements, retargeting website
+visitors and cart abandoners, catalogue advertisements, offer claims &
+Instagram Shopping tags, product stickers in Stories, link stickers, direct-message
+selling\\
+\rowcolor{tablealt}
+\rlab{Retention and advocacy (post-purchase)} & Customer Groups, Messenger
+support, loyalty offers & Close Friends offers, user-content contests, highlight
+reels of customer content\\
+\end{mmlongtable}
+
+\begin{summarybox}
+An effective campaign needs clear objectives, a defined audience, engaging
+creative and measurement. It is built in ten steps, with tracking instrumented
+before launch rather than after. Campaign optimisation improves performance by
+analysing metrics and adjusting content, targeting and advertisements, working
+through eight levers --- creative, copy and CTA, audience, placement, timing,
+budget, landing page and format. Measurement runs in six families: reach,
+engagement, traffic, conversion, sentiment and efficiency. Facebook and
+Instagram each have a distinct role at every funnel stage, from broad-reach video
+and Reels at the top to dynamic retargeting and Shopping tags at the bottom.
+\end{summarybox}
+
+\input{unit2-seo}
+\input{unit2-appendices}
+
+\backmatter
+\printindex
+
+\end{document}

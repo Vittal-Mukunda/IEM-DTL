@@ -1,0 +1,952 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Marketing Management (IM345AT) -- Volume 5 of 5
+%  UNIT V : Conversion Optimization and Digital Analytics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{MMTextbook}
+
+\unitnumber{V}
+\unittitle{Conversion Optimization and Digital Analytics}
+\unitsubtitle{Turning attention into action, and turning measurement into
+decisions}
+\unithours{07 Hours}
+\volumeno{5}
+
+\makeindex[intoc=true,columns=2,title=Index]
+
+\hypersetup{
+  pdftitle={Marketing Management IM345AT -- Unit V: Conversion Optimization and
+             Digital Analytics},
+  pdfsubject={Semester IV, Department of Industrial Engineering and Management,
+              RV College of Engineering},
+  pdfkeywords={conversion optimization, AIDAS, landing page, social proof,
+               digital analytics, IM345AT, marketing management}
+}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\pagestyle{mmfront}
+
+\halftitlepage
+\maintitlepage
+
+\colophonpage{%
+\textbf{\coursetitle\ ---\ The Study Text}\\[2pt]
+Volume 5 of 5 \textbullet\ Unit V: Conversion Optimization and Digital
+Analytics\\[10pt]
+%
+Prepared for the course \coursetitle\ (\coursecode), Semester IV, of the
+\coursedept, \courseinstitute.\\[10pt]
+%
+\textbf{Sources.} The syllabus, course outcomes, assessment rubrics and
+reference-book list reproduced in the front matter are transcribed from the
+official course document. The previous-year questions in Appendix~B are
+transcribed from RVCE Continuous Internal Evaluation and Semester End
+Examination papers for this course, and where an official scheme of valuation
+was released the model answers follow it. The explanatory text is compiled from
+classroom lecture notes and, where those were incomplete, from the prescribed
+reference texts.\\[10pt]
+%
+\textbf{Typography.} Set in Nimbus Roman with URW Gothic display headings.
+Composed in \LaTeX{} using the \texttt{MMTextbook} class written for this
+series. The visual design is derived from \emph{The Legrand Orange Book}
+template by Mathias Legrand, with modifications by Vel, distributed through
+LaTeXTemplates.com under a Creative Commons BY-NC-SA 4.0 licence; the class
+re-implements that design language on standard CTAN packages. All figures are
+drawn in \TikZ{} and \texttt{pgfplots}.\\[10pt]
+%
+\textbf{Status.} Unofficial student-compiled study material. Not issued,
+endorsed or verified by the Department or by RV College of Engineering.\\[10pt]
+%
+2026 edition.}
+
+% ---------------------------------------------------------------- preface
+\frontchapter{Preface to Volume 5}
+
+Unit~V closes the course by answering the two questions everything before it has
+been building towards: \emph{why did that visitor not buy?}, and \emph{how does
+the person holding the data get the organisation to act on it?}
+
+The first half is conversion optimization, and it is organised around one model.
+AIDAS --- Attention, Interest, Desire, Action, Satisfaction --- is the single most
+examined topic in this unit; it has appeared in every Unit~V paper available, as
+both a two-mark definition and a ten-mark explanation. It is worth learning not as
+a list of five words but as a \emph{diagnostic}: each stage corresponds to a
+distinct failure with a distinct symptom, so knowing the model tells you which
+element of a page to fix.
+
+The second half is digital analytics, and its centre of gravity is not
+measurement but influence. The syllabus is explicit on this point: after the
+evolution of the discipline and the end-to-end customer experience, it names the
+analyst's \emph{influence on business} and \emph{role as a change agent}. That is
+unusual for a technical topic, and it is deliberate. An organisation with
+excellent tools and poor interpretation makes confident wrong decisions faster
+than one with no tools at all.
+
+Chapters~1 to~4 cover conversion optimization; Chapters~5 to~7 cover digital
+analytics. The chapter sequence follows the syllabus phrase order exactly, and
+Appendix~A records the mapping.
+
+Two notes specific to this volume.
+
+First, Chapter~3 --- what visitors want to see --- deliberately repeats material
+in Volume~4. Both unit descriptors name it: Unit~IV under ``User-centered Design
+and Website Optimization'' and Unit~V under ``what visitors want to see on the
+website''. Volume~4 treats it as a design brief; this volume treats it as a
+conversion diagnosis.
+
+Second, this volume needs no appendix of off-syllabus material. Every topic in
+the source notes maps to a descriptor phrase.
+
+\vspace{12pt}
+\noindent\emph{The whole of the course syllabus is reproduced overleaf. The
+unit covered by this volume is Unit~V.}
+
+% ------------------------------------------------- conventions & syllabus
+\input{mm-howtouse}
+\input{mm-syllabus}
+
+% ---------------------------------------------------------------- contents
+\cleardoublepage
+\pdfbookmark[0]{Contents}{toc}
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagestyle{mmmain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{AIDAS and Its Role}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Conversion Optimization: What is AIDAS and its role.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What AIDAS\ix{AIDAS} stands for, and how it extends the classical AIDA model.
+\item The five stages --- psychological state, marketer's task, and the website
+      elements that deliver each.
+\item Why Satisfaction is the critical component.
+\item The role of AIDAS in conversion optimization --- as a diagnostic, not a
+      description.
+\item How to structure a product landing page with AIDAS.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[The Most Examined Topic in This Unit]
+AIDAS is examined at both two and ten marks.
+\pyq{SEE, Oct/Nov 2023; SEE, Jun/Jul 2025; Improvement CIE, 28 Aug 2024; Improvement CIE, 4 Jun 2025}
+\end{keybox}
+
+\section{What AIDAS Stands For}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{Improvement CIE, 4 Jun 2025 --- 2 M}
+\textbf{A} --- Attention \quad\textbullet\quad \textbf{I} --- Interest
+\quad\textbullet\quad \textbf{D} --- Desire \quad\textbullet\quad \textbf{A} ---
+Action \quad\textbullet\quad \textbf{S} --- Satisfaction.
+\end{exambox}
+
+\keytermas{AIDAS}{AIDAS} is a hierarchy-of-effects model describing the sequence
+of psychological states a prospect passes through, from first exposure to a brand
+to post-purchase satisfaction. It extends the classical \keytermas{AIDA}{AIDA}
+model by adding \textbf{Satisfaction}, which converts a one-time buyer into a
+retained customer and an advocate.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  % narrowing bands, then a widening satisfaction band
+  \fill[ocre!48] (-4.5,0)    -- (4.5,0)    -- (3.9,-1.05) -- (-3.9,-1.05) -- cycle;
+  \fill[ocre!38] (-3.9,-1.05)-- (3.9,-1.05)-- (3.1,-2.10) -- (-3.1,-2.10) -- cycle;
+  \fill[ocre!28] (-3.1,-2.10)-- (3.1,-2.10)-- (2.2,-3.15) -- (-2.2,-3.15) -- cycle;
+  \fill[ocre!18] (-2.2,-3.15)-- (2.2,-3.15)-- (1.3,-4.20) -- (-1.3,-4.20) -- cycle;
+  \fill[greenok!32] (-1.3,-4.20) -- (1.3,-4.20) -- (3.6,-5.35) -- (-3.6,-5.35) -- cycle;
+
+  \node[text=slate,font=\sffamily\bfseries\small] at (0,-0.52) {ATTENTION};
+  \node[text=slate,font=\sffamily\bfseries\small] at (0,-1.57) {INTEREST};
+  \node[text=slate,font=\sffamily\bfseries\small] at (0,-2.62) {DESIRE};
+  \node[text=slate,font=\sffamily\bfseries\small] at (0,-3.67) {ACTION};
+  \node[text=greenok,font=\sffamily\bfseries\small] at (0,-4.80) {SATISFACTION};
+
+  \node[anchor=west,text=slatelight,font=\sffamily\scriptsize\itshape] at (4.7,-0.52)
+    {``something caught my eye''};
+  \node[anchor=west,text=slatelight,font=\sffamily\scriptsize\itshape] at (4.7,-1.57)
+    {``this might be relevant to me''};
+  \node[anchor=west,text=slatelight,font=\sffamily\scriptsize\itshape] at (4.7,-2.62)
+    {``I want this''};
+  \node[anchor=west,text=slatelight,font=\sffamily\scriptsize\itshape] at (4.7,-3.67)
+    {``I am buying it''};
+  \node[anchor=west,text=greenok,font=\sffamily\scriptsize\itshape] at (4.7,-4.80)
+    {``I am glad I did''};
+
+  \draw[-{Latex[length=2.6mm]},greenok,line width=1pt]
+    (-3.6,-5.35) .. controls (-6.0,-4.2) and (-6.0,-1.0) .. (-4.5,-0.15);
+  \node[rotate=90,anchor=south,text=greenok,font=\sffamily\scriptsize\itshape]
+    at (-5.85,-2.7) {advocacy returns as new attention};
+\end{tikzpicture}
+\caption[The AIDAS model]%
+        {AIDAS. The first four stages narrow, as a funnel does. The fifth widens
+         again, because a satisfied customer brings others --- which is precisely
+         what the classical AIDA model, ending at Action, cannot express.}
+\label{fig:aidas}
+\end{figure}
+
+\section{The Five Stages in Detail}
+
+\begin{mmlongtable}{The five AIDAS stages}{tab:aidasstages}%
+{@{}P{0.13\textwidth}P{0.20\textwidth}P{0.26\textwidth}P{0.30\textwidth}@{}}
+\rowcolor{ocre}\thd{Stage} & \thd{Psychological state} & \thd{What the marketer must do} & \thd{Website elements that deliver it}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Stage} & \thd{Psychological state} & \thd{What the marketer must do} & \thd{Website elements that deliver it}\\
+\midrule
+\endhead
+\rlab{Attention} & ``Something has caught my eye.'' & Break through indifference
+in the first few seconds & Hero headline, striking visual, above-the-fold offer,
+advertisement message match, page speed\\
+\rowcolor{tablealt}
+\rlab{Interest} & ``This might be relevant to me.'' & Convert curiosity into
+engagement by showing relevance & Benefit-led sub-headline, scannable content,
+product images and video, clear navigation\\
+\rlab{Desire} & ``I want this.'' & Turn interest into preference through proof and
+emotional appeal & Testimonials, ratings, case studies, comparison tables,
+guarantees, scarcity and urgency cues, transparent pricing\\
+\rowcolor{tablealt}
+\rlab{Action} & ``I am buying it.'' & Remove every obstacle between wanting and
+buying & One prominent call to action, short form, guest checkout, multiple
+payment options, security badges, no hidden costs\\
+\rlab{Satisfaction} & ``I am glad I did.'' & Ensure the delivered experience meets
+or exceeds the promise & Order confirmation, proactive updates, easy returns,
+responsive support, onboarding content, loyalty programme, review request\\
+\end{mmlongtable}
+
+\section{Why Satisfaction Is the Critical Component}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+``Why is the `Satisfaction' component important in the AIDAS model?''
+\pyq{SEE, Jun/Jul 2025 --- 2 M}
+
+Because the sale is not the end of the funnel. Satisfaction determines whether
+the customer returns, repurchases, recommends and defends the brand.
+
+\smallskip
+Its importance rests on the economics: the probability of selling to an existing
+customer is \textbf{60--70\%} against \textbf{5--20\%} for a new prospect, and
+repeat customers spend up to \textbf{67\% more}.
+
+\smallskip
+A dissatisfied customer, by contrast, does not merely fail to return --- in a
+digital environment they broadcast the failure through reviews and social media,
+damaging future acquisition. Satisfaction therefore converts a transaction into a
+relationship, and turns customers into an unpaid distribution channel.
+\end{exambox}
+
+\section{The Role of AIDAS in Conversion Optimization}
+
+\begin{keybox}[AIDAS Is a Diagnostic, Not a Description]
+The model's value is that it tells you \emph{which element to fix}. Answering
+``what is the role of AIDAS'' by simply re-listing the five stages misses the
+question.
+\pyq{SEE, Oct/Nov 2023 --- 2 M}
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    sym/.style={draw=warnred,line width=0.85pt,fill=warnpale,rounded corners=3pt,
+                minimum height=1.0cm,text width=3.5cm,align=center,
+                font=\sffamily\scriptsize,text=slate,inner sep=4pt},
+    dia/.style={draw=ocre,line width=0.85pt,fill=ocrepale,rounded corners=3pt,
+                minimum height=1.0cm,text width=2.6cm,align=center,
+                font=\sffamily\bfseries\scriptsize,text=ocredark,inner sep=4pt}]
+  \node[anchor=south,text=warnred,font=\sffamily\bfseries\scriptsize] at (1.9,1.35)
+    {THE SYMPTOM};
+  \node[anchor=south,text=ocredark,font=\sffamily\bfseries\scriptsize] at (7.3,1.35)
+    {THE STAGE THAT FAILED};
+
+  \node[sym] (y1) at (1.9,0.75)   {high bounce, immediately};
+  \node[sym] (y2) at (1.9,-0.45)  {high bounce \emph{after} scrolling};
+  \node[sym] (y3) at (1.9,-1.65)  {high add-to-cart, low checkout};
+  \node[sym] (y4) at (1.9,-2.85)  {high refunds, low repeat rate};
+
+  \node[dia] (d1) at (7.3,0.75)   {ATTENTION};
+  \node[dia] (d2) at (7.3,-0.45)  {INTEREST};
+  \node[dia] (d3) at (7.3,-1.65)  {ACTION\\[-1pt]{\scriptsize\mdseries desire succeeded}};
+  \node[dia,draw=greenok,fill=greenpale,text=greenok] (d4) at (7.3,-2.85)
+     {SATISFACTION};
+
+  \foreach \a/\b in {y1/d1,y2/d2,y3/d3,y4/d4}{
+    \draw[-{Latex[length=2.2mm]},slate!60,line width=0.8pt] (\a)--(\b);}
+\end{tikzpicture}
+\caption[AIDAS as a diagnostic]%
+        {Each characteristic symptom maps to exactly one failed stage. This is
+         what makes AIDAS operationally useful rather than merely descriptive.}
+\label{fig:aidasdiag}
+\end{figure}
+
+\begin{enumerate}
+\item \sfb{It locates the failure.} High bounce\ix{bounce} means Attention failed. High
+      bounce after scrolling means Interest failed. High add-to-cart with low
+      checkout means Desire succeeded but Action failed. High refunds and a low
+      repeat rate mean Satisfaction failed.
+\item \sfb{It maps content to psychological state}, so each page section has a
+      defined job rather than being decorative.
+\item \sfb{It sequences the page} --- attention at the top, interest through the
+      middle, desire immediately before the call to action\ix{call to action}, action at the point of
+      decision, satisfaction promised in advance through guarantees and delivered
+      afterwards.
+\item \sfb{It generates testable hypotheses} --- ``the CTA fails because Desire is
+      unsupported; adding ratings above the button will raise conversions.''
+\item \sfb{It prevents over-optimising one stage.} A beautiful
+      attention-grabbing page with no proof converts no better than a plain one.
+\end{enumerate}
+
+\section{Structuring a Product Landing Page With AIDAS}
+
+\begin{keybox}[High Yield]
+``Analyze how a company can use the AIDAS model to structure content on its
+product landing page.''
+\pyq{SEE, Jun/Jul 2025, Q10b --- 8 M}
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    band/.style={minimum width=6.0cm,align=center,text width=5.7cm,
+                 font=\sffamily\scriptsize,text=slate,inner sep=5pt,
+                 anchor=north},
+    tag/.style={anchor=west,font=\sffamily\bfseries\scriptsize}]
+
+  % Bands are a uniform 1.85cm tall with a 0.10cm gutter, and each label is
+  % trimmed to three lines, so no band's text can spill into the one below it.
+  \draw[rulegrey,line width=0.9pt,rounded corners=3pt] (0,0.35) rectangle (6.2,-12.0);
+  \fill[tablehead,rounded corners=3pt] (0,0.35) rectangle (6.2,-0.15);
+
+  % --- attention
+  \fill[ocre!30] (0.1,-0.25) rectangle (6.1,-2.10);
+  \node[band] at (3.1,-0.36) {\textbf{HERO --- above the fold}\\[2pt]
+     benefit headline matching the advertisement, product image or short video,
+     offer visible without scrolling};
+  \node[tag,text=ocredark] at (6.45,-1.18) {ATTENTION};
+
+  % --- interest
+  \fill[ocre!20] (0.1,-2.20) rectangle (6.1,-4.05);
+  \node[band] at (3.1,-2.31) {\textbf{VALUE PROPOSITION BAND}\\[2pt]
+     a sub-headline plus three or four benefit statements, in scannable form};
+  \node[tag,text=ocredark] at (6.45,-3.13) {INTEREST};
+
+  % --- desire (proof)
+  \fill[ocre!13] (0.1,-4.15) rectangle (6.1,-6.00);
+  \node[band] at (3.1,-4.26) {\textbf{PROOF SECTION}\\[2pt]
+     ratings, testimonials with photographs, comparison table, awards and
+     certifications};
+  \node[tag,text=ocredark] at (6.45,-5.08) {DESIRE};
+
+  % --- desire (offer)
+  \fill[ocre!13] (0.1,-6.10) rectangle (6.1,-7.95);
+  \node[band] at (3.1,-6.21) {\textbf{OFFER \& URGENCY BAND}\\[2pt]
+     transparent pricing, inclusions, a countdown, a risk-reversal guarantee};
+  \node[tag,text=ocredark] at (6.45,-7.03) {DESIRE};
+
+  % --- action
+  \fill[deepbluepale] (0.1,-8.05) rectangle (6.1,-9.90);
+  \node[band] at (3.1,-8.16) {\textbf{CONVERSION BLOCK}\\[2pt]
+     one dominant CTA, a short form, guest checkout, payment logos, a security
+     badge};
+  \node[tag,text=deepblue] at (6.45,-8.98) {ACTION};
+
+  % --- satisfaction
+  \fill[greenpale] (0.1,-10.00) rectangle (6.1,-11.85);
+  \node[band] at (3.1,-10.11) {\textbf{REASSURANCE FOOTER}\\[2pt]
+     delivery timelines, returns policy, support contact, FAQ};
+  \node[tag,text=greenok] at (6.45,-10.93) {SATISFACTION};
+
+  \draw[-{Latex[length=2.6mm]},slate!55,line width=1pt] (-0.55,0.15) -- (-0.55,-11.8);
+  \node[rotate=90,anchor=south,text=slatelight,font=\sffamily\scriptsize\itshape]
+    at (-0.75,-5.8) {scroll direction};
+\end{tikzpicture}
+\caption[A product landing page structured by AIDAS]%
+        {Each band of the page carries exactly one psychological job, in the order
+         the visitor experiences them.}
+\label{fig:aidaspage}
+\end{figure}
+
+\begin{mmlongtable}{Page section mapped to AIDAS stage}{tab:aidaspage}%
+{@{}P{0.22\textwidth}P{0.14\textwidth}P{0.57\textwidth}@{}}
+\rowcolor{ocre}\thd{Page section} & \thd{AIDAS stage} & \thd{Content}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Page section} & \thd{AIDAS stage} & \thd{Content}\\
+\midrule
+\endhead
+\rlab{Hero (above the fold)} & Attention & A benefit headline matching the
+advertisement, a strong product image or short video, and the offer visible
+without scrolling\\
+\rowcolor{tablealt}
+\rlab{Value proposition band} & Interest & A sub-headline plus three to four
+benefit statements answering ``what's in it for me'', written in scannable form\\
+\rlab{Proof section} & Desire & Star ratings, customer testimonials with
+photographs, before-and-after visuals, a comparison table against alternatives,
+awards and certifications\\
+\rowcolor{tablealt}
+\rlab{Offer and urgency band} & Desire & Transparent pricing, what is included, a
+limited-time offer with a countdown, and a risk-reversal guarantee\\
+\rlab{Conversion block} & Action & One dominant, high-contrast CTA button with
+active benefit copy, a short form, guest checkout, payment logos and a security
+badge\\
+\rowcolor{tablealt}
+\rlab{Reassurance footer} & Satisfaction & Delivery timelines, returns and
+cancellation policy, support contact, FAQ, and a post-purchase onboarding
+promise\\
+\end{mmlongtable}
+
+\begin{keybox}[The Structuring Principle]
+Each section has \textbf{one} psychological job. If a section cannot be assigned
+to an AIDAS stage, it is probably noise and should be deleted --- which is the
+same conclusion the design principle ``omit needless words'' reaches from the
+other direction.
+\end{keybox}
+
+\begin{examplebox}[One Example Per Stage]
+\sfb{Attention} --- a streaming service's landing page whose entire first screen
+is one headline, one CTA and nothing else.
+
+\sfb{Interest} --- a product page opening with three benefit bullets rather than
+technical specifications.
+
+\sfb{Desire} --- a marketplace placing star ratings and review counts directly
+above the buy button.
+
+\sfb{Action} --- a one-tap checkout with saved payment details and guest checkout
+enabled.
+
+\sfb{Satisfaction} --- an order confirmation and proactive delivery-tracking
+sequence followed by a review request, converting the buyer into an advocate.
+\end{examplebox}
+
+\begin{summarybox}
+AIDAS is Attention, Interest, Desire, Action, Satisfaction --- a
+hierarchy-of-effects model extending AIDA by adding the post-purchase stage that
+turns a buyer into an advocate. Each stage has a psychological state, a marketer's
+task and a set of website elements that deliver it. Satisfaction matters because
+selling to an existing customer succeeds 60--70\% of the time against 5--20\% for
+a new prospect, repeat customers spend up to 67\% more, and a dissatisfied
+customer broadcasts the failure publicly. The model's role in conversion
+optimization is diagnostic: it locates which stage failed from the symptom, maps
+content to psychological state, sequences the page, generates testable hypotheses
+and prevents over-optimising one stage. A landing page structured by AIDAS runs
+hero, value proposition\ix{value proposition}, proof, offer and urgency, conversion block and
+reassurance footer --- and any section that cannot be assigned a stage should be
+deleted.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Website Optimization for Conversion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Conversion Optimization: website optimization.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item Conversion, conversion rate and conversion rate optimization defined.
+\item Why CRO compounds, and why it is usually cheaper than buying traffic.
+\item The five-stage conversion funnel\ix{conversion funnel}, its metrics and its typical drop-off
+      causes.
+\item How to identify drop-offs, and how to address them stage by stage.
+\item The KPIs that evaluate website optimization, and what each contributes.
+\item The seven-step optimisation workflow.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Definitions}
+
+\begin{definitionbox}[Conversion, Conversion Rate, and CRO]
+A \keyterm{conversion} is the completion of a defined, valuable action by a
+visitor --- a purchase, a form submission, a sign-up, a download, a call or an app
+install.
+
+\smallskip
+The \keytermas{conversion rate}{conversion rate} is the percentage of visitors who
+complete that action:
+\[ \text{Conversion Rate} \;=\; \frac{\text{Conversions}}{\text{Total Visitors}}
+   \times 100 \]
+
+\keytermas{Conversion rate optimization}{conversion rate optimization} (CRO) is
+the systematic process of increasing the percentage of visitors who complete a
+desired action, by using analytics, user research and controlled experiments to
+remove friction and strengthen persuasion.
+\end{definitionbox}
+
+\section{Why CRO Matters}
+
+\begin{keybox}[The Compounding Argument]
+\begin{itemize}
+\item It \sfb{compounds on all future traffic} --- a 20\% lift applies to every
+      visitor thereafter, at zero additional acquisition cost.
+\item It is usually \sfb{cheaper than buying more traffic}; doubling the
+      conversion rate has the same revenue effect as doubling the advertising
+      budget, but without the recurring spend.
+\item It \sfb{improves the ROI of every other channel simultaneously} --- SEO,
+      paid, e-mail and social all deposit into the same funnel.
+\item It \sfb{lowers customer acquisition cost}, and therefore improves the ratio
+      of lifetime value to acquisition cost.
+\item It \sfb{replaces opinion with evidence}, ending unresolvable internal
+      debates about design.
+\end{itemize}
+\end{keybox}
+
+\section{The Conversion Funnel}
+
+\begin{keybox}[High Yield]
+``Describe the conversion funnel in digital marketing. What are the key stages and
+how can business identify and address drop offs in the funnel?''
+\pyq{SEE, Oct/Nov 2023, Q9a --- 8 M}
+The question has three parts --- stages, identification, remedy --- and all three
+must be answered.
+\end{keybox}
+
+\begin{mmlongtable}{The five-stage conversion funnel}{tab:convfunnel}%
+{@{}P{0.157\textwidth}P{0.235\textwidth}P{0.235\textwidth}P{0.285\textwidth}@{}}
+\rowcolor{ocre}\thd{Stage} & \thd{What happens} & \thd{Typical metric} & \thd{Common cause of drop-off}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Stage} & \thd{What happens} & \thd{Typical metric} & \thd{Common cause of drop-off}\\
+\midrule
+\endhead
+\rlab{Awareness} & The prospect first encounters the brand & Impressions, reach &
+Wrong targeting; weak creative\\
+\rowcolor{tablealt}
+\rlab{Interest / Consideration} & They engage and evaluate & Sessions, pages per
+session, time on site & Poor message match; unclear value proposition\\
+\rlab{Desire / Intent} & They want the product and compare options & Add-to-cart
+rate, product page views, wishlist adds & Price opacity; missing proof; weak
+differentiation\\
+\rowcolor{tablealt}
+\rlab{Action / Conversion} & They complete the purchase or enquiry & Checkout
+completion, form submission, conversion rate & Long forms; forced registration;
+hidden costs; payment friction\\
+\rlab{Satisfaction / Retention} & They receive value and return & Repeat purchase
+rate, retention, net promoter score & Poor delivery; weak support; no
+post-purchase communication\\
+\end{mmlongtable}
+
+\subsection{Identifying drop-offs}
+
+\begin{enumerate}
+\item \sfb{Build the funnel in analytics} --- define each step as an event and use
+      funnel exploration to see the exact percentage lost at each transition.
+\item \sfb{Segment the funnel} by device, channel, geography and new against
+      returning; the aggregate figure usually hides where the real failure is.
+\item \sfb{Add qualitative diagnosis} --- heatmaps, scroll maps and session
+      recordings show \emph{why} users leave at the identified step.
+\item \sfb{Ask the user directly} --- exit-intent surveys and post-purchase
+      questions capture the reason in their own words.
+\item \sfb{Compare against benchmarks} to judge whether a step is genuinely weak
+      or simply normal for the category.
+\end{enumerate}
+
+\subsection{Addressing drop-offs}
+
+\begin{itemize}
+\item \sfb{Awareness \ra{} Interest:} improve message match\ix{message match} between the
+      advertisement and the landing page; sharpen the headline.
+\item \sfb{Interest \ra{} Desire:} add proof --- reviews, ratings,
+      demonstrations, comparison tables; make pricing transparent.
+\item \sfb{Desire \ra{} Action:} shorten the form, allow guest checkout, show
+      total cost including shipping upfront, offer multiple payment methods, add a
+      progress indicator, and place trust badges at the payment step.
+\item \sfb{Action \ra{} Satisfaction:} confirm the order immediately, communicate
+      proactively during fulfilment, make returns easy, and follow up for a
+      review.
+\item \sfb{Across all stages:} improve page speed, fix mobile-specific failures,
+      and A/B test the single highest-loss step first.
+\end{itemize}
+
+\section{KPIs for Website Optimization}
+
+\begin{keybox}[High Yield]
+``What are the key performance indicators (KPIs) used to evaluate website
+optimization, and how do they contribute to increased conversions?''
+\pyq{SEE, Jun/Jul 2025, Q9a --- 8 M}
+Note the second half of the question: each KPI must be paired with its
+\emph{contribution}, not merely named.
+\end{keybox}
+
+\begin{mmlongtable}{KPIs for website optimization}{tab:croKPI}%
+{@{}P{0.28\textwidth}P{0.65\textwidth}@{}}
+\rowcolor{ocre}\thd{KPI} & \thd{Contribution to conversions}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{KPI} & \thd{Contribution to conversions}\\
+\midrule
+\endhead
+\rlab{Conversion rate} & The direct measure --- every other KPI exists to move
+this one\\
+\rowcolor{tablealt}
+\rlab{Bounce rate} & Identifies pages where the visitor never enters the funnel at
+all\\
+\rlab{Average session duration and pages per session} & Indicate whether the
+content sustains interest long enough to build desire\\
+\rowcolor{tablealt}
+\rlab{Page load time and Core Web Vitals} & Each second of delay removes a
+measurable share of visitors before they see the offer\\
+\rlab{Exit rate by page} & Pinpoints the specific page losing the customer\\
+\rowcolor{tablealt}
+\rlab{Cart abandonment rate} & Isolates friction in the final Action step, usually
+the largest single recoverable loss\\
+\rlab{Form completion rate} & Reveals whether the form itself is blocking the
+conversion\\
+\rowcolor{tablealt}
+\rlab{Click-through rate on CTAs} & Tests whether the call to action is visible
+and persuasive\\
+\rlab{Scroll depth} & Determines what must be moved above the fold\\
+\rowcolor{tablealt}
+\rlab{Mobile against desktop conversion gap} & Exposes device-specific failures
+hidden by the aggregate\\
+\rlab{Return visitor rate and repeat purchase rate} & Measure the Satisfaction
+stage and long-term value\\
+\rowcolor{tablealt}
+\rlab{Cost per acquisition and return on advertising spend} & Connect
+optimisation work to profitability\\
+\end{mmlongtable}
+
+\section{The Optimization Workflow}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    st/.style={draw=ocre,line width=0.85pt,fill=ocrepale,rounded corners=3pt,
+               minimum height=1.15cm,text width=1.62cm,align=center,
+               font=\sffamily\bfseries\scriptsize,text=slate,inner sep=3pt}]
+  \node[st] (w1) at (0,0)     {1\\ measure};
+  \node[st] (w2) at (1.90,0)  {2\\ diagnose};
+  \node[st] (w3) at (3.80,0)  {3\\ hypothesise};
+  \node[st] (w4) at (5.70,0)  {4\\ prioritise};
+  \node[st] (w5) at (7.60,0)  {5\\ test};
+  \node[st] (w6) at (9.50,0)  {6\\ implement};
+  \node[st,draw=greenok,fill=greenpale] (w7) at (11.40,0) {7\\ re-measure};
+  \foreach \a/\b in {w1/w2,w2/w3,w3/w4,w4/w5,w5/w6,w6/w7}{
+    \draw[-{Latex[length=1.9mm]},ocre,line width=0.85pt] (\a)--(\b);}
+  \draw[-{Latex[length=2.1mm]},greenok,line width=0.85pt,dashed]
+    (w7.south) -- ++(0,-0.7) -| (w1.south);
+  \node[anchor=north,text=greenok,font=\sffamily\scriptsize\itshape]
+    at (5.70,-0.75) {CRO is a continuous loop, not a project};
+\end{tikzpicture}
+\caption[The conversion optimisation workflow]%
+        {The seven steps. Step~4 --- prioritising by expected impact against
+         implementation effort --- is what stops the loop becoming an unordered
+         backlog of ideas.}
+\label{fig:croworkflow}
+\end{figure}
+
+\begin{enumerate}
+\item \sfb{Measure} --- locate the weakest step in the funnel using analytics.
+\item \sfb{Diagnose} --- use heatmaps, session recordings and surveys to find out
+      why.
+\item \sfb{Hypothesise} --- state a specific, falsifiable prediction tied to one
+      variable.
+\item \sfb{Prioritise} --- rank hypotheses by expected impact against
+      implementation effort.
+\item \sfb{Test} --- run an A/B or multivariate test to statistical significance.
+\item \sfb{Implement} the winner.
+\item \sfb{Re-measure and repeat} --- CRO is a continuous loop, not a project.
+\end{enumerate}
+
+\begin{summarybox}
+A conversion is a defined valuable action; the conversion rate is conversions over
+visitors, expressed as a percentage; CRO systematically raises that rate using
+analytics, research and experiments. It matters because it compounds on all future
+traffic at no extra acquisition cost, is usually cheaper than buying traffic,
+improves every channel's ROI simultaneously, lowers acquisition cost and replaces
+opinion with evidence. The funnel runs awareness, interest, desire, action and
+satisfaction, each with its own metric and characteristic drop-off cause. Drop-offs
+are identified by building the funnel in analytics, segmenting it, diagnosing
+qualitatively, asking users directly and benchmarking --- and addressed stage by
+stage from message match through proof and friction removal to post-purchase
+communication. Twelve KPIs evaluate the work, each with a specific contribution.
+The workflow is measure, diagnose, hypothesise, prioritise, test, implement,
+re-measure --- and it loops.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{What Visitors Want to See on the Website}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Conversion Optimization: what visitors want to see on the website.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The ten questions a visitor arrives with, and what must be present to
+      answer each.
+\item The psychology beneath them --- Krug's first law, scanning and satisficing.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[Examined at Both Weights]
+This is asked as a two-mark question --- ``two key elements visitors expect on a
+well-optimized landing page'' --- and as a ten-mark question requiring the full
+set with delivery strategies.
+\pyq{Improvement CIE, 4 Jun 2025 --- 2 M and 10 M}
+\end{keybox}
+
+\section{The Ten Visitor Questions}
+
+\begin{mmlongtable}{What visitors want, and what must be present}{tab:visitorwants5}%
+{@{}P{0.32\textwidth}P{0.61\textwidth}@{}}
+\rowcolor{ocre}\thd{Visitor question} & \thd{What must be present}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Visitor question} & \thd{What must be present}\\
+\midrule
+\endhead
+\rlab{``Am I in the right place?''} & A clear headline stating what is offered and
+for whom, above the fold\\
+\rowcolor{tablealt}
+\rlab{``What's in it for me?''} & Benefit-led copy rather than feature lists or
+company history\\
+\rlab{``Can I trust you?''} & Testimonials, star ratings, client logos,
+certifications, guarantees, real photographs, a physical address\\
+\rowcolor{tablealt}
+\rlab{``What does it cost?''} & Transparent pricing or at least a clear range;
+hidden pricing is a leading cause of abandonment\\
+\rlab{``What do I do next?''} & One prominent, unambiguous call to action\\
+\rowcolor{tablealt}
+\rlab{``Can I find what I came for?''} & Simple, conventional navigation and a
+working search\\
+\rlab{``Is it fast?''} & A page loading in under about three seconds\\
+\rowcolor{tablealt}
+\rlab{``Does it work on my phone?''} & A fully responsive, mobile-first layout\\
+\rlab{``Is it safe to pay here?''} & HTTPS, recognised payment logos, a clear
+privacy and returns policy\\
+\rowcolor{tablealt}
+\rlab{``How do I reach a human?''} & Visible contact options and stated response
+times\\
+\end{mmlongtable}
+
+\section{The Psychology Behind It}
+
+\begin{keybox}[Krug's First Law --- Don't Make Me Think]
+A person of average or below-average ability must be able to work out how to
+accomplish the task. It must be self-evident and self-explanatory.
+\end{keybox}
+
+Users do not read pages; they \keyterm{scan}, \keyterm{satisfice} and muddle
+through. They choose the first option that plausibly works rather than the best
+one. Three reasons they do not read instructions: it isn't important to them; they
+are on a mission and know they don't need everything; and if something works they
+stick with it rather than seeking a better way.
+
+Design must therefore follow \sfb{visual hierarchy}, \sfb{omit needless words},
+\sfb{make clickables obvious}, and \sfb{provide breadcrumbs and street signs}.
+
+\begin{warnbox}[The Link Between This Chapter and AIDAS]
+The ten questions are not an arbitrary checklist. Read them against
+Chapter~1 and they resolve into the model: questions one and two are
+\emph{Attention} and \emph{Interest}; trust, cost and safety are \emph{Desire};
+``what do I do next'' is \emph{Action}; and ``how do I reach a human'' is the
+promise of \emph{Satisfaction} made in advance. Answering the ten questions
+\emph{is} building an AIDAS-complete page.
+\end{warnbox}
+
+\begin{summarybox}
+Visitors arrive with ten questions: am I in the right place, what's in it for me,
+can I trust you, what does it cost, what do I do next, can I find what I came for,
+is it fast, does it work on my phone, is it safe to pay, and how do I reach a
+human. Each has a specific delivery mechanism. Beneath them lies Krug's first law
+--- don't make me think --- and the fact that users scan, satisfice and muddle
+through rather than reading, which is why pages must follow visual hierarchy\ix{visual hierarchy}, omit
+needless words, make clickables obvious and provide clear navigation. The ten
+questions map onto the AIDAS stages, so answering them all is the same thing as
+building an AIDAS-complete page.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Optimizing Key Elements of a Landing Page}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Conversion Optimization: how to optimize key element and increase
+the effect of landing on a particular page.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The headline --- message match, specificity and dominance.
+\item The call to action --- dominance, contrast, copy, position, size and
+      reassurance.
+\item Visuals --- authenticity, faces, video and direction.
+\item Forms --- field count, guest checkout, smart\ix{SMART} defaults and inline
+      validation.
+\item Trust signals and social proof --- the concept, the impact and the ten
+      types.
+\item Page speed and mobile as conversion elements.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{The Headline}
+
+\begin{itemize}
+\item \sfb{Restate the promise} made by the advertisement, e-mail or search result
+      that brought the visitor --- \keytermas{message match}{message match} is the
+      single largest lever on landing-page conversion.
+\item \sfb{Be specific and quantified} --- ``Kerala backwaters, 4 nights from
+      \rupee 18,999'' beats ``Unforgettable holidays''.
+\item \sfb{Lead with the benefit}, not the product name or the company name.
+\item \sfb{Keep it short} enough to be read in one glance, and set it as the
+      visually dominant element on the page.
+\item \sfb{Support it with a sub-headline} that adds the second most important
+      piece of information.
+\end{itemize}
+
+\section{The Call to Action}
+
+\begin{itemize}
+\item \sfb{One dominant CTA per page.} Two competing CTAs halve the conversion
+      rate of both.
+\item \sfb{High contrast} --- reserve one accent colour exclusively for actions,
+      so that the eye finds it instantly.
+\item \sfb{Active, benefit-led, first-person copy} --- ``Get my free trial''
+      outperforms ``Submit'' or ``Click here''.
+\item \sfb{Positioned above the fold} and repeated at natural decision points down
+      the page.
+\item \sfb{Adequate size and tap target} --- at least 44 by 44 pixels on mobile.
+\item \sfb{Reassurance microcopy beneath the button} --- ``No card required
+      \textbullet\ Cancel anytime \textbullet\ Takes 30 seconds''.
+\end{itemize}
+
+\section{Visuals}
+
+\begin{itemize}
+\item \sfb{Show the actual product or outcome}, not generic stock imagery, which
+      reads as inauthentic and lowers trust.
+\item \sfb{Use real customer photographs} in testimonials --- faces materially
+      increase credibility.
+\item \sfb{Add short video} --- 77\% of consumers have been convinced to buy after
+      watching a video.
+\item \sfb{Direct attention with the image} --- a person in the image looking
+      toward the CTA measurably increases attention to it.
+\item \sfb{Optimise every image} for weight and format, so that the visual does
+      not destroy the speed it was meant to support.
+\end{itemize}
+
+\section{Forms}
+
+\begin{itemize}
+\item \sfb{Remove every field you will not act on.} Each additional field reduces
+      completion.
+\item \sfb{Allow guest checkout} --- forced registration is one of the largest
+      single causes of cart abandonment.
+\item \sfb{Use smart defaults, auto-fill and postcode lookup} to reduce typing on
+      mobile.
+\item \sfb{Validate inline, not on submit}, and write error messages that say how
+      to fix the problem.
+\item \sfb{Show a progress indicator} for multi-step forms.
+\item \sfb{Use the right keyboard type} on mobile for each field.
+\end{itemize}
+
+\section{Trust Signals and Social Proof}
+
+\begin{keybox}[High Yield]
+``Explain the concept of social proof and its impact on conversion rates. Provide
+examples of how business can use social proof effectively in marketing.''
+\pyq{SEE, Oct/Nov 2023, Q9b --- 8 M}
+\end{keybox}
+
+\begin{definitionbox}[Social Proof]
+\keytermas{Social proof}{social proof} is the psychological phenomenon whereby
+people assume the actions and opinions of others reflect the correct behaviour in
+a given situation --- so, uncertain about a decision, a buyer looks at what other
+buyers did.
+\end{definitionbox}
+
+\begin{exambox}[Impact on Conversion Rates]
+Social proof reduces \textbf{perceived risk}, which is the dominant barrier at the
+Desire~\ra~Action transition. It substitutes borrowed credibility for a brand the
+visitor does not yet know: roughly 90\% of people believe what peers say about a
+brand while only about 48\% trust what businesses say directly. It also shortens
+deliberation by supplying a decision shortcut, and it raises average order value
+when the proof is attached to higher-tier options.
+\end{exambox}
+
+\begin{mmlongtable}{The ten types of social proof}{tab:socialproof}%
+{@{}P{0.26\textwidth}P{0.67\textwidth}@{}}
+\rowcolor{ocre}\thd{Type of social proof} & \thd{How to use it}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Type of social proof} & \thd{How to use it}\\
+\midrule
+\endhead
+\rlab{Customer testimonials} & Short quotes with a real name, photograph and
+specific outcome, placed adjacent to the call to action\\
+\rowcolor{tablealt}
+\rlab{Star ratings and reviews} & Aggregate rating on product pages and in search
+rich results; display negative reviews too, since an all-perfect page reads as
+fake\\
+\rlab{User counts} & ``Joined by 40,000 students''; ``2 million orders
+delivered''\\
+\rowcolor{tablealt}
+\rlab{Case studies} & Detailed, quantified success stories, for
+high-consideration B2B purchases\\
+\rlab{Client and media logos} & ``As used by'' and ``As featured in'' bands\\
+\rowcolor{tablealt}
+\rlab{Expert endorsement} & Certifications, professional bodies, specialist
+reviews\\
+\rlab{Influencer and celebrity proof} & Borrowed audience trust, disclosed as
+sponsored\\
+\rowcolor{tablealt}
+\rlab{User-generated content} & Real customer photographs and videos, reposted
+with permission\\
+\rlab{Real-time activity notifications} & ``12 people are viewing this now'';
+``Booked 4 times today'' --- effective, but must be truthful\\
+\rowcolor{tablealt}
+\rlab{Wisdom of the crowd} & ``Most popular plan'' and ``Best seller'' badges
+guiding choice\\
+\end{mmlongtable}
+
+\begin{warnbox}[Two Ways Social Proof Backfires]
+An \textbf{all-perfect review page reads as fabricated}; displaying some negative
+reviews raises credibility rather than lowering it. And \textbf{real-time activity
+notifications must be true} --- a fabricated ``12 people viewing'' is both a
+consumer-protection risk and, once noticed, more damaging to trust than showing
+nothing at all.
+\end{warnbox}
+
+\section{Page Speed and Mobile}
+
+\begin{itemize}
+\item A page loading in over three seconds loses a large share of mobile visitors
+      before it is ever seen --- \sfb{speed is a conversion element, not a
+      technical detail}.
+\item Compress and modernise images, minify scripts, enable caching and a content
+      delivery network, and lazy-load below-the-fold content.
+\item Design mobile-first, since most traffic and most abandonment now occur on
+      mobile.
+\end{itemize}
+
+\begin{summarybox}
+The headline must restate the advertisement's promise, be specific and quantified,
+lead with the benefit and dominate the page. The call to action must be single,
+high-contrast, actively worded, above the fold and repeated, large enough to tap,
+and supported by reassurance microcopy. Visuals must be authentic, feature real
+faces, include short video, direct attention toward the CTA and be optimised for
+weight. Forms must drop unused fields, allow guest checkout, use smart defaults,
+validate inline and show progress. Social proof reduces perceived risk at the
+Desire-to-Action transition, substituting borrowed credibility in ten forms from
+testimonials to wisdom-of-the-crowd badges --- but it must be honest, since
+fabricated proof destroys more trust than it borrows. Speed and mobile-first design
+are conversion elements in their own right.
+\end{summarybox}
+
+\input{unit5-analytics}
+\input{unit5-appendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+\printindex
+
+\end{document}

@@ -1,0 +1,1109 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Marketing Management (IM345AT) -- Volume 4 of 5
+%  UNIT IV : Web Design and Mobile Marketing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{MMTextbook}
+
+\unitnumber{IV}
+\unittitle{Web Design and Mobile Marketing}
+\unitsubtitle{The hub of the campaign ecosystem, and the device the customer
+never puts down}
+\unithours{07 Hours}
+\volumeno{4}
+
+\makeindex[intoc=true,columns=2,title=Index]
+
+\hypersetup{
+  pdftitle={Marketing Management IM345AT -- Unit IV: Web Design and Mobile
+             Marketing},
+  pdfsubject={Semester IV, Department of Industrial Engineering and Management,
+              RV College of Engineering},
+  pdfkeywords={web design, user-centred design, website optimization, mobile
+               marketing, push notifications, IM345AT, marketing management}
+}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\pagestyle{mmfront}
+
+\halftitlepage
+\maintitlepage
+
+\colophonpage{%
+\textbf{\coursetitle\ ---\ The Study Text}\\[2pt]
+Volume 4 of 5 \textbullet\ Unit IV: Web Design and Mobile Marketing\\[10pt]
+%
+Prepared for the course \coursetitle\ (\coursecode), Semester IV, of the
+\coursedept, \courseinstitute.\\[10pt]
+%
+\textbf{Sources.} The syllabus, course outcomes, assessment rubrics and
+reference-book list reproduced in the front matter are transcribed from the
+official course document. The previous-year questions in Appendix~B are
+transcribed from RVCE Continuous Internal Evaluation and Semester End
+Examination papers for this course, and where an official scheme of valuation
+was released the model answers follow it. The explanatory text is compiled from
+classroom lecture notes and, where those were incomplete, from the prescribed
+reference texts.\\[10pt]
+%
+\textbf{Typography.} Set in Nimbus Roman with URW Gothic display headings.
+Composed in \LaTeX{} using the \texttt{MMTextbook} class written for this
+series. The visual design is derived from \emph{The Legrand Orange Book}
+template by Mathias Legrand, with modifications by Vel, distributed through
+LaTeXTemplates.com under a Creative Commons BY-NC-SA 4.0 licence; the class
+re-implements that design language on standard CTAN packages. All figures are
+drawn in \TikZ{} and \texttt{pgfplots}.\\[10pt]
+%
+\textbf{Status.} Unofficial student-compiled study material. Not issued,
+endorsed or verified by the Department or by RV College of Engineering.\\[10pt]
+%
+2026 edition.}
+
+% ---------------------------------------------------------------- preface
+\frontchapter{Preface to Volume 4}
+
+Unit~IV covers the two places where every other channel finally lands. Volume~1
+established that a digital campaign is a hub with spokes, and that the hub is a
+quality company website. This unit is about building that hub properly --- and
+about the device on which most visitors will actually reach it.
+
+The first half is web design, and its governing idea is that design is not
+decoration. The website is the conversion destination that every spoke feeds, so
+a design decision is a revenue decision. The material accordingly runs from
+principles to process: what web design is, what optimising a site means, how a
+site is actually published, how to let the user rather than the design team drive
+the decisions, how design and copy work as one system, and how to turn website
+metrics into decisions rather than dashboards.
+
+The second half is mobile marketing, and it opens with a distinction the
+examiners return to more often than any other in this unit: mobile
+\emph{advertising} is a paid subset of mobile \emph{marketing}. Getting that one
+line right, and being able to expand it into a table, is worth more marks in
+Unit~IV than any other single fact.
+
+Chapters~1 to~5 cover web design; Chapters~6 to~8 cover mobile marketing. The
+chapter sequence follows the syllabus phrase order exactly, and Appendix~A
+records the mapping.
+
+Two notes on the shape of this volume.
+
+First, some material here deliberately repeats Volume~1. Krug's first law, the
+seven usability attributes and the landing-page essentials appear in Unit~I under
+``Optimize Website UX \& Landing Pages'' and again in Unit~IV under ``Design
+Principles''. Both unit descriptors name them, so both volumes carry them; the
+treatment here is the design-side treatment rather than the content-marketing
+side.
+
+Second, like Volume~3 this volume needs no appendix of off-syllabus material.
+Every topic in the source notes maps to a phrase in the unit descriptor.
+
+\vspace{12pt}
+\noindent\emph{The whole of the course syllabus is reproduced overleaf. The
+unit covered by this volume is Unit~IV.}
+
+% ------------------------------------------------- conventions & syllabus
+\input{mm-howtouse}
+\input{mm-syllabus}
+
+% ---------------------------------------------------------------- contents
+\cleardoublepage
+\pdfbookmark[0]{Contents}{toc}
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagestyle{mmmain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Web Design and the Optimization of Websites}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Web Design: Web design, optimization of websites.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What web design is, and why it is a revenue decision.
+\item User interface and user experience --- scope, deliverables, marketing role
+      and failure symptoms.
+\item The basic pages a business website needs.
+\item What website optimization is, why it matters, and its four types.
+\item The eight optimisation techniques, with their concrete sub-actions.
+\item Image optimization, and its four distinct contributions.
+\item Testing and optimisation --- methods, what each finds, and the tools.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{What Web Design Is}
+
+\begin{definitionbox}[Web Design]
+\keytermas{Web design}{web design} involves creating visually appealing and
+user-friendly websites. It includes layout design, colour selection, typography,
+graphics, navigation and responsiveness.
+\pyq{CIE-III, Jun 2026 --- 10 M}
+\end{definitionbox}
+
+\begin{keybox}[Why a Design Decision Is a Revenue Decision]
+Web design is not decoration. In marketing terms the website is the \textbf{hub of
+the entire digital campaign ecosystem} --- the round-the-clock portal and the
+ultimate conversion destination that every other channel feeds. Every visitor
+that SEO, paid search, social, e-mail and affiliates deliver arrives here. A
+design flaw therefore taxes every channel simultaneously.
+\end{keybox}
+
+\section{User Interface and User Experience}
+
+\begin{keybox}[High Yield]
+``What is the role of user Interface and user Experience designs in web design
+for marketing? How can businesses ensure a positive user Journey on their
+websites?''
+\pyq{SEE, Oct/Nov 2023, Q7a --- 8 M}
+\end{keybox}
+
+\begin{mmlongtable}{User interface against user experience}{tab:uiux}%
+{@{}P{0.15\textwidth}P{0.39\textwidth}P{0.39\textwidth}@{}}
+\rowcolor{ocre}\thd{} & \thd{User Interface (UI)} & \thd{User Experience (UX)}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{} & \thd{User Interface (UI)} & \thd{User Experience (UX)}\\
+\midrule
+\endhead
+\rlab{Definition} & The visual and interactive surface the user touches ---
+layout, colours, typography, buttons, icons, spacing, states & The entire quality
+of the user's journey --- how easy, efficient and satisfying it is to achieve
+their goal\\
+\rowcolor{tablealt}
+\rlab{Scope} & What it looks like and how it responds & How it feels and whether
+it works\\
+\rlab{Deliverables} & Style guides, design systems, mockups, component libraries
+& Personas, user journeys, wireframes, information architecture, usability test
+findings\\
+\rowcolor{tablealt}
+\rlab{Marketing role} & Creates the first impression and signals brand
+credibility within milliseconds & Determines whether the visitor converts,
+returns and recommends\\
+\rlab{Failure symptom} & The site looks dated or inconsistent; the brand appears
+untrustworthy & Users cannot find what they need; high bounce, low conversion\\
+\end{mmlongtable}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  % UX as the containing journey
+  \draw[ocre,line width=1.1pt,rounded corners=6pt,fill=ocrepale]
+    (0,0) rectangle (11.2,3.5);
+  \node[anchor=north west,text=ocredark,font=\sffamily\bfseries\small]
+    at (0.25,3.35) {USER EXPERIENCE --- the whole journey};
+
+  % UI as one component within it
+  \draw[deepblue,line width=1.1pt,rounded corners=5pt,fill=deepbluepale]
+    (3.6,0.45) rectangle (7.6,2.35);
+  \node[anchor=north,text=deepblue,font=\sffamily\bfseries\scriptsize,align=center]
+    at (5.6,2.2) {USER INTERFACE\\ the surface};
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=3.6cm] at (5.6,1.5)
+    {layout, colour, type, buttons, icons, spacing, states};
+
+  % journey stages around it
+  \node[anchor=center,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=2.9cm] at (1.75,1.4)
+    {\textbf{before}\\ expectation set by the ad or search result};
+  \node[anchor=center,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=2.9cm] at (9.45,1.4)
+    {\textbf{after}\\ fulfilment, support, return, recommendation};
+
+  \draw[-{Latex[length=2.4mm]},ocre,line width=1pt] (3.25,1.4) -- (3.55,1.4);
+  \draw[-{Latex[length=2.4mm]},ocre,line width=1pt] (7.65,1.4) -- (7.95,1.4);
+
+  \node[anchor=north,text=slatelight,font=\sffamily\scriptsize\itshape,
+        align=center,text width=10.6cm] at (5.6,0.42)
+    {a beautiful interface inside a broken journey still fails --- which is why
+     UI is a component of UX and not a synonym for it};
+\end{tikzpicture}
+\caption[User interface within user experience]%
+        {UI is one component of UX, not a synonym for it. The interface can be
+         faultless while the journey --- expectation, fulfilment, support ---
+         still loses the customer.}
+\label{fig:uiux}
+\end{figure}
+
+\begin{exambox}[Ensuring a Positive User Journey --- Eight Actions]
+Map the journey before designing; keep navigation shallow and conventional; make
+the primary action obvious on every page; minimise the number of steps to the
+goal; provide feedback for every action; design the error and empty states, not
+just the happy path; make the site fast and responsive; and test with real users
+rather than with colleagues.
+\end{exambox}
+
+\section{Website Structure --- The Basic Pages}
+
+\begin{itemize}
+\item \sfb{Home page} --- states what the business does, for whom, and what to do
+      next, within five seconds.
+\item \sfb{About page} --- credibility, team, history, credentials.
+\item \sfb{Product and service pages} --- one page per offering, benefit-led,
+      with proof and a call to action\ix{call to action}.
+\item \sfb{Landing pages} --- single-purpose campaign destinations with
+      navigation removed.
+\item \sfb{Blog and resources} --- the SEO and content-marketing engine.
+\item \sfb{Contact page} --- multiple contact routes, a map, hours, and a
+      response-time expectation.
+\item \sfb{Trust pages} --- testimonials, case studies, certifications, privacy
+      policy, terms, refund policy.
+\end{itemize}
+
+\section{Website Optimization --- Definition and Importance}
+
+\begin{definitionbox}[Website Optimization]
+\keytermas{Website optimization}{website optimization} is the process of
+improving website performance, speed, usability\ix{usability} and search visibility in order to
+increase traffic and conversions.
+\pyq{CIE-III, Jun 2026 --- 2 M}
+\end{definitionbox}
+
+\begin{exambox}[Importance --- Official Scheme, 10 Marks]
+\pyq{CIE-III, Jun 2026 --- 10 M}
+\begin{itemize}
+\item Improves website loading speed.
+\item Enhances user experience.
+\item Increases search engine ranking.
+\item Reduces bounce\ix{bounce} rate.
+\item Improves conversion rate.
+\item Supports mobile compatibility.
+\end{itemize}
+
+\smallskip
+\textbf{Types of website optimization:} technical optimization; content
+optimization; SEO optimization; mobile optimization.
+
+\smallskip
+\textbf{Benefits:} better customer engagement; increased sales and traffic;
+improved brand image.
+\end{exambox}
+
+\section{The Optimization Techniques}
+
+\begin{keybox}[The Recurring Scenario]
+``A start-up company notices that visitors leave their website within a few
+seconds. As a web designer, explain how you would optimize the website to improve
+user engagement and conversion rate.''
+\pyq{CIE-III, Jun 2026 --- 10 M}
+\end{keybox}
+
+\begin{enumerate}
+\item \sfb{Improve website loading speed} --- compress images, minimise
+      unnecessary scripts, use fast hosting, enable caching and a content
+      delivery network, and minify CSS and JavaScript.
+\item \sfb{Create a responsive design} --- ensure compatibility with mobile,
+      tablet and desktop; design mobile-first.
+\item \sfb{Improve navigation} --- use simple menus and a proper page structure;
+      keep important pages within two or three clicks.
+\item \sfb{Enhance content quality} --- attractive headings, meaningful visuals
+      and clear information; remove needless words.
+\item \sfb{Add strong call-to-action buttons} --- ``Buy Now'', ``Register'',
+      ``Contact Us'' --- prominent, above the fold, and repeated.
+\item \sfb{Improve SEO} --- proper keywords, unique title tags and meta
+      descriptions, heading hierarchy, image ALT text.
+\item \sfb{Reduce bounce rate} --- provide engaging, relevant content that matches
+      the promise made by the referring advertisement or search result.
+\item \sfb{Monitor website metrics} --- analyse visitor behaviour using analytics
+      tools, and keep iterating.
+\end{enumerate}
+
+\begin{keybox}[How to Turn This Into a First-Class Answer]
+Open with a \textbf{diagnosis step} --- heatmaps and session recordings to
+establish \emph{why} visitors leave --- and close with \textbf{A/B testing} to
+validate each fix. A list of eight techniques without a diagnosis at the front
+and a validation at the back is a checklist; with them, it is a method.
+
+\smallskip
+Additional techniques for a fuller answer: A/B test headlines, calls to action
+and layouts; simplify forms by removing non-essential fields; add trust signals
+near the point of decision; implement exit-intent offers; use heatmaps and
+session recordings to locate friction; and fix accessibility so the site works
+for every visitor.
+\end{keybox}
+
+\section{Image Optimization}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+``How does image optimization contribute to overall website performance?''
+\pyq{Improvement CIE, 28 Aug 2024 --- 2 M}
+\begin{itemize}
+\item \sfb{Speed.} Reduces page weight and load time, which directly lowers
+      bounce rate and improves Core Web Vitals\ix{Core Web Vitals}.
+\item \sfb{Mobile.} Improves the experience on slower connections and limited
+      data plans.
+\item \sfb{SEO.} Descriptive file names and ALT text make images discoverable in
+      image search and help the page rank.
+\item \sfb{Accessibility.} ALT text is read by screen readers and displayed when
+      images fail to load.
+\end{itemize}
+\end{exambox}
+
+\noindent\textbf{Techniques:} compress files; use modern formats such as WebP and
+AVIF; size images to their display dimensions; serve responsive images with
+\texttt{srcset}; lazy-load below-the-fold images; and use a content delivery
+network.
+
+\section{Testing and Optimization}
+
+\begin{keybox}[High Yield]
+``Describe the importance of testing and optimization in web design for
+Marketing. What tools and methods can be used?''
+\pyq{SEE, Oct/Nov 2023, Q7b --- 8 M}
+\end{keybox}
+
+\begin{keybox}[Why Testing Matters]
+Design opinions are unreliable predictors of user behaviour. Testing replaces
+assumption with evidence, de-risks redesigns, produces compounding conversion
+gains on all future traffic, and reveals device- and segment-specific failures
+that are invisible in aggregate data.
+\end{keybox}
+
+\begin{mmlongtable}{Testing methods, what they find, and the tools}{tab:testing}%
+{@{}P{0.22\textwidth}P{0.36\textwidth}P{0.35\textwidth}@{}}
+\rowcolor{ocre}\thd{Method} & \thd{What it finds} & \thd{Tools}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Method} & \thd{What it finds} & \thd{Tools}\\
+\midrule
+\endhead
+\rlab{A/B and multivariate testing} & Which version performs better on a defined
+goal & VWO, Optimizely, AB Tasty\\
+\rowcolor{tablealt}
+\rlab{Usability testing} & Where real users get stuck, and why & UserTesting,
+Maze, moderated sessions\\
+\rlab{Heatmaps, scroll and click maps} & What attracts attention and what is
+ignored & Hotjar, Microsoft Clarity, Crazy Egg\\
+\rowcolor{tablealt}
+\rlab{Session recordings} & Hesitation, rage clicks, dead clicks, form
+abandonment & Hotjar, Clarity, FullStory\\
+\rlab{Analytics funnel analysis} & The exact step at which users drop out &
+Google Analytics 4\\
+\rowcolor{tablealt}
+\rlab{Performance testing} & Speed and Core Web Vitals & PageSpeed Insights,
+Lighthouse, GTmetrix, WebPageTest\\
+\rlab{Cross-browser and device testing} & Rendering failures on specific clients
+& BrowserStack, LambdaTest\\
+\rowcolor{tablealt}
+\rlab{Accessibility auditing} & Barriers for users with disabilities & WAVE, axe,
+Lighthouse\\
+\rlab{Technical SEO crawling} & Broken links, duplicate meta, redirect chains &
+Screaming Frog, SEMrush Site Audit\\
+\end{mmlongtable}
+
+\begin{summarybox}
+Web design creates visually appealing, user-friendly sites through layout,
+colour, typography, graphics, navigation and responsiveness --- and because the
+site is the hub every channel feeds, a design decision is a revenue decision. UI
+is the surface; UX is the whole journey, and UI is a component of UX rather than a
+synonym. A business site needs home, about, product, landing, blog, contact and
+trust pages. Website optimization improves performance, speed, usability and
+search visibility to raise traffic and conversions, in four types --- technical,
+content, SEO and mobile. The eight techniques run from load speed and
+responsiveness through navigation, content, calls to action, SEO and bounce
+reduction to metric monitoring; framed properly they open with diagnosis and close
+with validation. Image optimization contributes speed, mobile experience, SEO and
+accessibility. Testing replaces opinion with evidence through split tests,
+usability sessions, heatmaps, recordings, funnel analysis, performance,
+cross-device, accessibility and crawl\ix{crawl} audits.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Publishing a Basic Website}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Publishing a basic website.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The nine official steps from requirement analysis to maintenance.
+\item What each step involves in practice, including the pre-launch technical
+      setup that the nine-step list compresses.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[The Recurring Scenario]
+``A college plans to publish its departmental website for admissions and student
+activities. Explain the complete process involved in designing and publishing the
+website.''
+\pyq{CIE-III, Jun 2026 --- 10 M}
+The official scheme lists nine steps. Name all nine in order, then expand.
+\end{keybox}
+
+\section{The Nine Steps}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    st/.style={draw=ocre,line width=0.85pt,fill=ocrepale,rounded corners=3pt,
+               minimum height=1.35cm,text width=1.62cm,align=center,
+               font=\sffamily\bfseries\scriptsize,text=slate,inner sep=3pt}]
+  \node[st] (a1) at (0,0)     {1\\ requirement analysis};
+  \node[st] (a2) at (1.90,0)  {2\\ website design};
+  \node[st] (a3) at (3.80,0)  {3\\ content development};
+  \node[st] (a4) at (5.70,0)  {4\\ domain registration};
+  \node[st] (a5) at (7.60,0)  {5\\ web hosting};
+  \foreach \a/\b in {a1/a2,a2/a3,a3/a4,a4/a5}{
+    \draw[-{Latex[length=1.9mm]},ocre,line width=0.85pt] (\a)--(\b);}
+
+  \node[st] (a6) at (1.90,-2.2)  {6\\ website development};
+  \node[st] (a7) at (3.80,-2.2)  {7\\ testing};
+  \node[st] (a8) at (5.70,-2.2)  {8\\ publishing};
+  \node[st,draw=greenok,fill=greenpale] (a9) at (7.60,-2.2) {9\\ maintenance};
+  \foreach \a/\b in {a6/a7,a7/a8,a8/a9}{
+    \draw[-{Latex[length=1.9mm]},ocre,line width=0.85pt] (\a)--(\b);}
+
+  \draw[-{Latex[length=1.9mm]},ocre,line width=0.85pt]
+    (a5.south) -- ++(0,-0.55) -| (a6.north);
+
+  \draw[-{Latex[length=2.1mm]},greenok,line width=0.85pt,dashed]
+    (a9.east) -- ++(0.85,0) -- ++(0,2.2) -| (a3.north);
+  \node[anchor=west,text=greenok,font=\sffamily\scriptsize\itshape,
+        align=left,text width=2.4cm] at (8.65,-1.1)
+    {maintenance returns to content};
+\end{tikzpicture}
+\caption[The nine-step website publishing process]%
+        {The nine steps. Maintenance is not an epilogue: it loops back into
+         content development, because a departmental site that stops publishing
+         notices has failed even though it is technically live.}
+\label{fig:ninesteps}
+\end{figure}
+
+\begin{mmlongtable}{The nine official steps}{tab:publishsteps}%
+{@{}P{0.22\textwidth}P{0.71\textwidth}@{}}
+\rowcolor{ocre}\thd{Step} & \thd{Activity}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Step} & \thd{Activity}\\
+\midrule
+\endhead
+\rlab{1. Requirement analysis} & Identify website objectives and user needs\\
+\rowcolor{tablealt}
+\rlab{2. Website design} & Create the homepage, admission page, faculty page and
+event sections; produce wireframes and visual design\\
+\rlab{3. Content development} & Add text, images, notices and contact details\\
+\rowcolor{tablealt}
+\rlab{4. Domain registration} & Purchase a domain name\\
+\rlab{5. Web hosting} & Select a hosting service to store the website files\\
+\rowcolor{tablealt}
+\rlab{6. Website development} & Build using HTML, CSS and JavaScript, or a
+content management system\\
+\rlab{7. Testing} & Check website speed, links, responsiveness and security\\
+\rowcolor{tablealt}
+\rlab{8. Publishing} & Upload the website files to the hosting server\\
+\rlab{9. Maintenance} & Regularly update notices and student information\\
+\end{mmlongtable}
+
+\section{Expanding Each Step}
+
+\begin{description}
+\item[Requirement analysis] Define the audience --- prospective students, current
+students, parents, recruiters --- the primary goal (admission enquiries), and the
+success metric.
+\item[Information architecture] Map the sitemap and navigation before any visual
+design begins.
+\item[Design] Wireframe first, then apply the design principles of Chapter~4,
+mobile-first.
+\item[Content development] Write scannable, benefit-led copy; obtain and optimise
+images; prepare downloadable documents.
+\item[Domain registration] Choose a short, memorable, relevant name; register with
+an accredited registrar; configure DNS.
+\item[Hosting] Select shared, VPS, cloud or managed hosting based on expected
+traffic; ensure an SSL certificate for HTTPS.
+\item[Development] Build with semantic HTML for accessibility and SEO; integrate a
+content management system so that non-technical staff can update notices.
+\item[Pre-launch technical setup] Install analytics and Search Console, submit an
+XML sitemap, verify that \texttt{robots.txt} does not block the site, and set up
+backups.
+\item[Testing] Functional testing of every link and form; cross-browser and
+cross-device testing; speed testing; security testing; an accessibility audit;
+and content proofreading.
+\item[Publishing] Deploy files via SFTP or a version-controlled pipeline, point
+DNS to the host, and verify HTTPS and redirects.
+\item[Post-launch maintenance] Regular content updates, software and plugin
+updates, security patching, backup verification, broken-link checks, and a monthly
+analytics review.
+\end{description}
+
+\begin{warnbox}[The Step the Nine-Step List Hides]
+The official list moves straight from development to testing, but there is a
+\emph{pre-launch technical setup} between them that is where sites are most often
+lost. Launching with analytics uninstrumented means the launch baseline is gone
+for ever; launching with a staging \texttt{noindex} directive still in place means
+the site is invisible to search engines. Name this step explicitly and the answer
+reads as practitioner knowledge rather than recitation.
+\end{warnbox}
+
+\begin{summarybox}
+Publishing a website runs nine steps: requirement analysis, website design,
+content development, domain registration, web hosting, website development,
+testing, publishing and maintenance. In practice, information architecture
+precedes design, a pre-launch technical setup --- analytics, Search Console,
+sitemap, \texttt{robots.txt} check, backups --- sits between development and
+testing, and maintenance loops back into content rather than ending the process.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{User-Centred Design and Website Optimization}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{User-centered Design and Website Optimization.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What user-centred design is, and the two principles to name.
+\item The seven principles of user-centred design.
+\item The five-stage UCD process.
+\item The ten questions website visitors arrive with, and how to answer each.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{What User-Centred Design Is}
+
+\begin{definitionbox}[User-Centred Design]
+\keytermas{User-centred design}{user-centred design} (UCD) is a design philosophy
+and process in which the needs, goals, context and limitations of the end user
+drive every decision at every stage, and in which the design is validated by real
+users rather than by the design team's judgement.
+\end{definitionbox}
+
+\begin{exambox}[Two Key Principles --- 2 Marks]
+\pyq{Improvement CIE, 4 Jun 2025 --- 2 M}
+(1) Design based on an explicit understanding of the users, their tasks and their
+environment. (2) Iterative design that is continuously refined through user
+involvement and user-centred evaluation.
+\end{exambox}
+
+\section{The Seven Principles}
+
+\begin{enumerate}
+\item \sfb{Design is based on an explicit understanding of users, tasks and
+      environments} --- research first, design second.
+\item \sfb{Users are involved throughout design and development} --- not
+      consulted once at the end.
+\item \sfb{The design is driven and refined by user-centred evaluation} ---
+      usability testing at every iteration.
+\item \sfb{The process is iterative} --- design, test, learn, redesign.
+\item \sfb{The design addresses the whole user experience}, not just the
+      interface --- including content, support and post-purchase.
+\item \sfb{The design team includes multidisciplinary skills} and perspectives.
+\item \sfb{Accessibility and inclusivity} --- the design must work for users with
+      differing abilities, devices and connection speeds.
+\end{enumerate}
+
+\section{The UCD Process}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \def\R{3.05}
+  \foreach \i/\lbl/\ang in {%
+      1/{1. Understand\\ the context\\ of use}/108,
+      2/{2. Specify user\\ requirements}/36,
+      3/{3. Produce design\\ solutions}/-36,
+      4/{4. Evaluate\\ against\\ requirements}/-108,
+      5/{5. Iterate}/180}{
+    \node[draw=ocre,line width=0.9pt,fill=ocrepale,rounded corners=4pt,
+          align=center,text width=2.25cm,inner sep=5pt,
+          font=\sffamily\bfseries\scriptsize,text=slate] (n\i) at (\ang:\R) {\lbl};}
+  \foreach \a/\b in {1/2,2/3,3/4}{
+    \draw[-{Latex[length=2.3mm]},ocre,line width=1pt] (n\a) to[bend left=14] (n\b);}
+  \draw[-{Latex[length=2.3mm]},ocre,line width=1pt] (n4) to[bend left=14] (n5);
+  \draw[-{Latex[length=2.3mm]},ocre,line width=1pt] (n5) to[bend left=14] (n1);
+  \node[circle,draw=greenok,line width=1pt,fill=greenpale,
+        align=center,text width=1.85cm,font=\sffamily\bfseries\scriptsize,
+        text=greenok,inner sep=2pt] at (0,0) {validated by real users};
+\end{tikzpicture}
+\caption[The user-centred design process]%
+        {The UCD cycle. Iteration continues after launch: the loop has no exit,
+         only release points.}
+\label{fig:ucd}
+\end{figure}
+
+\begin{enumerate}
+\item \sfb{Understand the context of use} --- who the users are, what they are
+      trying to do, on what device, under what constraints.
+\item \sfb{Specify user requirements} --- translate research into concrete
+      functional and content requirements.
+\item \sfb{Produce design solutions} --- information architecture, wireframes,
+      prototypes, then visual design.
+\item \sfb{Evaluate against requirements} --- usability testing, heuristic
+      evaluation, A/B testing\ix{A/B testing}, analytics review.
+\item \sfb{Iterate} until the design meets the user requirements --- then continue
+      iterating after launch.
+\end{enumerate}
+
+\section{What Website Visitors Actually Look For}
+
+\begin{keybox}[High Yield]
+``Discuss what website visitors typically look for when they land on a business
+webpage. Suggest effective design and content strategies to meet those
+expectations.''
+\pyq{Improvement CIE, 4 Jun 2025 --- 10 M}
+The strongest structure is to state each visitor \emph{question} and pair it with
+the delivery mechanism, as below.
+\end{keybox}
+
+\begin{mmlongtable}{The ten questions visitors arrive with}{tab:visitorwants}%
+{@{}P{0.32\textwidth}P{0.61\textwidth}@{}}
+\rowcolor{ocre}\thd{What visitors want to know} & \thd{How to deliver it}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{What visitors want to know} & \thd{How to deliver it}\\
+\midrule
+\endhead
+\rlab{``Am I in the right place?''} & A clear headline stating what the business
+does and for whom, visible without scrolling\\
+\rowcolor{tablealt}
+\rlab{``What's in it for me?''} & Benefit-led copy, not feature lists or company
+history\\
+\rlab{``Can I trust you?''} & Testimonials, ratings, client logos, certifications,
+guarantees, real photographs, a physical address\\
+\rowcolor{tablealt}
+\rlab{``How much does it cost?''} & Transparent pricing, or at least a clear
+pricing range; hidden pricing is a leading cause of abandonment\\
+\rlab{``What do I do next?''} & One prominent, unambiguous call to action\\
+\rowcolor{tablealt}
+\rlab{``Can I find what I came for?''} & Simple navigation and a working search\\
+\rlab{``Is it fast?''} & A page that loads in under about three seconds\\
+\rowcolor{tablealt}
+\rlab{``Does it work on my phone?''} & A fully responsive, mobile-first layout\\
+\rlab{``How do I reach a human?''} & Visible contact options --- phone, chat,
+e-mail, hours\\
+\rowcolor{tablealt}
+\rlab{``Is it safe?''} & HTTPS, recognised payment logos, a clear privacy and
+returns policy\\
+\end{mmlongtable}
+
+\begin{exambox}[Two Elements on a Well-Optimised Landing Page --- 2 Marks]
+\pyq{Improvement CIE, 4 Jun 2025 --- 2 M}
+(1) A clear, benefit-led headline that matches the advertisement or link that
+brought the visitor there, and (2) a single prominent call-to-action button. Also
+acceptable: trust signals or testimonials; a hero image or product visual; a short
+form.
+\end{exambox}
+
+\begin{summarybox}
+User-centred design lets the user's needs, goals, context and limitations drive
+every decision, and validates the result with real users rather than with the
+design team. Its seven principles require explicit user understanding, continuous
+user involvement, evaluation-driven refinement, iteration, whole-experience scope,
+multidisciplinary teams, and accessibility. The process runs understand the
+context, specify requirements, produce solutions, evaluate, iterate --- and does
+not stop at launch. Visitors arrive with ten questions, from ``am I in the right
+place'' to ``is it safe'', and a well-designed page answers each one at the point
+it is asked.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Design Principles and Website Copy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Design Principles and Website Copy.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The twelve core design principles, and the two to name.
+\item Krug's first law of usability and the seven usability attributes.
+\item How people actually use the web, and why they do not read.
+\item Billboard design --- designing for scanning.
+\item The principles of effective website copy.
+\item How design principles and copy work as one system.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{The Core Design Principles}
+
+\begin{mmlongtable}{The core principles of web design}{tab:designprinciples}%
+{@{}P{0.22\textwidth}P{0.71\textwidth}@{}}
+\rowcolor{ocre}\thd{Principle} & \thd{What it requires}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Principle} & \thd{What it requires}\\
+\midrule
+\endhead
+\rlab{Simplicity} & Remove everything that does not serve the user's goal. Every
+added element competes with the call to action\\
+\rowcolor{tablealt}
+\rlab{Consistency} & The same colours, fonts, button styles, spacing and
+terminology on every page, so that users do not relearn the interface\\
+\rlab{Visual hierarchy} & Make important elements visually prominent in
+proportion to their importance --- size, weight, colour and position\\
+\rowcolor{tablealt}
+\rlab{Balance and alignment} & Ordered use of a grid; alignment creates the
+perception of quality\\
+\rlab{Contrast} & Sufficient contrast between text and background for readability
+and accessibility\\
+\rowcolor{tablealt}
+\rlab{Whitespace} & Deliberate empty space that groups related items and gives
+the eye rest\\
+\rlab{Typography} & Readable body size of 16 pixels or more, limited font
+families, generous line height, restrained line length\\
+\rowcolor{tablealt}
+\rlab{Colour} & A limited, purposeful palette; one accent colour reserved for
+actions\\
+\rlab{Responsiveness} & The layout adapts to mobile, tablet and desktop ---
+mobile-first by default\\
+\rowcolor{tablealt}
+\rlab{Accessibility} & Alt text, keyboard navigation, colour-independent meaning,
+adequate tap targets\\
+\rlab{Navigation clarity} & Conventional, shallow, labelled in the user's
+language and not in internal jargon\\
+\rowcolor{tablealt}
+\rlab{Speed} & Performance is a design constraint, not an engineering
+afterthought\\
+\end{mmlongtable}
+
+\begin{exambox}[Two Principles --- 2 Marks]
+``Mention any two principles of website design.''
+\pyq{CIE-III, Jun 2026 --- 2 M}
+The scheme answer is \textbf{simplicity} and \textbf{consistency} --- these
+principles improve readability and user experience.
+\end{exambox}
+
+\begin{exambox}[Two Aspects of Branding and Consistency --- 2 Marks]
+\pyq{SEE, Oct/Nov 2023 --- 2 M}
+(1) A consistent \textbf{visual identity} --- the same logo, colour palette,
+typography, imagery style and button design applied on every page. (2) A
+consistent \textbf{tone of voice and terminology} in all copy, including
+microcopy, error messages and CTA labels, so that the brand reads as one coherent
+personality.
+\end{exambox}
+
+\section{Krug's First Law, and the Seven Usability Attributes}
+
+\begin{keybox}[Don't Make Me Think]
+A person of average --- or below average --- ability must be able to work out how
+to accomplish a task. The interface must be self-evident and self-explanatory.
+The good news is that usability is not rocket science.
+\end{keybox}
+
+\begin{mmlongtable}{The seven usability attributes}{tab:usability4}%
+{@{}P{0.18\textwidth}P{0.75\textwidth}@{}}
+\rowcolor{ocre}\thd{Attribute} & \thd{Test question}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Attribute} & \thd{Test question}\\
+\midrule
+\endhead
+\rlab{Useful}     & Does it do what people actually need?\\
+\rowcolor{tablealt}
+\rlab{Learnable}  & Can they figure it out?\\
+\rlab{Memorable}  & Do they have to relearn it on every visit?\\
+\rowcolor{tablealt}
+\rlab{Effective}  & Does it get the job done?\\
+\rlab{Efficient}  & Does it do so in a reasonable amount of time?\\
+\rowcolor{tablealt}
+\rlab{Desirable}  & Do people want it?\\
+\rlab{Delightful} & Is it enjoyable to use?\\
+\end{mmlongtable}
+
+\section{How People Actually Use the Web}
+
+There is a gap between how designers imagine people use websites --- reading
+carefully, like a novel --- and how they actually do, which the heatmap\ix{heatmap} reveals:
+\keyterm{scanning}, \keyterm{satisficing} and muddling through. Satisficing means
+choosing the first option that plausibly works rather than searching for the best
+one.
+
+\noindent Why don't people read instructions? Three reasons.
+
+\begin{enumerate}
+\item It isn't important to them --- they just want it to work.
+\item They are on a mission, and know they don't need to read everything.
+\item If they find something that works, they stick to it rather than looking for
+      a better way.
+\end{enumerate}
+
+\section{Billboard Design --- Design for Scanning, Not Reading}
+
+\begin{itemize}
+\item \sfb{Follow visual hierarchy} --- make important elements visually
+      prominent.
+\item \sfb{Omit needless words} --- the art of not writing for the web. Happy talk
+      must die; unnecessary instructions must die.
+\item \sfb{Make clickables obvious} --- it must be instantly clear what can be
+      clicked, to prevent frustration. Competition is one click away.
+\item \sfb{Provide breadcrumbs and street signs} --- design clear, intuitive
+      navigation so that users always know where they are and how to get back.
+\end{itemize}
+
+\section{Principles of Effective Website Copy}
+
+\begin{itemize}
+\item \sfb{Lead with the benefit, not the feature.} Users buy outcomes, not
+      specifications.
+\item \sfb{Write for scanning} --- short paragraphs, meaningful subheadings,
+      bullet lists, bold key phrases.
+\item \sfb{Front-load the value} --- put the conclusion in the first line, not the
+      last.
+\item \sfb{Use the customer's language}, taken from reviews, support tickets and
+      search queries --- not internal jargon.
+\item \sfb{Be specific} --- ``ships in 24 hours'' beats ``fast delivery''.
+\item \sfb{Use active voice and the second person} --- ``you get'', not
+      ``customers are provided with''.
+\item \sfb{Omit needless words.} Happy talk --- welcome messages that say nothing
+      --- must go.
+\item \sfb{One idea per section}, with a heading that states that idea.
+\item \sfb{Make CTA copy explicit and active} --- ``Get my free trial''
+      outperforms ``Submit''.
+\item \sfb{Answer objections in the copy where they arise}, rather than hiding
+      them in an FAQ.
+\end{itemize}
+
+\section{Design Principles and Copy as One System}
+
+\begin{keybox}[High Yield]
+``Discuss the relationship between design principles and website copy. How can
+visual design elements and well-crafted content work together to enhance user
+experience and achieve website objectives?''
+\pyq{Improvement CIE, 28 Aug 2024 --- 10 M}
+\end{keybox}
+
+Design and copy are not sequential layers; they are a single system. Copy without
+design is unreadable, and design without copy is empty.
+
+\begin{mmlongtable}{How each design principle serves the copy}{tab:designcopy}%
+{@{}P{0.20\textwidth}P{0.73\textwidth}@{}}
+\rowcolor{ocre}\thd{Design principle} & \thd{How it serves the copy}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Design principle} & \thd{How it serves the copy}\\
+\midrule
+\endhead
+\rlab{Visual hierarchy} & Determines the order in which the copy is read; the
+headline must be visually dominant because it carries the core message\\
+\rowcolor{tablealt}
+\rlab{Typography} & Controls whether the copy is read at all --- line length,
+size and spacing govern readability\\
+\rlab{Whitespace} & Groups related copy and gives the reader cognitive rest,
+increasing comprehension\\
+\rowcolor{tablealt}
+\rlab{Contrast} & Ensures the copy is legible, and directs attention to the CTA
+text\\
+\rlab{Consistency} & Means the same tone of voice and the same button language
+appear everywhere, building trust\\
+\rowcolor{tablealt}
+\rlab{Imagery} & Demonstrates visually what the copy claims verbally --- proof,
+not decoration\\
+\rlab{Responsiveness} & Ensures the copy retains its hierarchy on a small screen,
+where most users read it\\
+\end{mmlongtable}
+
+\begin{examplebox}[Effective Integration]
+A \sfb{hero section} where a benefit headline, a supporting sub-line, a product
+image and one accent-coloured CTA button occupy the top of the page with nothing
+competing.
+
+A \sfb{pricing table} where visual weight highlights the recommended plan while
+the copy names the buyer it suits.
+
+A \sfb{testimonial block} where a customer photograph and a short pull-quote in
+large type do together what neither could do alone.
+\end{examplebox}
+
+\begin{warnbox}[The Two Characteristic Failures]
+A beautiful layout with vague copy that never says what the company sells --- or
+strong copy set in 11-pixel grey text on a white background, which nobody reads.
+
+\smallskip
+Each failure is a whole discipline working without the other.
+\end{warnbox}
+
+\begin{summarybox}
+Twelve principles govern web design --- simplicity, consistency, visual
+hierarchy, balance and alignment, contrast, whitespace, typography, colour,
+responsiveness, accessibility, navigation clarity and speed --- of which
+simplicity and consistency are the two to name. Krug's first law is don't make me
+think, and usability is tested against seven attributes. People scan, satisfice
+and muddle through rather than reading, so pages must be designed as billboards.
+Effective copy leads with benefits, is written for scanning, front-loads value,
+uses the customer's language, is specific and active, omits needless words and
+answers objections where they arise. Design and copy are one system: hierarchy
+sets reading order, typography decides whether copy is read, whitespace aids
+comprehension, contrast directs attention, consistency builds trust, imagery
+supplies proof and responsiveness preserves hierarchy on the screen most people
+use.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Website Metrics and Developing Insight}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Website Metrics \& Developing Insight.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The key website metrics, and the four to name if only four are asked for.
+\item How metrics help optimise for marketing effectiveness.
+\item The progression from data to decision --- what makes a metric an insight.
+\item User behaviour analysis and its impact on optimisation.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Key Website Metrics}
+
+\begin{mmlongtable}{Key website metrics}{tab:webmetrics}%
+{@{}P{0.20\textwidth}P{0.34\textwidth}P{0.39\textwidth}@{}}
+\rowcolor{ocre}\thd{Metric} & \thd{What it measures} & \thd{What it tells you}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Metric} & \thd{What it measures} & \thd{What it tells you}\\
+\midrule
+\endhead
+\rlab{Traffic (users, sessions)} & Volume of visitors & Whether acquisition is
+working\\
+\rowcolor{tablealt}
+\rlab{Bounce rate} & Percentage leaving after one page without interaction &
+Relevance and first-impression quality\\
+\rlab{Average session duration} & Time spent per visit & Depth of engagement\\
+\rowcolor{tablealt}
+\rlab{Pages per session} & Pages viewed per visit & Whether users explore or
+leave\\
+\rlab{Conversion rate} & Percentage completing the desired action & Whether the
+site produces business value\\
+\rowcolor{tablealt}
+\rlab{Page load time and Core Web Vitals} & Speed and stability & Technical health
+and its effect on abandonment\\
+\rlab{Traffic sources} & Channel mix & Which marketing investments work\\
+\rowcolor{tablealt}
+\rlab{New against returning visitors} & Retention split & Whether the site earns
+repeat visits\\
+\rlab{Exit pages} & Where sessions end & Which page is losing people\\
+\rowcolor{tablealt}
+\rlab{Cart abandonment rate} & Percentage starting but not completing checkout &
+Friction in the purchase flow\\
+\rlab{Cost per acquisition} & Spend divided by conversions & Efficiency of the
+whole funnel\\
+\rowcolor{tablealt}
+\rlab{Goal value and revenue} & Money produced & The bottom line\\
+\end{mmlongtable}
+
+\begin{exambox}[The Four-Metric Answer --- 2 Marks]
+``List any four key metrics used to measure the success of a website.''
+\pyq{Improvement CIE, 28 Aug 2024 --- 2 M}
+Name \textbf{traffic, bounce rate, conversion rate and average session
+duration}. These four cover acquisition, relevance, outcome and engagement
+respectively, which reads as a considered selection rather than an arbitrary
+list.
+\end{exambox}
+
+\section{How Metrics Help Optimise for Marketing Effectiveness}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\pyq{Improvement CIE, 4 Jun 2025 --- 2 M}
+\begin{itemize}
+\item They \sfb{locate the problem precisely} --- a high bounce rate on one
+      landing page is actionable, whereas ``the site isn't working'' is not.
+\item They \sfb{rank the fixes by impact} --- the step losing the most users is
+      fixed first.
+\item They \sfb{prove or disprove changes} through before-and-after comparison and
+      A/B testing.
+\item They \sfb{reallocate budget} towards the channels producing conversions
+      rather than traffic.
+\item They \sfb{reveal segment-specific failures} --- for example a mobile-only
+      checkout bug hidden by desktop averages.
+\item They \sfb{set realistic targets} by grounding goals in historical
+      baselines.
+\end{itemize}
+\end{exambox}
+
+\section{Developing Insight --- From Data to Decision}
+
+\begin{keybox}[A Metric Is Not an Insight]
+The progression runs: \textbf{data \ra{} metric \ra{} insight \ra{} decision
+\ra{} action \ra{} measured result}. A dashboard stops at the second step, which
+is why dashboards on their own change nothing.
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    stp/.style={draw=ocre,line width=0.85pt,fill=ocrepale,rounded corners=3pt,
+                minimum height=1.05cm,text width=2.05cm,align=center,
+                font=\sffamily\scriptsize,text=slate,inner sep=3pt}]
+  \node[stp] (s1) at (0,0)      {\textbf{1. Observe}\\ checkout completion 22\%
+     against a 45\% benchmark};
+  \node[stp] (s2) at (2.35,0)   {\textbf{2. Segment}\\ the gap is entirely on
+     mobile; desktop is 47\%};
+  \node[stp] (s3) at (4.70,0)   {\textbf{3. Diagnose}\\ recordings show
+     abandonment at the address form};
+  \node[stp] (s4) at (7.05,0)   {\textbf{4. Hypothesise}\\ nine fields is too
+     many for a mobile keyboard};
+  \node[stp] (s5) at (9.40,0)   {\textbf{5. Test}\\ A/B test the shortened
+     form};
+  \node[stp,draw=greenok,fill=greenpale] (s6) at (11.75,0)
+     {\textbf{6. Decide}\\ implement the winner and re-measure};
+  \foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5,s5/s6}{
+    \draw[-{Latex[length=1.9mm]},ocre,line width=0.85pt] (\a)--(\b);}
+  \draw[-{Latex[length=2.1mm]},greenok,line width=0.85pt,dashed]
+    (s6.south) -- ++(0,-0.7) -| (s1.south);
+  \node[anchor=north,text=greenok,font=\sffamily\scriptsize\itshape]
+    at (5.85,-0.75) {the measured result becomes the next observation};
+\end{tikzpicture}
+\caption[From data to decision]%
+        {The six moves that turn a metric into an insight. Steps~2 and~3 are the
+         ones usually skipped, and they are the ones that make the hypothesis
+         worth testing.}
+\label{fig:datatodecision}
+\end{figure}
+
+\begin{enumerate}
+\item \sfb{Observe} --- the checkout completion rate is 22\%, against an industry
+      benchmark of 45\%.
+\item \sfb{Segment} --- the gap is entirely on mobile; desktop is at 47\%.
+\item \sfb{Diagnose qualitatively} --- session recordings show mobile users
+      abandoning at the address form.
+\item \sfb{Hypothesise} --- ``the nine-field address form is too long for a mobile
+      keyboard; auto-fill and postcode lookup will reduce abandonment.''
+\item \sfb{Test} --- run an A/B test on the new form.
+\item \sfb{Decide and implement} the winner.
+\item \sfb{Re-measure} and feed the result back into the next hypothesis.
+\end{enumerate}
+
+\section{User Behaviour Analysis}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+``What is the impact of user behavior analysis on website optimization?''
+\pyq{SEE, Oct/Nov 2023 --- 2 M}
+User behaviour analysis --- heatmaps, scroll maps, click maps, session recordings
+and funnel reports --- shows what users actually do rather than what they say or
+what the business assumes.
+
+\smallskip
+\textbf{Its impact:} it identifies friction points precisely; it reveals ignored
+content and invisible calls to action; it exposes rage clicks and dead clicks on
+non-functional elements; it shows how far down the page users actually scroll,
+which determines what must be placed above the fold; and it generates the
+hypotheses that A/B testing then validates. Without it, optimisation is
+guesswork.
+\end{exambox}
+
+\begin{summarybox}
+Website success is measured on traffic, bounce rate, session duration, pages per
+session, conversion rate, load time and Core Web Vitals, traffic sources, new
+against returning visitors, exit pages, cart abandonment, cost per acquisition and
+revenue --- and if only four are wanted, traffic, bounce rate, conversion rate and
+session duration cover acquisition, relevance, outcome and engagement. Metrics
+help by locating problems precisely, ranking fixes by impact, proving changes,
+reallocating budget, exposing segment-specific failures and grounding targets. A
+metric becomes an insight only through observation, segmentation, qualitative
+diagnosis, hypothesis, test and decision. User behaviour analysis supplies the
+diagnosis that makes hypotheses worth testing.
+\end{summarybox}
+
+\input{unit4-mobile}
+\input{unit4-appendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+\printindex
+
+\end{document}

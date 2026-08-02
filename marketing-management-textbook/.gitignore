@@ -1,0 +1,20 @@
+# LaTeX build artefacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.out
+*.synctex.gz
+*.toc
+
+# Built PDFs. Every one of these is reproducible from the sources in tex/
+# (see README.md), and the copies actually published by the site are tracked
+# under iem-website/public/notes/sem4/marketing-management/.
+/*.pdf
+tex/*.pdf

@@ -1,0 +1,3852 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Marketing Management (IM345AT) -- Volume 1 of 5
+%  UNIT I : Introduction to Digital Marketing and Content Marketing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{MMTextbook}
+
+\unitnumber{I}
+\unittitle{Introduction to Digital Marketing and Content Marketing}
+\unitsubtitle{Principles, channels, personas, research tools, and the complete
+content marketing engine}
+\unithours{07 Hours}
+\volumeno{1}
+
+\makeindex[intoc=true,columns=2,title=Index]
+
+\hypersetup{
+  pdftitle={Marketing Management IM345AT -- Unit I: Introduction to Digital
+             Marketing and Content Marketing},
+  pdfsubject={Semester IV, Department of Industrial Engineering and Management,
+              RV College of Engineering},
+  pdfkeywords={digital marketing, content marketing, buyer persona, SEO,
+               IM345AT, marketing management}
+}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\pagestyle{mmfront}
+
+\halftitlepage
+\maintitlepage
+
+\colophonpage{%
+\textbf{\coursetitle\ ---\ The Study Text}\\[2pt]
+Volume 1 of 5 \textbullet\ Unit I: Introduction to Digital Marketing and
+Content Marketing\\[10pt]
+%
+Prepared for the course \coursetitle\ (\coursecode), Semester IV, of the
+\coursedept, \courseinstitute.\\[10pt]
+%
+\textbf{Sources.} The syllabus, course outcomes, assessment rubrics and
+reference-book list reproduced in the front matter are transcribed from the
+official course document. The previous-year questions in Appendix~B are
+transcribed from RVCE Continuous Internal Evaluation and Semester End
+Examination papers for this course, and where an official scheme of valuation
+was released the model answers follow it. The explanatory text is compiled from
+classroom lecture notes and, where those were incomplete, from the prescribed
+reference texts.\\[10pt]
+%
+\textbf{Typography.} Set in Nimbus Roman with URW Gothic display headings.
+Composed in \LaTeX{} using the \texttt{MMTextbook} class written for this
+series. The visual design is derived from \emph{The Legrand Orange Book}
+template by Mathias Legrand, with modifications by Vel, distributed through
+LaTeXTemplates.com under a Creative Commons BY-NC-SA 4.0 licence; the class
+re-implements that design language on standard CTAN packages. All figures are
+drawn in \TikZ{} and \texttt{pgfplots}.\\[10pt]
+%
+\textbf{Status.} Unofficial student-compiled study material. Not issued,
+endorsed or verified by the Department or by RV College of Engineering.\\[10pt]
+%
+2026 edition.}
+
+% ---------------------------------------------------------------- preface
+\frontchapter{Preface to Volume 1}
+
+Unit~I is the foundation of \coursetitle, and it carries a structural privilege
+that no other unit has: in the Semester End Examination, Question~2 is
+compulsory and is always set from Unit~I. A candidate can choose to avoid one
+question in each of the other four units. Unit~I cannot be avoided. It is also
+the unit from which the first Continuous Internal Evaluation test is drawn
+almost in its entirety.
+
+The unit has two halves, and the syllabus names them separately. The first
+half, \emph{Introduction to Digital Marketing}, establishes what marketing is,
+what makes digital marketing structurally different from what preceded it, and
+the practical apparatus of the discipline --- its principles, its channels, the
+buyer persona, and the tools used to research competitors and to analyse a
+website. The second half, \emph{Content Marketing}, is an engine: an
+eight-step cycle that runs from goal setting through creation and distribution
+to measurement and improvement, and then begins again.
+
+Chapters~1 to~6 cover the first half; Chapters~7 to~11 cover the second. The
+chapter sequence follows the syllabus phrase order exactly, and
+Appendix~A records the mapping.
+
+Two editorial decisions in this volume deserve stating plainly.
+
+First, the syllabus descriptor for Unit~I begins at \emph{Introduction to
+Digital Marketing} and does not separately name the general
+marketing-management foundations --- the mantra of marketing, the entities that
+can be marketed, needs and wants and demands, the evolution of company
+orientations, the marketing mix. Past papers for this course nevertheless
+examine that material inside Unit~I, repeatedly and at both two and ten marks.
+It is therefore treated here as the introductory framing of Chapter~1 rather
+than as separate content, on the reasoning that one cannot introduce digital
+marketing without first fixing what marketing is.
+
+Second, a small number of topics appear in past papers for this course but sit
+outside the literal wording of any unit descriptor: the product life cycle,
+pricing strategies, and the distinction between market segmentation and the
+marketing mix. Rather than silently insert them into a numbered chapter --- which
+would breach the rule that the numbered chapters carry the syllabus and nothing
+else --- or silently drop them, which would leave real examined material
+uncovered, they are set out in Appendix~C and flagged there for what they are.
+
+\vspace{12pt}
+\noindent\emph{The whole of the course syllabus is reproduced overleaf. The
+unit covered by this volume is Unit~I.}
+
+% ------------------------------------------------- conventions & syllabus
+\input{mm-howtouse}
+\input{mm-syllabus}
+
+% ---------------------------------------------------------------- contents
+\cleardoublepage
+\pdfbookmark[0]{Contents}{toc}
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagestyle{mmmain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction to Digital Marketing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Introduction to Digital Marketing.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What marketing management is, and the mantra that compresses it.
+\item The ten entities that can be marketed; needs, wants and demands.
+\item How value is created, delivered and judged --- and what satisfaction is.
+\item Marketplace, market space and the metamarket.
+\item The five company orientations and the four dimensions of holistic marketing\ix{holistic marketing}.
+\item What digital marketing is, and why it is not a separate discipline.
+\item Traditional marketing, its strengths and its limits, and a costed
+      transition to digital.
+\item Push marketing against pull marketing.
+\item The marketing mix, and how each of the four Ps has evolved in the
+      digital era.
+\item The technologies that made digital marketing possible.
+\item The digital consumer --- the five traits, perceived anonymity, and
+      influencers.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{The Marketing Foundation}
+
+Digital marketing is not a separate discipline from marketing. It is marketing
+conducted through digital channels. Every construct in this volume ---
+personas, content engines, channel mixes, conversion funnels --- is a digital
+expression of something marketing already did. So the foundation has to be
+secure before anything else, and it is examined as such.
+
+\subsection{Marketing management defined}
+
+\begin{definitionbox}[Marketing Management]
+\keytermas{Marketing management}{marketing management} is the art and science of choosing target
+markets and getting, keeping and growing customers through creating, delivering
+and communicating superior customer value.
+\end{definitionbox}
+
+Three distinct ideas are packed into that sentence, and each carries a
+consequence.
+
+\begin{itemize}
+\item \sfb{Choosing target markets} is a selection decision. You cannot serve
+      everybody, and the attempt to do so produces an offer that fits nobody.
+\item \sfb{Getting, keeping and growing customers} is a lifecycle view.
+      Acquisition alone is not marketing; a business that acquires well and
+      retains badly is buying the same customer twice.
+\item \sfb{Creating, delivering and communicating superior value} is the
+      actual work --- and note the order. Value is created before it is
+      communicated. Communication without created value is advertising a
+      promise you cannot keep.
+\end{itemize}
+
+\subsection{The mantra of marketing}
+
+\begin{exambox}[Model Answer --- 2 Marks]
+\textbf{Create --- Communicate --- Deliver --- Value --- Target --- Profit.}
+\pyq{CIE-I, 3 Apr 2025 --- 2 M}
+
+\smallskip
+The firm \emph{creates} value, \emph{communicates} it to a chosen
+\emph{target}, \emph{delivers} it, and in return earns \emph{profit}.
+\end{exambox}
+
+\subsection{Why marketing matters --- three pillars}
+
+\begin{enumerate}
+\item \sfb{Financial success.} A firm's financial performance often depends
+      directly on its marketing ability. The best operations and the best
+      finance function in the industry are worthless if there is insufficient
+      demand for what the firm makes.
+\item \sfb{Economic engine.} Successful marketing builds demand for products
+      and services, and that demand creates jobs.
+\item \sfb{Intangible assets.} Marketing builds strong brands and a loyal
+      customer base, and these contribute heavily to the firm's overall
+      enterprise value --- often more than its physical assets do.
+\end{enumerate}
+
+\subsection{Selling is only the tip of the iceberg}
+
+Selling and marketing are not synonyms, and the confusion is expensive.
+Selling is the visible tip. Marketing is the mass below the waterline:
+research, segmentation, targeting, positioning, product design, pricing,
+channel design and communication. There will always be a need for some
+selling, but the aim of marketing is to make selling superfluous.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  % waterline
+  \fill[deepbluepale] (-4.6,0) rectangle (4.6,-4.3);
+  \draw[deepblue,thick] (-4.6,0) -- (4.6,0);
+  \node[anchor=west,text=deepblue,font=\sffamily\scriptsize\itshape]
+    at (-4.55,0.22) {waterline: what the customer sees};
+  % tip
+  \fill[ocre] (0,1.55) -- (-0.95,0) -- (0.95,0) -- cycle;
+  \node[anchor=south,text=slate,font=\sffamily\bfseries\small] at (0,1.72) {SELLING};
+  % submerged mass
+  \fill[ocre!35] (-0.95,0) -- (0.95,0) -- (3.7,-4.1) -- (-3.7,-4.1) -- cycle;
+  \node[text=slate,font=\sffamily\bfseries\small] at (0,-0.62) {MARKETING};
+  \node[text=slate,align=center,font=\sffamily\scriptsize] at (0,-1.75)
+    {consumer research \ \textbullet\ \ product development\\
+     segmentation \ \textbullet\ \ targeting \ \textbullet\ \ positioning\\
+     pricing \ \textbullet\ \ channel design\\
+     communication \ \textbullet\ \ service};
+\end{tikzpicture}
+\caption[Selling as the tip of the marketing iceberg]%
+        {Selling is the visible tip; marketing is the submerged mass that makes
+         the tip possible. The aim of the work below the waterline is to reduce
+         how much work the tip has to do.}
+\label{fig:iceberg}
+\end{figure}
+
+\begin{quotebox}[Peter Drucker]
+The aim of marketing is to make selling superfluous. The aim is to know and
+understand the customer so well that the product or service fits him and sells
+itself. Ideally marketing should result in a customer who is ready to buy. All
+that should be needed then is to make the product or service available.
+\end{quotebox}
+
+\subsection{The ten entities that can be marketed}
+
+Marketing is not confined to physical products. Ten classes of thing can be
+marketed, and the official scheme for this course lists exactly ten.
+\pyq{CIE-I, 3 Apr 2025 --- 10 M}
+
+\begin{mmlongtable}{The ten entities that can be marketed}{tab:entities}%
+{@{}P{0.15\textwidth}P{0.42\textwidth}P{0.36\textwidth}@{}}
+\rowcolor{ocre}\thd{Entity} & \thd{What is marketed} & \thd{Example}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Entity} & \thd{What is marketed} & \thd{Example}\\
+\midrule
+\endhead
+\rlab{Goods} & Physical, tangible products --- the bulk of most nations'
+production & Cars, smartphones, packaged food\\
+\rowcolor{tablealt}
+\rlab{Services} & Intangible performances that cannot be stored &
+Airlines, banking, hotels, salons, consultants\\
+\rlab{Events} & Time-based occasions promoted to an audience &
+Olympics, trade fairs, IPL, company anniversaries\\
+\rowcolor{tablealt}
+\rlab{Experiences} & Orchestrated combinations of goods and services &
+Disneyland, adventure treks, escape rooms\\
+\rlab{Persons} & Celebrity and personal branding &
+Sportspersons, actors, CEOs, political leaders\\
+\rowcolor{tablealt}
+\rlab{Places} & Cities, states, regions and nations competing for tourists and
+investment & ``Incredible India'', Singapore, Dubai\\
+\rlab{Properties} & Intangible rights of ownership, real or financial &
+Real estate, stocks, bonds\\
+\rowcolor{tablealt}
+\rlab{Organizations} & The institution itself as a brand &
+Universities, NGOs, corporate brand campaigns\\
+\rlab{Information} & Production, packaging and distribution of knowledge &
+Encyclopaedias, magazines, schools, market research\\
+\rowcolor{tablealt}
+\rlab{Ideas} & Social causes and concepts &
+``Swachh Bharat'', anti-smoking and road-safety campaigns\\
+\end{mmlongtable}
+
+\subsection{Needs, wants and demands}
+
+\begin{definitionbox}[Needs, Wants, Demands]
+\keytermas{Needs}{needs} are the basic human requirements --- air, food, water,
+clothing, shelter, and at a higher level recreation, education and
+entertainment. Needs are not created by marketers.
+
+\keytermas{Wants}{wants} are needs directed at specific objects that might satisfy
+them. Wants are shaped by society, culture and individual personality.
+
+\keytermas{Demands}{demands} are wants for a specific product backed by an ability and
+willingness to pay.
+\end{definitionbox}
+
+An Indian consumer \emph{needs} food, \emph{wants} a masala dosa, and
+\emph{demands} one only if there is money in the pocket. Many people want a
+Mercedes; only a few can demand one. The distinction matters because it locates
+the marketer's actual leverage: needs cannot be manufactured, wants can be
+shaped, and demand can be enabled through pricing, credit and distribution.
+
+\begin{exambox}[Core Concepts of Marketing --- 2 Marks]
+\pyq{CIE-I, 16 Apr 2026 --- 2 M} Acceptable answers are any two of: needs,
+wants, demand, value, exchange, markets. Extended lists also admit target
+markets, segmentation, positioning, offerings, brands, satisfaction, supply
+chain, competition and the marketing environment.
+\end{exambox}
+
+\section{The Value Creation Engine}
+
+Value moves through the organisation in three connected steps: decide the
+audience, build the solution, and measure the result.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    stage/.style={draw=ocre,line width=0.9pt,fill=ocrepale,rounded corners=4pt,
+                  minimum width=3.5cm,minimum height=1.05cm,align=center,
+                  font=\sffamily\bfseries\small,anchor=center},
+    item/.style={align=center,font=\sffamily\scriptsize,text=slate,
+                 text width=3.7cm,anchor=north},
+    arr/.style={-{Latex[length=2.6mm]},ocre,line width=1pt}]
+
+  % --- stage boxes on the top row
+  \node[stage] (a) at (0,0)    {1. THE AUDIENCE};
+  \node[stage] (b) at (5.3,0)  {2. THE SOLUTION};
+  \node[stage] (c) at (10.6,0) {3. THE RESULT};
+
+  \draw[arr] (a) -- (b);
+  \draw[arr] (b) -- (c);
+
+  % --- descriptive blocks, hung from a fixed y so heights cannot interact
+  \node[item] at (0,-0.95)    {%
+    target markets\\ segmentation\\ positioning\\[3pt]
+    \textit{who to serve, and where to stand in their mind}};
+  \node[item] at (5.3,-0.95)  {%
+    value proposition\\ the offering\\ the brand\\[3pt]
+    \textit{the benefits, the bundle that delivers them, and the known source}};
+  \node[item] at (10.6,-0.95) {%
+    value: quality, service, price\\ satisfaction\\[3pt]
+    \textit{the QSP triad, and the customer's judgement of it}};
+
+  % --- feedback path, routed outside the columns so it crosses no text
+  \draw[arr,dashed]
+     (10.6,-3.75) -- (10.6,-4.5) -- (-2.35,-4.5) -- (-2.35,0) -- (a.west);
+  \node[anchor=south,font=\sffamily\scriptsize\itshape,text=ocredark]
+     at (4.4,-4.46) {satisfaction data re-enters the definition of the audience};
+\end{tikzpicture}
+\caption[The value creation engine]%
+        {The value creation engine. Value is defined by the audience chosen,
+         built into the solution, and judged in the result --- and the judgement
+         feeds back into the next definition of the audience.}
+\label{fig:valueengine}
+\end{figure}
+
+\begin{enumerate}
+\item \sfb{The audience} --- target markets, segmentation and positioning.
+      Identifying who to serve and where to stand in their mind.
+\item \sfb{The solution} --- the \keyterm{value proposition} (the set of
+      benefits offered to satisfy the need), the \keyterm{offering} (the
+      combination of products, services, information and experiences that
+      delivers it), and the \keyterm{brand} (an offering from a known source).
+\item \sfb{The result} --- value (the combination of quality, service and
+      price, the \emph{QSP triad}) and \keyterm{satisfaction} (a person's
+      judgement of a product's perceived performance compared with
+      expectations).
+\end{enumerate}
+
+\subsection{Satisfaction, and the difference between satisfied and delighted}
+
+\begin{keybox}[The Satisfaction Rule]
+If performance $<$ expectations, the customer is \textbf{dissatisfied}.\\
+If performance $=$ expectations, the customer is \textbf{satisfied}.\\
+If performance $>$ expectations, the customer is \textbf{delighted}.
+
+\smallskip
+Delight, not mere satisfaction, is what produces advocacy\ix{advocacy}. A satisfied customer
+got what was promised and owes you nothing; a delighted customer got more than
+was promised and tells people so. This asymmetry is why the whole of earned
+media (\S\,3.2) rests on exceeding expectations rather than meeting them.
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  % direction-of-travel arrow
+  \draw[-{Latex[length=2.2mm]},ocre,line width=1pt] (0.4,1.75) -- (10.8,1.75);
+  \node[anchor=south,text=ocre,font=\sffamily\scriptsize] at (5.6,1.8)
+    {increasing perceived performance against a fixed expectation};
+
+  \draw[rulegrey,line width=0.8pt] (0,0) -- (11.2,0);
+
+  % Labels are stacked on two lines so that adjacent bands cannot collide.
+  \foreach \x/\lab/\col/\rel in {%
+     1.7/DISSATISFIED/warnred/{$<$},
+     5.6/SATISFIED/slatelight/{$=$},
+     9.5/DELIGHTED/greenok/{$>$}}{
+    \fill[\col] (\x,0) circle (0.15);
+    \node[anchor=south,text=\col,font=\sffamily\bfseries\small] at (\x,0.32) {\lab};
+    \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+          text width=2.9cm] at (\x,-0.26)
+      {performance\\ \rel\ expectations};
+  }
+  \node[anchor=north,text=warnred,font=\sffamily\scriptsize\itshape,
+        align=center,text width=2.9cm]   at (1.7,-1.3) {churn,\\ complaint};
+  \node[anchor=north,text=slatelight,font=\sffamily\scriptsize\itshape,
+        align=center,text width=2.9cm]   at (5.6,-1.3) {repeat\\ purchase};
+  \node[anchor=north,text=greenok,font=\sffamily\scriptsize\itshape,
+        align=center,text width=2.9cm]   at (9.5,-1.3) {advocacy,\\ referral};
+\end{tikzpicture}
+\caption[The satisfaction scale]%
+        {The satisfaction scale. Only the third band generates earned media;
+         the second merely avoids losing the customer.}
+\label{fig:satisfaction}
+\end{figure}
+
+\subsection{Marketplace, market space and the metamarket}
+
+\begin{definitionbox}[Marketplace and Market Space]
+A \keyterm{marketplace} is a physical or digital location where buyers and
+sellers come together to exchange goods and services. It is concrete --- a
+mall, a mandi, a showroom.
+
+A \keyterm{market space} is a conceptual or virtual environment in which
+commercial value is created through digital networks and communication
+technologies. It is abstract and has no geography --- Amazon, an app, a
+marketplace platform.
+\end{definitionbox}
+
+\begin{keybox}[High Yield]
+One-line contrast for a two-mark answer: \textbf{marketplace = physical;
+market space = digital.}
+\pyq{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026 --- 2 M each}
+\end{keybox}
+
+A third, related term completes the set. A \keyterm{metamarket} is a cluster of
+complementary products and services that are closely related in the mind of the
+consumer but spread across different industries. The automobile metamarket
+contains manufacturers, dealers, insurers, financiers, service centres and auto
+magazines --- none of which is in the same industry, all of which are in the
+same purchase.
+
+\section{Company Orientations and Holistic Marketing}
+
+\subsection{The evolution of company orientations}
+
+\begin{mmlongtable}{The five company orientations}{tab:orientations}%
+{@{}P{0.20\textwidth}P{0.44\textwidth}P{0.29\textwidth}@{}}
+\rowcolor{ocre}\thd{Orientation} & \thd{Central belief} & \thd{Focus}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Orientation} & \thd{Central belief} & \thd{Focus}\\
+\midrule
+\endhead
+\rlab{Production concept} & Consumers prefer products that are widely available
+and inexpensive & Manufacturing efficiency, mass distribution, low cost\\
+\rowcolor{tablealt}
+\rlab{Product concept} & Consumers favour products offering the most quality,
+performance or innovative features & Continuous product improvement\\
+\rlab{Selling concept} & Consumers will not buy enough unless prodded &
+Aggressive promotion and a large sales force --- the tip of the iceberg\\
+\rowcolor{tablealt}
+\rlab{Marketing concept} & Find the right products for your customers, not the
+right customers for your products & Customer needs, integrated marketing,
+profitability through satisfaction\\
+\rlab{Holistic marketing} & Everything matters in marketing, and a broad,
+integrated perspective is necessary & Internal, integrated, performance and
+relationship marketing\\
+\end{mmlongtable}
+
+\begin{warnbox}[Do Not Collapse the Middle Two]
+The product concept and the selling concept are routinely confused. The product
+concept believes a \emph{better} product will sell itself, and fails through
+engineering-led blindness to what customers actually want. The selling concept
+believes \emph{any} product will sell if pushed hard enough, and fails through
+churn\ix{churn} --- it can move the first unit but never the second.
+\end{warnbox}
+
+\subsection{Holistic marketing --- four dimensions}
+
+\begin{itemize}
+\item \sfb{Internal marketing} --- aligning the marketing department, senior
+      management and every other department so that the whole firm embraces
+      marketing principles.
+\item \sfb{Integrated marketing} --- designing communications, products and
+      services, channels and price so that they reinforce rather than
+      contradict one another.
+\item \sfb{Performance marketing} --- measuring returns: sales revenue, brand
+      equity and customer equity\ix{customer equity}, plus the ethical, environmental, legal and
+      social effects of marketing activity.
+\item \sfb{Relationship marketing} --- building deep, enduring relationships
+      with the four constituents who sustain the business: customers,
+      employees, marketing partners and the financial community.
+\end{itemize}
+
+\subsection{The eight marketing management tasks}
+
+\begin{frameworkbox}[The Eight Tasks]
+1. Developing market strategies and plans \ra{} 2. Capturing marketing insights
+\ra{} 3. Connecting with customers \ra{} 4. Building strong brands \ra{}
+5. Creating value \ra{} 6. Delivering value \ra{} 7. Communicating value \ra{}
+8. Creating successful long-term growth --- which loops back to task 1.
+\end{frameworkbox}
+
+\subsection{The market ecosystem and the profit equation}
+
+An \emph{industry} is a collection of sellers; a \emph{market} is a collection
+of buyers. Sellers send communication and goods and services to the market;
+buyers send back money and information. The whole loop resolves into one
+equation.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    blk/.style={draw=slate,line width=0.9pt,fill=white,rounded corners=4pt,
+                minimum width=3.2cm,minimum height=1.2cm,align=center,
+                font=\sffamily\bfseries\small,text=slate}]
+  \node[blk] (ind) at (0,0) {INDUSTRY\\[-1pt]{\scriptsize\mdseries a collection of sellers}};
+  \node[blk] (mkt) at (7.4,0) {MARKET\\[-1pt]{\scriptsize\mdseries a collection of buyers}};
+
+  \draw[-{Latex[length=2.6mm]},ocre,line width=1pt]
+    ($(ind.north east)+(0,-0.18)$) to[bend left=22]
+    node[above,midway,text=ocre,font=\sffamily\scriptsize]{goods and services}
+    ($(mkt.north west)+(0,-0.18)$);
+  \draw[-{Latex[length=2.6mm]},ocre,line width=1pt]
+    ($(ind.east)+(0,0.02)$) to[bend left=8]
+    node[above,midway,text=ocre,font=\sffamily\scriptsize]{communication}
+    ($(mkt.west)+(0,0.02)$);
+  \draw[-{Latex[length=2.6mm]},deepblue,line width=1pt]
+    ($(mkt.south west)+(0,0.18)$) to[bend left=22]
+    node[below,midway,text=deepblue,font=\sffamily\scriptsize]{money}
+    ($(ind.south east)+(0,0.18)$);
+  \draw[-{Latex[length=2.6mm]},deepblue,line width=1pt]
+    ($(mkt.south west)+(0,0.55)$) to[bend left=8]
+    node[below,midway,text=deepblue,font=\sffamily\scriptsize,yshift=-1pt]{information}
+    ($(ind.south east)+(0,0.55)$);
+\end{tikzpicture}
+\caption[The industry--market exchange loop]%
+        {The exchange loop. Two flows out, two flows back. Marketing manages
+         all four.}
+\label{fig:exchangeloop}
+\end{figure}
+
+\begin{keybox}[The Profit Equation]
+\[ \text{Profit} \;=\; \text{Revenues} \;-\; \text{Costs} \]
+Every marketing decision either raises revenue --- more customers, a higher
+price, more purchases per customer --- or lowers cost --- cheaper acquisition,
+better retention, more efficient channels. If it does neither, it is not
+marketing. It is decoration.
+\end{keybox}
+
+Two further constructs complete the ecosystem.
+
+\begin{description}
+\item[Supply chain] The longer channel stretching from raw materials through
+components to finished products carried to final buyers. For coffee: Ethiopian
+farmers grow and harvest, then sell to a Fair Trade cooperative; the beans are
+washed, dried and packaged; an Alternative Trading Organisation transports them;
+and they are sold through retail channels. Each link captures a share of the
+total value.
+\item[Competition] All the actual and potential rival offerings and substitutes
+a buyer might consider --- not merely direct competitors, but anything
+competing for the same need and the same rupee.
+\end{description}
+
+\section{What Digital Marketing Is}
+
+\begin{definitionbox}[Digital Marketing]
+\keytermas{Digital marketing}{digital marketing} is the well-targeted, conversion-oriented,
+quantifiable and interactive marketing of products or services using digital
+technologies, in order to reach customers, convert them into clients and retain
+them in a sustainable fashion.
+\end{definitionbox}
+
+Four words in that definition do the work. \emph{Well-targeted}: the audience
+can be specified rather than approximated. \emph{Conversion-oriented}: the
+objective is a defined action, not an impression\ix{impression}. \emph{Quantifiable}: every
+step leaves a data trail. \emph{Interactive}: the audience can answer back.
+
+Through digital channels a business does not merely share its products and
+services online. It can attract prospects, engage them, and convert them into
+paying customers, while measuring every step. The speed and simplicity with
+which digital media transmits information and supports a business is what makes
+it structurally different from everything that came before.
+
+The world is now super-connected, and marketing and advertising are no longer
+what they once were. This is particularly true because of the rise of social
+networking, which changed how organisations speak with potential and existing
+customers. Digital marketing is an aggregate term, used where advertising and
+marketing meet web technology and online media platforms.
+
+\begin{keybox}[The Central Idea of This Course]
+``Digital marketing isn't about technology; it's about people.'' Technology is
+only interesting, from a marketing perspective, when it connects people with
+other people more effectively. Understanding the underlying code is secondary.
+Understanding the human being on the other side of the screen is the job.
+\end{keybox}
+
+\section{Traditional Marketing and the Transition to Digital}
+
+\subsection{Traditional marketing}
+
+Traditional marketing lets businesses promote their products or services on
+print media, radio and television commercials, billboards, business cards and
+numerous similar channels where the internet and social platforms are not used.
+It is, in effect, everything except digital means of branding a product.
+
+\begin{itemize}
+\item Traditional approaches had constrained reach and limited scope to
+      influence buying behaviour, and they were not quantifiable.
+\item Tangible forms include business cards, print advertisements in newspapers
+      and magazines, posters, brochures, television and radio commercials, and
+      billboards.
+\item An often overlooked form is \sfb{referral and networking} --- people find
+      a business through a referral and a rapport is built over time.
+\item Because of its longevity, people are accustomed to it. Reading a
+      billboard or spotting an advertisement in a magazine remain familiar
+      everyday activities.
+\item It usually reaches a local audience, though it is not strictly limited to
+      one.
+\end{itemize}
+
+\begin{examplebox}[Where Traditional Marketing Still Wins]
+Targeting a genuinely local audience; materials the customer physically keeps
+and returns to; a more personal feel in a high-trust sale; and a simpler
+process with fewer moving parts and no platform dependency.
+\end{examplebox}
+
+Its primary weaknesses are the mirror image. Results are not easily measured
+and often cannot be measured at all. It is generally more costly. And it is
+static --- there is no way to interact with the audience. You are throwing
+information in front of people and hoping they act.
+
+\subsection{Traditional marketing against digital marketing}
+
+\begin{keybox}[High Yield]
+This comparison is examined at both ten and eight marks.
+Learn at least seven rows and keep one example per row.
+\pyq{CIE-I, 3 Apr 2025 --- 10 M; CIE-I, 16 Apr 2026 --- 10 M; SEE, Oct/Nov 2023, Q2a --- 8 M}
+\end{keybox}
+
+\begin{mmlongtable}{Traditional marketing against digital marketing}{tab:tradvsdig}%
+{@{}P{0.17\textwidth}P{0.38\textwidth}P{0.38\textwidth}@{}}
+\rowcolor{ocre}\thd{Aspect} & \thd{Traditional Marketing} & \thd{Digital Marketing}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Aspect} & \thd{Traditional Marketing} & \thd{Digital Marketing}\\
+\midrule
+\endhead
+\rlab{Communication} & Unidirectional --- the organisation talks at its
+audience & Bidirectional --- customers ask questions, complain and make
+suggestions back\\
+\rowcolor{tablealt}
+\rlab{Medium} & Phone calls, letters, print, television, radio, billboards &
+Social media, websites, chat, apps, e-mail, SEO, PPC\\
+\rlab{Reach} & Local, or mass depending on medium; geographically restricted &
+Global and theoretically infinite, yet laser-targeted\\
+\rowcolor{tablealt}
+\rlab{Cost} & Often expensive --- television, print production, media buying &
+Cost-effective --- pay-per-click and organic reach options\\
+\rlab{Targeting} & Broad and imprecise & Precise --- age, location, interests,
+behaviour, intent\\
+\rowcolor{tablealt}
+\rlab{Interactivity} & One-way communication & Two-way, real-time engagement\\
+\rlab{Measurability} & Hard to track ROI accurately; largely unquantifiable &
+Easily trackable with analytics and KPIs, in real time\\
+\rowcolor{tablealt}
+\rlab{Flexibility} & Less flexible once launched; rigid, long-term campaigns &
+Highly flexible; adjustable in real time\\
+\rlab{Time to launch} & Requires long planning and production cycles &
+Quick to launch, refine and adapt\\
+\rowcolor{tablealt}
+\rlab{Direction of pull} & Outbound --- push & Inbound --- the goal is for
+people to find you\\
+\end{mmlongtable}
+
+\subsection{A strategy for transitioning from traditional to digital}
+
+\begin{exambox}[Model Answer --- 10 Marks]
+\pyq{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026 --- 10 M}
+A complete answer states the benefits and limitations of both approaches ---
+use Table~\ref{tab:tradvsdig} --- and then commits to a sequenced transition.
+
+\begin{enumerate}
+\item \sfb{Start with a hybrid approach.} Run both in parallel initially rather
+      than cutting traditional spend overnight. Cutting first destroys known
+      demand before the replacement exists.
+\item \sfb{Build the owned foundation.} A quality company website and a social
+      media presence, because every later step needs somewhere to send traffic.
+\item \sfb{Layer on SEO and content marketing.} Blogs, videos and landing
+      pages, to build compounding organic traffic.
+\item \sfb{Run targeted paid advertising.} Google Ads and social advertising to
+      buy immediate reach while the organic asset builds.
+\item \sfb{Leverage e-mail marketing and influencers} for retention and
+      borrowed credibility respectively.
+\item \sfb{Track performance with analytics tools}, defining the KPIs
+      \emph{before} launch rather than after.
+\item \sfb{Gradually reduce traditional spending} based on measured results,
+      not on assumption.
+\item \sfb{Upskill or hire.} Train the existing team or bring in a dedicated
+      digital marketing expert.
+\end{enumerate}
+
+\smallskip
+\textbf{Limitations to name for digital}, so the answer is balanced: it
+requires technical skills; online competition is high; there are privacy and
+data-protection concerns; and it depends on internet access.
+\end{exambox}
+
+\section{Push and Pull Marketing}
+
+\begin{keybox}[The Single Most Repeated Two-Mark Question]
+Push against pull is the most repeated short question in this course. Learn the definitions close to verbatim and keep two examples ready.
+\pyq{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026; SEE, Jun/Jul 2025 --- 2 M each}
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    nd/.style={draw=slate!55,fill=white,rounded corners=3pt,
+               minimum width=2.05cm,minimum height=0.78cm,align=center,
+               font=\sffamily\scriptsize\bfseries,text=slate}]
+
+  % ---- push row
+  \node[text=ocre,font=\sffamily\bfseries\small,anchor=west] at (-0.2,1.5) {PUSH};
+  \node[nd] (p1) at (1.9,1.5) {PRODUCER};
+  \node[nd] (p2) at (4.7,1.5) {CHANNEL};
+  \node[nd] (p3) at (7.5,1.5) {CONSUMER};
+  \draw[-{Latex[length=2.6mm]},ocre,line width=1.1pt] (p1)--(p2);
+  \draw[-{Latex[length=2.6mm]},ocre,line width=1.1pt] (p2)--(p3);
+  \node[text=slatelight,font=\sffamily\scriptsize,anchor=west] at (8.75,1.5)
+    {consumer is \textit{passive}};
+
+  % ---- pull row
+  \node[text=deepblue,font=\sffamily\bfseries\small,anchor=west] at (-0.2,-0.2) {PULL};
+  \node[nd] (q1) at (1.9,-0.2) {PRODUCER};
+  \node[nd] (q2) at (4.7,-0.2) {CHANNEL};
+  \node[nd] (q3) at (7.5,-0.2) {CONSUMER};
+  \draw[{Latex[length=2.6mm]}-,deepblue,line width=1.1pt] (q1)--(q2);
+  \draw[{Latex[length=2.6mm]}-,deepblue,line width=1.1pt] (q2)--(q3);
+  \node[text=slatelight,font=\sffamily\scriptsize,anchor=west] at (8.75,-0.2)
+    {consumer is \textit{searching}};
+
+  \node[text=slate,font=\sffamily\scriptsize,anchor=west] at (0.35,0.65)
+    {\textit{demand is created by the seller}};
+  \node[text=slate,font=\sffamily\scriptsize,anchor=west] at (0.35,-1.05)
+    {\textit{demand is created by the buyer}};
+\end{tikzpicture}
+\caption[Push and pull marketing]%
+        {Push and pull differ in the direction of initiative, and therefore in
+         who creates the demand.}
+\label{fig:pushpull}
+\end{figure}
+
+\begin{mmlongtable}{Push marketing against pull marketing}{tab:pushpull}%
+{@{}P{0.19\textwidth}P{0.37\textwidth}P{0.37\textwidth}@{}}
+\rowcolor{ocre}\thd{Basis} & \thd{Push Marketing} & \thd{Pull Marketing}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Basis} & \thd{Push Marketing} & \thd{Pull Marketing}\\
+\midrule
+\endhead
+\rlab{Definition} & The brand pushes the product towards the customer &
+The brand encourages customers to actively seek it out\\
+\rowcolor{tablealt}
+\rlab{Direction} & Producer \ra{} channel \ra{} consumer &
+Consumer \ra{} producer\\
+\rlab{Typical tools} & Television and print advertising, trade discounts,
+dealer incentives, direct selling, telemarketing, point-of-sale displays &
+SEO, content marketing, social media, word of mouth, brand building, public
+relations\\
+\rowcolor{tablealt}
+\rlab{Consumer state} & Passive; unaware of the need &
+Active; already searching\\
+\rlab{Demand created by} & The seller & The buyer\\
+\rowcolor{tablealt}
+\rlab{Cost pattern} & High recurring spend; stops when spend stops &
+High upfront effort; compounds over time\\
+\rlab{Best for} & New products, impulse goods, low-involvement purchases &
+Established brands, high-involvement and considered purchases\\
+\end{mmlongtable}
+
+\section{The Marketing Mix in the Digital Era}
+
+\subsection{The four Ps}
+
+\begin{definitionbox}[Marketing Mix]
+The \keyterm{marketing mix} is the set of controllable tactical tools that a
+firm blends to produce the response it wants from its chosen target market\ix{target market}:
+Product, Price, Place and Promotion.
+\end{definitionbox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    p/.style={draw=ocre,line width=1pt,fill=ocrepale,rounded corners=5pt,
+              text width=3.1cm,align=center,inner sep=6pt,text=slate,
+              font=\sffamily\scriptsize},
+    hd/.style={font=\sffamily\bfseries\small,text=ocredark}]
+
+  \node[draw=slate,line width=1pt,fill=white,circle,minimum size=2.15cm,
+        align=center,font=\sffamily\bfseries\small,text=slate] (c) at (0,0)
+        {TARGET\\MARKET};
+
+  \node[p] (prod) at (-4.3,2.0)  {\textbf{PRODUCT}\\[2pt]
+      variety, quality, design, features, brand name, packaging, sizes,
+      services, warranties, returns};
+  \node[p] (pric) at (4.3,2.0)   {\textbf{PRICE}\\[2pt]
+      list price, discounts, allowances, payment period, credit terms};
+  \node[p] (plac) at (-4.3,-2.0) {\textbf{PLACE}\\[2pt]
+      channels, coverage, assortments, locations, inventory, transport};
+  \node[p] (prom) at (4.3,-2.0)  {\textbf{PROMOTION}\\[2pt]
+      sales promotion, advertising, sales force, public relations, direct
+      marketing};
+
+  \foreach \n in {prod,pric,plac,prom}{
+     \draw[-{Latex[length=2.2mm]},ocre,line width=0.9pt] (\n) -- (c);}
+\end{tikzpicture}
+\caption[The marketing mix]%
+        {The four Ps are the controllable levers; the target market is what
+         they are aimed at. Changing the target changes every lever.}
+\label{fig:fourps}
+\end{figure}
+
+\subsection{How the four Ps have evolved in the digital era}
+
+\begin{mmlongtable}{The digital evolution of the four Ps}{tab:digitalps}%
+{@{}P{0.11\textwidth}P{0.46\textwidth}P{0.35\textwidth}@{}}
+\rowcolor{ocre}\thd{P} & \thd{Digital evolution} & \thd{Company example}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{P} & \thd{Digital evolution} & \thd{Company example}\\
+\midrule
+\endhead
+\rlab{Product} & Digital and personalised products; customisable, data-driven,
+and increasingly delivered in digital formats --- software, online services,
+virtual goods & Spotify uses listening data to generate personalised playlists,
+making the product itself different for every user\\
+\rowcolor{tablealt}
+\rlab{Price} & Dynamic and transparent pricing; real-time price changes,
+personalised offers, and instant comparison by the customer &
+Amazon adjusts prices dynamically using demand, competition and user behaviour\\
+\rlab{Place} & Online channels and omnichannel presence; a shift from physical
+stores to e-commerce, apps and marketplaces with a seamless online--offline
+experience & Nike links its website, mobile app and physical stores through
+click-and-collect and a store locator\\
+\rowcolor{tablealt}
+\rlab{Promotion} & Digital and interactive marketing; a shift from mass media
+to targeted digital campaigns, social media, influencer and content marketing &
+Coca-Cola's ``Share a Coke'' campaign ran as interactive, personalised,
+shareable digital content\\
+\end{mmlongtable}
+
+\begin{exambox}[Examined As]
+``How have the 4Ps of marketing evolved in the digital era? Provide examples of
+companies effectively leveraging digital strategies for each element.''
+\pyq{CIE-I, 3 Apr 2025 --- 10 M}
+Answer with Table~\ref{tab:digitalps}, one named company per P, and close by
+naming the service extensions below.
+\end{exambox}
+
+\subsection{The seven Ps and the four Cs}
+
+Two standard extensions complete the framework.
+
+\begin{itemize}
+\item The \sfb{seven Ps of services marketing} add three service-specific
+      levers to the original four: \sfb{People} (everyone who touches the
+      customer), \sfb{Process} (the sequence the customer is put through) and
+      \sfb{Physical evidence} (the tangible cues that make an intangible
+      service credible).
+\item The \sfb{four Cs} are the customer-side mirror of the four Ps:
+      \sfb{Customer solution} for Product, \sfb{Customer cost} for Price,
+      \sfb{Convenience} for Place and \sfb{Communication} for Promotion. The
+      relabelling is not cosmetic --- it forces each lever to be stated from
+      the buyer's point of view rather than the seller's.
+\end{itemize}
+
+\section{The Technology Behind Digital Marketing}
+
+Developments in technology and the evolution of marketing are inextricably
+intertwined, and the adoption pattern is always the same.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    st/.style={draw=ocre,line width=0.9pt,fill=white,
+               chamfered rectangle,chamfered rectangle xsep=0.5cm,
+               text width=2.35cm,align=center,inner sep=4pt,
+               font=\sffamily\scriptsize,text=slate}]
+  \node[st,fill=ocrepale] (s1) at (0,0)    {\textbf{1. Emergence}\\ confined to
+      technologists and early adopters};
+  \node[st,fill=ocrepale] (s2) at (3.65,0) {\textbf{2. Foothold}\\ becomes
+      popular; appears on the marketing radar};
+  \node[st,fill=ocrepale] (s3) at (7.3,0)  {\textbf{3. Exploration}\\ innovative
+      marketers harness it to reach an audience};
+  \node[st,fill=ocrepale] (s4) at (10.95,0){\textbf{4. Mainstream}\\ absorbed
+      into standard marketing practice};
+  \foreach \a/\b in {s1/s2,s2/s3,s3/s4}{
+    \draw[-{Latex[length=2.4mm]},ocre,line width=1pt] (\a)--(\b);}
+\end{tikzpicture}
+\caption[The technology adoption pattern]%
+        {The four-step adoption pattern. The printing press, radio, television
+         and the internet each ran the same course.}
+\label{fig:adoption}
+\end{figure}
+
+The printing press, radio, television and now the internet are all
+breakthroughs that permanently altered the relationship between marketers and
+consumers, on a global scale.
+
+\subsection{Timeline --- from Sputnik to the World Wide Web}
+
+\begin{mmlongtable}{The enabling technologies of digital marketing}{tab:timeline}%
+{@{}P{0.11\textwidth}P{0.46\textwidth}P{0.35\textwidth}@{}}
+\rowcolor{ocre}\thd{Year} & \thd{Milestone} & \thd{Why it matters to marketers}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Year} & \thd{Milestone} & \thd{Why it matters to marketers}\\
+\midrule
+\endhead
+\rlab{1957} & The USSR launches Sputnik & Signals that the United States is
+falling behind; triggers heavy US investment in science and technology\\
+\rowcolor{tablealt}
+\rlab{1958} & The US Department of Defense sets up ARPA, the Advanced Research
+Projects Agency & The institutional parent of the internet\\
+\rlab{early 1960s} & E-mail exists only within single mainframes & The killer
+application is born, but cannot yet cross machines\\
+\rowcolor{tablealt}
+\rlab{1971} & Ray Tomlinson writes the first program to send mail between host
+computers on ARPANET, choosing the \texttt{@} symbol to separate user from host
+& E-mail becomes a network application --- as a programmer's afterthought\\
+\rlab{1974} & Vinton Cerf, the ``father of the internet'', and Robert Kahn
+define the TCP protocol at DARPA & Different networks can now be
+interconnected\\
+\rowcolor{tablealt}
+\rlab{1983} & ARPANET adopts TCP/IP; the domain name system is invented
+(\texttt{.com}, \texttt{.net}) & Widely considered the true birth of the
+internet\\
+\rlab{1984--89} & Nodes pass one thousand, then one hundred thousand hosts &
+Network effects begin\\
+\rowcolor{tablealt}
+\rlab{1989} & Tim Berners-Lee at CERN proposes cross-referencing documents
+across the internet using hypertext & The concept of the World Wide Web\\
+\rlab{6 Aug 1991} & The first web page goes online at CERN & The web becomes a
+public medium\\
+\rowcolor{tablealt}
+\rlab{2000s on} & The dot-com boom, then Web 2.0 & User-generated content; the
+global village\\
+\end{mmlongtable}
+
+\begin{exambox}[How to Frame This Answer]
+If asked about the technology behind digital marketing, structure the answer in
+three parts rather than listing dates: (i) the four-step adoption pattern of
+Figure~\ref{fig:adoption}; (ii) the timeline of enabling technologies from
+Table~\ref{tab:timeline}; and (iii) the present-day stack --- websites and
+content management systems, search engines and their ranking algorithms, social
+platforms and their feed algorithms, analytics and tag management, e-mail
+service providers and CRM, mobile devices and apps, cloud infrastructure, and
+increasingly machine learning for personalisation and pricing.
+\end{exambox}
+
+\section{Understanding the Digital Consumer}
+
+\subsection{The myth and the reality}
+
+There is a notion in marketing circles of mysterious, ethereal creatures who
+exist in a hyper-connected cyber-world of their own --- enigmas who speak a
+different language and are turning marketing on its head. The first thing to
+realise about digital consumers is that there is basically no such thing. The
+customers encountered online are the very same people who walk into the store,
+telephone, or order from the catalogue.
+
+They are doing exactly what people have done for thousands of years:
+communicating with each other. That technology lets them do it faster, over
+distance and across devices is perceived as dangerous and extraordinary, but
+people have always talked to each other. What has genuinely changed is
+\emph{consumer behaviour}, and it changed because of the pervasive, evocative
+and enabling nature of digital technology.
+
+\begin{keybox}[The Consumer Does Not Share Your Taxonomy]
+Consumers do not care how marketers categorise their work. Above the line,
+below the line, digital, traditional, experiential, linear, analogue, mobile,
+direct, indirect --- all of these boxes are meaningless to them. All consumers
+care about is the experience, and whether the marketing available to them helps
+them make a more informed decision.
+\end{keybox}
+
+\subsection{Perceived anonymity}
+
+\keytermas{Perceived anonymity}{perceived anonymity} is an online trait with a profound effect on
+behaviour. It liberates consumers from the social shackles that bind them in
+the physical world; online they act with scant regard for the social propriety
+that holds sway in real life.
+
+In a physical store, shoppers wait patiently for service and will endure a
+less-than-perfect experience to get what they want. Online they will not. They
+demand instant gratification and a flawless experience, and if you fail to
+engage, retain and fulfil their expectations on demand they are gone --- the
+only trace a solitary line in the server log.
+
+\subsection{The five key traits of the online consumer}
+
+\begin{mmlongtable}{The five traits of the online consumer}{tab:fivetraits}%
+{@{}P{0.19\textwidth}P{0.38\textwidth}P{0.35\textwidth}@{}}
+\rowcolor{ocre}\thd{Trait} & \thd{What it means} & \thd{What the marketer must therefore do}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Trait} & \thd{What it means} & \thd{What the marketer must therefore do}\\
+\midrule
+\endhead
+\rlab{1. Comfortable with the medium} & Users have been online for years and
+are increasingly web-savvy across all age groups; they use it efficiently and
+do not hang around & Deliver what they want, fast; write scannable content\\
+\rowcolor{tablealt}
+\rlab{2. They want it all, and they want it now} & Accustomed to information on
+demand from multiple sources simultaneously; their time is precious &
+Design for scannability and instant gratification; front-load the value\\
+\rlab{3. They are in control} & The web is no passive medium; Web 2.0 put users
+firmly in charge & Make marketing user-centric, elective and permission-based,
+with a real value proposition\\
+\rowcolor{tablealt}
+\rlab{4. They are fickle} & Transparency and immediacy erode brand loyalty;
+competitors are one click and one search away & Build genuine trust; make sure
+the total value proposition stacks up globally, not just the brand identity\\
+\rlab{5. They are vocal} & Through reviews, blogs, social networks, forums and
+communities they tell each other about good and bad experiences &
+Harness the viral upside; monitor and respond, because the same mechanism
+produces a backlash\\
+\end{mmlongtable}
+
+\subsection{Consumer 2.0 --- how Web 2.0 rewired behaviour}
+
+\begin{itemize}
+\item \sfb{Inter-connectivity} --- borderless peer-to-peer communication
+      through social networks.
+\item \sfb{On-demand} --- instant gratification, anytime and anywhere.
+\item \sfb{Levelled information} --- unbiased research is freely available,
+      shifting power decisively to the buyer.
+\item \sfb{Rise of the \keytermas{prosumer}{prosumer}} --- customers now help
+      shape and even dictate the products they consume.
+\item \sfb{Relevance filtering} --- users block noise and customise their own
+      feeds; irrelevant marketing is simply never seen.
+\item \sfb{Niche aggregation} --- mass markets fragment into thousands of
+      micro-communities.
+\item \sfb{Micropublishing} --- anyone can publish opinions, reviews and blogs
+      instantly.
+\end{itemize}
+
+\subsection{Online influencers}
+
+\begin{definitionbox}[Influencer]
+An \keyterm{influencer} is an early adopter and online opinion leader who,
+through blogs, podcasts, forums and social networks, extols the virtues of
+brands they like and denigrates those they find unsatisfactory.
+\end{definitionbox}
+
+Influencers matter because they hold the virtual ear of the online masses.
+People read them, value their opinion and trust their judgement. Engage
+positively and you recruit a team of powerful advocates; give them a negative
+experience and the reverse happens, at the same scale. This is word-of-mouth
+marketing on steroids.
+
+\begin{examplebox}[The DoubleClick Test for Recognising an Influencer]
+A person qualifies as an influencer if they strongly agree with three or more
+of the following.
+\begin{itemize}
+\item They consider themselves expert in certain areas --- work, hobbies or
+      interests.
+\item People often ask their advice about purchases in areas where they are
+      knowledgeable.
+\item When they encounter a new product they like, they tend to recommend it to
+      friends.
+\item They have a large social circle and often refer people to one another
+      based on interests.
+\item They are active online, using blogs, social networking sites, e-mail,
+      discussion groups and community boards to connect with peers.
+\end{itemize}
+\end{examplebox}
+
+\begin{keybox}[Why Word of Mouth Dominates]
+Roughly 90\% of people believe what their peers say about a brand, while only
+about 48\% trust what businesses say directly. Americans value word-of-mouth
+recommendations from friends and family about 41\% more than social media
+recommendations. This asymmetry is the entire economic case for content
+marketing, influencer marketing\ix{influencer marketing} and community building --- and the reason
+earned media\ix{earned media} (\S\,3.2) is treated as the most credible of the three media
+types.
+\end{keybox}
+
+\begin{summarybox}
+Marketing management chooses target markets and gets, keeps and grows customers
+by creating, delivering and communicating superior value; the mantra compresses
+this to create, communicate, deliver, value, target, profit. Ten classes of
+entity can be marketed. Needs are not created by marketers, wants are shaped,
+and demand requires ability to pay. Value is defined by the audience, built
+into the solution and judged in the result; performance above expectation
+produces delight and therefore advocacy. A marketplace is physical, a market
+space is digital, a metamarket spans industries. Firms have evolved through
+production, product, selling and marketing concepts to holistic marketing.
+Digital marketing is targeted, conversion-oriented, quantifiable and
+interactive marketing through digital technologies --- not a separate
+discipline, and not fundamentally about technology. Traditional marketing wins
+on local reach and physical persistence and loses on measurement, cost and
+interactivity; the transition to digital is sequenced, hybrid and
+measurement-led. Push originates with the seller, pull with the buyer. Each of
+the four Ps has a digital form. The consumer has not changed; consumer
+behaviour has --- and the five traits, perceived anonymity and the influencer
+are the practical consequences.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Principles of Digital Marketing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Principles of Digital Marketing.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The five foundational pillars on which any digital strategy rests.
+\item The internet paradox --- broadening reach and narrowing focus at once.
+\item The seven governing principles: measurability, interactivity,
+      personalisation, permission, integration, iteration, content centrality.
+\item The six elements common to successful digital marketing campaigns.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[High Yield]
+This chapter answers a recurring ten-mark question in full and a two-mark
+question in one line.
+\pyq{CIE-I, 1 Jul 2024 --- 10 M; SEE, Oct/Nov 2023 --- 2 M}
+\end{keybox}
+
+\section{The Five Foundational Pillars}
+
+There is no one-size-fits-all digital strategy. Every business must bake its
+own, and the best people to define it are the people who best know the
+business. But every workable digital strategy rests on the same five
+foundations, and each is a question rather than an assertion.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    pil/.style={draw=ocre,line width=1pt,fill=ocrepale,
+                minimum width=2.02cm,minimum height=2.5cm,align=center,
+                text width=1.75cm,font=\sffamily\scriptsize,text=slate,
+                anchor=south},
+    num/.style={circle,fill=ocre,text=white,inner sep=1.7pt,
+                font=\sffamily\bfseries\scriptsize}]
+
+  % base
+  \fill[slate] (-0.35,-0.42) rectangle (11.05,-0.1);
+  \node[anchor=north,text=slate,font=\sffamily\bfseries\scriptsize]
+    at (5.35,-0.55) {A WORKABLE DIGITAL MARKETING STRATEGY};
+
+  \node[pil] (p1) at (0.7,0)  {\textbf{Know your business}\\[2pt]
+     Is it ready? Are the products suited? Is the skill set in place?};
+  \node[pil] (p2) at (2.95,0) {\textbf{Know the competition}\\[2pt]
+     What do they do right, wrong, and not at all?};
+  \node[pil] (p3) at (5.2,0)  {\textbf{Know your customers}\\[2pt]
+     Who are they, what do they want, how do they use technology?};
+  \node[pil] (p4) at (7.45,0) {\textbf{Know what you want to achieve}\\[2pt]
+     Clear, measurable, achievable goals};
+  \node[pil] (p5) at (9.7,0)  {\textbf{Know how you're doing}\\[2pt]
+     Measure, tweak, refine, re-measure};
+
+  \foreach \n/\i in {p1/1,p2/2,p3/3,p4/4,p5/5}{
+    \node[num] at ($(\n.north)+(0,0.22)$) {\i};}
+
+  % capital
+  \fill[ocre] (-0.35,2.62) rectangle (11.05,2.9);
+\end{tikzpicture}
+\caption[The five pillars of digital marketing strategy]%
+        {The five pillars. Remove any one and the strategy rests on an
+         assumption rather than on knowledge.}
+\label{fig:fivepillars}
+\end{figure}
+
+\begin{enumerate}
+\item \sfb{Know your business.} Is the business ready to embrace digital
+      marketing? Are the products or services suited to online promotion? Is
+      the right technology, skill set and infrastructure in place? How will
+      digital marketing fit into existing business processes --- do those
+      processes need to change, and are the staff ready for that change?
+\item \sfb{Know the competition.} Who are the main competitors in the digital
+      marketplace, and are they the same as the offline ones? What are they
+      doing right, so it can be emulated; what are they doing wrong, so it can
+      be learned from; and what are they not doing at all --- because that is
+      the opportunity. Competition online can come from around the corner or
+      around the globe, so never limit the analysis to local rivals.
+\item \sfb{Know your customers.} Who are they and what do they want? Are you
+      serving the same customer base online, or fishing in a new demographic?
+      How do they use digital technology, and how can that be harnessed into an
+      ongoing relationship?
+\item \sfb{Know what you want to achieve.} If you don't know where you're
+      going, you will never get there. Set clear, measurable, achievable goals
+      --- online sales, targeted leads, brand awareness\ix{brand awareness} --- because goals are
+      the yardsticks against which campaign progress is measured.
+\item \sfb{Know how you're doing.} Everything online is trackable. Which
+      channels deliver traffic? What are the conversion rates? How much of that
+      traffic becomes tangible value? Measure, tweak, refine, re-measure.
+\end{enumerate}
+
+\section{The Internet Paradox}
+
+\begin{keybox}[The Internet Paradox]
+Unlike conventional mass media, the internet is unique in its capacity to
+\textbf{both broaden the scope of marketing reach and narrow its focus at the
+same time}. Digital channels let a firm transcend geography and time zones to
+reach a far wider audience, while simultaneously honing the message with
+laser-like precision onto very specific niche segments within that wider
+market. Implemented well, it is an extraordinarily powerful combination.
+\end{keybox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  % broadening cone
+  \fill[ocre!18] (0,0) -- (4.4,1.6) -- (4.4,-1.6) -- cycle;
+  \draw[ocre,line width=0.9pt] (0,0) -- (4.4,1.6);
+  \draw[ocre,line width=0.9pt] (0,0) -- (4.4,-1.6);
+  \node[text=ocredark,font=\sffamily\bfseries\scriptsize,align=center]
+    at (2.6,0) {BROADEN\\ THE REACH};
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=4.4cm] at (2.2,-1.75)
+    {transcends geography and time zones\\ \textit{a far wider audience}};
+
+  % narrowing cone
+  \fill[deepblue!14] (10.6,0) -- (6.2,1.6) -- (6.2,-1.6) -- cycle;
+  \draw[deepblue,line width=0.9pt] (10.6,0) -- (6.2,1.6);
+  \draw[deepblue,line width=0.9pt] (10.6,0) -- (6.2,-1.6);
+  \node[text=deepblue,font=\sffamily\bfseries\scriptsize,align=center]
+    at (8.0,0) {NARROW\\ THE FOCUS};
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=4.4cm] at (8.4,-1.75)
+    {age, location, interest, behaviour, intent\\ \textit{a very specific niche}};
+
+  \node[circle,fill=greenok,text=white,inner sep=3pt,
+        font=\sffamily\bfseries\scriptsize] at (5.3,0) {\hspace{-1pt}=\hspace{-1pt}};
+  \node[anchor=south,text=greenok,font=\sffamily\bfseries\scriptsize]
+    at (5.3,0.35) {SIMULTANEOUSLY};
+\end{tikzpicture}
+\caption[The internet paradox]%
+        {The internet paradox. Conventional mass media forces a choice between
+         reach and precision; digital channels do not.}
+\label{fig:paradox}
+\end{figure}
+
+\section{The Governing Principles}
+
+\begin{itemize}
+\item \sfb{Measurability} --- every interaction leaves a quantifiable data
+      trail. If it cannot be measured, it should not be a channel.
+\item \sfb{Interactivity} --- marketing in the digital age is a dialogue, as
+      much about listening as about telling.
+\item \sfb{Personalisation} --- digital marketing allows uniquely tailored,
+      ongoing relationships with individual customers rather than an
+      undifferentiated mass.
+\item \sfb{Permission and user control} --- the web is not a passive medium.
+      Marketing must be user-centric, elective and permission-based, or the
+      audience will actively disengage.
+\item \sfb{Integration} --- channels must reinforce one another; a siloed
+      campaign wastes the compounding effect.
+\item \sfb{Iteration} --- digital marketing is never finished. It is a
+      continuous engine.
+\item \sfb{Content centrality} --- content is king. Produce powerful, genuine,
+      compelling content and in time that content becomes the biggest promoter
+      of the brand.
+\end{itemize}
+
+\begin{frameworkbox}[The Iteration Loop]
+Execute strategy \ra{} measure analytics \ra{} tweak campaigns \ra{} refine
+goals \ra{} execute strategy.
+\end{frameworkbox}
+
+\begin{exambox}[Two-Mark Answer]
+``List any two principles of digital marketing.''
+\pyq{SEE, Oct/Nov 2023 --- 2 M}
+Any two of the five pillars --- know your business; know the competition; know
+your customers; know what you want to achieve; know how you're doing --- or any
+two of measurability, interactivity, personalisation and permission-based
+targeting. Either set scores.
+\end{exambox}
+
+\section{Characteristics of a Successful Digital Marketing Campaign}
+
+Campaigns differ enormously, but successful ones are built on the same few
+elements.
+
+\begin{enumerate}
+\item \sfb{A quality company website.} What was a novelty a decade ago is a
+      critical requirement today. A business website is a pseudo-B2B portal
+      that lets businesses and customers around the world connect with you ---
+      a company brochure available around the clock that projects the firm as a
+      professional outfit.
+\item \sfb{Social media presence.} Facebook, Instagram, LinkedIn, X, Pinterest
+      and YouTube let a firm communicate across wide demographics of age, taste
+      and culture. By actively promoting the company there, you get the world to
+      talk about you.
+\item \sfb{Blogging and forums.} Produce genuine, compelling content on the
+      company blog and be a regular on relevant forums and discussion panels.
+      Learn the art of connecting business themes into the content produced.
+\item \sfb{Local listing services.} Register on Google Business Profile so the
+      business appears in Google searches and on Google Maps; also list on Bing
+      Places and equivalent directories. Joining is free and the reach
+      translates into free promotion.
+\item \sfb{E-mail marketing.} Done well and with good intentions, personalised
+      e-mail speaks directly to the target audience, produces an immediate
+      response and opens a line of communication with prospects --- fast, cheap
+      promotion with measurable feedback.
+\item \sfb{A dedicated digital marketing expert.} Hiring a professional lets
+      management stay on top of promotional ideas while someone qualified
+      implements the concepts that drive the expected results.
+\end{enumerate}
+
+\begin{summarybox}
+Five pillars found any digital strategy: know your business, the competition,
+your customers, your goals and your results. The internet paradox is that
+digital channels broaden reach and narrow focus simultaneously, which
+conventional mass media cannot do. Seven principles govern execution ---
+measurability, interactivity, personalisation, permission, integration,
+iteration and content centrality --- and iteration means the work is never
+finished. Six elements recur in successful campaigns: a quality website, social
+presence, blogging and forums, local listings, e-mail marketing and dedicated
+expertise.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Digital Marketing Channels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Digital Marketing Channels.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The three senses in which marketing uses the word ``channel''.
+\item The paid, owned and earned media taxonomy, and what each is for.
+\item The campaign ecosystem as a hub with spokes, and the job of each spoke.
+\item Affiliate marketing --- definition, payment models, advantages and risks.
+\item How to choose between SEO, PPC and social media on a limited budget.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{The Three Senses of ``Channel''}
+
+Before listing platforms, note that \emph{channel} in marketing has three
+distinct senses, and a question about channels may mean any of them.
+
+\begin{itemize}
+\item \sfb{Communication channels} deliver messages to, and receive messages
+      from, target buyers.
+\item \sfb{Distribution channels} display, sell or deliver the physical product
+      or service to the buyer.
+\item \sfb{Service channels} carry out transactions with prospective buyers ---
+      warehouses, transporters, banks, payment gateways, insurers.
+\end{itemize}
+
+\section{Paid, Owned and Earned Media}
+
+This is the single most useful way to classify digital channels, and it is
+examined directly.
+\pyq{CIE-I, 16 Apr 2026 --- 10 M}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \begin{scope}[opacity=0.42,transparency group]
+    \fill[ocre]     (-1.35,0.55) circle (2.15);
+    \fill[deepblue] ( 1.35,0.55) circle (2.15);
+    \fill[greenok]  ( 0.00,-1.6) circle (2.15);
+  \end{scope}
+  \node[text=ocredark,font=\sffamily\bfseries\small]  at (-2.5,1.55) {OWNED};
+  \node[text=deepblue,font=\sffamily\bfseries\small]  at ( 2.5,1.55) {PAID};
+  \node[text=greenok,font=\sffamily\bfseries\small]   at ( 0.0,-3.3) {EARNED};
+
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.3cm]
+    at (-2.35,0.45) {website, blog,\\ app, e-mail list,\\ brand profiles};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.3cm]
+    at ( 2.35,0.45) {display ads, PPC,\\ social ads,\\ sponsorships};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.4cm]
+    at ( 0.0,-2.15) {word of mouth, reviews,\\ press, backlinks};
+
+  \node[text=white,font=\sffamily\bfseries\scriptsize,align=center]
+    at (0,-0.35) {the\\ campaign};
+
+  % legend of roles
+  \node[anchor=west,align=left,font=\sffamily\scriptsize,text=slate]
+    at (4.0,0.6)
+    {\textcolor{ocredark}{\textbf{Owned} --- the foundation.}\\
+     No rent, full control, compounds.\\[5pt]
+     \textcolor{deepblue}{\textbf{Paid} --- the accelerator.}\\
+     Instant reach; stops when\\ spending stops.\\[5pt]
+     \textcolor{greenok}{\textbf{Earned} --- the validator.}\\
+     Most credible, least\\ controllable.};
+\end{tikzpicture}
+\caption[The paid, owned and earned media taxonomy]%
+        {Every digital channel is paid, owned or earned. A campaign that uses
+         only one of the three is either renting all its reach, talking only to
+         people it already has, or hoping.}
+\label{fig:poe}
+\end{figure}
+
+\begin{mmlongtable}{Paid, owned and earned media}{tab:poe}%
+{@{}P{0.108\textwidth}P{0.275\textwidth}P{0.313\textwidth}P{0.216\textwidth}@{}}
+\rowcolor{ocre}\thd{Media type} & \thd{Definition} & \thd{Examples} & \thd{Role}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Media type} & \thd{Definition} & \thd{Examples} & \thd{Role}\\
+\midrule
+\endhead
+\rlab{Owned} & Assets entirely controlled by the brand & Company website, blog,
+mobile app, e-mail list, brand social profiles, brochures & The foundation ---
+no rent, full control, compounds over time\\
+\rowcolor{tablealt}
+\rlab{Paid} & Capital deployed for guaranteed reach & Display advertising, paid
+search and PPC, social media advertising, sponsorships, magazine and television
+advertising, influencer promotions & The accelerator --- instant reach, stops
+the moment spending stops\\
+\rlab{Earned} & Audience-driven reach that was not paid for & Word of mouth,
+buzz, viral sharing, press coverage, reviews, influencer mentions, backlinks &
+The validator --- most credible, least controllable\\
+\end{mmlongtable}
+
+\begin{keybox}[Rented Against Owned --- The Apple Tree Rule]
+Advertising is a rented treadmill. Content is an owned asset. The moment
+payment for advertising stops, traffic falls to zero; content keeps working.
+
+\smallskip
+\textbf{The apple tree rule:} it takes time to plant the seed and grow the tree,
+but once mature that single tree bears fruit for years without anyone having to
+buy the apples.
+\end{keybox}
+
+\section{The Campaign Ecosystem --- Hub and Spokes}
+
+A coherent digital campaign is not a list of disconnected activities. It is a
+hub-and-spoke system whose hub is a quality company website --- the round-the-clock
+portal and the ultimate conversion destination. Every other channel exists to
+feed it.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    spoke/.style={draw=ocre!70,line width=0.7pt,fill=ocrepale,
+                  rounded corners=3pt,align=center,inner sep=3.5pt,
+                  font=\sffamily\scriptsize,text=slate,text width=1.95cm}]
+
+  \node[draw=slate,line width=1.2pt,fill=white,circle,minimum size=2.6cm,
+        align=center,font=\sffamily\bfseries\scriptsize,text=slate] (hub) at (0,0)
+        {THE HUB\\[1pt] company\\ website};
+
+  \foreach \ang/\name/\lbl in {%
+      90/s1/{SEO},
+      54/s2/{PPC / SEM},
+      18/s3/{Social media},
+     -18/s4/{Content, blogs, forums},
+     -54/s5/{E-mail},
+     -90/s6/{Affiliate},
+    -126/s7/{Display and remarketing},
+    -162/s8/{Mobile},
+     162/s9/{Video},
+     126/s10/{Local listings}}{
+     \node[spoke] (\name) at (\ang:4.05cm) {\lbl};
+     \draw[-{Latex[length=1.9mm]},ocre!70,line width=0.7pt] (\name) -- (hub);}
+\end{tikzpicture}
+\caption[The campaign ecosystem]%
+        {The hub-and-spoke campaign ecosystem. Every spoke has one job: to
+         deliver qualified attention to the hub, where conversion happens.}
+\label{fig:hubspoke}
+\end{figure}
+
+\begin{mmlongtable}{The job of each spoke}{tab:spokes}%
+{@{}P{0.30\textwidth}P{0.63\textwidth}@{}}
+\rowcolor{ocre}\thd{Spoke} & \thd{Primary job}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Spoke} & \thd{Primary job}\\
+\midrule
+\endhead
+\rlab{Search Engine Optimisation} & Capture high-intent organic demand and
+drive it to the hub\\
+\rowcolor{tablealt}
+\rlab{Search Engine Marketing / PPC} & Buy immediate visibility on high-value
+commercial queries\\
+\rlab{Social Media Marketing} & Manage global chatter, build awareness, and
+engineer community\\
+\rowcolor{tablealt}
+\rlab{Content Marketing --- blogging and forums} & Produce the compelling,
+genuine material that every other channel distributes\\
+\rlab{E-mail Marketing} & Own the relationship; deliver personalised,
+rapid-response communication\\
+\rowcolor{tablealt}
+\rlab{Affiliate Marketing} & Pay partners only for results --- traffic, leads or
+sales actually delivered\\
+\rlab{Display and Network Advertising} & Build reach and remarket to prior
+visitors\\
+\rowcolor{tablealt}
+\rlab{Mobile Marketing} & Reach the customer on the device that is always with
+them\\
+\rlab{Video Marketing} & Build trust and dwell time; dual search-and-social
+distribution\\
+\rowcolor{tablealt}
+\rlab{Local Listings} & Be discoverable in ``near me'' and map searches\\
+\rlab{Influencer Marketing} & Borrow trust that the brand has not yet earned\\
+\end{mmlongtable}
+
+\section{Affiliate Marketing}
+
+\begin{definitionbox}[Affiliate Marketing]
+\keytermas{Affiliate marketing}{affiliate marketing} is a type of performance-based marketing in which
+a business rewards affiliates --- partners or individuals --- for driving
+traffic, leads or sales to the company's products or services through the
+affiliate's own marketing efforts.
+\pyq{CIE-I, 3 Apr 2025 --- 2 M}
+\end{definitionbox}
+
+\begin{examplebox}[Amazon Associates]
+A blogger places a tracked Amazon link inside a product review and earns a
+commission on every purchase made through it. Amazon pays nothing for the
+review itself, nothing for the traffic that does not convert, and a fixed
+percentage on the traffic that does.
+\end{examplebox}
+
+\begin{itemize}
+\item \sfb{Payment models.} CPA --- cost per acquisition or sale; CPL --- cost
+      per lead; CPC --- cost per click.
+\item \sfb{Advantages.} Risk is transferred to the affiliate, because payment
+      follows results; reach extends into audiences the brand does not own; and
+      costs are variable rather than fixed.
+\item \sfb{Risks.} Brand-safety exposure if affiliates use aggressive or
+      misleading tactics; potential for fraud; and margin erosion if
+      commissions are set too high.
+\end{itemize}
+
+\section{Choosing Between Channels}
+
+\begin{exambox}[The Scenario Question]
+``Your company has a limited marketing budget and needs to choose between
+Search Engine Optimization, Pay Per Click, and Social Media Marketing to
+promote a new product. Based on the product being a high-tech gadget aimed at
+young professionals, which channel(s) would you prioritize and why?''
+\pyq{CIE-I, 1 Jul 2024 --- 10 M}
+
+\smallskip
+A strong answer compares the three on a fixed set of criteria and \emph{then
+commits} to a recommendation. A comparison without a recommendation loses marks.
+\end{exambox}
+
+\begin{mmlongtable}{SEO, PPC and social media marketing compared}{tab:channelchoice}%
+{@{}P{0.16\textwidth}P{0.25\textwidth}P{0.25\textwidth}P{0.25\textwidth}@{}}
+\rowcolor{ocre}\thd{Criterion} & \thd{SEO} & \thd{PPC} & \thd{Social Media Marketing}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Criterion} & \thd{SEO} & \thd{PPC} & \thd{Social Media Marketing}\\
+\midrule
+\endhead
+\rlab{Speed of results} & Slow --- months & Immediate & Fast for reach, slow
+for trust\\
+\rowcolor{tablealt}
+\rlab{Cost model} & Free per click; costs time and resources & Charged per
+click; stops when the budget stops & Organic free; paid boosts optional\\
+\rlab{Longevity} & Infinite --- compounds & Zero --- ends with the campaign &
+Short, hours to days per post\\
+\rowcolor{tablealt}
+\rlab{Buyer intent} & High --- the user is actively searching & High ---
+keyword-triggered & Low to medium --- interruption-based\\
+\rlab{Predictability} & High once established & High & Low --- relies on viral
+spikes\\
+\rowcolor{tablealt}
+\rlab{Best suited to} & Long-term compounding demand & Launches, promotions,
+high-margin conversions & Awareness, community, visual products\\
+\end{mmlongtable}
+
+\begin{exambox}[Model Recommendation]
+For a high-tech gadget aimed at young professionals on a limited budget:
+
+\begin{itemize}
+\item \sfb{about 50\% to PPC and paid social} for the launch window. The
+      product is new, so nobody is searching for it by name yet --- organic
+      search cannot deliver demand that does not exist.
+\item \sfb{about 30\% to social media marketing}, weighted to Instagram,
+      YouTube and LinkedIn, because young professionals discover technology
+      through video reviews and peer validation.
+\item \sfb{about 20\% to SEO and content} --- comparison articles, specification
+      pages, ``best gadget for X'' content --- as the compounding asset that
+      reduces paid dependence over the following two quarters.
+\end{itemize}
+
+\smallskip
+\textbf{Justify with the intent argument:} PPC and social \emph{create} the
+demand; SEO \emph{harvests} it once it exists. That single sentence is what
+distinguishes a first-class answer from a list.
+\end{exambox}
+
+\begin{summarybox}
+Channel means communication, distribution or service. Every digital channel is
+paid, owned or earned: owned is the foundation, paid the accelerator, earned the
+validator. A campaign is a hub of one quality website fed by spokes, each with a
+single job. Affiliate marketing pays only for delivered results, on CPA, CPL or
+CPC terms, transferring risk at the cost of brand-safety exposure. Channel
+choice is decided by speed, cost model, longevity, buyer intent\ix{buyer intent} and
+predictability --- and a scenario answer must end in a weighted recommendation
+justified by buyer intent.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Tools to Create a Buyer Persona}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Tools to Create Buyer Persona.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What a buyer persona is, and how many a business needs.
+\item The five-step process for building one, in the order the scheme expects.
+\item The seven factor categories to capture, with an illustration throughout.
+\item The persona builder canvas --- four quadrants of questions.
+\item A complete worked persona.
+\item The toolset, and the division of labour between hard data and listening.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[The Most Repeated Ten-Mark Question in This Course]
+The adventure-tourism travel agency scenario is set verbatim in two separate
+papers. Learn the process, the factors, and be ready to invent a named
+example persona on the spot.
+\pyq{CIE-I, 3 Apr 2025 --- 10 M; CIE-I, 16 Apr 2026 --- 10 M}
+\end{keybox}
+
+\section{What a Buyer Persona Is}
+
+\begin{definitionbox}[Buyer Persona]
+A \keyterm{buyer persona} is a semi-fictional, research-based profile of the
+ideal customer --- given a name, a face, a backstory and a set of goals, pain
+points and behaviours --- built from real data about existing customers rather
+than from assumption.
+\end{definitionbox}
+
+The governing rule is that you cannot hit a target you have not defined. The
+working ideal is four to six distinct personas per business --- for a B2B
+purchase, for example, an Executive Sponsor, a Decision Maker and an End User,
+who have different goals and raise different objections about the same product.
+
+\begin{warnbox}[Semi-Fictional, Not Fictional]
+The word ``semi-fictional'' does real work. The \emph{name and the photograph}
+are invented so the profile is memorable and shareable. The \emph{goals, pain
+points, objections and behaviours} are not invented --- they come from surveys,
+analytics, CRM records and review mining. A persona built entirely from
+imagination is a stereotype, and it will mislead every decision downstream.
+\end{warnbox}
+
+\section{The Five-Step Process}
+
+\begin{frameworkbox}[The Official Five Steps]
+1. Research your current customers \ra{} 2. Segment your audience \ra{}
+3. Gather data \ra{} 4. Identify goals and pain points \ra{} 5. Build the
+persona --- then validate and update it continuously.
+\end{frameworkbox}
+
+\begin{enumerate}
+\item \sfb{Research your current customers.} Analyse the best existing clients
+      --- those who buy often, leave reviews and engage with content. Conduct
+      surveys or interviews, online or through post-purchase feedback forms.
+\item \sfb{Segment your audience.} Divide customers into categories based on
+      shared traits. For a travel agency: by travel habits, destination
+      preferences and trip budgets.
+\item \sfb{Gather data.} Use tools such as Google Analytics\ix{Google Analytics} and social media
+      insights to identify patterns in who actually interacts with the website
+      and the social pages --- as distinct from who management imagines does.
+\item \sfb{Identify goals and pain points.} For an adventure-tourism customer,
+      the desire for adventure set directly against safety concerns. Personas
+      are most useful where the goal and the pain point are in tension, because
+      that tension is what the marketing has to resolve.
+\item \sfb{Build the persona.} Give it a name, a photograph and a backstory to
+      make it relatable --- ``Adventurous Ananya'', ``Explorer Ethan'' --- and
+      attach the key data points. Then validate and update it using continuing
+      customer feedback and trend data.
+\end{enumerate}
+
+\section{Factors to Capture}
+
+\begin{mmlongtable}{Persona factors, with an adventure-tourism illustration}{tab:personafactors}%
+{@{}P{0.16\textwidth}P{0.36\textwidth}P{0.38\textwidth}@{}}
+\rowcolor{ocre}\thd{Category} & \thd{Factors to capture} & \thd{Adventure-tourism illustration}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Category} & \thd{Factors to capture} & \thd{Adventure-tourism illustration}\\
+\midrule
+\endhead
+\rlab{Demographics} & Age, gender, income level, occupation, education,
+location, family status & 20--40 years; working professionals and students;
+income sufficient to afford travel; metro-based\\
+\rowcolor{tablealt}
+\rlab{Psychographics} & Values, attitudes, hobbies, aspirations, risk appetite &
+Interest in trekking, scuba diving, skydiving; fitness and outdoor lifestyle;
+risk-taking attitude; prefers unique experiences over luxury\\
+\rlab{Online behaviour} & Platforms used, search patterns, content preference,
+device, booking behaviour & Instagram, YouTube and travel blogs; searches
+``best trekking places''; prefers videos, reels and reviews; books online
+packages via mobile apps\\
+\rowcolor{tablealt}
+\rlab{Category behaviour} & Frequency, budget tier, group against solo,
+preferred variants & Travels two or three times a year; budget against premium;
+solo or small group; mountains, beaches, forests\\
+\rlab{Goals} & What success looks like for them & Unique, thrilling, shareable
+experiences\\
+\rowcolor{tablealt}
+\rlab{Pain points} & What blocks the purchase & Safety concerns, budget
+constraints, lack of reliable information, distrust of agencies\\
+\rlab{Objections} & What they say when they say no & ``Is it safe?'' ``Is the
+guide certified?'' ``What if I have to cancel?''\\
+\end{mmlongtable}
+
+\section{The Persona Builder Canvas}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    q/.style={draw=ocre,line width=0.8pt,minimum width=5.6cm,
+              minimum height=2.55cm,align=left,text width=5.1cm,
+              font=\sffamily\scriptsize,text=slate,inner sep=7pt}]
+
+  \node[q,fill=ocrepale] (q1) at (0,0)      {\textbf{1. BACKGROUND \& GOALS}\\[3pt]
+     What are their business goals and challenges?\\ What is their team
+     structure and job role?};
+  \node[q,fill=white]    (q2) at (5.75,0)   {\textbf{2. INFORMATION SOURCES}\\[3pt]
+     Where do they consume content?\\ Which social channels do they actively
+     use --- and which do they avoid?};
+  \node[q,fill=white]    (q3) at (0,-2.62)  {\textbf{3. MESSAGING \& TOPICS}\\[3pt]
+     Which marketing messages speak to them?\\ What content topics capture
+     their interest?};
+  \node[q,fill=ocrepale] (q4) at (5.75,-2.62){\textbf{4. PURCHASE ROLE \& OBJECTIONS}\\[3pt]
+     How much influence do they have in the decision?\\ What objections do they
+     raise during the sales process?};
+\end{tikzpicture}
+\caption[The persona builder canvas]%
+        {The persona builder canvas. Quadrants 1 and 3 establish who they are
+         and what moves them; quadrants 2 and 4 establish where to reach them
+         and what will stop the sale.}
+\label{fig:personacanvas}
+\end{figure}
+
+\section{A Worked Persona}
+
+\begin{examplebox}[Persona: ``Adventure Arun'']
+\begin{tabular}{@{}>{\sffamily\bfseries\scriptsize\color{slate}}P{0.16\textwidth}P{0.72\textwidth}@{}}
+Name        & Adventure Arun\\
+Age         & 28\\
+Occupation  & IT professional, Bengaluru\\
+Interests   & Trekking, camping, weekend rides\\
+Behaviour   & Follows travel influencers on Instagram and YouTube; researches on
+              travel blogs; books entirely online, usually on mobile, usually
+              three to four weeks ahead\\
+Goal        & Unique, thrilling experiences he can share\\
+Pain points & Safety and affordability; not knowing whether the operator is
+              credible\\
+What wins him & Certified-guide credentials, real customer video testimonials,
+              transparent inclusions, easy cancellation, instalment options\\
+\end{tabular}
+\end{examplebox}
+
+Note what the last row does. ``What wins him'' converts the persona from a
+description into an instruction: each item is a specific asset the marketing
+team must now produce. A persona that does not end in such a list has not
+finished its job.
+
+\section{The Toolset}
+
+\begin{mmlongtable}{Tools for building a buyer persona}{tab:personatools}%
+{@{}P{0.18\textwidth}P{0.36\textwidth}P{0.36\textwidth}@{}}
+\rowcolor{ocre}\thd{Category} & \thd{Tools} & \thd{What they give you}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Category} & \thd{Tools} & \thd{What they give you}\\
+\midrule
+\endhead
+\rlab{Analytics} & Google Analytics 4, Google Search Console & Demographics,
+interests, devices, locations, acquisition channels, on-site behaviour\\
+\rowcolor{tablealt}
+\rlab{Social insights} & Meta Audience Insights, Instagram Insights, LinkedIn
+Page Analytics, X Analytics, YouTube Studio & Follower demographics, active
+hours, content resonance\\
+\rlab{Survey and voice of customer} & Google Forms, Typeform, SurveyMonkey,
+Hotjar polls, post-purchase feedback forms & Stated goals, objections and
+satisfaction\\
+\rowcolor{tablealt}
+\rlab{Persona builders} & HubSpot Make My Persona, Xtensio, Userforge, Semrush
+Persona & A structured template and a shareable persona document\\
+\rlab{Behavioural and qualitative mining} & Quora, Reddit, Amazon reviews,
+YouTube comments, competitor review sections & The exact behavioural problems
+and questions the audience is trying to solve, in their own words\\
+\rowcolor{tablealt}
+\rlab{CRM and sales data} & HubSpot, Zoho, Salesforce, sales-call notes & Real
+objections, deal-cycle length, decision roles\\
+\end{mmlongtable}
+
+\begin{keybox}[Hard Data Tells You Who; Social Listening Tells You Why]
+Use Google Analytics and Meta Audience Insights for hard data on age, location
+and income. Use Quora, Reddit and Amazon reviews to extract the behavioural
+material --- pain points, common questions, motivations, desired outcomes,
+objections and influences --- that the audience is actively trying to resolve.
+Neither source substitutes for the other: analytics cannot tell you a motive,
+and a forum thread cannot tell you a market size.
+\end{keybox}
+
+\begin{summarybox}
+A buyer persona is a semi-fictional, research-based profile of the ideal
+customer; four to six per business is the working ideal. Build it in five steps
+--- research current customers, segment, gather data, identify goals and pain
+points, then construct and continuously validate. Capture seven categories of
+factor: demographics, psychographics, online behaviour, category behaviour,
+goals, pain points and objections. The canvas organises the questions into
+background and goals, information sources, messaging and topics, and purchase
+role and objections. Analytics and social insights supply who; surveys, review
+mining and CRM records supply why. A finished persona ends in a list of assets
+the team must produce.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Competitor Research Tools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Competitor Research Tools.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The seven things to look for in a competitor analysis.
+\item The toolset, and what each tool is specifically good at.
+\item Why the content gap\ix{content gap} is the most valuable output of the exercise.
+\end{itemize}
+\end{learningoutcomes}
+
+``Know the competition'' is the second pillar of digital strategy (\S\,2.1).
+Competition online can come from around the corner or around the globe, so the
+analysis must never be limited to local rivals.
+
+\section{What to Look For}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    it/.style={draw=ocre!65,line width=0.7pt,fill=ocrepale,rounded corners=3pt,
+               align=center,text width=2.55cm,inner sep=4pt,
+               font=\sffamily\scriptsize,text=slate}]
+  \node[draw=slate,line width=1.1pt,fill=white,circle,minimum size=2.35cm,
+        align=center,font=\sffamily\bfseries\scriptsize,text=slate] (c) at (0,0)
+        {COMPETITOR\\ ANALYSIS};
+  \foreach \ang/\n/\lbl in {%
+      103/a/{Organic and paid keywords},
+      52/b/{Backlink profile},
+      0/c2/{\textbf{Content gaps}},
+     -52/d/{Traffic sources and volume},
+    -103/e/{Social share of voice},
+     -155/f/{Ad creatives, offers, landing pages},
+     155/g/{Pricing and positioning}}{
+     \node[it] (\n) at (\ang:3.9cm) {\lbl};
+     \draw[ocre!65,line width=0.7pt] (\n) -- (c);}
+  % highlight the content-gap node
+  \node[draw=greenok,line width=1.1pt,fill=greenpale,rounded corners=3pt,
+        align=center,text width=2.55cm,inner sep=4pt,
+        font=\sffamily\bfseries\scriptsize,text=greenok] at (0:3.9cm)
+        {Content gaps\\[1pt]{\mdseries\scriptsize where opportunity lives}};
+\end{tikzpicture}
+\caption[What to look for in a competitor analysis]%
+        {The seven dimensions of competitor analysis. Six describe what rivals
+         are doing; the seventh --- the content gap --- describes what none of
+         them is doing, and that is where the opportunity is.}
+\label{fig:competitor}
+\end{figure}
+
+\begin{itemize}
+\item Which keywords they rank for organically, and which they pay for.
+\item Their \sfb{backlink profile} --- who links to them, and why.
+\item Their \sfb{content gaps} --- topics with demonstrated demand that nobody
+      has covered well. This is where opportunity lives.
+\item Their traffic sources and volume, and how these are trending.
+\item Their \sfb{social share of voice} --- conversations about them against
+      conversations about you.
+\item Their advertising creatives, offers and landing pages.
+\item Their pricing, positioning and value proposition\ix{value proposition}.
+\end{itemize}
+
+\section{The Toolset}
+
+\begin{mmlongtable}{Competitor research tools}{tab:competitortools}%
+{@{}P{0.27\textwidth}P{0.66\textwidth}@{}}
+\rowcolor{ocre}\thd{Tool} & \thd{Primary use}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Tool} & \thd{Primary use}\\
+\midrule
+\endhead
+\rlab{SEMrush} & All-round competitive intelligence --- organic and paid
+keywords, traffic estimates, advertising copy, backlink gap, Keyword Magic Tool\\
+\rowcolor{tablealt}
+\rlab{Ahrefs} & Backlink analysis on the deepest link index; Content Gap and Top
+Pages reports\\
+\rlab{Moz / Link Explorer} & Domain Authority and Page Authority scoring, link
+metrics\\
+\rowcolor{tablealt}
+\rlab{SimilarWeb} & Traffic estimates, traffic sources, audience overlap,
+referral analysis\\
+\rlab{SpyFu} & Historical competitor PPC keyword and advertising-spend data\\
+\rowcolor{tablealt}
+\rlab{BuzzSumo} & Which content in a topic earned the most shares and backlinks
+--- content-gap discovery\\
+\rlab{Google Trends} & Relative search interest over time, seasonality,
+regional variation, rising queries\\
+\rowcolor{tablealt}
+\rlab{Google Keyword Planner} & Search volume and competition data straight from
+the advertising platform\\
+\rlab{Meta Ad Library, Google Ads Transparency Center} & The competitor's live
+advertising creatives, free of charge\\
+\rowcolor{tablealt}
+\rlab{Social listening --- Hootsuite, Brandwatch, Mention, Sprout Social} &
+Share of voice, sentiment, brand mention tracking\\
+\end{mmlongtable}
+
+\section{Turning Findings into Decisions}
+
+A competitor report that ends in observations has failed. Each finding should
+resolve into one of three decisions.
+
+\begin{itemize}
+\item \sfb{Emulate} --- they are doing something that works, and it is
+      transferable. Copy the mechanism, not the creative.
+\item \sfb{Avoid} --- they are doing something that visibly is not working.
+      Their sunk cost is your free experiment.
+\item \sfb{Occupy} --- nobody is doing it, and there is demand. This is the
+      content gap, and it is the only one of the three that produces a durable
+      advantage, because the other two put you where competitors already are.
+\end{itemize}
+
+\begin{summarybox}
+Competitor analysis examines organic and paid keywords, backlinks, content gaps,
+traffic sources and trends, social share of voice\ix{share of voice}, advertising creatives and
+landing pages, and pricing and positioning. SEMrush\ix{SEMrush} and Ahrefs carry the
+keyword and backlink work, SimilarWeb the traffic estimates, SpyFu the
+historical advertising data, BuzzSumo the content performance, Google Trends\ix{Google Trends} the
+seasonality, and the ad transparency libraries the live creatives at no cost.
+Every finding must resolve into emulate, avoid or occupy --- and only occupying
+a genuine content gap produces durable advantage.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Website Analysis Tools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Website Analysis Tools.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The two halves of website analysis: technical health and behavioural
+      insight.
+\item The toolset by category, and what each tool actually measures.
+\item The six mechanisms by which website analysis improves customer experience
+      and conversion.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[High Yield]
+This chapter answers a compulsory Question~2 sub-division in the Semester End
+Examination.
+\pyq{SEE, Jun/Jul 2025, Q2a --- 8 M}
+\end{keybox}
+
+\section{The Two Halves}
+
+Website analysis has two halves, and a complete answer names both. \sfb{Technical
+health} asks whether the site works --- whether it loads fast, whether it can be
+crawled and indexed, whether links resolve. \sfb{Behavioural insight} asks what
+people do once it works --- where they hesitate, where they scroll, where they
+abandon.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    half/.style={draw=ocre,line width=1pt,rounded corners=4pt,
+                 minimum width=5.35cm,minimum height=1.05cm,
+                 align=center,font=\sffamily\bfseries\small,text=slate},
+    lst/.style={align=left,text width=5.0cm,font=\sffamily\scriptsize,
+                text=slate,anchor=north}]
+  \node[half,fill=ocrepale] (t) at (0,0)     {TECHNICAL HEALTH};
+  \node[half,fill=deepbluepale,draw=deepblue] (b) at (5.7,0) {BEHAVIOURAL INSIGHT};
+  \node[lst] at (0,-0.72) {%
+     \textit{does the site work?}\\[3pt]
+     load speed and Core Web Vitals\\
+     crawlability and indexing\\
+     broken links and redirect chains\\
+     duplicate titles and missing meta\\
+     code validity and accessibility};
+  \node[lst] at (5.7,-0.72) {%
+     \textit{what do people do on it?}\\[3pt]
+     acquisition channels and sessions\\
+     engagement and funnel drop-off\\
+     heatmaps, scroll maps, click maps\\
+     session recordings and rage clicks\\
+     A/B and multivariate test results};
+  \node[draw=slate,line width=0.9pt,fill=white,rounded corners=3pt,
+        minimum width=11.05cm,align=center,font=\sffamily\bfseries\scriptsize,
+        text=slate,anchor=north] at (2.85,-3.35)
+     {a diagnosis, not a dashboard: \textnormal{\itshape one named
+      friction point and one change to test}};
+\end{tikzpicture}
+\caption[The two halves of website analysis]%
+        {Technical health and behavioural insight answer different questions.
+         Reporting either alone produces numbers without a decision.}
+\label{fig:websiteanalysis}
+\end{figure}
+
+\section{The Toolset}
+
+\begin{mmlongtable}{Website analysis tools}{tab:websitetools}%
+{@{}P{0.29\textwidth}P{0.64\textwidth}@{}}
+\rowcolor{ocre}\thd{Tool} & \thd{What it analyses}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Tool} & \thd{What it analyses}\\
+\midrule
+\endhead
+\rlab{Google Analytics 4} & Sessions, users, acquisition channels, engagement,
+conversions, funnels, audience demographics\\
+\rowcolor{tablealt}
+\rlab{Google Search Console} & Impressions, clicks, average position, indexing
+status, Core Web Vitals, crawl errors\\
+\rlab{Google PageSpeed Insights / Lighthouse} & Load speed, Core Web Vitals
+(LCP, INP, CLS), accessibility, SEO and best-practice audits\\
+\rowcolor{tablealt}
+\rlab{GTmetrix / Pingdom} & Page load waterfall, asset weight, server response
+time\\
+\rlab{Hotjar / Microsoft Clarity / Crazy Egg} & Heatmaps, scroll maps, click
+maps and session recordings --- what users actually do\\
+\rowcolor{tablealt}
+\rlab{Screaming Frog SEO Spider} & Full technical crawl --- broken links,
+duplicate titles, redirect chains, missing meta\\
+\rlab{SEMrush Site Audit / Ahrefs Site Audit} & Automated technical SEO health
+score and prioritised issue list\\
+\rowcolor{tablealt}
+\rlab{VWO / Optimizely} & A/B testing and multivariate testing of pages and
+elements\\
+\rlab{Google Tag Manager} & Central deployment and management of all tracking
+tags without touching code\\
+\rowcolor{tablealt}
+\rlab{W3C Validator / WAVE} & Code validity and accessibility conformance\\
+\end{mmlongtable}
+
+\section{How Website Analysis Improves Experience and Conversion}
+
+\begin{exambox}[Model Answer --- 8 Marks]
+\pyq{SEE, Jun/Jul 2025, Q2a --- 8 M}
+Name the tools by category, then give the six mechanisms. The mechanisms, not
+the tool names, are what earn the marks.
+
+\begin{enumerate}
+\item \sfb{Diagnoses friction.} Heatmaps and session recordings expose where
+      users hesitate, rage-click or abandon --- behaviour no aggregate metric
+      would reveal.
+\item \sfb{Fixes speed.} Slow pages are the single largest cause of
+      abandonment, so speed audits convert directly into retained sessions.
+\item \sfb{Reveals the drop-off point in the funnel.} Funnel reports show which
+      step loses people, so the fix is targeted rather than cosmetic.
+\item \sfb{Validates changes objectively} through A/B testing\ix{A/B testing} instead of
+      opinion or seniority.
+\item \sfb{Segments experience by device and channel}, exposing faults that
+      averages hide --- a mobile-only checkout bug, for instance, is invisible
+      in a blended conversion rate.
+\item \sfb{Aligns content with intent} by showing which pages attract traffic
+      that never converts --- the classic ``traffic without intent'' problem.
+\end{enumerate}
+\end{exambox}
+
+\begin{summarybox}
+Website analysis splits into technical health --- speed, Core Web Vitals\ix{Core Web Vitals},
+crawlability, broken links, code validity --- and behavioural insight ---
+acquisition, engagement, funnels, heatmaps, recordings and split tests. Google
+Analytics 4 and Search Console are the base layer; PageSpeed Insights\ix{PageSpeed Insights} and
+GTmetrix cover performance; Hotjar and Clarity cover behaviour; Screaming Frog\ix{Screaming Frog}
+and the site-audit tools cover crawl\ix{crawl} health; VWO and Optimizely run the
+experiments; Tag Manager deploys the tracking. Analysis improves conversion by
+diagnosing friction, fixing speed, locating funnel drop-off, validating changes
+by test, segmenting by device and channel, and aligning content with intent.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Content Marketing --- Concepts and Strategies}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Content Marketing: Content Marketing Concepts \& Strategies.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item What content marketing is, and the one rule that governs it.
+\item A century of evidence that the strategy predates the internet.
+\item The compounding traffic curve, and why it beats the advertising sawtooth.
+\item The five traits that distinguish elite content marketers.
+\item The seven-point quality gate for content --- and the second accepted list.
+\end{itemize}
+\end{learningoutcomes}
+
+\section{Definition and the Core Idea}
+
+\begin{definitionbox}[Content Marketing]
+\keytermas{Content marketing}{content marketing} is a strategic marketing approach focused on
+creating and distributing valuable, relevant and consistent content to attract
+and retain a clearly defined audience --- and, ultimately, to drive profitable
+customer action.
+\end{definitionbox}
+
+Four words in that definition are load-bearing. \emph{Valuable} means the
+audience would want it even if the brand were removed from it.
+\emph{Relevant} means it connects to what they are doing now.
+\emph{Consistent} means published to a rhythm, because a single asset does not
+compound. And \emph{profitable customer action} means the objective is
+commercial --- content marketing is not publishing for its own sake.
+
+\begin{keybox}[The Governing Principle]
+\textbf{Don't sell the product; solve the problem.} Great content integrates
+the product into the customer's natural pursuit of their own interests, rather
+than interrupting that pursuit to talk about the product.
+\end{keybox}
+
+\section{A Century of Proof}
+
+Content marketing is routinely presented as a consequence of the internet. It
+is not. The three canonical examples all predate it by decades.
+
+\begin{mmlongtable}{Content marketing before the internet}{tab:centuryproof}%
+{@{}P{0.09\textwidth}P{0.30\textwidth}P{0.55\textwidth}@{}}
+\rowcolor{ocre}\thd{Year} & \thd{Example} & \thd{Strategy}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Year} & \thd{Example} & \thd{Strategy}\\
+\midrule
+\endhead
+\rlab{1895} & John Deere's \textit{The Furrow} & Educate the farmer --- a
+magazine about farming, not about tractors\\
+\rowcolor{tablealt}
+\rlab{1900} & The Michelin Guide & Inspire the driver to travel farther for a
+three-star meal, creating the need for more tyres\\
+\rlab{1930s} & Soap operas & Entertain the homemaker with radio dramas sponsored
+by soap companies\\
+\end{mmlongtable}
+
+\begin{keybox}[The Synthesis]
+The medium changes. The strategy does not. Michelin did not advertise tyres; it
+made driving farther desirable. John Deere did not advertise ploughs; it made
+farmers better at farming. That is still exactly what content marketing does.
+\end{keybox}
+
+\section{The Compounding Traffic Curve}
+
+Paid advertising produces a sawtooth: spend, spike, stop, collapse. Content
+produces a curve that starts slower and then rises continuously, because each
+asset keeps earning traffic long after it is published, and new assets stack on
+top of old ones.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=12.2cm, height=6.1cm,
+  font=\sffamily\footnotesize,
+  xlabel={months since launch}, ylabel={monthly traffic},
+  xlabel style={font=\sffamily\scriptsize,text=slate},
+  ylabel style={font=\sffamily\scriptsize,text=slate},
+  axis lines=left,
+  axis line style={rulegrey},
+  tick label style={font=\sffamily\scriptsize,text=slatelight},
+  xmin=0, xmax=18, ymin=0, ymax=115,
+  ytick=\empty, xtick={0,3,6,9,12,15,18},
+  clip=false,
+  legend style={font=\sffamily\scriptsize,draw=rulegrey,fill=white,
+                at={(0.02,0.97)},anchor=north west,text=slate}]
+
+  % paid advertising: sawtooth that collapses whenever spend pauses
+  \addplot[deepblue,thick,const plot] coordinates {
+    (0,0) (1,42) (2,44) (3,43) (4,4) (5,3)
+    (6,45) (7,46) (8,44) (9,4) (10,3)
+    (11,44) (12,46) (13,45) (14,4) (15,3) (16,44) (17,45) (18,44)};
+  \addlegendentry{paid advertising --- rented}
+
+  % content: compounding
+  \addplot[ocre,very thick,smooth,domain=0:18,samples=90] {0.335*x^2};
+  \addlegendentry{content --- owned}
+
+  \node[anchor=west,text=deepblue,font=\sffamily\scriptsize,align=left]
+    at (axis cs:4.15,17) {spend pauses,\\ traffic collapses};
+  \node[anchor=east,text=ocredark,font=\sffamily\scriptsize,align=right]
+    at (axis cs:17.6,103) {each asset keeps\\ earning; new assets\\ stack on old};
+\end{axis}
+\end{tikzpicture}
+\caption[The compounding content curve against the advertising sawtooth]%
+        {Paid advertising buys a plateau that ends with the budget. Content buys
+         a curve. Content is slower to the first result and the only one of the
+         two that accumulates.}
+\label{fig:compounding}
+\end{figure}
+
+\begin{keybox}[The Apple Tree Rule]
+It takes time to plant the seed and grow the tree. But once mature, that single
+tree continually bears fruit for years, without requiring anyone to buy the
+apples. Advertising is a rented treadmill; content is an owned asset.
+\end{keybox}
+
+\section{The Five Traits of Elite Content Marketers}
+
+\begin{enumerate}
+\item \sfb{Documented strategy} --- they operate from a written plan, not from
+      intuition.
+\item \sfb{Dedicated leadership} --- a specific named person is accountable for
+      the content engine.
+\item \sfb{Expanded tactics} --- they use a wider variety of content formats
+      than their peers.
+\item \sfb{Multi-platform distribution} --- they leverage more channels than
+      their peers.
+\item \sfb{Budget allocation} --- they commit a higher percentage of the total
+      marketing budget to content.
+\end{enumerate}
+
+\section{Characteristics of Good Content --- The Seven-Point Quality Gate}
+
+\begin{keybox}[Guaranteed Short Question]
+Two slightly different lists are accepted; learn the first and know the second.
+\pyq{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026; SEE, Jun/Jul 2025 --- 2 M each}
+\end{keybox}
+
+\begin{mmlongtable}{The seven-point content quality gate}{tab:qualitygate}%
+{@{}P{0.20\textwidth}P{0.73\textwidth}@{}}
+\rowcolor{ocre}\thd{Trait} & \thd{The diagnostic question}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Trait} & \thd{The diagnostic question}\\
+\midrule
+\endhead
+\rlab{Credible}     & Will they believe it?\\
+\rowcolor{tablealt}
+\rlab{Shareable}    & Will the audience want to share it?\\
+\rlab{Useful or fun} & Does it provide genuine utility or entertainment?\\
+\rowcolor{tablealt}
+\rlab{Interesting}  & Does it break through apathy? --- necessarily subjective\\
+\rlab{Relevant}     & Does it connect to their current context?\\
+\rowcolor{tablealt}
+\rlab{Different}    & Does it stand out from the noise?\\
+\rlab{On-brand}     & Is it authentically aligned with our identity?\\
+\end{mmlongtable}
+
+\begin{exambox}[The Second Accepted List]
+The 2026 scheme of valuation accepted any four of: \textbf{relevant, accurate,
+engaging, clear, consistent, valuable}. If the question says ``mention any
+four'', either list scores full marks --- but the seven-point gate above is the
+one taught in the lecture notes, and it is the safer answer because each trait
+carries a diagnostic question you can expand if asked to explain.
+\end{exambox}
+
+\begin{summarybox}
+Content marketing creates and distributes valuable, relevant, consistent content
+to attract and retain a defined audience and drive profitable action; the rule
+is solve the problem, don't sell the product. The strategy predates the internet
+--- John Deere in 1895, Michelin in 1900, sponsored radio drama in the 1930s.
+Advertising produces a sawtooth that collapses when spending stops; content
+produces a compounding curve, which is the apple tree rule. Elite practitioners
+share five traits: a documented strategy, dedicated leadership, expanded
+tactics, multi-platform distribution and higher budget share. Good content is
+credible, shareable, useful or fun, interesting, relevant, different and
+on-brand.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Planning, Creating, Distributing and Promoting Content}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Planning, Creating, Distributing \& Promoting Content.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The eight-step content marketing process, in three phases.
+\item Each step in detail: goals, audience mapping, ideation, creation,
+      distribution, amplification, evaluation, improvement.
+\item How to map content to funnel stage and to the 5A customer path.
+\item The complete content flywheel\ix{content flywheel}.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[The Framework That Answers Every Scenario Question]
+Every ``design a content marketing strategy for company X'' question in this
+course is answered by walking through these eight steps in order. Memorise the
+step names.
+\pyq{CIE-I, 3 Apr 2025 --- 10 M; CIE-I, 1 Jul 2024 --- 10 M; CIE-I, 16 Apr 2026 --- 10 M}
+\end{keybox}
+
+\section{The Eight Steps in Three Phases}
+
+\begin{frameworkbox}[The Official Scheme Answer]
+1. Goal Setting \ra{} 2. Audience Mapping \ra{} 3. Content Ideation and
+Planning \ra{} 4. Content Creation \ra{} 5. Content Distribution \ra{}
+6. Content Amplification \ra{} 7. Content Marketing Evaluation \ra{}
+8. Content Marketing Improvement --- and then back to step 1.
+
+\smallskip
+It is a cycle, not a checklist.
+\end{frameworkbox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    st/.style={draw=ocre,line width=0.8pt,fill=white,rounded corners=3pt,
+               minimum height=0.82cm,align=center,text width=2.35cm,
+               font=\sffamily\scriptsize,text=slate},
+    ph/.style={rounded corners=4pt,inner sep=8pt,align=center,
+               font=\sffamily\bfseries\scriptsize}]
+
+  % ---- phase bands
+  \fill[ocrepale,rounded corners=5pt]      (-0.05,-0.62) rectangle (7.75,0.62);
+  \fill[deepbluepale,rounded corners=5pt]  (-0.05,-2.62) rectangle (7.75,-1.38);
+  \fill[greenpale,rounded corners=5pt]     (-0.05,-4.62) rectangle (5.2,-3.38);
+
+  \node[anchor=west,text=ocredark,font=\sffamily\bfseries\scriptsize]
+     at (8.05,0)     {PHASE 1 --- ARCHITECTURE};
+  \node[anchor=west,text=deepblue,font=\sffamily\bfseries\scriptsize]
+     at (8.05,-2)    {PHASE 2 --- MECHANICS};
+  \node[anchor=west,text=greenok,font=\sffamily\bfseries\scriptsize]
+     at (8.05,-4)    {PHASE 3 --- TELEMETRY};
+  \node[anchor=west,text=slatelight,font=\sffamily\scriptsize\itshape]
+     at (8.05,-0.42) {why, for whom, and what};
+  \node[anchor=west,text=slatelight,font=\sffamily\scriptsize\itshape]
+     at (8.05,-2.42) {build it, ship it, spread it};
+  \node[anchor=west,text=slatelight,font=\sffamily\scriptsize\itshape]
+     at (8.05,-4.42) {did it work, and what next};
+
+  % ---- steps
+  \node[st] (s1) at (1.2,0)    {\textbf{1}\ \ Goal setting};
+  \node[st] (s2) at (3.85,0)   {\textbf{2}\ \ Audience mapping};
+  \node[st] (s3) at (6.5,0)    {\textbf{3}\ \ Ideation \& planning};
+  \node[st] (s4) at (1.2,-2)   {\textbf{4}\ \ Creation};
+  \node[st] (s5) at (3.85,-2)  {\textbf{5}\ \ Distribution};
+  \node[st] (s6) at (6.5,-2)   {\textbf{6}\ \ Amplification};
+  \node[st] (s7) at (1.2,-4)   {\textbf{7}\ \ Evaluation};
+  \node[st] (s8) at (3.85,-4)  {\textbf{8}\ \ Improvement};
+
+  \foreach \a/\b in {s1/s2,s2/s3,s4/s5,s5/s6,s7/s8}{
+     \draw[-{Latex[length=2mm]},ocre,line width=0.85pt] (\a)--(\b);}
+  \draw[-{Latex[length=2mm]},ocre,line width=0.85pt]
+     (s3.south) -- ++(0,-0.42) -| (s4.north);
+  \draw[-{Latex[length=2mm]},ocre,line width=0.85pt]
+     (s6.south) -- ++(0,-0.42) -| (s7.north);
+
+  % ---- the return loop
+  \draw[-{Latex[length=2mm]},ocredark,line width=0.85pt,dashed]
+     (s8.east) -- ++(0.9,0) -- ++(0,4.9) -- (s1.north);
+  \node[anchor=south,text=ocredark,font=\sffamily\scriptsize\itshape]
+     at (2.5,0.95) {the cycle restarts with revised goals};
+\end{tikzpicture}
+\caption[The eight-step content marketing process]%
+        {The eight steps in three phases. Steps 7 and 8 are not a report at the
+         end --- they are the input to the next cycle's step 1.}
+\label{fig:eightsteps}
+\end{figure}
+
+\begin{mmlongtable}{The three phases}{tab:threephases}%
+{@{}P{0.24\textwidth}P{0.36\textwidth}P{0.33\textwidth}@{}}
+\rowcolor{ocre}\thd{Phase} & \thd{Steps} & \thd{Purpose}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Phase} & \thd{Steps} & \thd{Purpose}\\
+\midrule
+\endhead
+\rlab{Phase 1 --- Architecture} & Goal setting, audience mapping, ideation and
+planning & Decide why, for whom, and what\\
+\rowcolor{tablealt}
+\rlab{Phase 2 --- Mechanics} & Creation, distribution, amplification &
+Actually build it, and get it in front of people\\
+\rlab{Phase 3 --- Telemetry} & Evaluation, improvement & Find out whether it
+worked, and make the next cycle better\\
+\end{mmlongtable}
+
+\section{Step 1 --- Goal Setting}
+
+The primary objective always splits into two branches, and every subsequent
+decision inherits from this split.
+
+\begin{itemize}
+\item \sfb{Brand-building objective} --- awareness, recall, reputation,
+      authority, share of voice.
+\item \sfb{Sales-growth objective} --- leads, conversions, revenue, repeat
+      purchase.
+\end{itemize}
+
+Three reflective questions found the goal: what content will be valuable to the
+company; how can the content tell a story about the brand; and how will the
+content marketing strategy actually be executed.
+
+\begin{warnbox}[The First Step Is Not ``Create Content'']
+Asked ``what is the first step of content marketing?'', the official answer is
+\textbf{define goals and identify the target audience}. Answering ``create
+content'' scores nothing.
+\pyq{CIE-I, 16 Apr 2026 --- 2 M}
+\end{warnbox}
+
+\section{Step 2 --- Audience Mapping}
+
+Audience mapping is built outward from internal psychology, not inward from
+demographics, and the order matters.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \fill[ocre!12] (0,0) circle (3.5);
+  \fill[ocre!25] (0,0) circle (2.35);
+  \fill[ocre!45] (0,0) circle (1.2);
+  \draw[ocre,line width=0.8pt] (0,0) circle (3.5);
+  \draw[ocre,line width=0.8pt] (0,0) circle (2.35);
+  \draw[ocre,line width=0.8pt] (0,0) circle (1.2);
+
+  \node[text=slate,font=\sffamily\bfseries\scriptsize,align=center] at (0,0)
+     {1. ANXIETIES\\ \& DESIRES};
+  \node[text=slate,font=\sffamily\bfseries\scriptsize,align=center] at (0,1.78)
+     {2. PAIN POINTS};
+  \node[text=slate,font=\sffamily\bfseries\scriptsize,align=center] at (0,2.95)
+     {3. PROFILE \& PERSONA};
+
+  \node[anchor=west,text=slatelight,font=\sffamily\scriptsize,align=left,
+        text width=4.9cm] at (4.0,1.3)
+     {\textbf{The order is the point.}\\[3pt]
+      The psychological foundation sits at the core; the pain points are how it
+      manifests as real problems; the persona is only the visible artefact
+      built on top.};
+  \node[anchor=west,text=warnred,font=\sffamily\scriptsize,align=left,
+        text width=4.9cm] at (4.0,-1.35)
+     {\textbf{The common failure.}\\[3pt]
+      Most failed content strategies invert this --- starting from a demographic
+      and never reaching the anxiety.};
+\end{tikzpicture}
+\caption[The three layers of audience mapping]%
+        {Audience mapping works from the inside out. Chapter~4 gives the full
+         persona method that produces the outermost layer.}
+\label{fig:audiencemapping}
+\end{figure}
+
+\section{Step 3 --- Content Ideation and Planning}
+
+Ideation must be constrained by a disciplined roadmap, or it degenerates into
+random posting. Four layers produce the plan.
+
+\begin{mmlongtable}{The four layers of the content plan}{tab:fourlayers}%
+{@{}P{0.20\textwidth}P{0.73\textwidth}@{}}
+\rowcolor{ocre}\thd{Layer} & \thd{Output}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Layer} & \thd{Output}\\
+\midrule
+\endhead
+\rlab{Strategic layer}  & The content theme --- the territory the brand will own\\
+\rowcolor{tablealt}
+\rlab{Structural layer} & The content formats and mix --- which media, in what
+ratio\\
+\rlab{Temporal layer}   & The storyline and calendar --- what publishes when, and
+in what narrative order\\
+\rowcolor{tablealt}
+\rlab{Result}           & \textbf{The content road map}\\
+\end{mmlongtable}
+
+\section{Step 4 --- Content Creation}
+
+The pivot question is who creates the content, and when. Two resource branches
+feed a single production schedule: in-house creators and external agencies.
+In-house wins on brand authenticity and subject knowledge; agencies win on
+capacity, production quality and speed.
+
+\subsection{Aligning format to funnel stage}
+
+\begin{mmlongtable}{Content format by funnel stage}{tab:formatfunnel}%
+{@{}P{0.20\textwidth}P{0.44\textwidth}P{0.29\textwidth}@{}}
+\rowcolor{ocre}\thd{Stage} & \thd{Formats} & \thd{KPI}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Stage} & \thd{Formats} & \thd{KPI}\\
+\midrule
+\endhead
+\rlab{Awareness} & Infographics, social videos, podcasts & Reach and shares\\
+\rowcolor{tablealt}
+\rlab{Engagement} & How-to blogs, video tutorials & Dwell time and video views\\
+\rlab{Evaluation} & Case studies, e-books, whitepapers & Leads and downloads\\
+\rowcolor{tablealt}
+\rlab{Purchase and retention} & Newsletters, native advertising, product updates
+& Conversion and open rates\\
+\end{mmlongtable}
+
+\subsection{Anatomy of a top-ranking page}
+
+\begin{itemize}
+\item \sfb{H1 title} --- click-worthy, with the exact-match keyword.
+\item \sfb{Introduction} --- comprehensive, answering the user's core intent
+      immediately rather than after four paragraphs of preamble.
+\item \sfb{Structure} --- H2 and H3 subheadings containing long-tail keyword\ix{long-tail keyword}
+      variants.
+\item \sfb{Formatting} --- short, scannable paragraphs and bulleted lists.
+\item \sfb{Rich media} --- embedded videos and infographics, to increase dwell
+      time.
+\item \sfb{Architecture} --- internal links to keep users in your ecosystem,
+      plus credible outbound links to build trust.
+\end{itemize}
+
+\section{Step 5 --- Content Distribution}
+
+Distribution runs on the owned, paid and earned trinity of \S\,3.2. Choose the
+mix using the distribution matrix below, which trades predictability against
+lifespan.
+
+\begin{mmlongtable}{The distribution ecosystem matrix}{tab:distribution}%
+{@{}P{0.17\textwidth}P{0.17\textwidth}P{0.17\textwidth}P{0.40\textwidth}@{}}
+\rowcolor{ocre}\thd{Channel} & \thd{Predictability} & \thd{Lifespan} & \thd{Core characteristics}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Channel} & \thd{Predictability} & \thd{Lifespan} & \thd{Core characteristics}\\
+\midrule
+\endhead
+\rlab{Google SEO} & High & Infinite & High buyer intent, search-driven\\
+\rowcolor{tablealt}
+\rlab{YouTube} & Medium & Long & Dual search-and-social algorithm; massive
+visual trust\\
+\rlab{Social media} & Low & Short --- hours & Flatlining traffic curve; relies
+on viral spikes\\
+\rowcolor{tablealt}
+\rlab{E-mail} & High & Medium & Direct ownership; highest conversion and
+retention\\
+\end{mmlongtable}
+
+\section{Step 6 --- Content Amplification}
+
+Amplification creates compounding momentum by activating network effects. The
+central question is how to leverage content assets and interact with customers.
+Three nodes answer it.
+
+\begin{enumerate}
+\item \sfb{Creating communities} --- owned groups, forums and user communities
+      that redistribute content for you.
+\item \sfb{Use of buzzers} --- employees, partners and enthusiasts who seed and
+      share content early, before any algorithm has decided whether it deserves
+      reach.
+\item \sfb{Use of influencers} --- borrowing the trust of established opinion
+      leaders (\S\,1.9.5).
+\end{enumerate}
+
+\section{Mapping Content to the 5A Customer Path}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    a/.style={draw=ocre,line width=0.9pt,fill=ocrepale,
+              signal,signal to=east,signal pointer angle=115,
+              minimum height=1.05cm,text width=1.55cm,align=center,
+              font=\sffamily\bfseries\scriptsize,text=slate,inner sep=3pt}]
+  \foreach \i/\lbl/\req/\x in {%
+      1/AWARE/{visible}/0,
+      2/APPEAL/{relatable}/2.25,
+      3/ASK/{searchable}/4.5,
+      4/ACT/{actionable}/6.75,
+      5/ADVOCATE/{shareable}/9.0}{
+    \node[a] at (\x,0) {\lbl};
+    \node[anchor=north,text=ocredark,font=\sffamily\scriptsize\itshape]
+      at (\x+0.15,-0.68) {\req};}
+  \node[anchor=north,text=slate,font=\sffamily\scriptsize,align=center,
+        text width=12cm] at (4.6,-1.35)
+    {found where attention already is \ \textbullet\ \ feels like it is about
+     them \ \textbullet\ \ answers what they type\\
+     makes the next step obvious \ \textbullet\ \ worth passing on};
+\end{tikzpicture}
+\caption[Content requirements along the 5A customer path]%
+        {The 5A path. Each stage imposes a different requirement on the content,
+         and content that satisfies one stage will not satisfy the next.}
+\label{fig:fivea}
+\end{figure}
+
+\begin{examplebox}[A Content-Driven Customer Journey]
+\begin{tabular}{@{}>{\sffamily\bfseries\scriptsize\color{slate}}P{0.19\textwidth}P{0.33\textwidth}P{0.36\textwidth}@{}}
+\textcolor{ocre}{\thd{}} & \multicolumn{1}{@{}l}{\sffamily\bfseries\scriptsize\color{slate}What the customer thinks}
+ & \multicolumn{1}{@{}l}{\sffamily\bfseries\scriptsize\color{slate}What they consume}\\
+\midrule
+Problem aware & ``The kids need something to climb on.'' & Searches ``best home
+climbing equipment''\\
+Solution research & ``Mini jungle gyms exist.'' & Reads a ``top ten jungle
+gyms'' blog post\\
+Product evaluation & ``Will my oldest fit?'' & Watches a video product review\\
+Purchase & ``This model works.'' & Reads marketplace reviews and buys\\
+\end{tabular}
+
+\smallskip
+\textbf{The architect's note:} the brand must be intentionally present at every
+stepping stone. If your content is not there, a competitor's is.
+\end{examplebox}
+
+\section{Steps 7 and 8 --- Evaluation and Improvement}
+
+The evaluation question is how successful the content marketing campaign was,
+and it is answered through two measurement protocols: tracking specific
+content-marketing metrics --- KPIs such as traffic, engagement rate, lead
+generation and conversion tied to individual assets --- and determining overall
+objective achievement, the holistic impact on brand awareness, reputation and
+revenue, which loops back to the brand-building and sales-growth goals set in
+step 1.
+
+Improvement then pulls on exactly two levers.
+
+\begin{itemize}
+\item \sfb{Lever 1 --- content theme change and improvement}, which adjusts the
+      architecture of Phase 1.
+\item \sfb{Lever 2 --- distribution and amplification improvement}, which
+      adjusts the mechanics of Phase 2.
+\end{itemize}
+
+Two practices keep the loop running: \sfb{A/B testing}, continuously split-testing
+headline variants, call-to-action tone, image choices and content length; and
+\sfb{historical audits}, regularly updating older high-ranking content with
+fresh data, new internal links and current examples, to protect traffic that
+already exists.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \def\R{3.15}
+  \foreach \i/\lbl/\ang in {%
+      1/{Audience\\ research}/90,
+      2/{Keyword\\ strategy}/18,
+      3/{Content\\ creation}/-54,
+      4/{Multi-channel\\ distribution}/-126,
+      5/{Meaningful\\ measurement}/162}{
+    \node[draw=ocre,line width=0.9pt,fill=ocrepale,rounded corners=4pt,
+          align=center,text width=2.1cm,inner sep=5pt,
+          font=\sffamily\bfseries\scriptsize,text=slate] (n\i) at (\ang:\R) {\lbl};}
+  \foreach \a/\b in {1/2,2/3,3/4,4/5,5/1}{
+    \draw[-{Latex[length=2.3mm]},ocre,line width=1pt]
+      (n\a) to[bend left=17] (n\b);}
+  \node[circle,draw=greenok,line width=1pt,fill=greenpale,
+        align=center,text width=1.85cm,font=\sffamily\bfseries\scriptsize,
+        text=greenok,inner sep=2pt] at (0,0) {compounding revenue growth};
+\end{tikzpicture}
+\caption[The content flywheel]%
+        {The content flywheel. Each phase powers the next, and measurement
+         optimises the following cycle rather than merely reporting on the last
+         one. Content is never finished; it is an asset requiring continuous
+         maintenance.}
+\label{fig:flywheel}
+\end{figure}
+
+\begin{exambox}[Worked Scenario --- ``EcoChef'' Eco-Friendly Kitchen Appliances]
+\pyq{CIE-I, 1 Jul 2024 --- 10 M}
+Apply the eight-step framework explicitly.
+
+\begin{itemize}
+\item \sfb{Goals.} Build awareness of EcoChef among urban eco-conscious
+      households; generate 5,000 e-mail subscribers in six months; achieve a
+      3\% landing-page conversion rate.
+\item \sfb{Personas.} Sustainability-minded young families; first-home buyers.
+\item \sfb{Themes.} Sustainable cooking, energy savings, kitchen-to-table
+      living, product demonstrations.
+\item \sfb{Content types.} SEO blogs (``how much energy does an induction hob
+      save''), recipe videos and reels, comparison infographics, a downloadable
+      energy-savings calculator, webinars with chefs, customer-generated content.
+\item \sfb{Distribution.} Owned --- website, blog, e-mail. Paid --- Google Ads on
+      high-intent appliance keywords, Instagram and video advertising. Earned ---
+      sustainability influencers, press, product reviews.
+\item \sfb{Engagement.} A community group, a recipe contest, responsive social
+      customer care, a nurture e-mail sequence.
+\item \sfb{Measurement.} Reach, engagement rate, leads, conversions and
+      content-attributed revenue --- feeding back into theme and distribution
+      improvement.
+\end{itemize}
+\end{exambox}
+
+\begin{exambox}[Worked Scenario --- Organic Health and Wellness Startup]
+\pyq{CIE-I, 16 Apr 2026 --- 10 M}
+The official scheme structures the answer in five headed parts.
+
+\begin{enumerate}
+\item \sfb{Objectives} --- build brand awareness; educate customers on organic
+      lifestyle; generate leads and conversions.
+\item \sfb{Content themes} --- organic living and its benefits; health and
+      nutrition; sustainability and eco-friendly practices; product awareness;
+      customer testimonials and expert advice.
+\item \sfb{Content formats} --- blogs and articles for SEO; videos and reels
+      (workouts, product demonstrations); infographics (diet charts); podcasts
+      (wellness talks); e-books and webinars; user-generated content\ix{user-generated content} and
+      reviews.
+\item \sfb{Distribution platforms} --- \emph{owned}: website, blog, e-mail;
+      \emph{earned}: social shares, influencer mentions, public relations;
+      \emph{paid}: social advertising, Google Ads, influencer promotions.
+\item \sfb{Metrics} --- awareness: reach, impressions, website traffic;
+      engagement: likes, shares, comments, watch time; leads: sign-ups,
+      downloads; conversions: sales and conversion rate; retention: repeat
+      customers and loyalty.
+\end{enumerate}
+\end{exambox}
+
+\begin{summarybox}
+Content marketing runs as an eight-step cycle in three phases: architecture
+(goals, audience mapping, ideation), mechanics (creation, distribution,
+amplification) and telemetry (evaluation, improvement). Goals split into
+brand-building and sales-growth, and everything downstream inherits from that
+split. Audience mapping works inward-out from anxieties to pain points to
+persona. The plan has strategic, structural and temporal layers producing a road
+map. Format follows funnel stage. Distribution trades predictability against
+lifespan across SEO, video, social and e-mail. Amplification uses communities,
+buzzers and influencers. The 5A path demands content that is visible, relatable,
+searchable, actionable and shareable in turn. Evaluation feeds two improvement
+levers --- theme and distribution --- and the flywheel restarts.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Optimizing Website UX and Landing Pages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Optimize Website UX \& Landing Pages.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item Krug's first law of usability\ix{usability}.
+\item The seven usability attributes and their test questions.
+\item How people actually use the web --- scanning, satisficing, muddling
+      through.
+\item Billboard design: designing for scanning rather than reading.
+\item The eight essentials of a converting landing page.
+\end{itemize}
+\end{learningoutcomes}
+
+Traffic that arrives at a badly designed page is wasted money. This material is
+shared ground with Unit~IV (web design) and Unit~V (conversion optimization);
+what follows is the content-marketing view of it.
+
+\section{Krug's First Law of Usability}
+
+\begin{keybox}[Don't Make Me Think]
+A person of average --- or below average --- ability must be able to work out how
+to accomplish a task on the page. It must be self-evident and self-explanatory.
+The good news is that usability is not rocket science.
+\end{keybox}
+
+\section{The Seven Usability Attributes}
+
+\begin{mmlongtable}{The seven usability attributes}{tab:usability}%
+{@{}P{0.18\textwidth}P{0.75\textwidth}@{}}
+\rowcolor{ocre}\thd{Attribute} & \thd{Test question}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Attribute} & \thd{Test question}\\
+\midrule
+\endhead
+\rlab{Useful}     & Does it do what people actually need?\\
+\rowcolor{tablealt}
+\rlab{Learnable}  & Can they figure it out?\\
+\rlab{Memorable}  & Do they have to relearn it every visit?\\
+\rowcolor{tablealt}
+\rlab{Effective}  & Does it get the job done?\\
+\rlab{Efficient}  & Does it do so in a reasonable amount of time?\\
+\rowcolor{tablealt}
+\rlab{Desirable}  & Do people want it?\\
+\rlab{Delightful} & Is it enjoyable to use?\\
+\end{mmlongtable}
+
+\section{How People Actually Use the Web}
+
+There is a gap between how designers imagine people use websites --- carefully
+reading instructions like a novel --- and how they actually do: \keyterm{scanning},
+\keyterm{satisficing} and muddling through. Satisficing means choosing the first
+option that plausibly works rather than the best one available.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    pg/.style={draw=rulegrey,line width=0.8pt,fill=white,
+               minimum width=4.1cm,minimum height=4.5cm}]
+  % --- what we think
+  \node[pg] (a) at (0,0) {};
+  \node[anchor=north,text=slate,font=\sffamily\bfseries\scriptsize]
+     at (0,2.85) {WHAT WE THINK THEY DO};
+  \foreach \y in {1.85,1.6,1.35,1.1,0.85,0.6,0.35,0.1,-0.15,-0.4,-0.65,-0.9,-1.15,-1.4,-1.65,-1.9}{
+     \draw[slatelight,line width=1.1pt] (-1.85,\y) -- (1.85,\y);}
+  \node[anchor=north,text=slatelight,font=\sffamily\scriptsize\itshape]
+     at (0,-2.45) {read every word, in order};
+
+  % --- what they do
+  \node[pg] (b) at (5.6,0) {};
+  \node[anchor=north,text=slate,font=\sffamily\bfseries\scriptsize]
+     at (5.6,2.85) {WHAT THEY ACTUALLY DO};
+  \draw[ocre,line width=1.6pt] (3.75,1.85) -- (7.45,1.85);
+  \draw[ocre,line width=1.6pt] (3.75,1.5) -- (6.6,1.5);
+  \draw[ocre,line width=1.6pt] (3.75,0.6) -- (7.0,0.6);
+  \draw[ocre,line width=1.6pt] (3.75,-0.5) -- (5.9,-0.5);
+  \draw[ocre,line width=1.6pt] (3.75,-1.55) -- (6.9,-1.55);
+  \draw[-{Latex[length=2mm]},deepblue,line width=1pt,dashed]
+     (3.9,1.7) -- (6.9,1.35) -- (4.1,0.45) -- (6.6,-0.62) -- (4.2,-1.7);
+  \node[anchor=north,text=ocredark,font=\sffamily\scriptsize\itshape]
+     at (5.6,-2.45) {scan for what looks clickable};
+\end{tikzpicture}
+\caption[Reading against scanning]%
+        {Users do not read pages; they scan them for the first thing that looks
+         like it will get the job done. Pages must be designed for the right-hand
+         behaviour.}
+\label{fig:scanning}
+\end{figure}
+
+Why don't people read instructions? Three reasons.
+
+\begin{enumerate}
+\item It isn't important to them --- they just want it to work.
+\item They are on a mission, and know they don't need to read everything.
+\item If they find something that works, they stick to it rather than looking
+      for a better way.
+\end{enumerate}
+
+\section{Billboard Design --- Design for Scanning, Not Reading}
+
+\begin{itemize}
+\item \sfb{Follow visual hierarchy} --- make important elements visually
+      prominent, in proportion to their importance.
+\item \sfb{Omit needless words} --- the art of not writing for the web. Happy
+      talk must die; unnecessary instructions must die.
+\item \sfb{Make clickables obvious} --- it must be instantly clear what can be
+      clicked. Competition is one click away, and ambiguity produces frustration.
+\item \sfb{Provide breadcrumbs and street signs} --- clear, conventional,
+      intuitive navigation, so the user always knows where they are.
+\end{itemize}
+
+\section{Landing Page Essentials}
+
+\begin{itemize}
+\item \sfb{One page, one job.} A landing page with two goals achieves neither.
+\item \sfb{A headline that matches the advertisement} that brought the visitor
+      there. \emph{Message match} is the largest single lever on conversion rate.
+\item \sfb{A clear, prominent, single call to action}, repeated above and below
+      the fold.
+\item \sfb{Benefit-led copy, not feature-led} --- what the visitor gets, not
+      what the product has.
+\item \sfb{Trust signals} --- testimonials, ratings, certifications, guarantees,
+      secure-payment badges, real photographs.
+\item \sfb{Minimal form friction} --- every additional field reduces completion.
+      Ask only for what will actually be used.
+\item \sfb{Fast load and mobile responsiveness} --- non-negotiable.
+\item \sfb{Remove navigation and exits} on a dedicated campaign landing page, so
+      the only way forward is the call to action\ix{call to action}.
+\end{itemize}
+
+\begin{summarybox}
+Krug's first law is don't make me think: a page must be self-evident. Usability
+is tested against seven attributes --- useful, learnable, memorable, effective,
+efficient, desirable, delightful. People scan rather than read, satisfice rather
+than optimise, and muddle through rather than learn, so pages must be designed
+as billboards: visual hierarchy\ix{visual hierarchy}, no needless words, obvious clickables and
+conventional navigation. A converting landing page has one job, a headline that
+matches its advertisement, a single repeated call to action, benefit-led copy,
+trust signals, minimal form friction, fast mobile load, and no exits.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Measuring Impact --- Metrics and Performance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Measure Impact; Metrics \& Performance.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The three diagnostic buckets that give a metrics answer its structure.
+\item The five metrics to name, and how each changes the next content cycle.
+\item The rule that the metric must match the medium.
+\item The five-step method for aligning KPIs to organisational goals.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[Structure Earns the Marks]
+A list of metrics without a structure scores poorly. Organise any metrics answer
+into the three buckets below, and for each metric state explicitly \emph{how the
+reading changes the next decision}.
+\pyq{CIE-I, 1 Jul 2024 --- 10 M; CIE-I, 16 Apr 2026 --- 10 M}
+\end{keybox}
+
+\section{The Three Diagnostic Buckets}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    bk/.style={rounded corners=4pt,line width=1pt,align=center,
+               text width=3.35cm,inner sep=8pt,font=\sffamily\scriptsize}]
+  \node[bk,draw=ocre,fill=ocrepale,text=slate] (b1) at (0,0)
+    {\textbf{\textcolor{ocredark}{REACH \& VISIBILITY}}\\[4pt]
+     impressions, unique viewers, reach, new users, backlinks earned\\[5pt]
+     \textit{are we being seen at all?}};
+  \node[bk,draw=deepblue,fill=deepbluepale,text=slate] (b2) at (4.05,0)
+    {\textbf{\textcolor{deepblue}{RESONANCE \& MEMORY}}\\[4pt]
+     brand recall, brand mentions, sentiment, share of voice, direct traffic
+     growth\\[5pt]
+     \textit{are we remembered?}};
+  \node[bk,draw=greenok,fill=greenpale,text=slate] (b3) at (8.1,0)
+    {\textbf{\textcolor{greenok}{ENGAGEMENT \& FRICTION}}\\[4pt]
+     bounce rate, time on site, pages per session, scroll depth, shares,
+     comments\\[5pt]
+     \textit{is it actually good?}};
+  \node[anchor=north,text=slatelight,font=\sffamily\scriptsize\itshape,
+        align=center,text width=11.5cm] at (4.05,-2.6)
+    {top-of-funnel scale \hfill lasting psychological impact \hfill content
+     quality and user interaction};
+\end{tikzpicture}
+\caption[The three diagnostic buckets for content metrics]%
+        {Each bucket diagnoses a different failure. High reach with low
+         resonance is a memorability problem; high resonance with high friction
+         is an execution problem.}
+\label{fig:buckets}
+\end{figure}
+
+\section{The Five Metrics to Name}
+
+\begin{enumerate}
+\item \sfb{Website traffic and unique visitors} --- measures whether content is
+      attracting an audience. \emph{Influence on strategy:} rising traffic on a
+      theme signals which topics to double down on.
+\item \sfb{Engagement rate} --- time on page, scroll depth\ix{scroll depth}, pages per session,
+      likes, shares, comments; measures whether the content held attention.
+      \emph{Influence:} a high-traffic, low-engagement page signals a headline
+      that over-promises.
+\item \sfb{Bounce rate} --- the percentage of visitors who leave after viewing
+      only one page without interaction. \emph{Influence:} a high bounce\ix{bounce} on a
+      converting keyword points to a message-match or a speed problem.
+\item \sfb{Lead generation} --- form submissions, sign-ups, downloads; measures
+      whether content converts attention into a contactable relationship.
+      \emph{Influence:} identifies which assets deserve gated versions and paid
+      promotion.
+\item \sfb{Conversion rate and ROI} --- the percentage completing the desired
+      action, and revenue attributable to content against its cost.
+      \emph{Influence:} determines budget allocation for the next cycle.
+\end{enumerate}
+
+Further metrics worth naming if the question asks for more: organic search\ix{organic search}
+ranking, keyword coverage, backlinks earned, e-mail open and click-through
+rates, customer retention\ix{customer retention} and repeat purchase rate, and cost per lead.
+
+\section{Align the Metric to the Medium}
+
+\begin{warnbox}[The Measurement Rule]
+Align the metric to the medium. Measuring an e-book by pageviews is a recipe for
+failure.
+
+\smallskip
+Video \ra{} audience retention and total watch time. Blog and SEO \ra{} organic
+rank and dwell time\ix{dwell time}. Lead magnets \ra{} download volume and lead conversion
+rate. E-mail \ra{} open rate and click-through rate\ix{click-through rate}.
+\end{warnbox}
+
+\section{Aligning KPIs to Organisational Goals}
+
+\begin{exambox}[Model Answer --- 10 Marks]
+\pyq{CIE-I, 16 Apr 2026 --- 10 M}
+\begin{enumerate}
+\item \sfb{Identify business goals} --- define clear objectives: increase sales,
+      brand awareness, lead generation\ix{lead generation}.
+\item \sfb{Map goals to relevant KPIs} --- sales growth \ra{} conversion rate,
+      revenue, cart-abandonment rate; brand awareness \ra{} traffic,
+      impressions, reach; lead generation \ra{} form submissions, sign-ups;
+      customer engagement \ra{} bounce rate, session duration, pages per visit.
+\item \sfb{Make KPIs SMART} --- Specific, Measurable, Achievable, Relevant,
+      Time-bound. For example: increase conversion rate by 10\% in three months.
+\item \sfb{Use analytics tools} --- track through Google Analytics and
+      dashboards.
+\item \sfb{Monitor and optimise continuously} --- analyse regularly and modify
+      strategy on the basis of measured performance.
+\end{enumerate}
+\end{exambox}
+
+\begin{summarybox}
+Structure every metrics answer into reach and visibility, resonance and memory,
+and engagement and friction. Name five metrics --- traffic, engagement rate,
+bounce rate, lead generation, and conversion rate with ROI --- and for each state
+how the reading changes the next cycle. Match the metric to the medium: watch
+time for video, rank and dwell for blogs, downloads for lead magnets, opens and
+clicks for e-mail. Align KPIs to goals in five steps: identify goals, map to
+KPIs, make them SMART\ix{SMART}, instrument with analytics, and optimise continuously.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Using Content Research for Opportunities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\syllabusstrip{Using Content Research for Opportunities.}
+
+\begin{learningoutcomes}
+\begin{itemize}
+\item The keyword sweet spot --- volume, difficulty and commercial intent\ix{commercial intent}.
+\item The seven ways content research creates competitive edge.
+\item The content research toolset, by job.
+\end{itemize}
+\end{learningoutcomes}
+
+\begin{keybox}[High Yield]
+This chapter answers a compulsory Question~2 sub-division in the Semester End
+Examination.
+\pyq{SEE, Jun/Jul 2025, Q2b --- 8 M}
+\end{keybox}
+
+\section{Finding the Keyword Sweet Spot}
+
+A topic is worth pursuing only where three conditions overlap.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily\footnotesize]
+  \begin{scope}[opacity=0.40,transparency group]
+    \fill[ocre]     (-1.3,0.6) circle (2.25);
+    \fill[deepblue] ( 1.3,0.6) circle (2.25);
+    \fill[greenok]  ( 0.0,-1.55) circle (2.25);
+  \end{scope}
+  \node[text=ocredark,font=\sffamily\bfseries\scriptsize,align=center]
+    at (-2.55,1.75) {HIGH SEARCH\\ VOLUME};
+  \node[text=deepblue,font=\sffamily\bfseries\scriptsize,align=center]
+    at ( 2.55,1.75) {LOW SEO\\ DIFFICULTY};
+  \node[text=greenok,font=\sffamily\bfseries\scriptsize,align=center]
+    at ( 0.0,-3.4)  {COMMERCIAL INTENT};
+
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.1cm]
+    at (-2.25,0.5) {roughly 250\\ to 1,000+\\ monthly};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.1cm]
+    at ( 2.25,0.5) {under about\\ 40 KD/SD};
+  \node[text=slate,font=\sffamily\scriptsize,align=center,text width=2.4cm]
+    at ( 0.0,-2.1) {high CPC, buyer-\\ specific phrasing};
+
+  \node[text=white,font=\sffamily\bfseries\scriptsize,align=center]
+    at (0,-0.32) {THE SWEET\\ SPOT};
+\end{tikzpicture}
+\caption[The keyword sweet spot]%
+        {A topic is worth pursuing only in the central overlap. Two out of three
+         is a trap: volume without intent is vanity, intent without
+         achievability is wasted effort.}
+\label{fig:sweetspot}
+\end{figure}
+
+\begin{itemize}
+\item \sfb{High search volume} --- a minimum of roughly 250 to 1,000 or more
+      monthly searches.
+\item \sfb{Low SEO difficulty} --- under about a 40 difficulty score, so ranking
+      is realistically achievable.
+\item \sfb{Commercial intent} --- a high cost-per-click and buyer-specific
+      phrasing, indicating the searcher intends to purchase.
+\end{itemize}
+
+\begin{warnbox}[Traffic Without Intent Is Useless]
+Do not optimise for clicks; optimise for revenue. A page ranking first for a
+query no buyer ever types is a vanity asset.
+\end{warnbox}
+
+\section{How Content Research Creates Competitive Edge}
+
+\begin{exambox}[Model Answer --- 8 Marks]
+\pyq{SEE, Jun/Jul 2025, Q2b --- 8 M}
+\begin{enumerate}
+\item \sfb{Reveals demand that already exists.} Keyword and question research
+      shows what the market is actively asking, removing guesswork.
+\item \sfb{Exposes content gaps} --- topics with volume where competitors rank
+      poorly or not at all. This is the fastest route to visibility.
+\item \sfb{Identifies trends early.} Google Trends and social listening surface
+      rising topics before they saturate, allowing first-mover advantage.
+\item \sfb{Benchmarks the competition.} It shows what already works in the
+      niche, so effort goes to proven formats rather than experiments.
+\item \sfb{Improves ROI.} Resources go to topics with demonstrated demand and
+      achievable difficulty, instead of being spread evenly.
+\item \sfb{Supplies the customer's own language.} Mining forums and reviews
+      yields the exact phrasing to use in headlines and copy.
+\item \sfb{Feeds every other channel.} One research pass supplies the SEO plan,
+      the social calendar, the e-mail themes and the advertising copy.
+\end{enumerate}
+\end{exambox}
+
+\section{The Content Research Toolset}
+
+\begin{mmlongtable}{Content research tools by job}{tab:researchtools}%
+{@{}P{0.22\textwidth}P{0.71\textwidth}@{}}
+\rowcolor{ocre}\thd{Job} & \thd{Tools}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Job} & \thd{Tools}\\
+\midrule
+\endhead
+\rlab{Keyword research} & Google Keyword Planner, SEMrush Keyword Magic Tool,
+Ahrefs Keywords Explorer, Ubersuggest\\
+\rowcolor{tablealt}
+\rlab{Question mining} & AnswerThePublic, AlsoAsked, Google's ``People Also
+Ask'' and ``Related searches''\\
+\rlab{Trend detection} & Google Trends, Exploding Topics, platform trending
+topics\\
+\rowcolor{tablealt}
+\rlab{Content performance} & BuzzSumo --- most-shared and most-linked content in
+any topic; Ahrefs Content Explorer\\
+\rlab{Audience listening} & Quora, Reddit, niche forums, marketplace and
+app-store reviews, video comments\\
+\rowcolor{tablealt}
+\rlab{Gap analysis} & SEMrush Keyword Gap, Ahrefs Content Gap\\
+\end{mmlongtable}
+
+\begin{summarybox}
+Pursue a topic only where high search volume, low SEO difficulty and commercial
+intent overlap; two out of three is a trap. Content research creates edge by
+revealing existing demand, exposing content gaps, catching trends early,
+benchmarking competitors, improving ROI, supplying the customer's own language,
+and feeding every other channel from a single pass. The toolset divides by job:
+keyword research, question mining, trend detection, content performance,
+audience listening and gap analysis.
+\end{summarybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startappendices
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Syllabus-to-Chapter Concordance}
+
+This appendix exists so that coverage can be \emph{audited} rather than assumed.
+The left-hand column reproduces the Unit~I syllabus descriptor phrase by phrase,
+in the order the official document prints it. The right-hand column gives the
+chapter and section that carries it. Every phrase resolves to a location, and no
+numbered chapter of this volume contains material that is not traceable to a
+phrase in this table.
+
+\section*{First half --- Introduction to Digital Marketing}
+\addcontentsline{toc}{section}{First half --- Introduction to Digital Marketing}
+
+\begin{mmlongtable}{Concordance: Introduction to Digital Marketing}{tab:concordanceA}%
+{@{}P{0.40\textwidth}P{0.53\textwidth}@{}}
+\rowcolor{ocre}\thd{Syllabus phrase} & \thd{Where it is covered}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Syllabus phrase} & \thd{Where it is covered}\\
+\midrule
+\endhead
+\rlab{Introduction to Digital Marketing} & Chapter~1 entire. Definition
+\S\,1.4; traditional against digital \S\,1.5; push and pull \S\,1.6; the
+marketing mix in the digital era \S\,1.7; enabling technology \S\,1.8; the
+digital consumer \S\,1.9. Marketing foundations \S\,1.1--1.3.\\
+\rowcolor{tablealt}
+\rlab{Principles of Digital Marketing} & Chapter~2 entire. Five pillars
+\S\,2.1; the internet paradox \S\,2.2; the seven governing principles \S\,2.3;
+campaign characteristics \S\,2.4.\\
+\rlab{Digital Marketing Channels} & Chapter~3 entire. Three senses of channel
+\S\,3.1; paid, owned and earned \S\,3.2; hub and spokes \S\,3.3; affiliate
+marketing \S\,3.4; channel choice \S\,3.5.\\
+\rowcolor{tablealt}
+\rlab{Tools to Create Buyer Persona} & Chapter~4 entire. Definition \S\,4.1;
+five-step process \S\,4.2; factors \S\,4.3; canvas \S\,4.4; worked persona
+\S\,4.5; toolset \S\,4.6.\\
+\rlab{Competitor Research Tools} & Chapter~5 entire. What to look for \S\,5.1;
+toolset \S\,5.2; converting findings into decisions \S\,5.3.\\
+\rowcolor{tablealt}
+\rlab{Website Analysis Tools} & Chapter~6 entire. Technical health against
+behavioural insight \S\,6.1; toolset \S\,6.2; the six mechanisms \S\,6.3.\\
+\end{mmlongtable}
+
+\section*{Second half --- Content Marketing}
+\addcontentsline{toc}{section}{Second half --- Content Marketing}
+
+\begin{mmlongtable}{Concordance: Content Marketing}{tab:concordanceB}%
+{@{}P{0.40\textwidth}P{0.53\textwidth}@{}}
+\rowcolor{ocre}\thd{Syllabus phrase} & \thd{Where it is covered}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Syllabus phrase} & \thd{Where it is covered}\\
+\midrule
+\endhead
+\rlab{Content Marketing Concepts \& Strategies} & Chapter~7 entire. Definition
+\S\,7.1; a century of proof \S\,7.2; the compounding curve \S\,7.3; elite
+traits \S\,7.4; the quality gate \S\,7.5.\\
+\rowcolor{tablealt}
+\rlab{Planning, Creating, Distributing \& Promoting Content} & Chapter~8
+entire. The eight steps \S\,8.1; goal setting \S\,8.2; audience mapping
+\S\,8.3; ideation and planning \S\,8.4; creation \S\,8.5; distribution
+\S\,8.6; amplification \S\,8.7; the 5A path \S\,8.8; evaluation and improvement
+\S\,8.9.\\
+\rlab{Optimize Website UX \& Landing Pages} & Chapter~9 entire. Krug's first law
+\S\,9.1; usability attributes \S\,9.2; how people use the web \S\,9.3;
+billboard design \S\,9.4; landing page essentials \S\,9.5.\\
+\rowcolor{tablealt}
+\rlab{Measure Impact} & Chapter~10, \S\,10.1 and \S\,10.3 --- the diagnostic
+buckets and the rule that the metric must match the medium.\\
+\rlab{Metrics \& Performance} & Chapter~10, \S\,10.2 and \S\,10.4 --- the five
+metrics and the alignment of KPIs to organisational goals.\\
+\rowcolor{tablealt}
+\rlab{Using Content Research for Opportunities} & Chapter~11 entire. The keyword
+sweet spot \S\,11.1; the seven sources of edge \S\,11.2; the toolset \S\,11.3.\\
+\end{mmlongtable}
+
+\begin{keybox}[Reading the ``etc.'' in the Syllabus]
+The official descriptor ends several clauses with ``etc.''. That word is treated
+in this series as licence to complete a named framework, not as licence to add
+new topics. So where the syllabus says ``Competitor Research Tools, Website
+Analysis Tools, etc.'', the chapters cover those two tool families completely
+rather than introducing a third family the syllabus never names.
+\end{keybox}
+
+\chapter{Previous-Year Question Bank --- Unit I}
+
+Every question in this appendix is reproduced from an actual RVCE Marketing
+Management Continuous Internal Evaluation or Semester End Examination paper for
+this course. Answers and pointers follow the official schemes of valuation where
+those were released. The bracketed tag after each question records the paper,
+the date, and the mark allocation.
+
+\section*{Part A --- Two-Mark Questions}
+\addcontentsline{toc}{section}{Part A --- Two-Mark Questions}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=1.1ex]
+
+\item \textbf{Differentiate between marketplace and market space.}
+      \pyqr{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026 --- 2 M}\\
+      Marketplace --- a physical or digital location where buyers and sellers
+      come together to exchange goods and services (a mall, a showroom). Market
+      space --- a conceptual or virtual environment where commercial value is
+      created through digital networks and communication technologies (Amazon,
+      an app). Shorthand: marketplace is physical, market space is digital.
+      \hfill\emph{See} \S\,1.2.2.
+
+\item \textbf{What is the mantra of marketing?}
+      \pyqr{CIE-I, 3 Apr 2025 --- 2 M}\\
+      Create, Communicate, Deliver, Value, Target, Profit.
+      \hfill\emph{See} \S\,1.1.2.
+
+\item \textbf{Define affiliate marketing and give an example.}
+      \pyqr{CIE-I, 3 Apr 2025 --- 2 M}\\
+      A performance-based marketing model in which a business rewards
+      affiliates --- partners or individuals --- for driving traffic, leads or
+      sales to its products or services through the affiliate's own marketing
+      efforts. Example: Amazon Associates, where a blogger earns commission on
+      purchases made via a tracked link. \hfill\emph{See} \S\,3.4.
+
+\item \textbf{Mention any four characteristics of a good content.}
+      \pyqr{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026; SEE, Jun/Jul 2025 --- 2 M}\\
+      Any four of: credible, shareable, useful, interesting, relevant,
+      different, on-brand. The 2026 scheme also accepts relevant, accurate,
+      engaging, clear, consistent, valuable. \hfill\emph{See} \S\,7.5.
+
+\item \textbf{Differentiate between push and pull marketing.}
+      \pyqr{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026; SEE, Jun/Jul 2025 --- 2 M}\\
+      Push --- the brand promotes products by pushing them towards the customer
+      (television advertising, dealer incentives, direct selling). Pull --- the
+      brand encourages customers to actively seek out the product (SEO, content,
+      word of mouth\ix{word of mouth}). \hfill\emph{See} \S\,1.6.
+
+\item \textbf{What is the first step of content marketing?}
+      \pyqr{CIE-I, 16 Apr 2026 --- 2 M}\\
+      Define goals and identify the target audience. \hfill\emph{See} \S\,8.2.
+
+\item \textbf{Mention any two core concepts of marketing.}
+      \pyqr{CIE-I, 16 Apr 2026 --- 2 M}\\
+      Any two of: needs, wants, demand, value, exchange, markets.
+      \hfill\emph{See} \S\,1.1.6.
+
+\item \textbf{List any two principles of digital marketing.}
+      \pyqr{SEE, Oct/Nov 2023 --- 2 M}\\
+      Any two of the five pillars --- know your business; know the competition;
+      know your customers; know what you want to achieve; know how you're doing.
+      Alternatively: measurability, interactivity, personalisation,
+      permission-based targeting. \hfill\emph{See} \S\,2.1 and \S\,2.3.
+
+\item \textbf{Differentiate between market segmentation and market mix.}
+      \pyqr{SEE, Oct/Nov 2023 --- 2 M}\\
+      Market segmentation is the process of dividing a heterogeneous total
+      market into smaller homogeneous groups of buyers with similar needs, on
+      bases such as geographic, demographic, psychographic and behavioural, so
+      that each can be targeted distinctly. The marketing mix is the set of
+      controllable tactical tools --- Product, Price, Place and Promotion ---
+      that the firm blends to produce the response it wants from its chosen
+      target segment. In short: segmentation decides \emph{whom} to serve; the
+      marketing mix decides \emph{how} to serve them.
+      \hfill\emph{See} \S\,1.7 and Appendix~C.3.
+
+\end{enumerate}
+
+\section*{Part B --- Eight- and Ten-Mark Questions}
+\addcontentsline{toc}{section}{Part B --- Eight- and Ten-Mark Questions}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=1.4ex]
+
+\item \textbf{A newly launched e-commerce company wants to build brand awareness
+      through content marketing. Suggest a step-by-step strategy for them,
+      including content types and distribution channels.}
+      \pyqr{CIE-I, 3 Apr 2025 --- 10 M}\\
+      Official scheme answer --- the eight steps: goal setting, audience
+      mapping, content ideation and planning, content creation, content
+      distribution, content amplification, content marketing evaluation, content
+      marketing improvement. Expand each with the detail in Chapter~8, naming
+      content types (blogs, videos, infographics, podcasts, e-books,
+      user-generated content) and distribution across owned, earned and paid
+      media. \hfill\emph{See} \S\,8.1 and \S\,3.2.
+
+\item \textbf{A newly launched health \& wellness startup offering organic
+      lifestyle products aims to build strong brand awareness through content
+      marketing. Design a step-by-step content marketing strategy, clearly
+      outlining: content formats; content themes; distribution platforms (owned,
+      earned, paid media\ix{paid media}); metrics for performance evaluation.}
+      \pyqr{CIE-I, 16 Apr 2026 --- 10 M}\\
+      The full five-part scheme answer is set out in Chapter~8 as a worked
+      scenario. \hfill\emph{See} \S\,8.9.
+
+\item \textbf{A travel agency specializing in adventure tourism wants to improve
+      its targeted marketing. How should they create a buyer persona, and what
+      factors (e.g., demographics, interests, online behaviour) should they
+      consider?}
+      \pyqr{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026 --- 10 M}\\
+      Answer in three parts. (i) \emph{Steps:} collect data through surveys,
+      website analytics and social media insights; segment the audience by
+      shared traits; identify goals and pain points; build the persona profile
+      with a name, background and behaviour details; validate and update using
+      feedback and trends. (ii) \emph{Factors:} demographics (age 20--40,
+      gender, income, occupation, location); psychographics (trekking, scuba
+      diving, skydiving, fitness and outdoor lifestyle, risk-taking attitude,
+      preference for unique experiences over luxury); online behaviour
+      (Instagram, YouTube, travel blogs; searches such as ``best trekking
+      places''; prefers videos and reviews; books online via mobile apps);
+      travel behaviour (frequency, budget against premium, group against solo,
+      preferred destinations); pain points (safety concerns, budget constraints,
+      lack of information, trust in agencies). (iii) \emph{Example persona:}
+      Adventure Arun, 28, IT professional; interests trekking and camping;
+      follows travel influencers and books online; goal is unique thrilling
+      experiences; pain point is safety and affordability.
+      \hfill\emph{See} Chapter~4.
+
+\item \textbf{A retail company has been using traditional marketing methods such
+      as newspaper ads, billboards, and TV commercials. However, they are now
+      considering a shift to digital marketing. Compare the benefits and
+      limitations of both approaches and suggest a strategy for transitioning to
+      digital marketing.}
+      \pyqr{CIE-I, 3 Apr 2025; CIE-I, 16 Apr 2026 --- 10 M}\\
+      \emph{Traditional benefits:} wide reach through television and newspapers;
+      high credibility and trust; effective for a mass audience.
+      \emph{Traditional limitations:} expensive; difficult to measure results;
+      no precise targeting; one-way communication. \emph{Digital benefits:}
+      cost-effective; targeted by age, location and interest; measurable through
+      analytics and ROI; two-way interaction; global reach. \emph{Digital
+      limitations:} requires technical skills; high online competition; privacy
+      concerns; dependent on internet access. \emph{Transition strategy:} the
+      eight sequenced steps in \S\,1.5.3.
+      \hfill\emph{See} \S\,1.5.
+
+\item \textbf{Identify and explain the various entities that can be marketed,
+      providing relevant examples for each category.}
+      \pyqr{CIE-I, 3 Apr 2025 --- 10 M}\\
+      The ten entities --- goods, services, experiences, events, persons, places,
+      properties, organizations, information and ideas --- each explained with an
+      example. \hfill\emph{See} \S\,1.1.5, Table~\ref{tab:entities}.
+
+\item \textbf{How have the 4Ps of marketing (Product, Price, Place, and
+      Promotion) evolved in the digital era? Provide examples of companies
+      effectively leveraging digital strategies for each element.}
+      \pyqr{CIE-I, 3 Apr 2025 --- 10 M}\\
+      Product \ra{} digital and personalised products (Spotify's data-driven
+      playlists). Price \ra{} dynamic and transparent pricing (Amazon's
+      AI-driven adjustment by demand, competition and user behaviour). Place
+      \ra{} online channels and omnichannel presence (Nike's seamless website,
+      app and store experience with click-and-collect). Promotion \ra{} digital
+      and interactive marketing (Coca-Cola's ``Share a Coke'' campaign).
+      \hfill\emph{See} \S\,1.7.2, Table~\ref{tab:digitalps}.
+
+\item \textbf{Describe the key principles of digital marketing and explain how
+      they differ from traditional marketing approaches. Provide examples to
+      illustrate your points.}
+      \pyqr{CIE-I, 1 Jul 2024 --- 10 M}\\
+      State the five pillars, add measurability, interactivity,
+      personalisation, permission and iteration, then contrast each against
+      traditional marketing using Table~\ref{tab:tradvsdig}, with one concrete
+      example per point. \hfill\emph{See} Chapter~2 and \S\,1.5.2.
+
+\item \textbf{Your company has a limited marketing budget and needs to choose
+      between Search Engine Optimization, Pay Per Click, and Social Media
+      Marketing to promote a new product. Based on the product being a high-tech
+      gadget aimed at young professionals, which channel(s) would you prioritize
+      and why? Justify your decision with specific examples.}
+      \pyqr{CIE-I, 1 Jul 2024 --- 10 M}\\
+      Compare the three on speed, cost model, longevity, buyer intent and
+      predictability, then commit to a weighted recommendation and justify it
+      with the intent argument --- a brand-new gadget generates no organic search
+      demand yet, so paid and social must create the demand that SEO will later
+      harvest. \hfill\emph{See} \S\,3.5.
+
+\item \textbf{Identify and explain at least five key metrics used to measure the
+      impact and performance of content marketing efforts. How can these metrics
+      influence future content strategies?}
+      \pyqr{CIE-I, 1 Jul 2024 --- 10 M}\\
+      Name traffic, engagement rate, bounce rate, lead generation and conversion
+      rate with ROI; group them into reach and visibility, resonance and memory,
+      and engagement and friction; and for each state explicitly how the reading
+      changes the next content cycle. \hfill\emph{See} Chapter~10.
+
+\item \textbf{Imagine you are a digital marketing strategist at GreenTech
+      Innovations, a company launching a new line of eco-friendly kitchen
+      appliances called ``EcoChef.'' Design a comprehensive content marketing
+      strategy to promote these products. Include specific goals, types of
+      content, distribution channels, and methods of engagement with your target
+      audience.}
+      \pyqr{CIE-I, 1 Jul 2024 --- 10 M}\\
+      The full worked answer is set out in Chapter~8.
+      \hfill\emph{See} \S\,8.9.
+
+\item \textbf{What is Digital marketing? Explain the differences between
+      Traditional Marketing and Digital Marketing. Highlight any 5 key
+      differences.}
+      \pyqr{SEE, Oct/Nov 2023, Q2a --- 8 M}\\
+      Define digital marketing, then give any five differences from
+      Table~\ref{tab:tradvsdig} --- communication direction, reach, cost,
+      measurability and interactivity are the strongest five --- each with a
+      one-line example. \hfill\emph{See} \S\,1.4 and \S\,1.5.2.
+
+\item \textbf{List and explain various pricing strategies used in marketing
+      management with suitable examples.}
+      \pyqr{SEE, Oct/Nov 2023, Q2b --- 8 M}\\
+      Ten strategies with examples are set out in Appendix~C.2, which also
+      records why this topic sits outside the literal Unit~I descriptor.
+      \hfill\emph{See} Appendix~C.2.
+
+\item \textbf{Explain how content research tools help marketers discover new
+      opportunities and gain a competitive edge.}
+      \pyqr{SEE, Jun/Jul 2025, Q2b --- 8 M}\\
+      The keyword sweet spot (volume $\times$ low difficulty $\times$ commercial
+      intent), the seven ways research creates edge, and the toolset.
+      \hfill\emph{See} Chapter~11.
+
+\item \textbf{Discuss how website analysis contributes to enhanced customer
+      experience and conversion optimization.}
+      \pyqr{SEE, Jun/Jul 2025, Q2a --- 8 M}\\
+      Name the tools by category, then give the six mechanisms: diagnosing
+      friction, fixing speed, locating funnel drop-off, validating changes
+      through A/B testing, segmenting by device and channel, and aligning
+      content with intent. \hfill\emph{See} Chapter~6.
+
+\item \textbf{Enumerate briefly on the best practices for creating compelling and
+      shareable content on social media platforms to increase brand visibility
+      and engagement.}
+      \pyqr{SEE, Oct/Nov 2023, Q3b --- 8 M}\\
+      Apply the seven-point quality gate; lead with visuals (visual content is
+      far more likely to be shared, and posts with relevant images earn
+      substantially more views); follow the 4-1-1 rule so that value outweighs
+      promotion; write for the platform rather than cross-posting blindly; hook
+      in the first three seconds; use one or two targeted hashtags; post
+      consistently at audience-active times; invite participation through
+      questions, polls and contests; repurpose one master asset into many
+      formats; and amplify through communities and influencers.
+      \hfill\emph{See} \S\,7.5 and \S\,8.7. \emph{The 4-1-1 rule and the
+      platform-specific practices belong to Unit~II; this question is
+      set from Unit~I in the paper but answered across both.}
+
+\end{enumerate}
+
+\section*{How Unit I Is Examined}
+\addcontentsline{toc}{section}{How Unit I Is Examined}
+
+\begin{keybox}[The Pattern Across Papers]
+In the Semester End Examination, Question~2 is compulsory and is always drawn
+from Unit~I --- two sub-divisions of eight marks each --- plus roughly two Part~A
+objective questions. In the first Continuous Internal Evaluation test, Unit~I
+typically carries the whole paper.
+
+\smallskip
+The three highest-probability ten-mark topics are the eight-step content
+marketing strategy applied to a scenario, buyer persona creation, and
+traditional against digital marketing with a transition plan. All three have
+already repeated across multiple papers.
+\end{keybox}
+
+\chapter{Supplementary Examined Topics}
+
+\begin{warnbox}[What This Appendix Is, and Why It Is Not a Chapter]
+The three topics below appear in past papers for this course but sit outside the
+literal wording of the Unit~I syllabus descriptor --- and, in fact, outside the
+wording of any of the five descriptors. They are placed in an appendix rather
+than in a numbered chapter so that the rule governing this series is not broken:
+\emph{the numbered chapters carry the syllabus and nothing else}. They are
+included rather than dropped because they are genuinely examined, and a student
+who skipped them would lose real marks.
+\end{warnbox}
+
+\section{The Product Life Cycle}
+
+Every product follows a largely inevitable path from launch to eventual
+disappearance, and the stage a product occupies constrains its content and
+channel decisions --- which is why the topic appears in the supplementary
+lecture material for this unit.
+
+\subsection{Diagnosing the stage}
+
+\begin{itemize}
+\item \sfb{Market volatility} --- are rapid industry shifts limiting the
+      product's lifespan, or favouring new and improved alternatives?
+\item \sfb{Consumer behaviour} --- is the product an everyday necessity? Does it
+      solve a common problem? Is its usage simple or complex?
+\item \sfb{Competitive landscape} --- how easily can competitors replicate it?
+      Map the number of rivals, their expertise, pricing and distribution
+      channels.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=12.2cm, height=5.9cm,
+  font=\sffamily\footnotesize,
+  xlabel={time}, ylabel={sales volume},
+  xlabel style={font=\sffamily\scriptsize,text=slate},
+  ylabel style={font=\sffamily\scriptsize,text=slate},
+  axis lines=left, axis line style={rulegrey},
+  xtick=\empty, ytick=\empty,
+  xmin=0, xmax=10.4, ymin=0, ymax=1.34,
+  clip=false]
+
+  % Plotted from explicit coordinates rather than a closed-form expression:
+  % the classic curve is piecewise (slow start, steep growth, long plateau,
+  % decline) and no single smooth formula gives all four stages the right
+  % relative width.
+  \addplot[ocre,very thick,smooth,tension=0.55] coordinates {
+    (0.00,0.02) (0.70,0.05) (1.35,0.11)
+    (2.10,0.26) (2.90,0.48) (3.90,0.72)
+    (4.80,0.87) (5.60,0.95) (6.40,0.98)
+    (7.10,0.97) (7.60,0.94) (8.30,0.83)
+    (9.00,0.66) (9.70,0.46) (10.20,0.33)};
+
+  % Stage boundaries, written out rather than looped: pgfplots defers parsing
+  % of "axis cs:" coordinates until \end{axis}, by which time a \foreach loop
+  % variable no longer exists.
+  \draw[rulegrey,dashed] (axis cs:1.35,0) -- (axis cs:1.35,1.20);
+  \draw[rulegrey,dashed] (axis cs:3.90,0) -- (axis cs:3.90,1.20);
+  \draw[rulegrey,dashed] (axis cs:7.60,0) -- (axis cs:7.60,1.20);
+
+  % stage names, centred in each band
+  \node[text=ocredark,font=\sffamily\bfseries\scriptsize] at (axis cs:0.70,1.26) {INTRODUCTION};
+  \node[text=ocredark,font=\sffamily\bfseries\scriptsize] at (axis cs:2.63,1.26) {GROWTH};
+  \node[text=ocredark,font=\sffamily\bfseries\scriptsize] at (axis cs:5.75,1.26) {MATURITY};
+  \node[text=ocredark,font=\sffamily\bfseries\scriptsize] at (axis cs:9.10,1.26) {DECLINE};
+\end{axis}
+\end{tikzpicture}
+\caption[The product life cycle]%
+        {The product life cycle\ix{product life cycle}. Maturity is normally the longest stage, and the
+         curve's shape is not fixed --- see \S\,C.1.3.}
+\label{fig:plc}
+\end{figure}
+
+\subsection{The master lifecycle matrix}
+
+\begin{mmlongtable}{The product life cycle matrix}{tab:plcmatrix}%
+{@{}P{0.147\textwidth}P{0.187\textwidth}P{0.187\textwidth}P{0.187\textwidth}P{0.177\textwidth}@{}}
+\rowcolor{ocre}\thd{} & \thd{Introduction} & \thd{Growth} & \thd{Maturity} & \thd{Decline}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{} & \thd{Introduction} & \thd{Growth} & \thd{Maturity} & \thd{Decline}\\
+\midrule
+\endhead
+\rlab{Sales volume} & Low & Surging & Stabilising & Dropping\\
+\rowcolor{tablealt}
+\rlab{Competition} & Non-existent & Increasing & Entrenched & Dominating\\
+\rlab{Primary goal} & Create awareness and generate demand & Build market share
+and loyalty & Defend position and maximise profit & Minimise losses\\
+\rowcolor{tablealt}
+\rlab{Core strategy} & Promotions and demonstrations & Customisation and
+expansion & Diversification and cross-selling & Niche focus and liquidation\\
+\rlab{Historical example} & Apple iPhone (2007) & Zara (1990s--2000s) &
+Kellogg's & Kodak (1990s--2012)\\
+\end{mmlongtable}
+
+\subsection{Stage tactics, and why the curve is not always linear}
+
+\begin{description}
+\item[Introduction] Consumers are unfamiliar; demand is low while production and
+distribution costs are high. Offer targeted promotions, discounts and free
+samples; host product demonstrations to prove functional value; deploy influencer
+marketing for immediate social proof; use mass media advertising; create
+shareable brand experiences. \emph{Apple, 2007:} massive television advertising
+plus a limited initial release and heavily promoted exclusivity generated
+unprecedented demand.
+\item[Growth] Sales and profits surge as competitors flood the market. Introduce
+product customisation; deliver exceptional customer service to lock in loyalty;
+identify new segments and expand geographically. \emph{Zara:} rapid
+international expansion while producing small quantities of exclusive designs,
+creating permanent novelty.
+\item[Maturity] The longest stage; growth slows, competitors are entrenched and
+prices fall. Diversify product lines; drive cross-selling with complementary
+goods; innovate continuously through formula or feature updates; deploy
+value-based content marketing; compete on cost by optimising production and
+sourcing. \emph{Kellogg's:} competitor-comparison advertising, organic lines,
+and cereal bundled with dried fruit and snack bars.
+\item[Decline] Demand drops as technology or trends shift. Focus on a smaller,
+highly profitable niche; reposition the brand for new segments; cut marketing
+spend and rely on organic channels; implement deep cost reductions and
+discounting; execute exit strategies. \emph{Kodak:} cut prices, diversified into
+digital printing and sold patents, yet still filed for bankruptcy --- proving
+that some technological shifts are irreversible.
+\end{description}
+
+Three deviations from the standard curve are worth naming.
+
+\begin{itemize}
+\item \sfb{Short life} --- fad products that spike and die without ever reaching
+      maturity.
+\item \sfb{Extended life} --- core staples that plateau and dominate profitably
+      for decades.
+\item \sfb{The pivot} --- products that reset their own curve through radical
+      repositioning or new-market expansion.
+\end{itemize}
+
+\section{Pricing Strategies}
+
+\begin{exambox}[Model Answer --- 8 Marks]
+\pyq{SEE, Oct/Nov 2023, Q2b --- 8 M}
+Ten strategies, each with an example. Naming and explaining any six or seven
+with examples is normally sufficient at eight marks.
+\end{exambox}
+
+\begin{mmlongtable}{Pricing strategies}{tab:pricing}%
+{@{}P{0.22\textwidth}P{0.42\textwidth}P{0.29\textwidth}@{}}
+\rowcolor{ocre}\thd{Strategy} & \thd{Basis} & \thd{Example}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Strategy} & \thd{Basis} & \thd{Example}\\
+\midrule
+\endhead
+\rlab{Penetration pricing} & A low launch price to win share fast & Jio's initial
+free and low tariffs\\
+\rowcolor{tablealt}
+\rlab{Skimming pricing} & A high launch price harvested from early adopters, then
+lowered & New smartphone flagship models\\
+\rlab{Cost-plus pricing} & Cost plus a fixed markup & Retail and FMCG
+distribution\\
+\rowcolor{tablealt}
+\rlab{Value-based pricing} & Priced on perceived customer value rather than cost
+& Premium software, luxury goods\\
+\rlab{Competitive or going-rate pricing} & Matched to rivals & Airlines, fuel\\
+\rowcolor{tablealt}
+\rlab{Psychological pricing} & Prices set just below a round number &
+\rupee 999 instead of \rupee 1,000\\
+\rlab{Bundle pricing} & Several items priced together below their sum &
+Combo packs, office software suites\\
+\rowcolor{tablealt}
+\rlab{Freemium} & A free core product with a paid upgrade & Streaming and
+conferencing services\\
+\rlab{Dynamic pricing} & Real-time adjustment by demand & Ride-hailing surge
+pricing, large marketplaces\\
+\rowcolor{tablealt}
+\rlab{Promotional or discount pricing} & Temporary reductions to drive volume &
+Festival mega-sale events\\
+\end{mmlongtable}
+
+\section{Market Segmentation Against the Marketing Mix}
+
+\begin{definitionbox}[Market Segmentation]
+\keytermas{Market segmentation}{market segmentation} is the process of dividing a heterogeneous total
+market into smaller homogeneous groups of buyers with similar needs, on bases
+such as geographic, demographic, psychographic and behavioural, so that each
+group can be targeted distinctly.
+\end{definitionbox}
+
+The distinction the examiner wants is one of \emph{function}, and it reduces to
+one line.
+
+\begin{keybox}[The One-Line Distinction]
+\textbf{Segmentation decides whom to serve. The marketing mix decides how to
+serve them.}
+\pyq{SEE, Oct/Nov 2023 --- 2 M}
+
+\smallskip
+Segmentation is an analytical, prior decision about the market; the mix is a set
+of controllable tactical levers applied after that decision has been taken.
+Changing the segment changes every element of the mix, but changing the mix does
+not change the segment.
+\end{keybox}
+
+\chapter{Glossary of Key Terms}
+
+\begin{mmlongtable}{Key terms for rapid revision}{tab:glossary}%
+{@{}P{0.26\textwidth}P{0.67\textwidth}@{}}
+\rowcolor{ocre}\thd{Term} & \thd{One-line meaning}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Term} & \thd{One-line meaning}\\
+\midrule
+\endhead
+\rlab{Affiliate marketing} & Performance-based marketing paying partners for
+traffic, leads or sales actually delivered\\
+\rowcolor{tablealt}
+\rlab{Bounce rate} & The percentage of visitors who leave after viewing only one
+page without interaction\\
+\rlab{Brand} & An offering from a known source\\
+\rowcolor{tablealt}
+\rlab{Buyer persona} & A research-based, semi-fictional profile of the ideal
+customer\\
+\rlab{Call to action (CTA)} & The explicit instruction telling the visitor what
+to do next\\
+\rowcolor{tablealt}
+\rlab{Content marketing} & Creating and distributing valuable, relevant,
+consistent content to drive profitable customer action\\
+\rlab{Demands} & Wants for a specific product backed by ability and willingness
+to pay\\
+\rowcolor{tablealt}
+\rlab{Digital marketing} & Targeted, conversion-oriented, quantifiable,
+interactive marketing using digital technologies\\
+\rlab{Earned media} & Reach the audience gives you and you did not pay for\\
+\rowcolor{tablealt}
+\rlab{Holistic marketing} & The view that everything matters in marketing:
+internal, integrated, performance and relationship marketing\\
+\rlab{Influencer} & An early-adopter online opinion leader who holds the virtual
+ear of the masses\\
+\rowcolor{tablealt}
+\rlab{Landing page} & A single-purpose page a campaign sends traffic to, built
+for one conversion\\
+\rlab{Mantra of marketing} & Create, Communicate, Deliver, Value, Target, Profit\\
+\rowcolor{tablealt}
+\rlab{Marketing management} & Choosing target markets and getting, keeping and
+growing customers through superior customer value\\
+\rlab{Marketing mix} & The controllable tactical tools: Product, Price, Place,
+Promotion\\
+\rowcolor{tablealt}
+\rlab{Marketplace} & A physical or digital location where exchange occurs\\
+\rlab{Market space} & A virtual environment in which value is created digitally\\
+\rowcolor{tablealt}
+\rlab{Message match} & The correspondence between an advertisement and the
+landing page it leads to\\
+\rlab{Metamarket} & A cluster of complementary products and services related in
+the consumer's mind but spread across industries\\
+\rowcolor{tablealt}
+\rlab{Needs} & Basic human requirements, not created by marketers\\
+\rlab{Offering} & The combination of products, services, information and
+experiences that delivers the value proposition\\
+\rowcolor{tablealt}
+\rlab{Owned media} & Assets entirely controlled by the brand\\
+\rlab{Paid media} & Reach bought with capital, which ends when spending ends\\
+\rowcolor{tablealt}
+\rlab{Perceived anonymity} & The online trait that frees consumers from
+real-world social constraint\\
+\rlab{Product life cycle} & Introduction, growth, maturity, decline\\
+\rowcolor{tablealt}
+\rlab{Prosumer} & A consumer who also shapes or produces what they consume\\
+\rlab{Pull marketing} & The customer actively seeks the brand out\\
+\rowcolor{tablealt}
+\rlab{Push marketing} & The brand pushes the product towards the customer\\
+\rlab{QSP triad} & Quality, service and price --- the components of value\\
+\rowcolor{tablealt}
+\rlab{Satisficing} & Choosing the first option that plausibly works rather than
+the best one\\
+\rlab{Satisfaction} & A person's judgement of perceived performance against
+expectations\\
+\rowcolor{tablealt}
+\rlab{Share of voice} & Conversation about your brand as a proportion of
+conversation about the category\\
+\rlab{Value proposition} & The set of benefits a firm offers to satisfy a
+customer need\\
+\rowcolor{tablealt}
+\rlab{Wants} & Needs directed at specific objects, shaped by society and
+personality\\
+\end{mmlongtable}
+
+\chapter{Framework Quick-Reference Sheet}
+
+Everything in this volume that is a numbered list, in one place, for the night
+before the examination.
+
+\begin{mmlongtable}{Framework quick reference}{tab:quickref}%
+{@{}P{0.27\textwidth}P{0.66\textwidth}@{}}
+\rowcolor{ocre}\thd{Framework} & \thd{The sequence}\\
+\midrule
+\endfirsthead
+\rowcolor{ocre}\thd{Framework} & \thd{The sequence}\\
+\midrule
+\endhead
+\rlab{Mantra of marketing} & Create \ra{} Communicate \ra{} Deliver \ra{} Value
+\ra{} Target \ra{} Profit\\
+\rowcolor{tablealt}
+\rlab{Ten marketable entities} & Goods, services, events, experiences, persons,
+places, properties, organizations, information, ideas\\
+\rlab{Core concepts} & Needs, wants, demands, value, exchange, markets\\
+\rowcolor{tablealt}
+\rlab{Value creation engine} & Audience \ra{} solution \ra{} result\\
+\rlab{Satisfaction rule} & Performance below expectation dissatisfies; equal
+satisfies; above delights\\
+\rowcolor{tablealt}
+\rlab{Five company orientations} & Production, product, selling, marketing,
+holistic\\
+\rlab{Holistic marketing} & Internal, integrated, performance, relationship\\
+\rowcolor{tablealt}
+\rlab{Eight management tasks} & Strategies and plans, insights, connecting,
+brands, creating, delivering, communicating, long-term growth\\
+\rlab{Marketing mix} & Product, Price, Place, Promotion (+ People, Process,
+Physical evidence; mirrored by the four Cs)\\
+\rowcolor{tablealt}
+\rlab{Technology adoption pattern} & Emergence \ra{} foothold \ra{} exploration
+\ra{} mainstream\\
+\rlab{Five online consumer traits} & Comfortable, want it now, in control,
+fickle, vocal\\
+\rowcolor{tablealt}
+\rlab{Five strategy pillars} & Know your business, the competition, your
+customers, your goals, your results\\
+\rlab{Seven governing principles} & Measurability, interactivity,
+personalisation, permission, integration, iteration, content centrality\\
+\rowcolor{tablealt}
+\rlab{Media taxonomy} & Owned (foundation), paid (accelerator), earned
+(validator)\\
+\rlab{Persona process} & Research customers \ra{} segment \ra{} gather data
+\ra{} identify goals and pain points \ra{} build and validate\\
+\rowcolor{tablealt}
+\rlab{Persona canvas} & Background and goals; information sources; messaging and
+topics; purchase role and objections\\
+\rlab{Competitor decisions} & Emulate, avoid, occupy\\
+\rowcolor{tablealt}
+\rlab{Website analysis halves} & Technical health; behavioural insight\\
+\rlab{Content quality gate} & Credible, shareable, useful or fun, interesting,
+relevant, different, on-brand\\
+\rowcolor{tablealt}
+\rlab{Elite content marketer traits} & Documented strategy, dedicated
+leadership, expanded tactics, multi-platform distribution, budget allocation\\
+\rlab{Eight content steps} & Goals \ra{} audience \ra{} ideation \ra{} creation
+\ra{} distribution \ra{} amplification \ra{} evaluation \ra{} improvement\\
+\rowcolor{tablealt}
+\rlab{Three content phases} & Architecture, mechanics, telemetry\\
+\rlab{Audience mapping layers} & Anxieties and desires \ra{} pain points \ra{}
+profile and persona\\
+\rowcolor{tablealt}
+\rlab{Content plan layers} & Strategic, structural, temporal \ra{} road map\\
+\rlab{Amplification nodes} & Communities, buzzers, influencers\\
+\rowcolor{tablealt}
+\rlab{5A customer path} & Aware, appeal, ask, act, advocate --- visible,
+relatable, searchable, actionable, shareable\\
+\rlab{Content flywheel} & Audience research \ra{} keyword strategy \ra{}
+creation \ra{} distribution \ra{} measurement \ra{} repeat\\
+\rowcolor{tablealt}
+\rlab{Seven usability attributes} & Useful, learnable, memorable, effective,
+efficient, desirable, delightful\\
+\rlab{Billboard design rules} & Visual hierarchy, omit needless words, obvious
+clickables, breadcrumbs and street signs\\
+\rowcolor{tablealt}
+\rlab{Three metric buckets} & Reach and visibility; resonance and memory;
+engagement and friction\\
+\rlab{Five content metrics} & Traffic, engagement rate, bounce rate, lead
+generation, conversion rate and ROI\\
+\rowcolor{tablealt}
+\rlab{KPI alignment} & Identify goals \ra{} map to KPIs \ra{} make SMART \ra{}
+instrument analytics \ra{} optimise continuously\\
+\rlab{Keyword sweet spot} & High volume $\times$ low difficulty $\times$
+commercial intent\\
+\rowcolor{tablealt}
+\rlab{Product life cycle} & Introduction, growth, maturity, decline\\
+\end{mmlongtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+\printindex
+\end{document}
