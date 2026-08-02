@@ -1747,82 +1747,43 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       items: [
         {
           label:
-            "Study Text – Unit I: Introduction to Digital Marketing and Content Marketing",
-          file: "/notes/sem4/marketing-management/unit1.pdf",
+            "Question Bank with Model Answers (all SEE and CIE papers)",
+          file: "/notes/sem4/marketing-management/question-bank-with-model-answers.pdf",
+          size: "916 KB",
+        },
+        {
+          label:
+            "Unit I: Introduction to Digital Marketing and Content Marketing",
+          file: "/notes/sem4/marketing-management/unit-1-introduction-to-digital-marketing-and-content-marketing.pdf",
           size: "599 KB",
         },
         {
           label:
-            "Study Text – Unit II: Social Media Marketing and Search Engine Optimization",
-          file: "/notes/sem4/marketing-management/unit2.pdf",
+            "Unit II: Social Media Marketing and Search Engine Optimization",
+          file: "/notes/sem4/marketing-management/unit-2-social-media-marketing-and-search-engine-optimization.pdf",
           size: "525 KB",
         },
         {
           label:
-            "Study Text – Unit III: Web Analytics, Google Analytics and E-mail Marketing",
-          file: "/notes/sem4/marketing-management/unit3.pdf",
+            "Unit III: Web Analytics, Google Analytics and E-mail Marketing",
+          file: "/notes/sem4/marketing-management/unit-3-web-analytics-google-analytics-and-email-marketing.pdf",
           size: "428 KB",
         },
         {
-          label: "Study Text – Unit IV: Web Design and Mobile Marketing",
-          file: "/notes/sem4/marketing-management/unit4.pdf",
+          label: "Unit IV: Web Design and Mobile Marketing",
+          file: "/notes/sem4/marketing-management/unit-4-web-design-and-mobile-marketing.pdf",
           size: "431 KB",
         },
         {
           label:
-            "Study Text – Unit V: Conversion Optimization and Digital Analytics",
-          file: "/notes/sem4/marketing-management/unit5.pdf",
+            "Unit V: Conversion Optimization and Digital Analytics",
+          file: "/notes/sem4/marketing-management/unit-5-conversion-optimization-and-digital-analytics.pdf",
           size: "396 KB",
         },
         {
           label: "Digital Marketing – Master Notes",
           file: "/notes/sem4/marketing-management/digital-marketing-master-notes.pdf",
           size: "2.9 MB",
-        },
-        {
-          label: "Modern Marketing Blueprint",
-          file: "/notes/sem4/marketing-management/modern-marketing-blueprint.pdf",
-          size: "16 MB",
-        },
-        {
-          label: "The Digital Strategy Blueprint",
-          file: "/notes/sem4/marketing-management/the-digital-strategy-blueprint.pdf",
-          size: "14 MB",
-        },
-        {
-          label: "Product Lifecycle Playbook",
-          file: "/notes/sem4/marketing-management/product-lifecycle-playbook.pdf",
-          size: "14 MB",
-        },
-        {
-          label: "The Content Marketing Engine",
-          file: "/notes/sem4/marketing-management/the-content-marketing-engine.pdf",
-          size: "13 MB",
-        },
-        {
-          label: "Content Engineering Blueprint",
-          file: "/notes/sem4/marketing-management/content-engineering-blueprint.pdf",
-          size: "14 MB",
-        },
-        {
-          label: "SEO & Digital Visibility Blueprint",
-          file: "/notes/sem4/marketing-management/seo-digital-visibility-blueprint.pdf",
-          size: "14 MB",
-        },
-        {
-          label: "Search Everywhere Optimization",
-          file: "/notes/sem4/marketing-management/search-everywhere-optimization.pdf",
-          size: "9.6 MB",
-        },
-        {
-          label: "The Social Strategy Stack",
-          file: "/notes/sem4/marketing-management/the-social-strategy-stack.pdf",
-          size: "15 MB",
-        },
-        {
-          label: "Modern Email Playbook",
-          file: "/notes/sem4/marketing-management/modern-email-playbook.pdf",
-          size: "11 MB",
         },
       ],
     },
