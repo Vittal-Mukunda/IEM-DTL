@@ -267,6 +267,22 @@ a.card-sketch:hover,
   opacity: 0.55;
 }
 
+/* ── Page enter fade (app/template.tsx) ────────────────────────────
+   The template remounts on every navigation, so this animation replays
+   per page. Only `opacity` is animated: a transform/filter here would
+   become a containing block and break the homepage's sticky panels and
+   fixed progress rail. */
+@keyframes page-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.page-enter {
+  animation: page-enter 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-enter { animation: none; }
+}
+
 /* ── Playful motion ────────────────────────────────────────────── */
 @keyframes wiggle {
   0%, 100% { transform: rotate(-2deg); }

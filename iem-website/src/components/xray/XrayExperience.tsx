@@ -112,11 +112,15 @@ export default function XrayExperience() {
     <div className="home-scroll bg-[#070b14] text-white">
       {/* ── Hero ── */}
       <section className="snap-start relative flex min-h-[92svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+        {/* Backdrop only: painted at 28% under two gradients and a vignette,
+            so a low encode quality is indistinguishable here and keeps the
+            LCP image small. */}
         <Image
           src={introPhoto}
           alt=""
           fill
           priority
+          quality={40}
           sizes="100vw"
           className="object-cover opacity-[0.28]"
         />
@@ -196,6 +200,7 @@ export default function XrayExperience() {
                 alt={w.realCaption}
                 fill
                 loading={i === 0 ? undefined : "lazy"}
+                quality={40}
                 sizes="100vw"
                 className="object-cover opacity-[0.35]"
               />

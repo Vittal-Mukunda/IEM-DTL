@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { animate, useInView, useReducedMotion } from "motion/react";
 
 interface CounterProps {
@@ -21,26 +21,28 @@ export default function Counter({
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
   const reduced = useReducedMotion();
-  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
     if (!inView) return;
-    // Reduced motion → duration 0 snaps straight to the value (no
-    // direct setState in the effect body; the count is pushed through
-    // animate's onUpdate callback in every case).
+    const node = ref.current;
+    // The tween writes straight to the text node instead of through state:
+    // a `setState` per frame would re-render this component (and, on the
+    // placements page, four of them side by side) ~60 times a second for a
+    // number that no other markup depends on.
+    // Reduced motion → duration 0 snaps straight to the value.
     const controls = animate(0, value, {
       duration: reduced ? 0 : 1.6,
       ease: [0.16, 0.72, 0.3, 1],
-      onUpdate: (v) => setDisplay(v),
+      onUpdate: (v) => {
+        if (node) node.textContent = `${prefix}${v.toFixed(decimals)}${suffix}`;
+      },
     });
     return () => controls.stop();
-  }, [inView, value, reduced]);
+  }, [inView, value, reduced, prefix, suffix, decimals]);
 
   return (
-    <span ref={ref} className={className}>
-      {prefix}
-      {display.toFixed(decimals)}
-      {suffix}
+    <span ref={ref} className={className} suppressHydrationWarning>
+      {`${prefix}${(0).toFixed(decimals)}${suffix}`}
     </span>
   );
 }

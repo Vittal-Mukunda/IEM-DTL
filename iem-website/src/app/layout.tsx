@@ -27,11 +27,16 @@ const body = Source_Sans_3({
 
 // Labels / index numbers — IBM Plex Mono: an engineering-instrument
 // register for kickers, section indices, and readouts.
+// Not preloaded: unlike the heading and body faces it never sets a block of
+// running text, so its two weights (~20 kB) would only compete with the LCP
+// image for critical-path bandwidth. It still loads immediately after, and
+// next/font's metric-matched fallback keeps the swap from shifting layout.
 const code = IBM_Plex_Mono({
   variable: "--font-code",
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {

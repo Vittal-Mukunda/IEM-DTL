@@ -29,11 +29,17 @@ export default function Footer() {
             <h3 className="text-xl font-display font-bold mb-3">
               Quick Links
             </h3>
+            {/* prefetch={false} keeps reaching the bottom of a page from
+                pulling down all ten route payloads. These are the same
+                destinations the (always-visible, sticky) header already
+                prefetches on hover, and each one is only a few kB to fetch on
+                click, so nothing here is worth speculating on. */}
             <ul className="space-y-1.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-base text-gray-300 glow-hover"
                   >
                     {link.label}

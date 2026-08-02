@@ -16,6 +16,10 @@ interface TiltCardProps {
 
 export default function TiltCard({ children, className }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
+  // Measured once on enter and reused for the whole hover. Calling
+  // getBoundingClientRect() inside onMouseMove forced a synchronous layout on
+  // every pointer event, which is the one thing a tilt effect must not do.
+  const rect = useRef<DOMRect | null>(null);
   const reduced = useReducedMotion();
 
   const px = useMotionValue(0.5);
@@ -29,14 +33,20 @@ export default function TiltCard({ children, className }: TiltCardProps) {
     damping: 22,
   });
 
+  function onMouseEnter() {
+    if (reduced) return;
+    rect.current = ref.current?.getBoundingClientRect() ?? null;
+  }
+
   function onMouseMove(e: React.MouseEvent) {
-    if (reduced || !ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    px.set((e.clientX - rect.left) / rect.width);
-    py.set((e.clientY - rect.top) / rect.height);
+    const r = rect.current;
+    if (reduced || !r) return;
+    px.set((e.clientX - r.left) / r.width);
+    py.set((e.clientY - r.top) / r.height);
   }
 
   function onMouseLeave() {
+    rect.current = null;
     px.set(0.5);
     py.set(0.5);
   }
@@ -44,6 +54,7 @@ export default function TiltCard({ children, className }: TiltCardProps) {
   return (
     <motion.div
       ref={ref}
+      onMouseEnter={onMouseEnter}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       className={className}

@@ -56,17 +56,53 @@ const securityHeaders = [
   },
 ];
 
+/**
+ * Static assets under `public/` are otherwise served `max-age=0,
+ * must-revalidate`, so every repeat view pays a conditional request per file
+ * before it can reuse the copy it already has. Nothing here is edited in
+ * place — new photos and new notes arrive under new filenames — so they can
+ * be cached for real, with `stale-while-revalidate` covering the case where
+ * one is replaced.
+ */
+const assetCache = (maxAge: number, swr: number) => [
+  {
+    key: "Cache-Control",
+    value: `public, max-age=${maxAge}, stale-while-revalidate=${swr}`,
+  },
+];
+
+const DAY = 86400;
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // 40 is for decorative backdrops (homepage panels) that are painted at
+    // ~30% opacity under gradients; 75 is Next's default for everything else.
+    qualities: [40, 75],
   },
   async headers() {
     return [
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/images/:path*",
+        headers: assetCache(30 * DAY, 365 * DAY),
+      },
+      {
+        // pdf.js worker — only changes when pdfjs-dist is upgraded.
+        source: "/pdfjs/:path*",
+        headers: assetCache(30 * DAY, 365 * DAY),
+      },
+      {
+        // Course material: append-only in practice, but a file could be
+        // re-uploaded with corrections, so keep the fresh window short and
+        // let stale-while-revalidate absorb the update.
+        source: "/:dir(notes|syllabus|newsletters)/:path*",
+        headers: assetCache(DAY, 30 * DAY),
       },
     ];
   },
