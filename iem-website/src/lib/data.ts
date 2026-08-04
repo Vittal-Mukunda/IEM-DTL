@@ -1787,8 +1787,31 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
-    // Core courses still awaiting notes — placeholders, empty until uploaded.
-    { name: "Universal Human Values", items: [] },
+    {
+      name: "Universal Human Values",
+      items: [
+        {
+          label: "Unit I: Value Education, Self-exploration and Harmony in the Self",
+          file: "/notes/sem4/universal-human-values/unit-1-value-education-and-harmony-in-the-self.pdf",
+          size: "1.5 MB",
+        },
+        {
+          label: "Unit II: Harmony in the Family and in the Society",
+          file: "/notes/sem4/universal-human-values/unit-2-harmony-in-family-and-society.pdf",
+          size: "503 KB",
+        },
+        {
+          label: "Unit III: Harmony in Nature and Existence",
+          file: "/notes/sem4/universal-human-values/unit-3-harmony-in-nature-and-existence.pdf",
+          size: "608 KB",
+        },
+        {
+          label: "Question Bank with Answers — Units I, II and III",
+          file: "/notes/sem4/universal-human-values/question-bank-with-answers-units-1-3.pdf",
+          size: "1.2 MB",
+        },
+      ],
+    },
   ],
   // Sems 5–7: one folder per core course (2022 scheme). Where question
   // papers are available they live under a shared "Question Papers"
