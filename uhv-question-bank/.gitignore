@@ -1,0 +1,21 @@
+# LaTeX build artefacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Built PDFs. Reproducible from the sources in tex/ (see README.md), and the
+# copy actually published by the site is tracked under
+# iem-website/public/notes/sem4/universal-human-values/.
+/*.pdf
+tex/*.pdf

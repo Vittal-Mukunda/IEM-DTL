@@ -1810,6 +1810,11 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem4/universal-human-values/question-bank-with-answers-units-1-3.pdf",
           size: "1.2 MB",
         },
+        {
+          label: "Previous-Year Question Papers (2024–2026) — 5 papers, CIE and SEE",
+          file: "/notes/sem4/universal-human-values/previous-year-question-papers-2024-2026.pdf",
+          size: "296 KB",
+        },
       ],
     },
   ],
