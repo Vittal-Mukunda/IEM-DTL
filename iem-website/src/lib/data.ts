@@ -432,6 +432,90 @@ export const events: DeptEvent[] = [
     upcoming: true,
   },
   {
+    day: "24–25",
+    monthYear: "Jun 2026",
+    title: "Leadership Workshop for NTTF Faculty — three IEM sessions",
+    text: "IEM faculty led three sessions at the 2-day workshop organised under RVCE's Centre for Education, Digital Learning and Research (CEDLR) and IQAC: Dr. N S Narahari on “Decision Making & Problem Solving”, Dr. K N Subramanya on “Strategic Planning & Implementation — Role of Leadership”, and Dr. Rajeswara Rao K V S on “Change Management & Innovation”.",
+  },
+  {
+    day: "23",
+    monthYear: "Jun 2026",
+    title: "Invited Talk — “What AI Cannot Take From You”",
+    text: "Mr. Anjan Kasi Sampath on the three skills that keep engineers hired, trusted and impossible to replace. 150 students and 30 faculty attended; organised with the Department of Placement & Training, RVCE.",
+  },
+  {
+    day: "22",
+    monthYear: "Jun 2026",
+    title: "AUKOM Certification Distribution",
+    text: "Certificates from the AUKOM metrology programme with Carl Zeiss India were presented to students at the IEM Seminar Hall.",
+  },
+  {
+    day: "12",
+    monthYear: "Jun 2026",
+    title: "Expert Lecture — Entrepreneurship in the Era of AI",
+    text: "Prof. Craig G. Downing, Associate Dean for Lifelong Learning at Rose-Hulman Institute of Technology (USA) and a Lean Six Sigma Master Black Belt. 40 students and 10 faculty attended; organised by Dr. Vikram N B and Dr. Rajeswara Rao K V S.",
+  },
+  {
+    day: "11",
+    monthYear: "Jun 2026",
+    title: "Best Project Prize Distribution — VIII Semester",
+    text: "Prizes for the best final-year projects were presented at the IEM Seminar Hall.",
+  },
+  {
+    day: "8–12",
+    monthYear: "Jun 2026",
+    title: "Six Sigma Certification Course — Prof. Craig G. Downing",
+    text: "An intensive Six Sigma certification course for 25 sixth-semester students from the Industrial Engineering & Management, Mechanical Engineering and Aerospace Engineering departments, held at the IEM Seminar Hall.",
+  },
+  {
+    day: "30",
+    monthYear: "May 2026",
+    title: "Field Trip to Belur — Photography & Film Making (AEC)",
+    text: "Fourth-semester students travelled to Belur as part of the Photography and Film Making ability-enhancement course, accompanied by Dr. Ramaa A.",
+  },
+  {
+    day: "29",
+    monthYear: "May 2026",
+    title: "Project Exhibition 2026 & Final-Year Farewell",
+    text: "The department held its project exhibition for VIII semester students, followed by the farewell function for the graduating batch.",
+  },
+  {
+    day: "23",
+    monthYear: "May 2026",
+    title: "Parents–Teachers Meeting (Higher Semesters)",
+    text: "The department hosted parents of higher-semester students for a review of academic progress and departmental activities.",
+  },
+  {
+    day: "22",
+    monthYear: "May 2026",
+    title: "“Productivity to Prosperity” — MSME Report Released at BCIC",
+    text: "Dr. K N Subramanya and Dr. Ramaa A helped compile a strategic report on MSME manufacturing in India with a focus on Bengaluru and Karnataka — “Advancing Manufacturing Excellence through Innovation and Technology”. Released at a BCIC event at Hotel ITC Windsor, Bengaluru.",
+  },
+  {
+    day: "20",
+    monthYear: "May 2026",
+    title: "Research Discussion — ACE Designers Ltd, Bengaluru",
+    text: "Dr. K N Subramanya, Dr. Rajeswara Rao K V S, Dr. Ramaa A, Dr. M N Vijayakumar and Dr. Vivekanand S Gogi visited ACE Designers Ltd to discuss a research project on an AI-driven integrated platform for bill-of-materials validation, inventory intelligence and cost optimisation in manufacturing systems.",
+  },
+  {
+    day: "11",
+    monthYear: "May 2026",
+    title: "Strategic Ideathon — “Tensions to Transformation”",
+    text: "“Optimizing Systems in a World of Conflict”, organised by the Indian Institution of Industrial Engineering (IIIE), Bengaluru Chapter with the Institute of Industrial & Systems Engineers (IISE), at BMS College of Engineering. Dr. Ramaa A served on the organising committee.",
+  },
+  {
+    day: "8",
+    monthYear: "May 2026",
+    title: "TOPS Convention 2026",
+    text: "Hosted by the Indian Society for Quality (ISQ) and RVCE with 200 industry participants. Organised by Dr. K N Subramanya and Dr. Shobha N S; Dr. C K Nagendra Gupta and Dr. Rajeswara Rao K V S served on the jury panel.",
+  },
+  {
+    day: "7",
+    monthYear: "May 2026",
+    title: "Industrial Visit — Tru Glass (Uma Industries), Peenya",
+    text: "38 fourth-semester students studied the end-to-end glass manufacturing and fabrication workflow and the commercial applications of different glass products. Coordinators: Prof. Nandini B and Prof. Shruthi M N.",
+  },
+  {
     day: "28",
     monthYear: "Apr 2026",
     title: "Expert Talk — Electronics Manufacturing Industry in India & Globally",
@@ -2156,10 +2240,20 @@ export interface FundedProject {
   faculty: string;
   agency: string;
   amount: string;
+  /** Sanction / disbursement note, shown as a badge when present. */
+  status?: string;
 }
 
 // Sponsored / consultancy projects (from newsletters).
 export const fundedProjects: FundedProject[] = [
+  {
+    title:
+      "A Hybrid LLM–Knowledge Graph Framework for Context-Aware AI Psychotherapy",
+    faculty: "Dr. Anala, Dr. C. Bindu Ashwini, Dr. Somesh Nandi",
+    agency: "Thought Echo Technologies",
+    amount: "₹6,00,000",
+    status: "Sanctioned — awaiting release",
+  },
   {
     title:
       "AI-based Automated Threat Detection and Incident Response System",
@@ -2176,17 +2270,254 @@ export const fundedProjects: FundedProject[] = [
   },
 ];
 
+export interface ResearchProposal {
+  title: string;
+  /** Principal investigator first, then co-investigators. */
+  faculty: string;
+  agency: string;
+  /** Budget as quoted in the proposal, e.g. "Up to ₹1 crore". */
+  budget: string;
+  status: string;
+}
+
+// Project / consultancy proposals submitted to funding agencies and still
+// under review — kept separate from `fundedProjects` so sanctioned-funding
+// totals stay accurate.
+export const researchProposals: ResearchProposal[] = [
+  {
+    title:
+      "Immersive Cognitive Digital Twins for Human–AI Collaborative Decision Intelligence in Semiconductor Supply Chains",
+    faculty:
+      "Dr. Ramaa A (PI), Dr. K N Subramanya, Dr. Andhe Dharani, Dr. Sowmyarani, Dr. Padmashree",
+    agency: "ANRF — Advanced Research Grant",
+    budget: "Up to ₹1 crore",
+    status: "Pre-proposal submitted",
+  },
+];
+
+export interface FacultyEngagement {
+  /** Grouping label, e.g. "Invited Talk" or "Peer Review". */
+  kind: string;
+  faculty: string;
+  title: string;
+  detail: string;
+  date: string;
+}
+
+// Professional service and outreach by department faculty — invited talks,
+// external body memberships, jury roles, journal reviewing and training
+// attended (from the department's bi-monthly activity reports).
+export const facultyEngagements: FacultyEngagement[] = [
+  {
+    kind: "Invited Talk",
+    faculty: "Dr. N S Narahari",
+    title: "Decision Making & Problem Solving",
+    detail:
+      "2-Day Leadership Workshop for NTTF faculty, organised under RVCE's Centre for Education, Digital Learning and Research (CEDLR) and IQAC.",
+    date: "24–25 June 2026",
+  },
+  {
+    kind: "Invited Talk",
+    faculty: "Dr. K N Subramanya",
+    title: "Strategic Planning & Implementation — Role of Leadership",
+    detail:
+      "2-Day Leadership Workshop for NTTF faculty, organised under RVCE's CEDLR and IQAC.",
+    date: "24–25 June 2026",
+  },
+  {
+    kind: "Invited Talk",
+    faculty: "Dr. Rajeswara Rao K V S",
+    title: "Change Management & Innovation",
+    detail:
+      "2-Day Leadership Workshop for NTTF faculty, organised under RVCE's CEDLR and IQAC.",
+    date: "24–25 June 2026",
+  },
+  {
+    kind: "Academic Body",
+    faculty: "Dr. C K Nagendra Gupta",
+    title: "Board of Studies member",
+    detail:
+      "Department of Industrial Engineering & Management, Siddaganga Institute of Technology, Tumkur — attended the Board of Studies meeting.",
+    date: "9 May 2026",
+  },
+  {
+    kind: "Academic Body",
+    faculty: "Dr. C K Nagendra Gupta",
+    title: "Board of Examinations meeting",
+    detail:
+      "Department of Industrial Engineering & Management, Ramaiah Institute of Technology, Bengaluru.",
+    date: "5 May 2026",
+  },
+  {
+    kind: "Jury",
+    faculty: "Dr. C K Nagendra Gupta · Dr. Rajeswara Rao K V S",
+    title: "Jury panel, TOPS Convention",
+    detail:
+      "Indian Society for Quality (ISQ) TOPS Convention hosted at RV College of Engineering.",
+    date: "8 May 2026",
+  },
+  {
+    kind: "Jury",
+    faculty: "Dr. Ramaa A",
+    title: "Viva voce examiner — IIIE Graduateship examination",
+    detail:
+      "Conducted the viva voce for Indian Institution of Industrial Engineering graduateship students at Vallika Technologies.",
+    date: "2 May 2026",
+  },
+  {
+    kind: "Jury",
+    faculty: "Dr. Ramaa A",
+    title: "Best Major Project evaluation",
+    detail:
+      "Jury member for the evaluation and selection of the Best Major Project, Department of Mechanical Engineering, RVCE.",
+    date: "2 June 2026",
+  },
+  {
+    kind: "Jury",
+    faculty: "Dr. N S Narahari",
+    title: "Faculty Conclave — Enhancing Academic Excellence",
+    detail:
+      "Jury member for the faculty dialogue on best practices at The National Institute of Engineering, Mysuru.",
+    date: "6 June 2026",
+  },
+  {
+    kind: "Jury",
+    faculty: "Dr. N S Narahari",
+    title: "Global audit jury — Wadhwani Ignite",
+    detail:
+      "Evaluated student start-up proposals from across the globe through the year.",
+    date: "2025",
+  },
+  {
+    kind: "Peer Review",
+    faculty: "Dr. Ramaa A",
+    title:
+      "Analyzing the Linkage of Hard Total Quality Management Practices with Supply Chain Digitalization: Evidence of Manufacturing Firms of Jordan",
+    detail:
+      "Reviewed for the Journal of Industrial Integration and Management: Innovation and Entrepreneurship.",
+    date: "May 2026",
+  },
+  {
+    kind: "Peer Review",
+    faculty: "Dr. N S Narahari",
+    title:
+      "Performance Evaluation, Monitoring and Measurement of Academic Functional Areas at Compound Annual Growth Rate: A Systematic Approach",
+    detail: "Reviewed for the Journal of Engineering Education Transformations.",
+    date: "May 2026",
+  },
+  {
+    kind: "Training Attended",
+    faculty: "Dr. Rajeswara Rao K V S · Dr. Ramaa A · Dr. M N Vijayakumar",
+    title:
+      "Operationalising the New Tier-1 Format — A Strategic Workshop for Academic Leadership",
+    detail: "A three-day faculty development programme held at RVCE.",
+    date: "22, 25 & 27 May 2026",
+  },
+  {
+    kind: "Training Attended",
+    faculty: "Dr. Shobha N S · Prof. B Nandini · Dr. Bindu Ashwini C",
+    title: "NEP: Orientation and Sensitization Programme",
+    detail:
+      "Faculty development programme by the UGC — Malaviya Mission Teacher Training Centre (MMTTC), SMVDU, conducted online.",
+    date: "18–26 June 2026",
+  },
+  {
+    kind: "Training Attended",
+    faculty: "Dr. Rajeswara Rao K V S",
+    title: "Nurturing Future Leadership Programme (Batch 3)",
+    detail: "A five-day leadership training programme at RV University.",
+    date: "29 June – 3 July 2026",
+  },
+  {
+    kind: "Industry Outreach",
+    faculty: "Dr. Ramaa A",
+    title: "Zoho Creator Education Summit 2026",
+    detail: "Attended the summit at Shangri-La Hotel, Bengaluru.",
+    date: "12 May 2026",
+  },
+  {
+    kind: "Industry Outreach",
+    faculty: "Prof. Bhaskar M G",
+    title: "Interactive session with Prof. Tarun Khanna (Harvard)",
+    detail:
+      "Attended at Narayana Health City, followed by a meeting with Mr. Viren Shetty, Vice-Chairman of Narayana Hrudayalaya and an RVCE alumnus.",
+    date: "25 June 2026",
+  },
+];
+
 export interface Publication {
   title: string;
   authors: string;
   venue: string;
   scope?: "International" | "National";
+  /** Full DOI URL, rendered as a link when present. */
+  doi?: string;
 }
 
 // A selection of recent student–faculty publications reported in the IDEA
 // newsletters (2025–2026). Not exhaustive — see the newsletters for the full
 // record.
 export const publications: Publication[] = [
+  {
+    title:
+      "AI-Driven Retail Decision Optimization through Forecasting, Segmentation, and Risk Analytics",
+    authors:
+      "Charoo Ranjan, Harsh Agrawal, Kotra Sasank, Dr. Vivekanand S Gogi",
+    venue:
+      "Journal of Innovative Research in Technology, Vol. 13, Issue 1, pp. 7343–7350 (ISSN 2349-6002), June 2026",
+    scope: "International",
+  },
+  {
+    title:
+      "Hybrid Movie Recommendation System Combining Content-Based and Collaborative Filtering",
+    authors: "Meghana J L, Mithra N Gowda, Dr. Vivekanand S Gogi",
+    venue:
+      "International Journal of Innovative Research in Technology, Vol. 13, Issue 1, pp. 8327–8333 (ISSN 2349-6002), June 2026",
+    scope: "International",
+  },
+  {
+    title:
+      "A Comparative Analysis of Metaheuristic Algorithms for the Vehicle Routing Problem with Time Windows in E-commerce Last-Mile Delivery",
+    authors: "Kavya, Sumikha D Prasad, Shreyas, Dr. Vivekanand S Gogi",
+    venue:
+      "International Journal for Research Trends and Innovation, Vol. 11, Issue 6, pp. b1–b9",
+    scope: "International",
+  },
+  {
+    title:
+      "Ergonomic Assessment and Evaluation of Driver Seat in Public Transport Vehicles: A Case Study in Indian Scenario",
+    authors:
+      "Mahantesh M. Math, K. V. S. Rajeswara Rao, Vikram N B, V. N. Shailaja, Y. A. Reena, A. C. Prapul Chandra, N. S. Narahari, K. N. Subramanya",
+    venue:
+      "International Journal on Interactive Design and Manufacturing (IJIDeM), May 2026 · Q2",
+    scope: "International",
+    doi: "https://doi.org/10.1007/s12008-026-02591-9",
+  },
+  {
+    title:
+      "Design Optimization and Structural Evaluation of a Hybrid Frame for Next Generation Electric Scooters",
+    authors:
+      "Sridhar R, Mahantesh M Math, Sujan Chakraborty, Sourabh H, Vivekanand S Gogi, Jeevanth R",
+    venue: "IIUM Engineering Journal, Vol. 27, No. 2, pp. 450–466 · Q3",
+    scope: "International",
+    doi: "https://doi.org/10.31436/iiumej.v27i2.4068",
+  },
+  {
+    title:
+      "Patent Guard: Transfer Risk Prediction for Cross-Domain Patent Classification via IPC Ontology and Meta-Learning",
+    authors: "Dr. Vikram N Bahadurdesai",
+    venue:
+      "International Conference on Trustworthy AI for Intelligent Computing Systems, Amruta Institute of Engineering & Management Sciences, 29–30 May 2026",
+    scope: "International",
+  },
+  {
+    title:
+      "Copyright of AI-Generated Work: A Comparative Legal Study across Major Jurisdictions",
+    authors: "Dr. Vikram N Bahadurdesai",
+    venue:
+      "International Conference on Trustworthy AI for Intelligent Computing Systems, Amruta Institute of Engineering & Management Sciences, 29–30 May 2026",
+    scope: "International",
+  },
   {
     title:
       "Domain-Adaptive Transfer Learning for Privacy-Preserving Scam Call Detection",
@@ -2305,6 +2636,18 @@ export interface StudentAchievement {
 }
 
 export const studentAchievements: StudentAchievement[] = [
+  {
+    tag: "First Prize",
+    title: "Idea to Impact Start-Up Pitch — IEEE PELS Day 2026",
+    detail:
+      "27 students from the Service Operations Management course (Prof. Bhaskar M G) won first prize at the start-up pitch competition held at SSIT, Tumkur on 22 June 2026.",
+  },
+  {
+    tag: "Design",
+    title: "Design-A-Thon — Honeywell Aerospace",
+    detail:
+      "Priyanshu, a third-year student, won a prize at the design contest organised by Honeywell Aerospace on 12 June 2026.",
+  },
   {
     tag: "Innovation",
     title:

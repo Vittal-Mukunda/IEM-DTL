@@ -6,6 +6,8 @@ import {
   patents,
   publications,
   fundedProjects,
+  researchProposals,
+  facultyEngagements,
 } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -26,6 +28,16 @@ export default function ResearchPage() {
     0
   );
   const fundingLakh = totalFunding / 100000;
+
+  // Engagements are grouped by `kind`, in first-appearance order.
+  const engagementGroups = facultyEngagements.reduce<
+    { kind: string; items: typeof facultyEngagements }[]
+  >((groups, e) => {
+    const group = groups.find((g) => g.kind === e.kind);
+    if (group) group.items.push(e);
+    else groups.push({ kind: e.kind, items: [e] });
+    return groups;
+  }, []);
 
   return (
     <>
@@ -103,7 +115,14 @@ export default function ResearchPage() {
                   key={p.title}
                   className="bg-white/10 rounded-xl p-5 border border-white/10"
                 >
-                  <p className="text-2xl font-bold tabular-nums">{p.amount}</p>
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <p className="text-2xl font-bold tabular-nums">{p.amount}</p>
+                    {p.status && (
+                      <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-xs font-semibold text-gray-100">
+                        {p.status}
+                      </span>
+                    )}
+                  </div>
                   <p className="font-semibold leading-snug mt-2">{p.title}</p>
                   <p className="text-sm text-gray-200 mt-2">{p.agency}</p>
                   <p className="text-xs text-gray-300 mt-1">{p.faculty}</p>
@@ -111,6 +130,38 @@ export default function ResearchPage() {
               ))}
             </div>
           </div>
+
+          {researchProposals.length > 0 && (
+            <div className="mt-6">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-text-muted mb-3">
+                Proposals under review
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {researchProposals.map((p) => (
+                  <div
+                    key={p.title}
+                    className="rounded-xl border border-dashed border-primary/25 bg-primary/5 p-5"
+                  >
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <p className="text-xl font-bold text-primary tabular-nums">
+                        {p.budget}
+                      </p>
+                      <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-semibold text-accent">
+                        {p.status}
+                      </span>
+                    </div>
+                    <p className="font-semibold text-gray-800 leading-snug mt-2">
+                      {p.title}
+                    </p>
+                    <p className="text-sm text-primary-light mt-2">
+                      {p.agency}
+                    </p>
+                    <p className="text-xs text-text-muted mt-1">{p.faculty}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Recent Publications — papers highlight */}
@@ -150,6 +201,17 @@ export default function ResearchPage() {
                 <p className="text-sm font-medium text-primary-light mt-1">
                   {pub.venue}
                 </p>
+                {pub.doi && (
+                  <a
+                    href={pub.doi}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`DOI for ${pub.title}`}
+                    className="inline-block text-xs text-primary hover:underline mt-1"
+                  >
+                    {pub.doi.replace("https://doi.org/", "DOI: ")} →
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -184,6 +246,54 @@ export default function ResearchPage() {
                 <span className="shrink-0 self-start rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                   {p.status}
                 </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Faculty Engagement & Professional Service */}
+        <section className="mb-14">
+          <div className="flex flex-wrap items-center gap-3 mb-2">
+            <h2 className="text-2xl font-bold text-primary">
+              Faculty Engagement &amp; Professional Service
+            </h2>
+            <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              {facultyEngagements.length} recent activities
+            </span>
+          </div>
+          <p className="text-text-muted mb-6 max-w-2xl">
+            Invited talks, academic body memberships, jury roles, journal
+            reviewing and leadership training taken up by department faculty.
+          </p>
+          <div className="space-y-8">
+            {engagementGroups.map((group) => (
+              <div key={group.kind}>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-text-muted mb-3">
+                  {group.kind}
+                </h3>
+                <div className="grid gap-3 md:grid-cols-2">
+                  {group.items.map((e) => (
+                    <div
+                      key={`${e.faculty}-${e.title}-${e.date}`}
+                      className="rounded-lg border border-gray-100 bg-white p-5 shadow-sm"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <p className="font-semibold text-primary text-sm">
+                          {e.faculty}
+                        </p>
+                        <span className="shrink-0 text-xs text-text-muted">
+                          {e.date}
+                        </span>
+                      </div>
+                      <p className="text-base text-gray-800 leading-snug mt-2">
+                        {e.title}
+                      </p>
+                      <p className="text-sm text-text-muted mt-1 leading-relaxed">
+                        {e.detail}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
