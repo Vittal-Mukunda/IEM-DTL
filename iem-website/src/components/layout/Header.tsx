@@ -90,7 +90,11 @@ export default function Header() {
 
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => {
-                const active = pathname === link.href;
+                const active =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname === link.href ||
+                      pathname.startsWith(`${link.href}/`);
                 return (
                   <Link
                     key={link.href}
@@ -151,7 +155,11 @@ export default function Header() {
             className="lg:hidden border-t-[3px] border-dashed border-primary bg-background px-4 py-3 max-h-[calc(100svh-5.25rem)] overflow-y-auto"
           >
             {navLinks.map((link) => {
-              const active = pathname === link.href;
+              const active =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href ||
+                    pathname.startsWith(`${link.href}/`);
               return (
                 <Link
                   key={link.href}

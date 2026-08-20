@@ -1,37 +1,107 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { resourceFolders, type ResourceItem } from "@/lib/data";
-import GPACalculator from "@/components/resources/GPACalculator";
+import { resourceFolders } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Resources & Notes",
+  title: "Student Resources",
   description:
-    "IEM RVCE Notes & Resources — semester-wise study material (3rd to 8th semester) for the B.E. Industrial Engineering & Management program at RV College of Engineering, Bengaluru. Download lecture notes, study guides, question papers, and reference material curated by the Department of Industrial Engineering & Management.",
+    "Student resources from the Department of Industrial Engineering & Management at RV College of Engineering, Bengaluru — semester-wise study material and notes, an SGPA/CGPA calculator built on the IEM scheme, and a free résumé builder with seventeen university careers-office templates.",
   keywords: [
+    "IEM RVCE resources",
+    "RVCE IEM student resources",
     "IEM RVCE Notes",
-    "IEM RVCE Resources",
-    "RVCE IEM Notes",
-    "Industrial Engineering and Management Notes",
-    "IEM semester notes",
     "RVCE study material",
-    "IEM 3rd semester notes",
-    "IEM 4th semester notes",
-    "IEM 5th semester notes",
-    "IEM 6th semester notes",
-    "IEM 7th semester notes",
-    "IEM 8th semester notes",
+    "RVCE GPA calculator",
+    "IEM SGPA calculator",
+    "RVCE resume builder",
+    "Industrial Engineering and Management RVCE",
     "RV College of Engineering IEM",
-    "Industrial Engineering notes RVCE",
-    "VTU IEM notes",
   ],
   alternates: { canonical: "/resources" },
   openGraph: {
-    title: "IEM RVCE Notes & Resources | Semester-wise Study Material",
+    title: "Student Resources | IEM RVCE",
     description:
-      "Semester-wise notes and study resources (3rd–8th semester) for Industrial Engineering & Management at RVCE, curated by the department.",
+      "Study material, a GPA calculator and a résumé builder for Industrial Engineering & Management students at RVCE.",
     url: "/resources",
   },
 };
+
+/** Total number of documents currently published across every semester folder. */
+const documentCount = resourceFolders.reduce(
+  (n, folder) =>
+    n +
+    folder.items.length +
+    folder.subfolders.reduce((m, sf) => m + sf.items.length, 0),
+  0,
+);
+
+const subjectCount = resourceFolders.reduce(
+  (n, folder) => n + folder.subfolders.length,
+  0,
+);
+
+interface ResourceSection {
+  href: string;
+  kicker: string;
+  title: string;
+  tagline: string;
+  body: string;
+  bullets: string[];
+  meta: string;
+  cta: string;
+  icon: React.ReactNode;
+}
+
+const sections: ResourceSection[] = [
+  {
+    href: "/resources/study-material",
+    kicker: "Semesters 3–8",
+    title: "Study Material",
+    tagline: "Notes, question banks and past papers",
+    body: "Lecture notes, typeset study texts, question banks and previous years' question papers, gathered semester by semester and filed under the subject they belong to. Everything opens as a PDF you can read in the browser or keep for the night before the exam.",
+    bullets: [
+      "Semester-wise folders, expandable by subject",
+      "Question banks and solved past papers",
+      "Free to open, nothing to sign in to",
+    ],
+    meta:
+      documentCount > 0
+        ? `${documentCount} documents · ${subjectCount} subjects`
+        : `${subjectCount} subjects`,
+    cta: "Browse the material",
+    icon: <BooksIcon />,
+  },
+  {
+    href: "/resources/gpa-calculator",
+    kicker: "2022 IEM scheme",
+    title: "GPA Calculator",
+    tagline: "SGPA and CGPA, worked out properly",
+    body: "Choose a semester and the subjects, course types and credits arrive pre-filled from the department scheme. Enter your CIE, Lab SEE and Semester End marks to see grade points, SGPA and a running CGPA — and how many marks each grade still asks of you.",
+    bullets: [
+      "Presets for the 3rd through 7th semesters",
+      "Theory, lab and integrated courses weighted correctly",
+      "Target table: the Sem End mark you still need",
+    ],
+    meta: "Runs entirely in your browser",
+    cta: "Open the calculator",
+    icon: <CalculatorIcon />,
+  },
+  {
+    href: "/resources/resume-builder",
+    kicker: "Free · no login",
+    title: "Résumé Builder",
+    tagline: "Seventeen careers-office templates",
+    body: "Templates measured off real samples published by university careers offices — Harvard, MIT, Stanford, Berkeley, Georgia Tech, Cornell, Columbia and more, plus the LaTeX classics. Fill in ordinary form fields, watch the page redraw as you type, and download when it reads the way you want.",
+    bullets: [
+      "Reorder, add or hide sections as you like",
+      "Download as PDF, Word or LaTeX",
+      "Nothing uploaded — it stays in your browser",
+    ],
+    meta: "17 templates · PDF, DOCX, TeX",
+    cta: "Start building",
+    icon: <DocumentIcon />,
+  },
+];
 
 export default function ResourcesPage() {
   return (
@@ -39,236 +109,176 @@ export default function ResourcesPage() {
       {/* Page Header */}
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-3">Resources &amp; Notes</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3">
+            Student Resources
+          </h1>
           <p className="text-lg text-gray-200 max-w-3xl">
-            IEM RVCE Notes &amp; Resources — semester-wise study material for
-            the B.E. in Industrial Engineering &amp; Management.
+            Everything the Department of Industrial Engineering &amp; Management
+            keeps for its students in one place — the notes you study from, the
+            arithmetic behind your marks, and the résumé you send out at the end
+            of it.
           </p>
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        {/* Intro note */}
-        <section className="mb-10">
-          <div className="bg-surface rounded-2xl p-6 sm:p-8 border border-primary/10">
-            <p className="text-gray-700 leading-relaxed">
-              Below are the study resources and notes provided by the{" "}
+        {/* Chooser */}
+        <section aria-label="Choose a resource">
+          <h2 className="sr-only">Choose a resource</h2>
+          <div className="grid gap-7 lg:grid-cols-3">
+            {sections.map((section) => (
+              <Link
+                key={section.href}
+                href={section.href}
+                className="card-sketch group flex flex-col p-6 sm:p-7"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <span
+                    className="flex h-14 w-14 shrink-0 items-center justify-center border-2 border-primary bg-surface text-accent wobble-sm"
+                    aria-hidden="true"
+                  >
+                    {section.icon}
+                  </span>
+                  <span className="tag-sketch shrink-0">{section.kicker}</span>
+                </div>
+
+                <h3 className="mt-5 text-2xl font-bold text-primary">
+                  {section.title}
+                </h3>
+                <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-accent">
+                  {section.tagline}
+                </p>
+
+                <p className="mt-3 leading-relaxed text-gray-700">
+                  {section.body}
+                </p>
+
+                <ul className="mt-4 mb-6 space-y-2">
+                  {section.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex items-start gap-2 text-sm text-gray-700"
+                    >
+                      <CheckIcon />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t-2 border-dashed border-primary/20 pt-4">
+                  <span className="text-xs text-text-muted">
+                    {section.meta}
+                  </span>
+                  <span className="font-semibold text-primary group-hover:text-accent">
+                    {section.cta}
+                    <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">
+                      &rarr;
+                    </span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Footnote */}
+        <section aria-label="About these resources" className="mt-12">
+          <div className="rounded-2xl border border-primary/10 bg-surface p-6 sm:p-8">
+            <p className="leading-relaxed text-gray-700">
+              These resources are maintained by the{" "}
               <span className="font-semibold text-primary">
                 Department of Industrial Engineering &amp; Management, RV College
                 of Engineering (RVCE), Bengaluru
               </span>{" "}
-              to support you throughout your academic journey. Material is
-              organised into semester-wise folders, from the 3rd semester
-              through the 8th semester, covering lecture notes, study guides,
-              question papers, and reference material for the IEM program.
+              and are free for every student to use. New material is added
+              through the year as subjects are taught and papers are set.
             </p>
-            <p className="text-sm text-text-muted leading-relaxed mt-4">
-              New resources are added regularly. If a folder is empty, notes for
-              that semester will be uploaded soon — check back later, or{" "}
-              <Link href="/contact" className="text-primary hover:underline">
-                reach out to the department
-              </Link>{" "}
-              if you need something specific. Looking for the official syllabus
-              and scheme? See the{" "}
+            <p className="mt-4 text-sm leading-relaxed text-text-muted">
+              Looking for the official syllabus, scheme and evaluation split?
+              That lives on the{" "}
               <Link href="/curriculum" className="text-primary hover:underline">
                 Curriculum page
               </Link>
-              .
+              . If something you need is missing,{" "}
+              <Link href="/contact" className="text-primary hover:underline">
+                tell the department
+              </Link>{" "}
+              and it can be added.
             </p>
           </div>
-        </section>
-
-        {/* Semester folders */}
-        <section aria-label="Semester resource folders">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {resourceFolders.map((folder) => {
-              const subCount = folder.subfolders.reduce(
-                (n, sf) => n + sf.items.length,
-                0,
-              );
-              const total = folder.items.length + subCount;
-              const hasContent = total > 0;
-              return (
-                <div
-                  key={folder.sem}
-                  className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden flex flex-col"
-                >
-                  <div className="flex items-center gap-3 p-5 border-b border-gray-100 bg-primary/5">
-                    <FolderIcon />
-                    <div>
-                      <h2 className="font-semibold text-primary leading-tight">
-                        {folder.title}
-                      </h2>
-                      <p className="text-xs text-text-muted mt-0.5">
-                        {hasContent
-                          ? `${total} item${total > 1 ? "s" : ""}`
-                          : folder.subfolders.length > 0
-                            ? `${folder.subfolders.length} subjects · notes coming soon`
-                            : "No resources yet"}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-5 flex-1 space-y-5">
-                    {!hasContent && folder.subfolders.length === 0 && (
-                      <p className="text-sm text-text-muted italic">
-                        Resources coming soon.
-                      </p>
-                    )}
-
-                    {/* Subject subfolders — click the header to expand/collapse */}
-                    {folder.subfolders.map((sf) => (
-                      <details key={sf.name}>
-                        <summary className="flex items-center gap-2 cursor-pointer list-none select-none rounded-md py-1 hover:text-primary [&::-webkit-details-marker]:hidden">
-                          <ChevronIcon />
-                          <SubfolderIcon />
-                          <h3 className="text-sm font-semibold text-primary">
-                            {sf.name}
-                          </h3>
-                          <span className="ml-auto text-xs text-text-muted">
-                            {sf.items.length > 0 ? sf.items.length : "soon"}
-                          </span>
-                        </summary>
-                        {sf.items.length > 0 ? (
-                          <ul className="mt-2 ml-2 space-y-2 pl-6 border-l-2 border-accent/30">
-                            {sf.items.map((item) => (
-                              <li key={item.file}>
-                                <FileLink item={item} />
-                              </li>
-                            ))}
-                          </ul>
-                        ) : (
-                          <p className="mt-2 ml-2 pl-6 border-l-2 border-accent/30 text-sm text-text-muted italic">
-                            Notes coming soon.
-                          </p>
-                        )}
-                      </details>
-                    ))}
-
-                    {/* Loose files (not in a subfolder) */}
-                    {folder.items.length > 0 && (
-                      <ul className="space-y-2">
-                        {folder.items.map((item) => (
-                          <li key={item.file}>
-                            <FileLink item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* GPA calculator */}
-        <section id="gpa-calculator" aria-label="GPA calculator" className="mt-14">
-          <div className="mb-6">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary">
-              GPA Calculator
-            </h2>
-            <p className="text-gray-700 leading-relaxed mt-2 max-w-3xl">
-              Pick a semester &mdash; subjects, course types and credits are
-              pre-filled from the IEM scheme for the 3rd through 7th semesters.
-              Enter your CIE, Lab SEE and Semester End marks to compute grade
-              points, SGPA and CGPA across semesters, and use the target table
-              to see the Sem End marks you still need for each grade.
-            </p>
-          </div>
-          <GPACalculator />
         </section>
       </div>
     </>
   );
 }
 
-function FileLink({ item }: { item: ResourceItem }) {
+function CheckIcon() {
   return (
-    <Link
-      href={item.file}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center justify-between gap-3 text-sm text-gray-700 hover:text-primary group"
+    <svg
+      className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.4}
+      viewBox="0 0 24 24"
+      aria-hidden="true"
     >
-      <span className="flex items-center gap-2 min-w-0">
-        <FileIcon />
-        <span className="truncate group-hover:underline">{item.label}</span>
-      </span>
-      {item.size && (
-        <span className="text-xs text-text-muted shrink-0">{item.size}</span>
-      )}
-    </Link>
+      <path strokeLinecap="round" strokeLinejoin="round" d="m5 13 4 4L19 7" />
+    </svg>
   );
 }
 
-function FileIcon() {
+function BooksIcon() {
   return (
     <svg
-      className="w-4 h-4 text-text-muted shrink-0"
+      className="h-7 w-7"
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.8}
+      strokeWidth={1.7}
       viewBox="0 0 24 24"
       aria-hidden="true"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M14 3v4a1 1 0 0 0 1 1h4M5 21V5a2 2 0 0 1 2-2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Z"
+        d="M12 6.5C10.5 5.2 8.5 4.7 5 4.9A1 1 0 0 0 4 5.9v11.3a1 1 0 0 0 1.1 1c3.2-.2 5.3.2 6.9 1.4 1.6-1.2 3.7-1.6 6.9-1.4a1 1 0 0 0 1.1-1V5.9a1 1 0 0 0-1-1c-3.5-.2-5.5.3-7 1.6Zm0 0v13"
       />
     </svg>
   );
 }
 
-function ChevronIcon() {
+function CalculatorIcon() {
   return (
     <svg
-      className="res-chevron w-4 h-4 text-text-muted shrink-0"
+      className="h-7 w-7"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
-    </svg>
-  );
-}
-
-function SubfolderIcon() {
-  return (
-    <svg
-      className="w-5 h-5 text-accent shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.8}
+      strokeWidth={1.7}
       viewBox="0 0 24 24"
       aria-hidden="true"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+        d="M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm2 3h8v3H8V6Zm0 6h.01M12 12h.01M16 12h.01M8 15h.01M12 15h.01M16 15v3M8 18h4"
       />
     </svg>
   );
 }
 
-function FolderIcon() {
+function DocumentIcon() {
   return (
     <svg
-      className="w-8 h-8 text-accent shrink-0"
+      className="h-7 w-7"
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.8}
+      strokeWidth={1.7}
       viewBox="0 0 24 24"
       aria-hidden="true"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+        d="M14 3v4a1 1 0 0 0 1 1h4M5 21V5a2 2 0 0 1 2-2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Zm4-11h3m-3 4h6m-6 4h6"
       />
     </svg>
   );
