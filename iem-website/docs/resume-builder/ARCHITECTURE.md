@@ -78,7 +78,7 @@ Ship SwiftLaTeX's `XeTeXEngine` (WASM) plus a curated, self-hosted TeX Live subs
 *Real `pdflatex`/`xelatex` output.* Costs ~40–70 MB of vendored TeX assets in the repo, 3–8 s cold compile, needs `'wasm-unsafe-eval'` added to the CSP, and depends on an unmaintained upstream.
 
 ### Option B — Layout engine as source of truth *(recommended)*
-A small typesetting core in TypeScript computes a **positioned box tree** from `(resume data × template definition)`. That one box tree is then rendered four ways — DOM preview, PDF, `.tex`, `.docx` — so all four agree by construction.
+A small typesetting core in TypeScript computes a **positioned box tree** from `(resume data × template definition)`. That one box tree is then rendered four ways — DOM preview, PDF, `.tex`, `.docx`. The preview and the PDF transcribe it directly; the reflowing formats walk the same definitions and are handed the fit the box tree settled on, so all four describe the same page. See [EXPORTS](EXPORTS.md#docx).
 Instant preview, instant export, ~200 KB of JS, no CSP change, no cold start, works offline.
 The `.tex` is genuinely first-class and clean; it is simply not what produced the downloaded PDF.
 

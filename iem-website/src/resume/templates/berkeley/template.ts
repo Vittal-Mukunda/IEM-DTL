@@ -264,7 +264,6 @@ export const berkeley: TemplateDefinition = {
     docx: {
       font: "Calibri",
       fontFallback: "Carlito",
-      rightTab: 11040,
       sectionRule: false,
       bulletChar: "•",
     },

@@ -378,7 +378,6 @@ export const deedy: TemplateDefinition = {
     docx: {
       font: "Lato",
       fontFallback: "Calibri",
-      rightTab: 10800,
       sectionRule: true,
       bulletChar: "•",
     },

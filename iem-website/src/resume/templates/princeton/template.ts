@@ -295,7 +295,6 @@ export const princeton: TemplateDefinition = {
     docx: {
       font: "EB Garamond",
       fontFallback: "Garamond",
-      rightTab: 10628, // 531.4pt in twips
       sectionRule: true,
       bulletChar: "•",
     },

@@ -112,7 +112,13 @@ export default function ResumeBuilder() {
           download(texBlob(renderLatex(doc, template)), `${name}.tex`);
         } else {
           const { renderDocx, docxBlob } = await import("../core/render/docx");
-          download(docxBlob(await renderDocx(doc, template)), `${name}.docx`);
+          // The same fit the preview and the PDF used — Word has no overflow
+          // cascade of its own, so it has to be handed the fitted values.
+          const bytes = await renderDocx(doc, template, {
+            fontScale: layout.appliedFontScale,
+            spacing: layout.appliedSpacing,
+          });
+          download(docxBlob(bytes), `${name}.docx`);
         }
       } catch (err) {
         window.alert((err as Error).message || "The download failed.");

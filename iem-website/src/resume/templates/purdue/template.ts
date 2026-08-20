@@ -266,7 +266,8 @@ export const purdue: TemplateDefinition = {
     docx: {
       font: "Calibri",
       fontFallback: "Carlito",
-      rightTab: 10080,
+      // The sample pulls its date column in from the margin.
+      rightTabInset: 21.6,
       sectionRule: false,
       bulletChar: "•",
     },

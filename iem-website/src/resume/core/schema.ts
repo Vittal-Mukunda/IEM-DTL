@@ -230,8 +230,17 @@ export interface DocxProfile {
   font: string;
   /** Fallback when the primary is missing on the reader's machine. */
   fontFallback?: string;
-  /** Right tab stop, in twips. Usually the content width. */
-  rightTab: number;
+  /**
+   * How far inside the box's right edge a right tab stop sits, in points.
+   *
+   * The stop itself is *computed*, not declared: Word measures a tab from the
+   * left of the text area it lives in, and that area — the page's content box,
+   * or a table cell in a two-column template — depends on the paper the student
+   * picked. A stop frozen at the template's native width lands outside the
+   * column the moment Letter becomes A4. Omit it unless the template pulls its
+   * date column deliberately in from the margin.
+   */
+  rightTabInset?: number;
   /** Draw the section rule as a paragraph bottom border. */
   sectionRule: boolean;
   bulletChar: string;

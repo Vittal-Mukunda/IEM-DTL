@@ -303,7 +303,6 @@ export const harvard: TemplateDefinition = {
     docx: {
       font: "Times New Roman",
       fontFallback: "Tinos",
-      rightTab: 10800, // 7.5in in twips — the content width
       sectionRule: false,
       bulletChar: "",
     },

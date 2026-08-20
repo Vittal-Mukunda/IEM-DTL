@@ -264,7 +264,6 @@ export const gatech: TemplateDefinition = {
     docx: {
       font: "Times New Roman",
       fontFallback: "Tinos",
-      rightTab: 10800,
       sectionRule: true,
       bulletChar: "•",
     },

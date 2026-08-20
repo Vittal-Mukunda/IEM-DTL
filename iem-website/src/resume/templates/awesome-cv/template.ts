@@ -296,7 +296,6 @@ export const awesomeCv: TemplateDefinition = {
     docx: {
       font: "Source Sans 3",
       fontFallback: "Calibri",
-      rightTab: 10318,
       sectionRule: true,
       bulletChar: "•",
     },

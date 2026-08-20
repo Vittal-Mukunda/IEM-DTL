@@ -18,6 +18,7 @@ import { layoutResume } from "./layout";
 import type { TextItem } from "./layout/types";
 import { emptySection, type ResumeDoc } from "./model";
 import { blockFor, familyFor, substitutions, type TemplateDefinition } from "./schema";
+import { PAGE_SIZES } from "./units";
 import { renderDocx } from "./render/docx";
 import { renderLatex } from "./render/latex";
 import { renderPdf } from "./render/pdf";
@@ -36,6 +37,18 @@ beforeAll(async () => {
 
 const layoutOf = (doc: ResumeDoc, template: TemplateDefinition) =>
   layoutResume({ doc, template, book: books.get(template.id)! });
+
+/**
+ * Emit a DOCX the way the download does: through the layout first, so Word is
+ * handed the fit the page actually settled on rather than what was asked for.
+ */
+const docxOf = (doc: ResumeDoc, template: TemplateDefinition) => {
+  const l = layoutOf(doc, template);
+  return renderDocx(doc, template, {
+    fontScale: l.appliedFontScale,
+    spacing: l.appliedSpacing,
+  });
+};
 
 /** Pull one file out of an OOXML zip. The `docx` packer writes local-file sizes. */
 function zipFile(bytes: Uint8Array, path: string): string {
@@ -449,7 +462,7 @@ describe("exports", () => {
     "%s produces a DOCX whose document.xml holds the name, a heading, and an entry",
     async (_id, template) => {
       const doc = fixturesFor(template.id).find((f) => f.id === "typical")!.doc;
-      const bytes = await renderDocx(doc, template);
+      const bytes = await docxOf(doc, template);
       expect(bytes.length).toBeGreaterThan(2000);
       expect([...bytes.slice(0, 4)]).toEqual([0x50, 0x4b, 0x03, 0x04]);
       const text = docxPlainText(bytes);
@@ -463,11 +476,136 @@ describe("exports", () => {
   it("does not clip a display-size name behind an exact 11pt line box", async () => {
     const template = templates.jakes;
     const doc = fixturesFor("jakes").find((f) => f.id === "typical")!.doc;
-    const bytes = await renderDocx(doc, template);
+    const bytes = await docxOf(doc, template);
     const xml = zipFile(bytes, "word/document.xml");
     expect(xml).toContain('w:lineRule="atLeast"');
     expect(xml).not.toContain('w:lineRule="exact"');
     expect(docxPlainText(bytes)).toContain(doc.personal.name);
+  });
+
+  /* ---------------------------------------------------------------- *
+   * The Word file has to describe the same page as the PDF
+   * ---------------------------------------------------------------- */
+
+  it.each(templateList.map((t) => [t.id, t] as const))(
+    "%s writes the chosen paper size into the DOCX, for both papers",
+    async (_id, template) => {
+      for (const [pageSize, expected] of [
+        ["letter", PAGE_SIZES.letter],
+        ["a4", PAGE_SIZES.a4],
+      ] as const) {
+        const base = exampleDoc(template.id);
+        const doc = { ...base, options: { ...base.options, pageSize } };
+        const xml = zipFile(await docxOf(doc, template), "word/document.xml");
+        const pgSz = xml.match(/<w:pgSz w:w="(\d+)" w:h="(\d+)"/);
+        expect(pgSz).toBeTruthy();
+        expect(Number(pgSz![1])).toBe(Math.round(expected.width / 0.05));
+        expect(Number(pgSz![2])).toBe(Math.round(expected.height / 0.05));
+      }
+    },
+  );
+
+  it.each(
+    templateList
+      .filter((t) => JSON.stringify(t.blocks).includes('"align":"right"'))
+      .map((t) => [t.id, t] as const),
+  )(
+    "%s cuts its right tab to the box on the paper that was chosen",
+    async (_id, template) => {
+      for (const pageSize of ["letter", "a4"] as const) {
+        const base = exampleDoc(template.id);
+        const doc = { ...base, options: { ...base.options, pageSize } };
+        const xml = zipFile(await docxOf(doc, template), "word/document.xml");
+
+        const m = template.page.margin;
+        const content = PAGE_SIZES[pageSize].width - m.left - m.right;
+        // The box a right tab is measured from: a column in a two-column
+        // template, otherwise the page's own text width less any gutter.
+        const g = template.page.gutter;
+        const boxes = template.page.columns?.length
+          ? template.page.columns.map((c) => content * c.width)
+          : [content - (g ? g.width + g.gap : 0)];
+        const expected = boxes.map((b) =>
+          Math.round((b - (template.emit.docx.rightTabInset ?? 0)) / 0.05),
+        );
+
+        const stops = [...xml.matchAll(/<w:tab w:val="right" w:pos="(\d+)"/g)].map((t) =>
+          Number(t[1]),
+        );
+        // Allowing a twip of rounding, at least one stop is the computed one,
+        // and none of the computed stops is left at another paper's width.
+        const hit = stops.some((pos) => expected.some((e) => Math.abs(pos - e) <= 1));
+        expect(hit).toBe(true);
+      }
+    },
+  );
+
+  it("moves the right tab when the paper changes", async () => {
+    const template = templates.columbia;
+    const stopsOn = async (pageSize: "letter" | "a4") => {
+      const base = exampleDoc("columbia");
+      const doc = { ...base, options: { ...base.options, pageSize } };
+      const xml = zipFile(await docxOf(doc, template), "word/document.xml");
+      return [...xml.matchAll(/<w:tab w:val="right" w:pos="(\d+)"/g)].map((t) => Number(t[1]));
+    };
+    const letter = await stopsOn("letter");
+    const a4 = await stopsOn("a4");
+    expect(letter.length).toBeGreaterThan(0);
+    // A4 is the narrower page, so the stop has to come in with it. Freezing it
+    // at the Letter width is what used to push every date past the margin.
+    const narrowing = (PAGE_SIZES.letter.width - PAGE_SIZES.a4.width) / 0.05;
+    expect(Math.max(...letter) - Math.max(...a4)).toBeCloseTo(narrowing, -1);
+  });
+
+  it("hands Word the fit the page settled on, not the one that was asked for", async () => {
+    const template = templates.harvard;
+    // The stress fixture overflows, so the cascade shrinks type and leading.
+    const doc = fixturesFor("harvard").find((f) => f.id === "maximum")!.doc;
+    const l = layoutOf(doc, template);
+    expect(l.appliedFontScale).toBeLessThan(1);
+    expect(l.appliedSpacing).toBeLessThan(1);
+
+    const fitted = zipFile(await docxOf(doc, template), "word/document.xml");
+    const unfitted = zipFile(
+      await renderDocx(doc, template, { fontScale: 1, spacing: 1 }),
+      "word/document.xml",
+    );
+    expect(fitted).not.toEqual(unfitted);
+
+    // Body runs come through at the fitted size, in half-points.
+    const size = Math.round(template.typography.base.size * l.appliedFontScale * 2);
+    expect(fitted).toContain(`<w:sz w:val="${size}"/>`);
+
+    // And the leading with it: every at-least line height must be no greater
+    // than the unfitted document's largest.
+    const lines = (x: string) =>
+      [...x.matchAll(/<w:spacing[^>]*w:line="(\d+)"/g)].map((t) => Number(t[1]));
+    expect(Math.max(...lines(fitted))).toBeLessThanOrEqual(Math.max(...lines(unfitted)));
+  });
+
+  it("gives a two-column cell the same text width as the engine's column", async () => {
+    const template = templates.altacv;
+    const doc = exampleDoc("altacv");
+    const xml = zipFile(await docxOf(doc, template), "word/document.xml");
+
+    const m = template.page.margin;
+    const content = PAGE_SIZES[template.page.size].width - m.left - m.right;
+    const cells = [...xml.matchAll(/<w:tcW w:type="dxa" w:w="(\d+)"/g)].map((t) => Number(t[1]));
+    const margins = [...xml.matchAll(/<w:right w:type="dxa" w:w="(\d+)"\/><\/w:tcMar>/g)].map(
+      (t) => Number(t[1]),
+    );
+    expect(cells).toHaveLength(template.page.columns!.length);
+
+    template.page.columns!.forEach((col, i) => {
+      // Word takes a cell margin out of the cell's width, so the text area is
+      // the cell minus its gutter — and that is what has to match the engine.
+      const textWidth = cells[i] - (margins[i] ?? 0);
+      expect(textWidth).toBeCloseTo(Math.round((content * col.width) / 0.05), -1);
+    });
+
+    // Together the columns fill the content width rather than falling short by
+    // the sum of the gaps.
+    expect(cells.reduce((a, b) => a + b, 0)).toBeCloseTo(Math.round(content / 0.05), -1);
   });
 
   it("keeps sectionBefore on the first sidebar heading", () => {
@@ -531,7 +669,7 @@ describe("every fixture exports without breaking", () => {
         expect(tex.replace(/\\allowbreak\{\}/g, "")).toContain(name);
       }
 
-      const bytes = await renderDocx(c.fixture.doc, c.template);
+      const bytes = await docxOf(c.fixture.doc, c.template);
       expect(bytes.length).toBeGreaterThan(800);
       expect([...bytes.slice(0, 4)]).toEqual([0x50, 0x4b, 0x03, 0x04]);
       if (c.fixture.doc.personal.name) {
@@ -561,7 +699,7 @@ describe("the example résumé in every download format", () => {
       expect(tex).toContain("\\begin{document}");
       expect(braceDepth(tex)).toBe(0);
 
-      const text = docxPlainText(await renderDocx(doc, template));
+      const text = docxPlainText(await docxOf(doc, template));
       expect(text).toContain("John Doe");
       expect(text).toContain("Gurobi");
       expect(text).toContain("Operations Research");
@@ -618,7 +756,7 @@ describe("OR master's application packets", () => {
       expect(tex).toContain("Engineering \\& Management");
       expect(braceDepth(tex)).toBe(0);
 
-      const word = docxPlainText(await renderDocx(doc, template));
+      const word = docxPlainText(await docxOf(doc, template));
       expect(word).toContain("Industrial Engineering");
       expect(word).toContain("Gurobi");
       expect(word).toContain("Operations Research");

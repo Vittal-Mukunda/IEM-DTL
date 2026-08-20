@@ -374,7 +374,6 @@ esumeItemListEnd` carries a `space{-5pt}`. Rather than average the two
     docx: {
       font: "CMU Serif",
       fontFallback: "Latin Modern Roman",
-      rightTab: 10800,
       sectionRule: true,
       bulletChar: "•",
     },

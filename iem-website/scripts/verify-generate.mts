@@ -71,7 +71,13 @@ for (const template of templates) {
     });
     await writeFile(join(dir, "generated.pdf"), pdf);
     await writeFile(join(dir, "generated.tex"), renderLatex(doc, template));
-    await writeFile(join(dir, "generated.docx"), await renderDocx(doc, template));
+    await writeFile(
+      join(dir, "generated.docx"),
+      await renderDocx(doc, template, {
+        fontScale: layout.appliedFontScale,
+        spacing: layout.appliedSpacing,
+      }),
+    );
 
     // Every run, with its resolved position — the reference the comparator
     // matches against the original's extracted spans.

@@ -263,7 +263,6 @@ export const wisconsin: TemplateDefinition = {
     docx: {
       font: "Calibri",
       fontFallback: "Carlito",
-      rightTab: 10800,
       sectionRule: false,
       bulletChar: "•",
     },

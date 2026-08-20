@@ -78,16 +78,44 @@ definitions the layout engine walks, and translates each construct:
 
 | Construct | Word equivalent |
 | --- | --- |
-| right-aligned cell | right tab stop at the content width |
+| right-aligned cell | right tab stop at the right edge of its box |
 | `{ tab }` cell | tab stop at that position |
 | marker row | bullet character with a hanging indent |
 | block rule | paragraph bottom border |
-| `leading` | exact line spacing, in twips |
+| `leading` | at-least line spacing, in twips |
 | small caps / all caps | `w:smallCaps` / `w:caps` |
 | tracking | `w:spacing` character spacing |
+| two columns | one borderless table row, the gap as a cell margin |
 
 The result opens with real, editable styles rather than a picture of a résumé —
 a student can keep working on it, and a recruiter's parser can read it.
+
+### Two things it has to be told
+
+Walking the definitions rather than the box tree means the emitter can disagree
+with the page the student was looking at, and there are exactly two ways it can:
+
+**The fit.** The overflow cascade may shrink the type and tighten the leading to
+hold a résumé to its page limit. Word has no cascade of its own, so `renderDocx`
+takes a third argument carrying `appliedFontScale` and `appliedSpacing` off the
+`LayoutResult`. Handed the *requested* values instead of the fitted ones, the
+`.docx` is the un-fitted document: it runs longer than the PDF and spills past
+the page. Every gap and indent rides those two numbers, exactly as the engine
+scales them.
+
+**The page.** Every horizontal position is computed for the paper the student
+picked, never the paper the template was measured on. A right tab is placed at
+its box's right edge — the content width for a single-column template, less any
+gutter, or the column's own width inside the two-column table, since Word
+measures a tab from the left of the text area it sits in. Templates declare only
+`rightTabInset`, the distance they deliberately pull the stop in from that edge.
+A stop frozen at the template's native width lands outside the column the moment
+Letter becomes A4.
+
+A cell carries its gutter as a right *margin*, and Word takes a cell margin out
+of the cell's own width — so each cell is the column plus its gap, which leaves
+the text inside as wide as the engine's column and makes the columns together
+fill the content width.
 
 `docx.font` names the font Word should **ask for** — "Times New Roman", not our
 substitute "Tinos" — because the reader's machine probably has the real one.

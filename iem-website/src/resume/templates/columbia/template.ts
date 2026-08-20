@@ -258,7 +258,6 @@ export const columbia: TemplateDefinition = {
 
     docx: {
       font: "Times New Roman",
-      rightTab: 10800,
       sectionRule: false,
       bulletChar: "•",
     },

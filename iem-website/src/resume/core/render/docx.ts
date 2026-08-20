@@ -6,7 +6,7 @@
  * it. Instead the emitter walks the *same template block definitions* the
  * layout engine walks, and translates each construct into its Word equivalent:
  *
- *   right-aligned cell  → right tab stop at the content width
+ *   right-aligned cell  → right tab stop at the box's right edge
  *   pinned tab cell     → tab stop at that position
  *   marker row          → bullet character with a hanging indent
  *   block rule          → paragraph bottom border
@@ -15,6 +15,17 @@
  *
  * The result opens in Word with real, editable styles rather than a picture of
  * a résumé.
+ *
+ * Walking the definitions rather than the box tree means the two can disagree,
+ * and there are two things the emitter has to be told rather than assume:
+ *
+ *   1. **The fit.** The engine's overflow cascade may shrink the type and
+ *      tighten the leading to hold a résumé to its page limit. Word has no such
+ *      cascade. Handed the *requested* size instead of the fitted one, the
+ *      .docx is the un-fitted document — it runs longer than the PDF and spills
+ *      past the page the student was shown. Hence {@link DocxFit}.
+ *   2. **The page.** Every horizontal position has to be computed for the paper
+ *      the student picked, not the paper the template was measured on.
  */
 
 import {
@@ -55,6 +66,68 @@ const pt2half = (pt: number) => Math.round(pt * 2);
 
 const NONE_BORDER = { style: BorderStyle.NONE, size: 0, color: "auto" } as const;
 
+/**
+ * The fit the layout engine settled on for this résumé.
+ *
+ * Both fields come straight off a `LayoutResult` (`appliedFontScale` and
+ * `appliedSpacing`) — the values the rendered page actually used, which are not
+ * the values the student asked for whenever the overflow cascade had to
+ * intervene.
+ */
+export interface DocxFit {
+  fontScale: number;
+  spacing: number;
+}
+
+/** Everything the emit functions need that does not come from the block. */
+interface Emit {
+  template: TemplateDefinition;
+  /** Font scale actually used on the page. Sizes, indents and markers carry it. */
+  scale: number;
+  /** Spacing multiplier actually used on the page. Every gap carries it. */
+  spacing: number;
+  /** Base leading in points, already carrying `spacing`. */
+  leading: number;
+  /** Right tab stop for the box being emitted, in twips. */
+  rightTab: number;
+}
+
+/* ------------------------------------------------------------------ *
+ * Page geometry
+ * ------------------------------------------------------------------ */
+
+function pageOf(template: TemplateDefinition, doc: ResumeDoc) {
+  const size = doc.options.pageSize === "native" ? template.page.size : doc.options.pageSize;
+  return PAGE_SIZES[size];
+}
+
+/** Width between the margins, for the paper the student picked. */
+function contentWidthOf(template: TemplateDefinition, doc: ResumeDoc): number {
+  const m = template.page.margin;
+  return pageOf(template, doc).width - m.left - m.right;
+}
+
+/**
+ * Text width of the page's own box.
+ *
+ * A gutter template (MIT) hands part of the content width to a label column
+ * beside the text, so the text the tab is measured against is narrower than the
+ * margins suggest. The layout engine narrows the same way in `frameFor`.
+ */
+function pageBoxWidth(template: TemplateDefinition, doc: ResumeDoc): number {
+  const g = template.page.gutter;
+  return contentWidthOf(template, doc) - (g ? g.width + g.gap : 0);
+}
+
+/** Right tab stop for a box of `boxWidth` points, in twips. */
+function rightTabIn(template: TemplateDefinition, boxWidth: number): number {
+  return pt2twip(boxWidth - (template.emit.docx.rightTabInset ?? 0));
+}
+
+/* ------------------------------------------------------------------ *
+ * Runs and rows
+ * ------------------------------------------------------------------ */
+
 function runFont(template: TemplateDefinition): IRunOptions["font"] {
   const name = template.emit.docx.font;
   const fallback = template.emit.docx.fontFallback;
@@ -80,7 +153,7 @@ function runOptions(
     smallCaps: style.smallCaps,
     underline: style.underline ? {} : undefined,
     color: resolveColor(template, style.color).replace("#", ""),
-    characterSpacing: style.tracking ? pt2twip(style.tracking) : undefined,
+    characterSpacing: style.tracking ? pt2twip(style.tracking * scale) : undefined,
   };
 }
 
@@ -98,13 +171,8 @@ interface ParaSpec {
   rowGapBefore: number;
 }
 
-function collectRow(
-  template: TemplateDefinition,
-  row: Row,
-  ctx: BindContext,
-  scale: number,
-): ParaSpec | undefined {
-  const docxProfile = template.emit.docx;
+function collectRow(emit: Emit, row: Row, ctx: BindContext): ParaSpec | undefined {
+  const { template, scale } = emit;
   const children: TextRun[] = [];
   let alignment: (typeof AlignmentType)[keyof typeof AlignmentType] | undefined;
   const tabStops: TabStopDefinition[] = [];
@@ -131,13 +199,15 @@ function collectRow(
     }
 
     if (cell.align === "right") {
-      tabStops.push({ type: TabStopType.RIGHT, position: docxProfile.rightTab });
+      tabStops.push({ type: TabStopType.RIGHT, position: emit.rightTab });
       children.push(new TextRun({ text: "\t" }));
       pushRun(style, text);
       continue;
     }
 
     if (typeof cell.align === "object" && cell.align !== null) {
+      // A pinned tab is an offset from the left of the box, which is what the
+      // engine treats it as too — it does not move with the paper size.
       tabStops.push({
         type: cell.align.tabAlign === "right" ? TabStopType.RIGHT : TabStopType.LEFT,
         position: pt2twip(cell.align.tab),
@@ -154,16 +224,21 @@ function collectRow(
 
   if (row.marker) {
     const bulletStyle = styleOf(template, { role: "bullet" });
-    const glyph = docxProfile.bulletChar || row.marker.glyph;
+    const glyph = template.emit.docx.bulletChar || row.marker.glyph;
     maxSize = Math.max(maxSize, bulletStyle.size * scale);
     children.unshift(new TextRun({ text: "\t" }));
     children.unshift(new TextRun(runOptions(template, bulletStyle, glyph, scale)));
   }
 
+  // Indents ride the font scale, as they do in the engine: shrinking the type
+  // without shrinking the hanging indent would leave bullets adrift.
   const indent: IIndentAttributesProperties | undefined = row.marker
-    ? { left: pt2twip(row.marker.textX), hanging: pt2twip(row.marker.textX - row.marker.x) }
+    ? {
+        left: pt2twip(row.marker.textX * scale),
+        hanging: pt2twip((row.marker.textX - row.marker.x) * scale),
+      }
     : row.indent
-      ? { left: pt2twip(row.indent) }
+      ? { left: pt2twip(row.indent * scale) }
       : undefined;
 
   return {
@@ -177,17 +252,24 @@ function collectRow(
 }
 
 function specsToParagraphs(
-  template: TemplateDefinition,
+  emit: Emit,
   block: BlockLayout,
   specs: ParaSpec[],
-  leading: number,
   options: { rule?: boolean; heading?: boolean; spacingBefore?: number } = {},
 ): Paragraph[] {
+  const { template } = emit;
   return specs.map((spec, index) => {
     const isFirst = index === 0;
     const isLast = index === specs.length - 1;
-    const before = spec.rowGapBefore + (isFirst ? (options.spacingBefore ?? 0) : 0);
-    const line = Math.max(leading, spec.maxSize * 1.2);
+    // Gaps ride the spacing multiplier, as they do in the engine.
+    const before = (spec.rowGapBefore + (isFirst ? (options.spacingBefore ?? 0) : 0)) * emit.spacing;
+    // The engine gives every line `size × leadingRatio × spacing`; a paragraph
+    // in Word gets one height for all its runs, so the tallest run sets it. A
+    // flat 1.2 here used to ignore both the template's own ratio and the
+    // tightening the cascade applied, which is most of why a fitted résumé came
+    // out of Word longer than its PDF.
+    const ratio = template.typography.base.leadingRatio * emit.spacing;
+    const line = Math.max(emit.leading, spec.maxSize * ratio);
     return new Paragraph({
       children: spec.children,
       alignment: spec.alignment,
@@ -216,13 +298,12 @@ function specsToParagraphs(
 }
 
 function buildBlock(
-  template: TemplateDefinition,
+  emit: Emit,
   block: BlockLayout,
   ctx: BindContext,
-  scale: number,
-  leading: number,
   options: { rule?: boolean; heading?: boolean; spacingBefore?: number } = {},
 ): Paragraph[] {
+  const { template, scale } = emit;
   const specs: ParaSpec[] = [];
 
   for (const row of block.rows) {
@@ -259,39 +340,33 @@ function buildBlock(
       if (row.inline) {
         const cell = row.cells.find((c) => c.bind === "$item") ?? row.cells[0];
         const spec = collectRow(
-          template,
+          emit,
           { ...row, repeat: undefined, cells: [{ ...cell, bind: undefined, text: items.join(row.separator ?? ", ") }] },
           ctx,
-          scale,
         );
         if (spec) specs.push(spec);
         continue;
       }
 
       for (const item of items) {
-        const spec = collectRow(template, { ...row, repeat: undefined }, { ...ctx, item }, scale);
+        const spec = collectRow(emit, { ...row, repeat: undefined }, { ...ctx, item });
         if (spec) specs.push(spec);
       }
       continue;
     }
 
-    const spec = collectRow(template, row, ctx, scale);
+    const spec = collectRow(emit, row, ctx);
     if (spec) specs.push(spec);
   }
 
-  return specsToParagraphs(template, block, specs, leading, options);
+  return specsToParagraphs(emit, block, specs, options);
 }
 
-function sectionParagraphs(
-  template: TemplateDefinition,
-  section: Section,
-  ctx: BindContext,
-  scale: number,
-  leading: number,
-): Paragraph[] {
+function sectionParagraphs(emit: Emit, section: Section, ctx: BindContext): Paragraph[] {
+  const { template } = emit;
   const out: Paragraph[] = [];
   out.push(
-    ...buildBlock(template, template.blocks.sectionTitle, { ...ctx, section }, scale, leading, {
+    ...buildBlock(emit, template.blocks.sectionTitle, { ...ctx, section }, {
       rule: true,
       heading: true,
       spacingBefore: template.spacing.sectionBefore,
@@ -301,13 +376,13 @@ function sectionParagraphs(
   const block = blockFor(template, section.kind, section.layout);
 
   if (section.layout === "paragraph") {
-    out.push(...buildBlock(template, block, { ...ctx, section }, scale, leading));
+    out.push(...buildBlock(emit, block, { ...ctx, section }));
     return out;
   }
 
   section.entries.forEach((entry, index) => {
     out.push(
-      ...buildBlock(template, block, { ...ctx, section, entry }, scale, leading, {
+      ...buildBlock(emit, block, { ...ctx, section, entry }, {
         spacingBefore: index === 0 ? template.spacing.sectionAfter : template.spacing.entryGap,
       }),
     );
@@ -317,17 +392,25 @@ function sectionParagraphs(
 
 type ColumnParas = { main: Paragraph[]; side: Paragraph[] };
 
+/**
+ * Lay the two columns out as one borderless table row.
+ *
+ * The cell carries its gutter as a right *margin*, and Word takes a cell margin
+ * out of the cell's own width. So the cell has to be the column plus its gap
+ * for the text inside to end up as wide as the engine's column — and for the
+ * columns together to fill the content width rather than falling short by the
+ * sum of the gaps.
+ */
 function twoColumnTable(template: TemplateDefinition, doc: ResumeDoc, byColumn: ColumnParas): Table {
-  const size = doc.options.pageSize === "native" ? template.page.size : doc.options.pageSize;
-  const pageWidth = PAGE_SIZES[size].width;
-  const contentWidth = pageWidth - template.page.margin.left - template.page.margin.right;
+  const contentWidth = contentWidthOf(template, doc);
   const specs = template.page.columns!;
 
   const cells: TableCell[] = [];
   const columnWidths: number[] = [];
 
   for (const col of specs) {
-    const width = pt2twip(contentWidth * col.width);
+    const gap = col.gap ?? 0;
+    const width = pt2twip(contentWidth * col.width + gap);
     columnWidths.push(width);
     const paras = byColumn[col.id];
     cells.push(
@@ -335,7 +418,7 @@ function twoColumnTable(template: TemplateDefinition, doc: ResumeDoc, byColumn: 
         width: { size: width, type: WidthType.DXA },
         verticalAlign: VerticalAlignTable.TOP,
         borders: { top: NONE_BORDER, bottom: NONE_BORDER, left: NONE_BORDER, right: NONE_BORDER },
-        margins: { top: 0, bottom: 0, left: 0, right: pt2twip(col.gap ?? 0) },
+        margins: { top: 0, bottom: 0, left: 0, right: pt2twip(gap) },
         children: paras.length ? paras : [new Paragraph({})],
       }),
     );
@@ -358,27 +441,46 @@ function twoColumnTable(template: TemplateDefinition, doc: ResumeDoc, byColumn: 
   });
 }
 
-export async function renderDocx(doc: ResumeDoc, template: TemplateDefinition): Promise<Uint8Array> {
-  const scale = doc.options.fontScale;
-  const leading = template.typography.base.size * template.typography.base.leadingRatio * doc.options.lineSpacing;
+export async function renderDocx(
+  doc: ResumeDoc,
+  template: TemplateDefinition,
+  fit: DocxFit,
+): Promise<Uint8Array> {
+  const base: Omit<Emit, "rightTab"> = {
+    template,
+    scale: fit.fontScale,
+    spacing: fit.spacing,
+    leading:
+      template.typography.base.size * template.typography.base.leadingRatio * fit.spacing,
+  };
+
+  const pageEmit: Emit = { ...base, rightTab: rightTabIn(template, pageBoxWidth(template, doc)) };
   const baseCtx: BindContext = { doc, dateDash: template.conventions.dateDash };
-  const header = buildBlock(template, template.blocks.header, baseCtx, scale, leading);
+  const header = buildBlock(pageEmit, template.blocks.header, baseCtx);
+
+  // Inside a table cell Word measures a tab from the cell's own left edge, so
+  // each column gets a stop cut to its own width rather than the page's.
+  const contentWidth = contentWidthOf(template, doc);
+  const columns = template.page.columns;
+  const emitFor = (column: "main" | "side"): Emit => {
+    const spec = columns?.find((c) => c.id === column);
+    if (!spec) return pageEmit;
+    return { ...base, rightTab: rightTabIn(template, contentWidth * spec.width) };
+  };
 
   const byColumn: ColumnParas = { main: [], side: [] };
   for (const section of doc.sections) {
     if (isSectionEmpty(section)) continue;
     const col = sectionColumn(section, template.sections.sideKinds);
-    byColumn[col].push(...sectionParagraphs(template, section, baseCtx, scale, leading));
+    byColumn[col].push(...sectionParagraphs(emitFor(col), section, baseCtx));
   }
 
-  const columns = template.page.columns;
   const children = columns?.length
     ? [...header, twoColumnTable(template, doc, byColumn)]
     : [...header, ...byColumn.main, ...byColumn.side];
 
   const m = template.page.margin;
-  const size = doc.options.pageSize === "native" ? template.page.size : doc.options.pageSize;
-  const page = PAGE_SIZES[size];
+  const page = pageOf(template, doc);
 
   const document = new Document({
     creator: "IEM RVCE Resume Builder",
@@ -389,7 +491,7 @@ export async function renderDocx(doc: ResumeDoc, template: TemplateDefinition): 
         document: {
           run: {
             font: runFont(template),
-            size: pt2half(template.typography.base.size),
+            size: pt2half(template.typography.base.size * fit.fontScale),
           },
         },
       },

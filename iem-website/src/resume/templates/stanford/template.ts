@@ -260,7 +260,8 @@ export const stanford: TemplateDefinition = {
     docx: {
       font: "Times New Roman",
       fontFallback: "Tinos",
-      rightTab: 9360,
+      // The sample pulls its date column in from the margin.
+      rightTabInset: 36,
       sectionRule: true,
       bulletChar: "•",
     },

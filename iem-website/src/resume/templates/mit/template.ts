@@ -269,7 +269,6 @@ export const mit: TemplateDefinition = {
     docx: {
       font: "Times New Roman",
       fontFallback: "Tinos",
-      rightTab: 9390, // content width in twips
       sectionRule: false,
       bulletChar: "•",
     },

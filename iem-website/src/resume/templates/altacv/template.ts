@@ -309,7 +309,6 @@ export const altacv: TemplateDefinition = {
     docx: {
       font: "Lato",
       fontFallback: "Calibri",
-      rightTab: 5884,
       sectionRule: true,
       bulletChar: "•",
     },

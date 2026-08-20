@@ -277,7 +277,6 @@ export const uchicago: TemplateDefinition = {
     docx: {
       font: "EB Garamond",
       fontFallback: "Garamond",
-      rightTab: 10082,
       sectionRule: true,
       bulletChar: "•",
     },

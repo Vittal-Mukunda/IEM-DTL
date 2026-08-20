@@ -289,7 +289,8 @@ export const utaustin: TemplateDefinition = {
     docx: {
       font: "Calibri",
       fontFallback: "Carlito",
-      rightTab: 10320,
+      // The sample pulls its date column in from the margin.
+      rightTabInset: 25,
       sectionRule: true,
       bulletChar: "•",
     },
