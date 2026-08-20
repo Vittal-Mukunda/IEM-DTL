@@ -27,7 +27,7 @@ const csp = [
   scriptSrc,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
-  "font-src 'self' data:",
+  "font-src 'self' data: blob:",
   "frame-src 'self' https://www.google.com",
   "connect-src 'self'",
   // Same-origin pdf.js worker (public/pdfjs) powers the newsletter book reader;

@@ -1,0 +1,5 @@
+{
+  "page": 1,
+  "note": "A standalone compiled PDF with no surrounding chrome, so nothing needs filtering. Its own \titlerule strokes are part of the design and are compared, not masked.",
+  "maskDrawings": false
+}

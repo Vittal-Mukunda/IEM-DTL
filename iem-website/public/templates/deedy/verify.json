@@ -1,0 +1,6 @@
+{
+  "page": 1,
+  "note": "Standalone compiled OpenFonts PDF (Lato + Raleway) from Debarghya Das, Deedy-Resume v1.2. includeFontPattern drops Raleway ExtraLight, which is only the 'Last Updated on …' line. The name rule in the original runs paperwidth; the engine can only draw it across the text column.",
+  "includeFontPattern": "Lato|Raleway-Medium",
+  "maskDrawings": false
+}

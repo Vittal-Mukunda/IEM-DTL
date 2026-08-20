@@ -40,3 +40,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.verify/
+public/fonts/resume/_source/
+
+# résumé template verification: source samples, forensic dumps and run logs
+_scratch/
+.vlog.txt
+__pycache__/

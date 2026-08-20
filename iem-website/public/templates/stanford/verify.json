@@ -1,0 +1,6 @@
+{
+  "page": 1,
+  "note": "Page 4 of the Stanford guide. The sample is printed inside a bordered box on a 594x783 book page at 9pt, so expect a registration scale near 1.26 against the standalone Letter template. Gill Sans is the guide's chapter title.",
+  "includeFontPattern": "Times",
+  "maskDrawings": true
+}

@@ -1,0 +1,9 @@
+{
+  "page": 1,
+  "note": "Tori Tiger 'Early College Resume' sample from the Princeton CCD Resume Guide, page 8. The résumé itself is EB Garamond 11pt at full size (13.2pt leading) inside a designed chapter page; Avenir/Rasa running heads and the SAMPLE RESUMES banner are guide chrome. Expect a registration y-offset of around 82pt (name at 131.17 on the guide, 49.1 on a standalone page). Content column 41.0 → 572.4pt. maskDrawings is false: a stroked frame around the sample has a bbox that would white-out the whole résumé, and the section rules are drawings we must keep. The banner fills are masked by region instead.",
+  "includeFontPattern": "EBGaramond",
+  "maskDrawings": false,
+  "maskRegions": [
+    [111, 0, 497, 43]
+  ]
+}

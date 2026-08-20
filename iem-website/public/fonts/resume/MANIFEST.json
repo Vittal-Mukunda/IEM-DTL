@@ -1,0 +1,204 @@
+{
+  "generatedBy": "scripts/fetch-resume-fonts.mjs",
+  "note": "Regenerate with `npm run fonts:resume`. Do not edit by hand.",
+  "fonts": [
+    {
+      "file": "tinos-regular.ttf",
+      "family": "Tinos",
+      "style": "400",
+      "source": "https://fonts.gstatic.com/s/tinos/v26/buE4poGnedXvwgX8.ttf",
+      "licence": "Apache-2.0 — Steve Matteson / Google"
+    },
+    {
+      "file": "tinos-bold.ttf",
+      "family": "Tinos",
+      "style": "700",
+      "source": "https://fonts.gstatic.com/s/tinos/v26/buE1poGnedXvwj1AW0Fp.ttf",
+      "licence": "Apache-2.0 — Steve Matteson / Google"
+    },
+    {
+      "file": "tinos-italic.ttf",
+      "family": "Tinos",
+      "style": "400i",
+      "source": "https://fonts.gstatic.com/s/tinos/v26/buE2poGnedXvwjX-fmE.ttf",
+      "licence": "Apache-2.0 — Steve Matteson / Google"
+    },
+    {
+      "file": "tinos-bolditalic.ttf",
+      "family": "Tinos",
+      "style": "700i",
+      "source": "https://fonts.gstatic.com/s/tinos/v26/buEzpoGnedXvwjX-Rt1s0Co.ttf",
+      "licence": "Apache-2.0 — Steve Matteson / Google"
+    },
+    {
+      "file": "librefranklin-regular.ttf",
+      "family": "Libre Franklin",
+      "style": "400",
+      "source": "https://fonts.gstatic.com/s/librefranklin/v20/jizOREVItHgc8qDIbSTKq4XkRg8T88bjFuXOnduhLsWUBw.ttf",
+      "licence": "OFL-1.1 — Impallari Type"
+    },
+    {
+      "file": "librefranklin-bold.ttf",
+      "family": "Libre Franklin",
+      "style": "700",
+      "source": "https://fonts.gstatic.com/s/librefranklin/v20/jizOREVItHgc8qDIbSTKq4XkRg8T88bjFuXOnduhycKUBw.ttf",
+      "licence": "OFL-1.1 — Impallari Type"
+    },
+    {
+      "file": "librefranklin-italic.ttf",
+      "family": "Libre Franklin",
+      "style": "400i",
+      "source": "https://fonts.gstatic.com/s/librefranklin/v20/jizMREVItHgc8qDIbSTKq4XkRiUawTk7f45UM9y05oZ8RNDM.ttf",
+      "licence": "OFL-1.1 — Impallari Type"
+    },
+    {
+      "file": "nunitosans-regular.ttf",
+      "family": "Nunito Sans",
+      "style": "400",
+      "source": "https://fonts.gstatic.com/s/nunitosans/v19/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4G1ilntA.ttf",
+      "licence": "OFL-1.1 — Vernon Adams et al."
+    },
+    {
+      "file": "nunitosans-bold.ttf",
+      "family": "Nunito Sans",
+      "style": "700",
+      "source": "https://fonts.gstatic.com/s/nunitosans/v19/pe1mMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp5F5bxqqtQ1yiU4GMS5ntA.ttf",
+      "licence": "OFL-1.1 — Vernon Adams et al."
+    },
+    {
+      "file": "nunitosans-italic.ttf",
+      "family": "Nunito Sans",
+      "style": "400i",
+      "source": "https://fonts.gstatic.com/s/nunitosans/v19/pe1kMImSLYBIv1o4X1M8cce4OdVisMz5nZRqy6cmmmU3t2FQWEAEOvV9wNvrwlNstMKW3Y6K5WMwXeVy3GboJ0kTHmqP91Ug.ttf",
+      "licence": "OFL-1.1 — Vernon Adams et al."
+    },
+    {
+      "file": "sourcesans3-light.ttf",
+      "family": "Source Sans 3",
+      "style": "300",
+      "source": "https://fonts.gstatic.com/s/sourcesans3/v19/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8Kzm61EN.ttf",
+      "licence": "OFL-1.1 — Adobe"
+    },
+    {
+      "file": "sourcesans3-regular.ttf",
+      "family": "Source Sans 3",
+      "style": "400",
+      "source": "https://fonts.gstatic.com/s/sourcesans3/v19/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8Ky461EN.ttf",
+      "licence": "OFL-1.1 — Adobe"
+    },
+    {
+      "file": "sourcesans3-bold.ttf",
+      "family": "Source Sans 3",
+      "style": "700",
+      "source": "https://fonts.gstatic.com/s/sourcesans3/v19/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8Kxf7FEN.ttf",
+      "licence": "OFL-1.1 — Adobe"
+    },
+    {
+      "file": "sourcesans3-lightitalic.ttf",
+      "family": "Source Sans 3",
+      "style": "300i",
+      "source": "https://fonts.gstatic.com/s/sourcesans3/v19/nwpDtKy2OAdR1K-IwhWudF-R3woAa8opPOrG97lwqOdO9C4.ttf",
+      "licence": "OFL-1.1 — Adobe"
+    },
+    {
+      "file": "sourcesans3-italic.ttf",
+      "family": "Source Sans 3",
+      "style": "400i",
+      "source": "https://fonts.gstatic.com/s/sourcesans3/v19/nwpDtKy2OAdR1K-IwhWudF-R3woAa8opPOrG97lwqLlO9C4.ttf",
+      "licence": "OFL-1.1 — Adobe"
+    },
+    {
+      "file": "roboto-thin.ttf",
+      "family": "Roboto",
+      "style": "100",
+      "source": "https://fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbGmT.ttf",
+      "licence": "Apache-2.0 — Christian Robertson / Google"
+    },
+    {
+      "file": "roboto-regular.ttf",
+      "family": "Roboto",
+      "style": "400",
+      "source": "https://fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbWmT.ttf",
+      "licence": "Apache-2.0 — Christian Robertson / Google"
+    },
+    {
+      "file": "roboto-bold.ttf",
+      "family": "Roboto",
+      "style": "700",
+      "source": "https://fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjammT.ttf",
+      "licence": "Apache-2.0 — Christian Robertson / Google"
+    },
+    {
+      "file": "roboto-italic.ttf",
+      "family": "Roboto",
+      "style": "400i",
+      "source": "https://fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLoHQiA8.ttf",
+      "licence": "Apache-2.0 — Christian Robertson / Google"
+    },
+    {
+      "file": "lato-regular.ttf",
+      "family": "Lato",
+      "style": "400",
+      "source": "https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHvxk.ttf",
+      "licence": "OFL-1.1 — Łukasz Dziedzic"
+    },
+    {
+      "file": "lato-bold.ttf",
+      "family": "Lato",
+      "style": "700",
+      "source": "https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVew8.ttf",
+      "licence": "OFL-1.1 — Łukasz Dziedzic"
+    },
+    {
+      "file": "lato-italic.ttf",
+      "family": "Lato",
+      "style": "400i",
+      "source": "https://fonts.gstatic.com/s/lato/v25/S6u8w4BMUTPHjxswWw.ttf",
+      "licence": "OFL-1.1 — Łukasz Dziedzic"
+    },
+    {
+      "file": "robotoslab-regular.ttf",
+      "family": "Roboto Slab",
+      "style": "400",
+      "source": "https://fonts.gstatic.com/s/robotoslab/v36/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISWaA.ttf",
+      "licence": "Apache-2.0 — Christian Robertson / Google"
+    },
+    {
+      "file": "robotoslab-bold.ttf",
+      "family": "Roboto Slab",
+      "style": "700",
+      "source": "https://fonts.gstatic.com/s/robotoslab/v36/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoa4OWaA.ttf",
+      "licence": "Apache-2.0 — Christian Robertson / Google"
+    },
+    {
+      "file": "cmuserif-regular.ttf",
+      "source": "https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/font/Serif/cmunrm.ttf",
+      "licence": "GUST Font Licence — Computer Modern Unicode project"
+    },
+    {
+      "file": "cmuserif-bold.ttf",
+      "source": "https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/font/Serif/cmunbx.ttf",
+      "licence": "GUST Font Licence — Computer Modern Unicode project"
+    },
+    {
+      "file": "cmuserif-italic.ttf",
+      "source": "https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/font/Serif/cmunti.ttf",
+      "licence": "GUST Font Licence — Computer Modern Unicode project"
+    },
+    {
+      "file": "cmuserif-bolditalic.ttf",
+      "source": "https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/font/Serif/cmunbi.ttf",
+      "licence": "GUST Font Licence — Computer Modern Unicode project"
+    },
+    {
+      "file": "fontawesome-solid.ttf",
+      "source": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/webfonts/fa-solid-900.ttf",
+      "licence": "OFL-1.1 — Fonticons, Inc. (icons only)"
+    },
+    {
+      "file": "fontawesome-brands.ttf",
+      "source": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/webfonts/fa-brands-400.ttf",
+      "licence": "OFL-1.1 — Fonticons, Inc. (icons only)"
+    }
+  ]
+}

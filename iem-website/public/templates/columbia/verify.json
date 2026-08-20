@@ -1,0 +1,6 @@
+{
+  "page": 1,
+  "note": "The sample is printed at about 70% inside an annotated guide page. Only the Libre Franklin and Symbol runs belong to the resume; the callouts are Avenir. Expect a registration scale near 1.42.",
+  "includeFontPattern": "LibreFranklin|Symbol",
+  "maskDrawings": true
+}

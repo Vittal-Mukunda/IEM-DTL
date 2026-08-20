@@ -1,0 +1,6 @@
+{
+  "page": 1,
+  "note": "The sample is printed inside the OCS guide chapter. Only the Times New Roman runs belong to the résumé — the annotation callouts are Minion Pro, the chapter title ACaslon Pro, the running head Baskerville Old Face. The résumé itself draws no rules, so every vector drawing on the page is guide furniture.",
+  "includeFontPattern": "Times",
+  "maskDrawings": true
+}
