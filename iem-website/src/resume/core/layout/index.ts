@@ -145,7 +145,7 @@ function buildBlocks(
 
   // ---- header -----------------------------------------------------
   // Always the full content width. In AltaCV the header is set before
-  // `egin{paracol}`, and MIT's addresses straddle the label gutter — in both
+  // `\begin{paracol}`, and MIT's addresses straddle the label gutter — in both
   // cases confining it to the first column would be wrong.
   const headerLeft = template.page.margin.left;
   const headerWidth = frame.pageWidth - template.page.margin.left - template.page.margin.right;

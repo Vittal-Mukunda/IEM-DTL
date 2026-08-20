@@ -52,8 +52,11 @@ const CONTENT: Partial<Record<SectionKind, { text?: string; entries?: Entry[] }>
         summary: "CGPA 9.12 / 10",
         dateStart: "Aug 2022",
         dateEnd: "May 2026",
+        // No "Relevant Coursework:" here. Four templates print that label
+        // themselves, and the field's own placeholder asks for the bare list —
+        // spelling it out in the data made those four say it twice.
         detail:
-          "Relevant Coursework: Linear Algebra, Probability & Statistics, "
+          "Linear Algebra, Probability & Statistics, "
           + "Operations Research, Stochastic Models, Discrete-Event Simulation.",
         bullets: ["Ranked 4th of 68 in the department."],
       }),

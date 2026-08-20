@@ -608,6 +608,24 @@ describe("exports", () => {
     expect(cells.reduce((a, b) => a + b, 0)).toBeCloseTo(Math.round(content / 0.05), -1);
   });
 
+  it.each(templateList.map((t) => [t.id, t] as const))(
+    "%s never prints one of its own labels twice",
+    async (_id, template) => {
+      const text = docxPlainText(await docxOf(exampleDoc(template.id), template));
+      // A label the template supplies must not also be sitting in the résumé
+      // data — that is what made Princeton read "Relevant Coursework: Relevant
+      // Coursework: Linear Algebra…".
+      const labels = [
+        ...new Set([...JSON.stringify(template.blocks).matchAll(/"prefix":"([^"]*: )"/g)].map(
+          (m) => m[1],
+        )),
+      ];
+      for (const label of labels) {
+        expect(text).not.toContain(`${label}${label}`);
+      }
+    },
+  );
+
   it("keeps sectionBefore on the first sidebar heading", () => {
     const template = templates.deedy;
     const doc = fixturesFor("deedy").find((f) => f.id === "deedy-original")!.doc;
