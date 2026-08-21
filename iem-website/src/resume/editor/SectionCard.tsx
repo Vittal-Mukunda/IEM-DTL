@@ -71,7 +71,7 @@ function BulletList({
               next[index] = e.target.value;
               onChange(next);
             }}
-            className="w-full resize-y rounded-lg border border-primary/15 bg-white px-3 py-2 text-[15px] leading-relaxed placeholder:text-text-muted/60 focus:border-primary-light focus:outline-none focus:ring-2 focus:ring-primary-light/25"
+            className="w-full min-w-0 resize-y rounded-lg border border-primary/15 bg-white px-3 py-2 text-[15px] leading-relaxed placeholder:text-text-muted/60 focus:border-primary-light focus:outline-none focus:ring-2 focus:ring-primary-light/25"
           />
           <div className="flex flex-col pt-1">
             <IconButton
@@ -223,7 +223,7 @@ export function SectionCard({
       <div className="flex items-center gap-1 px-3 py-3">
         <button
           type="button"
-          className="cursor-grab touch-none rounded-md p-1 text-text-muted hover:bg-primary/10 hover:text-primary active:cursor-grabbing"
+          className="grid h-11 w-11 cursor-grab touch-none place-items-center rounded-md text-text-muted hover:bg-primary/10 hover:text-primary active:cursor-grabbing sm:h-auto sm:w-auto sm:p-1"
           aria-label={`Reorder ${section.title}`}
           {...attributes}
           {...listeners}
@@ -234,7 +234,7 @@ export function SectionCard({
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex min-w-0 flex-1 items-center gap-2 rounded-md px-1 py-1 text-left hover:text-primary"
+          className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-md px-1 py-1 text-left hover:text-primary sm:min-h-0"
           aria-expanded={open}
         >
           <Chevron down={open} />
@@ -250,7 +250,7 @@ export function SectionCard({
           </span>
         </button>
 
-        <label className="flex shrink-0 items-center gap-1.5 pr-1 text-xs text-text-muted">
+        <label className="flex min-h-11 shrink-0 items-center gap-1.5 pr-1 text-xs text-text-muted sm:min-h-0">
           <input
             type="checkbox"
             checked={section.visible}

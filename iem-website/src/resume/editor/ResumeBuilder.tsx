@@ -142,10 +142,13 @@ export default function ResumeBuilder() {
   const available = useMemo(() => new Set(template.sections.available), [template]);
   const subs = useMemo(() => substitutions(template), [template]);
 
+  // Both grid children carry `min-w-0`: a grid item's default `min-width:auto`
+  // refuses to shrink past its content, which on a phone let the editor column
+  // sit wider than the screen and pushed the whole page sideways.
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:items-start">
       {/* ---------------- editor ---------------- */}
-      <div className="flex flex-col gap-5">
+      <div className="flex min-w-0 flex-col gap-5">
         {/* Shown until the first edit. It goes away by being acted on rather
             than by being dismissed, which is why there is no close button. */}
         {doc.example && (
@@ -291,7 +294,7 @@ export default function ResumeBuilder() {
                   value={link.kind}
                   onChange={(e) => actions.updateLink(link.id, { kind: e.target.value as LinkKind })}
                   aria-label="Kind of contact detail"
-                  className="w-32 shrink-0 rounded-lg border border-primary/15 bg-white px-2 py-2 text-sm"
+                  className="w-32 min-h-11 shrink-0 rounded-lg border border-primary/15 bg-white px-2 py-2 text-sm sm:min-h-0"
                 >
                   {LINK_KINDS.map((k) => (
                     <option key={k.value} value={k.value}>
@@ -317,13 +320,13 @@ export default function ResumeBuilder() {
                     })
                   }
                   aria-label={`${link.kind} value`}
-                  className="w-full rounded-lg border border-primary/15 bg-white px-3 py-2 text-[15px] focus:border-primary-light focus:outline-none focus:ring-2 focus:ring-primary-light/25"
+                  className="w-full min-w-0 min-h-11 sm:min-h-0 rounded-lg border border-primary/15 bg-white px-3 py-2 text-[15px] focus:border-primary-light focus:outline-none focus:ring-2 focus:ring-primary-light/25"
                 />
                 <button
                   type="button"
                   onClick={() => actions.removeLink(link.id)}
                   aria-label="Remove this contact detail"
-                  className="shrink-0 rounded-md p-1.5 text-text-muted hover:bg-accent/10 hover:text-accent"
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-md text-text-muted hover:bg-accent/10 hover:text-accent sm:h-auto sm:w-auto sm:p-1.5"
                 >
                   ✕
                 </button>
@@ -372,7 +375,7 @@ export default function ResumeBuilder() {
                   key={kind}
                   type="button"
                   onClick={() => actions.addSection(kind as SectionKind)}
-                  className="rounded-lg border border-primary/20 bg-white px-3 py-1.5 text-sm text-primary transition-colors hover:border-primary/50 hover:bg-surface"
+                  className="min-h-11 rounded-lg border border-primary/20 bg-white px-3 py-1.5 text-sm text-primary transition-colors hover:border-primary/50 hover:bg-surface sm:min-h-0"
                 >
                   + {specFor(kind).title}
                 </button>
@@ -443,7 +446,7 @@ export default function ResumeBuilder() {
       </div>
 
       {/* ---------------- preview ---------------- */}
-      <div className="lg:sticky lg:top-6">
+      <div className="min-w-0 lg:sticky lg:top-6">
         <div className="flex flex-col gap-3">
           <div className="flex flex-wrap items-center gap-2">
             <h2 className="mr-auto font-display text-xl font-semibold text-primary">4 · Preview &amp; download</h2>

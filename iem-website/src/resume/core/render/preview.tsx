@@ -23,7 +23,12 @@ export interface PreviewProps {
   layout: LayoutResult;
   template: TemplateDefinition;
   book: FontBook;
-  /** Page width in CSS pixels. Points scale to fit. */
+  /**
+   * Page width in CSS pixels, as a *maximum*. Points scale to fit.
+   *
+   * The page narrows with its container below this, so a phone gets a page
+   * that fits rather than one that pushes the whole editor sideways.
+   */
   width?: number;
   className?: string;
 }
@@ -185,6 +190,13 @@ function Page({
       aria-label="Résumé page preview"
       style={{
         display: "block",
+        // The attributes above give the page its natural size and ratio; these
+        // let it shrink when the column is narrower than that, which is every
+        // phone. Without them a 512px page held the whole editor open at 560px
+        // and pushed the layout off the side of the screen.
+        width: "100%",
+        maxWidth: width,
+        height: "auto",
         background: "#ffffff",
         colorScheme: "only light",
         forcedColorAdjust: "none",

@@ -14,8 +14,12 @@ import {
   type TextareaHTMLAttributes,
 } from "react";
 
+// `min-w-0` because an <input> carries an intrinsic width from its default
+// `size` — about 195px — and `w-full` alone will not shrink it below that
+// inside a grid or flex parent. On a narrow screen that is what pushes a
+// column wider than the phone.
 const control =
-  "w-full rounded-lg border border-primary/15 bg-white px-3 py-2 text-[15px] text-foreground " +
+  "w-full min-w-0 min-h-11 sm:min-h-0 rounded-lg border border-primary/15 bg-white px-3 py-2 text-[15px] text-foreground " +
   "placeholder:text-text-muted/60 focus:border-primary-light focus:outline-none " +
   "focus:ring-2 focus:ring-primary-light/25 transition-colors";
 
@@ -104,7 +108,7 @@ export function Button({
     <button
       type="button"
       className={
-        "inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium " +
+        "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium sm:min-h-0 " +
         "transition-colors disabled:cursor-not-allowed disabled:opacity-45 " +
         `${tones[tone]} ${className}`
       }
@@ -127,7 +131,7 @@ export function IconButton({
       title={title}
       aria-label={title}
       className={
-        "grid h-7 w-7 place-items-center rounded-md text-text-muted transition-colors " +
+        "grid h-11 w-11 sm:h-7 sm:w-7 place-items-center rounded-md text-text-muted transition-colors " +
         `hover:bg-primary/10 hover:text-primary disabled:opacity-30 disabled:hover:bg-transparent ${className}`
       }
       {...props}
