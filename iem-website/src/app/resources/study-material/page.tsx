@@ -35,6 +35,8 @@ export const metadata: Metadata = {
 export default function StudyMaterialPage() {
   return (
     <>
+      <IconSprite />
+
       {/* Page Header */}
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -102,7 +104,7 @@ export default function StudyMaterialPage() {
                   className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden flex flex-col"
                 >
                   <div className="flex items-center gap-3 p-5 border-b border-gray-100 bg-primary/5">
-                    <FolderIcon />
+                    <Icon id="folder" className="h-8 w-8 text-accent" />
                     <div>
                       <h2 className="font-semibold text-primary leading-tight">
                         {folder.title}
@@ -127,9 +129,9 @@ export default function StudyMaterialPage() {
                     {/* Subject subfolders — click the header to expand/collapse */}
                     {folder.subfolders.map((sf) => (
                       <details key={sf.name}>
-                        <summary className="flex items-center gap-2 cursor-pointer list-none select-none rounded-md py-1 hover:text-primary [&::-webkit-details-marker]:hidden">
-                          <ChevronIcon />
-                          <SubfolderIcon />
+                        <summary className="res-summary">
+                          <Icon id="chevron" className="res-chevron h-4 w-4 text-text-muted" />
+                          <Icon id="folder" className="h-5 w-5 text-accent" />
                           <h3 className="text-sm font-semibold text-primary">
                             {sf.name}
                           </h3>
@@ -216,91 +218,54 @@ export default function StudyMaterialPage() {
 
 function FileLink({ item }: { item: ResourceItem }) {
   return (
-    <Link
-      href={item.file}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center justify-between gap-3 text-sm text-gray-700 hover:text-primary group"
-    >
-      <span className="flex items-center gap-2 min-w-0">
-        <FileIcon />
-        <span className="truncate group-hover:underline">{item.label}</span>
+    <Link href={item.file} target="_blank" rel="noopener noreferrer" className="res-file">
+      <span className="res-file-name">
+        <Icon id="file" className="h-4 w-4 text-text-muted" />
+        <span className="res-file-label">{item.label}</span>
       </span>
-      {item.size && (
-        <span className="text-xs text-text-muted shrink-0">{item.size}</span>
-      )}
+      {item.size && <span className="res-file-size">{item.size}</span>}
     </Link>
   );
 }
 
-function FileIcon() {
+/**
+ * One reference into {@link IconSprite}.
+ *
+ * The page draws the same three icons once per document, and at 140 documents
+ * restating the path each time cost about 56 kB of markup — paid twice, since
+ * the RSC payload carries a copy of everything the HTML already holds. The
+ * stroke geometry lives on the sprite's `<symbol>`s, so each use site is only
+ * a class and a reference.
+ */
+function Icon({ id, className }: { id: "file" | "folder" | "chevron"; className: string }) {
   return (
-    <svg
-      className="w-4 h-4 text-text-muted shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.8}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M14 3v4a1 1 0 0 0 1 1h4M5 21V5a2 2 0 0 1 2-2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Z"
-      />
+    <svg className={`res-icon ${className}`} aria-hidden="true">
+      <use href={`#i-${id}`} />
     </svg>
   );
 }
 
-function ChevronIcon() {
+/** Defines the three shapes once. Rendered off-screen, above the content. */
+function IconSprite() {
   return (
-    <svg
-      className="res-chevron w-4 h-4 text-text-muted shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
-    </svg>
-  );
-}
-
-function SubfolderIcon() {
-  return (
-    <svg
-      className="w-5 h-5 text-accent shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.8}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
-      />
-    </svg>
-  );
-}
-
-function FolderIcon() {
-  return (
-    <svg
-      className="w-8 h-8 text-accent shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.8}
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
-      />
+    <svg width="0" height="0" aria-hidden="true" className="absolute">
+      <symbol id="i-file" viewBox="0 0 24 24" strokeWidth={1.8}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M14 3v4a1 1 0 0 0 1 1h4M5 21V5a2 2 0 0 1 2-2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Z"
+        />
+      </symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24" strokeWidth={1.8}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+        />
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
+      </symbol>
     </svg>
   );
 }

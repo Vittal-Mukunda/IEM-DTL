@@ -333,6 +333,84 @@ details[open] > summary .res-chevron {
   transform: rotate(90deg);
 }
 
+/* The study-material page repeats one row per document — 140 of them at the
+   time of writing, and the list only grows. The utility classes on every one
+   of those rows are paid for twice, once in the HTML and again in the RSC
+   payload shipped beside it, so the repeated ones are spelled out once here. */
+.res-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  /* Tailwind's gray-700, which these rows used before they moved here. */
+  color: #364153;
+  /* A comfortable touch target on a phone. Desktop keeps the tighter list the
+     page was designed around. */
+  padding-block: 0.375rem;
+  min-height: 2.75rem;
+}
+@media (min-width: 640px) {
+  .res-file {
+    padding-block: 0;
+    min-height: 0;
+  }
+}
+.res-file:hover {
+  color: var(--primary);
+}
+.res-file-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.res-file-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.res-file:hover .res-file-label {
+  text-decoration: underline;
+}
+.res-file-size {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--text-muted);
+}
+.res-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 0.375rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+@media (min-width: 640px) {
+  .res-summary {
+    padding-block: 0.25rem;
+    min-height: 0;
+  }
+}
+.res-summary::-webkit-details-marker {
+  display: none;
+}
+.res-summary:hover {
+  color: var(--primary);
+}
+
+/* Stroke geometry lives on the sprite's <symbol>s, so a reference is just
+   `<svg class="res-icon ..."><use href="#..."/></svg>`. */
+.res-icon {
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+}
+
 /* ──────────────────────────────────────────────────────────────────
    Homepage — "Six worlds. One degree." scroll narrative (/)
    A normal downward scroll. Each career is a full-screen panel that
