@@ -52,6 +52,14 @@ function gradePoints(row: SubjectRow) {
   return 0;
 }
 
+/**
+ * Grade points the four `thresholds` entries stand for, in order.
+ *
+ * Shared so the wide table's headings and the narrow cards' labels cannot
+ * drift apart from each other, or from the thresholds they describe.
+ */
+const TARGET_GRADES = ["10 GP", "9 GP", "8 GP", "7 GP"] as const;
+
 // Sem End marks still needed to reach a grade cutoff, given CIE (+ Lab SEE)
 // already earned. Mirrors the sheet: MAX(0, cutoff - earned).
 function requiredSemEnd(row: SubjectRow, cutoff: number) {
@@ -115,8 +123,12 @@ export default function GPACalculator() {
       ? filled.reduce((n, s) => n + s.weighted, 0) / cgpaCredits
       : 0;
 
+  // `min-h-11` is the 44px touch target the subject cards need on a phone,
+  // where these fields are the whole interaction. It is dropped at `lg`, where
+  // the same class dresses the dense desktop table and the extra height would
+  // only stretch the rows.
   const inputCls =
-    "w-full rounded-md border border-gray-200 px-2 py-1.5 text-sm text-gray-800 focus:outline-none focus:border-primary/60 focus:ring-2 focus:ring-primary/15";
+    "w-full min-h-11 lg:min-h-0 rounded-md border border-gray-200 px-2 py-1.5 text-sm text-gray-800 focus:outline-none focus:border-primary/60 focus:ring-2 focus:ring-primary/15";
 
   return (
     <div className="space-y-6">
@@ -133,7 +145,7 @@ export default function GPACalculator() {
                 key={s.sem}
                 onClick={() => setActiveSem(s.sem)}
                 aria-pressed={active}
-                className={`min-w-[3.25rem] rounded-lg px-3 py-1.5 text-sm font-semibold border transition-colors ${
+                className={`min-w-[3.25rem] min-h-11 sm:min-h-0 rounded-lg px-3 py-1.5 text-sm font-semibold border transition-colors ${
                   active
                     ? "bg-primary text-white border-primary"
                     : "bg-white text-gray-700 border-gray-200 hover:border-primary/50 hover:text-primary"
@@ -153,7 +165,7 @@ export default function GPACalculator() {
           })}
           <button
             onClick={resetSemester}
-            className="ml-auto text-sm text-text-muted hover:text-accent underline underline-offset-2"
+            className="ml-auto inline-flex min-h-11 items-center text-sm text-text-muted hover:text-accent underline underline-offset-2 sm:min-h-0"
           >
             Reset {scheme.label} sem
           </button>
@@ -349,7 +361,7 @@ export default function GPACalculator() {
                     onClick={() => removeRow(row.id)}
                     aria-label={`Remove ${row.name || "subject"}`}
                     title="Remove subject"
-                    className="w-9 h-9 shrink-0 inline-flex items-center justify-center rounded-md border border-gray-200 text-text-muted hover:text-white hover:bg-accent transition-colors"
+                    className="w-11 h-11 shrink-0 inline-flex items-center justify-center rounded-md border border-gray-200 text-text-muted hover:text-white hover:bg-accent transition-colors"
                   >
                     <svg
                       className="w-4 h-4"
@@ -576,17 +588,23 @@ export default function GPACalculator() {
             semester above.
           </p>
         </div>
-        <div className="overflow-x-auto">
+        {/* Five columns need the room. Below `sm` the subject name was being
+            squeezed into about 160px and wrapping to three lines, leaving the
+            four marks in 43px columns beside a ragged 77px row — so on a phone
+            each subject gets a card instead, the same way the marks table does. */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="text-left text-primary border-b border-gray-100">
                 <th className="px-4 py-2.5 font-semibold">Subject</th>
-                <th className="px-3 py-2.5 font-semibold text-right">
-                  10 GP
-                </th>
-                <th className="px-3 py-2.5 font-semibold text-right">9 GP</th>
-                <th className="px-3 py-2.5 font-semibold text-right">8 GP</th>
-                <th className="px-3 py-2.5 font-semibold text-right">7 GP</th>
+                {TARGET_GRADES.map((grade) => (
+                  <th
+                    key={grade}
+                    className="px-3 py-2.5 font-semibold text-right whitespace-nowrap"
+                  >
+                    {grade}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
@@ -609,6 +627,34 @@ export default function GPACalculator() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Target marks — one card per subject (mobile) */}
+        <div className="sm:hidden divide-y divide-gray-100">
+          {rows.map((row) => (
+            <div key={row.id} className="p-4">
+              <p className="text-sm font-medium text-gray-800">
+                {row.name || (
+                  <span className="text-text-muted italic">Untitled</span>
+                )}
+              </p>
+              <dl className="mt-2 grid grid-cols-4 gap-2">
+                {COURSE_TYPES[row.type].thresholds.map((cutoff, i) => (
+                  <div
+                    key={i}
+                    className="rounded-lg bg-primary/5 px-2 py-1.5 text-center"
+                  >
+                    <dt className="text-xs text-text-muted">
+                      {TARGET_GRADES[i]}
+                    </dt>
+                    <dd className="font-bold tabular-nums text-gray-800">
+                      {requiredSemEnd(row, cutoff)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          ))}
         </div>
       </div>
 
