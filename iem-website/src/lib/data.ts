@@ -2084,6 +2084,11 @@ export interface Newsletter {
 // offered as downloads.
 export const newsletters: Newsletter[] = [
   {
+    title: "The Insight — May–June 2026",
+    file: "/newsletters/idea-newsletter-may-jun-2026.pdf",
+    edition: "May–June 2026",
+  },
+  {
     title: "The Insight — March–April 2026",
     file: "/newsletters/idea-newsletter-mar-apr-2026.pdf",
     edition: "March–April 2026",
