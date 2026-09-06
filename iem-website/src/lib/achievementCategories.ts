@@ -199,6 +199,7 @@ const tagToCategory: Record<string, string> = {
   "First Place": "technical",
   "Design Thinking": "competitions",
   Debate: "cultural",
+  Theatre: "cultural",
   Global: "research",
 };
 

@@ -2145,6 +2145,14 @@ export interface AlumniSpeak {
 // Alumni featured in "Alumni Speaks" across newsletter editions.
 export const alumniSpeaks: AlumniSpeak[] = [
   {
+    name: "Pranav Nimbargi",
+    batch: "2020–2024",
+    role: "Operations Consultant",
+    quote:
+      "The subject I had cared least about turned out to be one of the two problems I had been sent there to solve. In this degree, nothing exists in isolation — the paper one underrates in the second year is often the one waiting on a shop floor.",
+    edition: "May–June 2026",
+  },
+  {
     name: "Sainath Jain",
     batch: "2007–2011",
     role: "Founder, HIVADO",
@@ -2648,10 +2656,34 @@ export const studentAchievements: StudentAchievement[] = [
       "27 students from the Service Operations Management course (Prof. Bhaskar M G) won first prize at the start-up pitch competition held at SSIT, Tumkur on 22 June 2026.",
   },
   {
+    tag: "First Place",
+    title: "IEEE PELS State-Level Competition — SSIT",
+    detail:
+      "Sixth-semester students Chaithan Gowda R, Aadarsh P Navalgund, VK Diksha Karan and Sushmitha S took first place at Sri Siddhartha Institute of Technology, 22–24 June 2026.",
+  },
+  {
+    tag: "Theatre",
+    title: "“Crushed” — CARV English Club",
+    detail:
+      "Sapna B G (6th semester) directed the play on 20 June 2026, on the self-critical voices people carry, their toll on emotional well-being, and the value of having someone to talk to.",
+  },
+  {
     tag: "Design",
     title: "Design-A-Thon — Honeywell Aerospace",
     detail:
       "Priyanshu, a third-year student, won a prize at the design contest organised by Honeywell Aerospace on 12 June 2026.",
+  },
+  {
+    tag: "Theatre",
+    title: "Best Actress & Best Technical Design — CARVINAL 4.0",
+    detail:
+      "At the Kannada CARV theatre festival on 12 June 2026, Lekhanna S (2nd semester) won Best Actress as Maaya in Avyakta and the team took Best Technical Design. Manoj S Bhat, Moulya T D (Anthargarjane) and Tejas N C (Bhava Bhramana) also performed.",
+  },
+  {
+    tag: "Sports",
+    title: "VTU Inter-Collegiate Hockey — division champions",
+    detail:
+      "Nischal B D (4th semester) won the Bengaluru South Division tournament at ACS College of Engineering on 9 May 2026, then placed third at the state-level tournament on 10–11 May 2026.",
   },
   {
     tag: "Innovation",
