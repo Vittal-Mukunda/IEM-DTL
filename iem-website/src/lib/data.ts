@@ -1939,7 +1939,37 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     { name: "Entrepreneurship & Intellectual Property Rights", items: [] },
-    { name: "Operations Management", items: [] },
+    {
+      name: "Operations Management",
+      items: [
+        {
+          label: "Unit I: Using Operations to Compete",
+          file: "/notes/sem5/operations-management/unit-1-using-operations-to-compete.pdf",
+          size: "859 KB",
+        },
+        {
+          label: "Unit II: Developing a Process Strategy and Planning Capacity",
+          file: "/notes/sem5/operations-management/unit-2-process-strategy-and-planning-capacity.pdf",
+          size: "1.3 MB",
+        },
+        {
+          label: "Unit III: Forecasting Demand",
+          file: "/notes/sem5/operations-management/unit-3-forecasting-demand.pdf",
+          size: "871 KB",
+        },
+        {
+          label:
+            "Unit IV: Managing Process Constraints and Planning Sufficient Resources",
+          file: "/notes/sem5/operations-management/unit-4-managing-process-constraints-and-planning-resources.pdf",
+          size: "1.4 MB",
+        },
+        {
+          label: "Unit V: Planning and Scheduling Operations",
+          file: "/notes/sem5/operations-management/unit-5-planning-and-scheduling-operations.pdf",
+          size: "2.5 MB",
+        },
+      ],
+    },
     { name: "Quality Assurance", items: [] },
     { name: "Finance Accounting and Costing", items: [] },
   ],
