@@ -1971,33 +1971,34 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      name: "Statistical Process Control",
+      name: "Quality Assurance",
       items: [
         {
-          label: "Unit I: Quality Fundamentals and Statistical Process Control",
-          file: "/notes/sem5/statistical-process-control/unit-1-quality-and-statistical-process-control.pdf",
-          size: "414 KB",
+          label:
+            "Unit I: Quality Improvement, DMAIC and Statistical Process Control",
+          file: "/notes/sem5/quality-assurance/unit-1-quality-and-statistical-process-control.pdf",
+          size: "882 KB",
         },
         {
           label:
             "Unit II: Control Charts for Variables and Attributes, and Process Capability",
-          file: "/notes/sem5/statistical-process-control/unit-2-control-charts-and-process-capability.pdf",
-          size: "925 KB",
+          file: "/notes/sem5/quality-assurance/unit-2-control-charts-and-process-capability.pdf",
+          size: "1.1 MB",
         },
         {
           label: "Unit III: Advanced Control Charts and Acceptance Sampling",
-          file: "/notes/sem5/statistical-process-control/unit-3-advanced-control-charts-and-acceptance-sampling.pdf",
-          size: "781 KB",
+          file: "/notes/sem5/quality-assurance/unit-3-advanced-control-charts-and-acceptance-sampling.pdf",
+          size: "968 KB",
         },
         {
           label: "Unit IV: Experimental Design for Process Improvement",
-          file: "/notes/sem5/statistical-process-control/unit-4-experimental-design-for-process-improvement.pdf",
-          size: "386 KB",
+          file: "/notes/sem5/quality-assurance/unit-4-experimental-design-for-process-improvement.pdf",
+          size: "499 KB",
         },
         {
-          label: "Unit V: Failure-Time Models for Reliability",
-          file: "/notes/sem5/statistical-process-control/unit-5-failure-models-for-reliability.pdf",
-          size: "197 KB",
+          label: "Unit V: Probability and Failure-Time Models for Reliability",
+          file: "/notes/sem5/quality-assurance/unit-5-failure-models-for-reliability.pdf",
+          size: "266 KB",
         },
       ],
     },
