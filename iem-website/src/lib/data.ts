@@ -1970,7 +1970,37 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
-    { name: "Quality Assurance", items: [] },
+    {
+      name: "Statistical Process Control",
+      items: [
+        {
+          label: "Unit I: Quality Fundamentals and Statistical Process Control",
+          file: "/notes/sem5/statistical-process-control/unit-1-quality-and-statistical-process-control.pdf",
+          size: "414 KB",
+        },
+        {
+          label:
+            "Unit II: Control Charts for Variables and Attributes, and Process Capability",
+          file: "/notes/sem5/statistical-process-control/unit-2-control-charts-and-process-capability.pdf",
+          size: "925 KB",
+        },
+        {
+          label: "Unit III: Advanced Control Charts and Acceptance Sampling",
+          file: "/notes/sem5/statistical-process-control/unit-3-advanced-control-charts-and-acceptance-sampling.pdf",
+          size: "781 KB",
+        },
+        {
+          label: "Unit IV: Experimental Design for Process Improvement",
+          file: "/notes/sem5/statistical-process-control/unit-4-experimental-design-for-process-improvement.pdf",
+          size: "386 KB",
+        },
+        {
+          label: "Unit V: Failure-Time Models for Reliability",
+          file: "/notes/sem5/statistical-process-control/unit-5-failure-models-for-reliability.pdf",
+          size: "197 KB",
+        },
+      ],
+    },
     { name: "Finance Accounting and Costing", items: [] },
   ],
   6: [
