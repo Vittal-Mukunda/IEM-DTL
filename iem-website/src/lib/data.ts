@@ -2003,6 +2003,27 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     { name: "Finance Accounting and Costing", items: [] },
+    {
+      // IM355TBB — Professional Core Elective-I (Group-B).
+      name: "Enterprise Information Systems",
+      items: [
+        {
+          label: "Unit I: Chapter 1 — Analysis and Framework to EIS",
+          file: "/notes/sem5/enterprise-information-systems/unit-1-chapter-1-analysis-and-framework-to-eis.pdf",
+          size: "4.0 MB",
+        },
+        {
+          label: "Unit I: Chapter 2 — Enterprise System Development and Deployment",
+          file: "/notes/sem5/enterprise-information-systems/unit-1-chapter-2-enterprise-system-development-and-deployment.pdf",
+          size: "5.6 MB",
+        },
+        {
+          label: "Unit I: ERP, CRM & SCM, Decision-Making, Digital Transformation",
+          file: "/notes/sem5/enterprise-information-systems/unit-1-erp-crm-scm-decision-making-and-digital-transformation.pdf",
+          size: "600 KB",
+        },
+      ],
+    },
   ],
   6: [
     {
