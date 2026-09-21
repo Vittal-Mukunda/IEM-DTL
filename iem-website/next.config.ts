@@ -63,15 +63,26 @@ const securityHeaders = [
  * place — new photos and new notes arrive under new filenames — so they can
  * be cached for real, with `stale-while-revalidate` covering the case where
  * one is replaced.
+ *
+ * The edge TTL is tracked apart from the browser one because the two caches
+ * bill differently. Re-checking the browser copy is free; letting the edge
+ * copy expire is not, because the CDN then re-pulls the file from the
+ * deployment and that pull counts as Fast Origin Transfer. On a folder of
+ * 10–30 MB scans a handful of expiries is measured in gigabytes, so the edge
+ * holds everything for a year. That stays correct for a corrected file: the
+ * CDN cache is keyed per deployment, so shipping the fix ships a fresh cache.
  */
-const assetCache = (maxAge: number, swr: number) => [
+const assetCache = (maxAge: number, sMaxAge: number, swr: number) => [
   {
     key: "Cache-Control",
-    value: `public, max-age=${maxAge}, stale-while-revalidate=${swr}`,
+    value:
+      `public, max-age=${maxAge}, s-maxage=${sMaxAge}, ` +
+      `stale-while-revalidate=${swr}`,
   },
 ];
 
 const DAY = 86400;
+const YEAR = 365 * DAY;
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -90,19 +101,25 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/images/:path*",
-        headers: assetCache(30 * DAY, 365 * DAY),
+        headers: assetCache(30 * DAY, YEAR, YEAR),
       },
       {
         // pdf.js worker — only changes when pdfjs-dist is upgraded.
         source: "/pdfjs/:path*",
-        headers: assetCache(30 * DAY, 365 * DAY),
+        headers: assetCache(30 * DAY, YEAR, YEAR),
+      },
+      {
+        // Résumé template fonts: fetched by the builder, replaced only when a
+        // template gains a new face.
+        source: "/fonts/:path*",
+        headers: assetCache(30 * DAY, YEAR, YEAR),
       },
       {
         // Course material: append-only in practice, but a file could be
-        // re-uploaded with corrections, so keep the fresh window short and
-        // let stale-while-revalidate absorb the update.
+        // re-uploaded with corrections, so keep the browser's fresh window
+        // short and let stale-while-revalidate absorb the update.
         source: "/:dir(notes|syllabus|newsletters)/:path*",
-        headers: assetCache(DAY, 30 * DAY),
+        headers: assetCache(DAY, YEAR, 30 * DAY),
       },
     ];
   },
