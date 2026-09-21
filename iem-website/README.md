@@ -28,6 +28,7 @@ npm run dev              # http://localhost:3000
 npm run build            # production build (all static)
 npm run lint             # eslint (must be clean)
 npm run optimize:images  # recompress source photos in public/images
+npm run optimize:pdfs    # downsample page scans in public/notes (run on new notes)
 ```
 
 ## Project structure
@@ -50,8 +51,10 @@ src/
     data.ts                 # SINGLE SOURCE OF TRUTH — all content/facts
 scripts/
   optimize-images.mjs       # one-off photo recompressor (sharp)
+  optimize_pdfs.py          # page-scan downsampler for the course PDFs
 public/
   images/  syllabus/        # static assets
+  notes/                    # course material, one folder per semester
 ```
 
 **To update any content** (stats, faculty, recruiters, curriculum, FAQs),
@@ -78,6 +81,26 @@ Source photos are resized/recompressed by `npm run optimize:images`
 (faculty ≤900px, world backgrounds ≤1600px, mozjpeg). Next/image then serves
 AVIF/WebP variants at request time. Re-running the script is safe — files that
 wouldn't shrink are skipped.
+
+## Adding notes
+
+Drop the PDF under `public/notes/<sem>/<subject>/`, register it in
+`src/lib/data.ts`, then **run `npm run optimize:pdfs` before committing**.
+
+Almost every file in there is a scan, and scanners hand back 240–700 dpi — two
+to three times what a page needs on screen, which is how single files reach
+35 MB. The script resizes the embedded page images to 150 dpi and leaves
+everything else (text layers, vector diagrams, small figures) untouched. It
+typically halves a file with no visible difference, only rewrites a file when
+that actually saves space, and is safe to re-run: anything already at the
+target resolution is skipped.
+
+This matters because of the hosting bill, not the repo. The Hobby plan
+includes 10 GB of Fast Origin Transfer a month and every CDN cache miss pulls
+the whole file, so a folder of 30 MB scans drains the month's allowance in a
+few hundred misses. The other half of that fix lives in `next.config.ts`,
+which pins `s-maxage` on `/notes`, `/syllabus` and `/newsletters` so the edge
+holds each file for a year instead of re-fetching it daily.
 
 ## Environment variables
 

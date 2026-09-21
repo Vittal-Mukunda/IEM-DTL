@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "optimize:pdfs": "python scripts/optimize_pdfs.py",
     "test": "vitest run",
     "test:watch": "vitest",
     "fonts:resume": "node scripts/fetch-resume-fonts.mjs && python scripts/subset_fonts.py",
