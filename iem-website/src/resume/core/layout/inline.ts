@@ -14,6 +14,9 @@ import type { FontBook } from "../fonts";
 import type { TextRole, TextStyle } from "../schema";
 import type { LineBox, PositionedRun, TextPiece } from "./types";
 
+/** Roles whose declared leading is a gap to the next row, not a multi-line leading. */
+const HEADING_ROLES = new Set(["name", "headline", "sectionTitle", "entryTitle"]);
+
 export interface Fragment {
   text: string;
   style: TextStyle;
@@ -216,18 +219,25 @@ export function flowInline(
     const x = opts.startX + (i > 0 ? (opts.restIndent ?? 0) : 0);
     const pieces = assemble(book, lineTokens, x);
     let ascent = 0;
+    let descent = 0;
     let height = 0;
     const last = i === lines.length - 1;
     for (const piece of pieces) {
       ascent = Math.max(ascent, book.ascentOf(piece.style));
       const leading = book.lineHeight(piece.style, opts.leadingRatio);
-      // Display-size names declare a tight leading meant for the gap to the
-      // *next row* (contact), not to another line of the same name. Wrapped
-      // continuation lines must clear the glyph box or they sit on top of
-      // each other.
-      height = Math.max(height, last ? leading : Math.max(leading, piece.style.size));
+      // A heading's leading is the gap to the next row, measured for one line.
+      // The lines of a heading that has wrapped have to clear the face's em
+      // box — `size` is not enough when the descent is larger than the em
+      // square leaves room for — or they sit on top of each other. The last
+      // line keeps the declared leading, so a heading that fits on one line
+      // stays exactly where the template measured it.
+      const floor = HEADING_ROLES.has(piece.role) ? book.emBox(piece.style) : piece.style.size;
+      height = Math.max(height, last ? leading : Math.max(leading, floor));
+      for (const run of piece.runs) {
+        descent = Math.max(descent, book.glyphDescent(run.face, run.text, run.size));
+      }
     }
-    return { ascent, height, pieces };
+    return { ascent, descent, height, pieces };
   });
 }
 
@@ -247,10 +257,14 @@ export function singleLine(
   if (!tokens.length) return null;
   const pieces = assemble(book, tokens, x);
   let ascent = 0;
+  let descent = 0;
   let height = 0;
   for (const piece of pieces) {
     ascent = Math.max(ascent, book.ascentOf(piece.style));
     height = Math.max(height, book.lineHeight(piece.style, leadingRatio));
+    for (const run of piece.runs) {
+      descent = Math.max(descent, book.glyphDescent(run.face, run.text, run.size));
+    }
   }
-  return { ascent, height, pieces };
+  return { ascent, descent, height, pieces };
 }

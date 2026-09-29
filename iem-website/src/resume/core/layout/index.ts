@@ -295,7 +295,29 @@ function buildBlocks(
     lastAfter[column] = section.spacingAfter ?? s.sectionBefore;
   }
 
-  return blocks;
+  return blocks.map((block) => seatUnderline(block));
+}
+
+/**
+ * An underline is measured from the baseline. That is right for a heading with
+ * no descenders, and wrong for one that has them: a 1pt gap draws the stroke
+ * through the tail of a g or a y once the heading is long enough to contain
+ * one. Drop the rule until it clears the ink, and lengthen the line if that
+ * would otherwise land the stroke on the row below.
+ */
+function seatUnderline(block: MeasuredBlock): MeasuredBlock {
+  const rule = block.rule;
+  const last = block.lines[block.lines.length - 1];
+  if (!rule || rule.position !== "underline" || !last) return block;
+  const needed = last.descent + 0.8;
+  if (needed <= rule.gap) return block;
+  const gap = needed;
+  const slack = last.height - (gap + rule.thickness);
+  if (slack >= 0.4) return { ...block, rule: { ...rule, gap } };
+  const grow = 0.4 - slack;
+  const lines = block.lines.slice();
+  lines[lines.length - 1] = { ...last, height: last.height + grow };
+  return { ...block, lines, height: block.height + grow, rule: { ...rule, gap } };
 }
 
 /* ------------------------------------------------------------------ *
@@ -559,12 +581,14 @@ function attempt(
 }
 
 /**
- * Lay the résumé out, adjusting only as far as the template permits.
+ * Lay the résumé out.
  *
- * Order matters: spacing is compressed before type is shrunk, because a reader
- * notices a smaller font long before they notice a tighter gap between entries.
- * Nothing is ever truncated — if the content still will not fit at the floor,
- * the result overflows and says by how much.
+ * A one-page limit may tighten spacing, then type, and only as far as the
+ * template permits — a reader notices a smaller font long before a tighter
+ * gap. Two or three pages keep the spacing and the type that were asked for;
+ * the résumé flows onto the next page instead of being squeezed.
+ * Nothing is ever truncated. If the content still will not fit, the result
+ * overflows and says by how much.
  */
 export function layoutResume(input: LayoutInput): LayoutResult {
   const { template, doc } = input;
@@ -589,7 +613,8 @@ export function layoutResume(input: LayoutInput): LayoutResult {
   const baseSpacing = clamp(doc.options.lineSpacing, rules.lineSpacing.min, rules.lineSpacing.max);
 
   let best = attempt(input, frame, baseFont, baseSpacing);
-  if (best.overflowBy <= 0) return finish(best, template, false, false);
+  const onePage = Math.max(1, doc.options.maxPages) === 1;
+  if (best.overflowBy <= 0 || !onePage) return finish(best, template, false, false);
 
   // 1 — compress spacing within the template's declared slack.
   const minSpacing = Math.max(rules.lineSpacing.min, baseSpacing * (1 - rules.spacingSlack));

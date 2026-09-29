@@ -16,7 +16,7 @@ import { nodeFontLoader } from "./nodeFonts";
 import { checkIntegrity } from "./integrity";
 import { layoutResume } from "./layout";
 import type { TextItem } from "./layout/types";
-import { emptySection, type ResumeDoc } from "./model";
+import { emptyEntry, emptySection, type ResumeDoc } from "./model";
 import { blockFor, familyFor, substitutions, type TemplateDefinition } from "./schema";
 import { PAGE_SIZES } from "./units";
 import { renderDocx } from "./render/docx";
@@ -37,6 +37,30 @@ beforeAll(async () => {
 
 const layoutOf = (doc: ResumeDoc, template: TemplateDefinition) =>
   layoutResume({ doc, template, book: books.get(template.id)! });
+
+/** Ink box of a text line, from the glyphs rather than the em square. */
+function glyphExtent(item: TextItem) {
+  let top = Infinity;
+  let bottom = -Infinity;
+  let left = Infinity;
+  let right = -Infinity;
+  for (const piece of item.pieces) {
+    left = Math.min(left, piece.x);
+    right = Math.max(right, piece.x + piece.width);
+    for (const run of piece.runs) {
+      const laid = run.face.font.layout(run.text) as {
+        glyphs: { bbox?: { minY: number; maxY: number } }[];
+      };
+      const upem = run.face.metrics.unitsPerEm;
+      for (const glyph of laid.glyphs) {
+        if (!glyph.bbox) continue;
+        top = Math.min(top, item.y - (glyph.bbox.maxY / upem) * run.size);
+        bottom = Math.max(bottom, item.y - (glyph.bbox.minY / upem) * run.size);
+      }
+    }
+  }
+  return { top, bottom, left, right };
+}
 
 /**
  * Emit a DOCX the way the download does: through the layout first, so Word is
@@ -285,6 +309,76 @@ describe("content scenarios", () => {
     },
   );
 
+  it.each(templateList.map((t) => [t.id, t] as const))(
+    "%s does not tighten spacing or type when more than one page is allowed",
+    (_id, template) => {
+      const fixture = fixturesFor(template.id).find((f) => f.id === "maximum")!;
+      const roomy: ResumeDoc = { ...fixture.doc, options: { ...fixture.doc.options, maxPages: 9 } };
+      const two: ResumeDoc = { ...fixture.doc, options: { ...fixture.doc.options, maxPages: 2 } };
+      const natural = layoutOf(roomy, template);
+      const limited = layoutOf(two, template);
+      expect(limited.appliedFontScale).toBe(natural.appliedFontScale);
+      expect(limited.appliedSpacing).toBe(natural.appliedSpacing);
+      expect(
+        limited.warnings.filter((w) => w.code === "font-scaled" || w.code === "spacing-compressed"),
+      ).toEqual([]);
+    },
+  );
+
+  it.each(templateList.map((t) => [t.id, t] as const))(
+    "%s keeps a long heading's lines, and its rule, off each other",
+    (_id, template) => {
+      const doc: ResumeDoc = {
+        version: 1,
+        templateId: template.id,
+        personal: {
+          name: "Ananya Krishnamurthy Venkatesan Subramaniam",
+          links: [{ id: "l1", kind: "email", label: "ananya.krishnamurthy@rvce.edu.in" }],
+        },
+        sections: [
+          {
+            ...emptySection("experience", "Typography and Engineering"),
+            entries: [
+              emptyEntry({
+                organization: "R.V. College of Engineering",
+                position: "Intern",
+                dateStart: "Jun 2024",
+                dateEnd: "Aug 2025",
+              }),
+            ],
+          },
+        ],
+        options: { fontScale: 1, lineSpacing: 1, pageSize: "native", showIcons: true, maxPages: 2 },
+      };
+      const layout = layoutOf(doc, template);
+      for (const page of layout.pages) {
+        const texts = page.items.filter((i): i is TextItem => i.type === "text" && i.pieces.length > 0);
+        for (const role of ["name", "sectionTitle"] as const) {
+          const lines = texts.filter((t) => t.pieces.some((p) => p.role === role));
+          for (let i = 1; i < lines.length; i += 1) {
+            if (lines[i].y <= lines[i - 1].y) continue;
+            const prev = lines[i - 1];
+            const run = prev.pieces[0]?.runs[0];
+            if (!run) continue;
+            const size = Math.max(...prev.pieces.map((p) => p.style.size));
+            const box = ((run.face.metrics.ascent - run.face.metrics.descent) / run.face.metrics.unitsPerEm) * size;
+            expect(lines[i].y - prev.y).toBeGreaterThanOrEqual(box - 0.25);
+          }
+        }
+        const titles = texts.filter((t) => t.pieces.some((p) => p.role === "sectionTitle"));
+        for (const item of page.items) {
+          if (item.type !== "rule") continue;
+          for (const title of titles) {
+            const box = glyphExtent(title);
+            const sharesX = box.right > item.x && box.left < item.x + item.width;
+            const sharesY = item.y < box.bottom - 0.05 && item.y + item.thickness > box.top;
+            expect(sharesX && sharesY).toBe(false);
+          }
+        }
+      }
+    },
+  );
+
   it("keeps a document valid when the student switches template", () => {
     const doc = fixturesFor("harvard").find((f) => f.id === "typical")!.doc;
     for (const template of templateList) {
@@ -307,6 +401,8 @@ describe("the builder's opening document", () => {
     const { initialDoc } = await import("../editor/useResumeDoc");
     const doc = initialDoc(null);
     expect(doc.example).toBe(true);
+    expect(doc.templateId).toBe("jakes");
+    expect(doc.options.maxPages).toBe(2);
     expect(doc.personal.name).toBe("John Doe");
     expect(doc.sections.some((s) => s.kind === "education")).toBe(true);
   });
@@ -559,8 +655,10 @@ describe("exports", () => {
 
   it("hands Word the fit the page settled on, not the one that was asked for", async () => {
     const template = templates.harvard;
-    // The stress fixture overflows, so the cascade shrinks type and leading.
-    const doc = fixturesFor("harvard").find((f) => f.id === "maximum")!.doc;
+    // A one-page limit is what runs the cascade. The stress fixture overflows
+    // it, so spacing and type both come down, and Word has to be handed those.
+    const base = fixturesFor("harvard").find((f) => f.id === "maximum")!.doc;
+    const doc: ResumeDoc = { ...base, options: { ...base.options, maxPages: 1 } };
     const l = layoutOf(doc, template);
     expect(l.appliedFontScale).toBeLessThan(1);
     expect(l.appliedSpacing).toBeLessThan(1);

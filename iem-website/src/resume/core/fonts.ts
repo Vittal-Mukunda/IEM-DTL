@@ -247,6 +247,31 @@ export class FontBook {
   }
 
   /**
+   * The face's own em box: ascent plus descent.
+   *
+   * Larger than the em square for several of the faces we ship (Computer
+   * Modern's descent is 0.4em). A wrapped heading whose declared leading was
+   * measured as the gap to the *next row* has to clear this, or the two lines
+   * land on each other.
+   */
+  emBox(style: TextStyle): number {
+    const m = this.faceForStyle(style).metrics;
+    return ((m.ascent - m.descent) / m.unitsPerEm) * style.size;
+  }
+
+  /** How far these glyphs actually extend below the baseline. */
+  glyphDescent(face: LoadedFace, text: string, size: number): number {
+    if (!text || size <= 0) return 0;
+    const laid = face.font.layout(text);
+    let minY = 0;
+    for (const glyph of laid.glyphs) {
+      const box = glyph.bbox;
+      if (box && typeof box.minY === "number") minY = Math.min(minY, box.minY);
+    }
+    return (Math.abs(Math.min(0, minY)) / face.metrics.unitsPerEm) * size;
+  }
+
+  /**
    * Greedy word wrap — the same algorithm Word uses, and near enough to
    * LaTeX's paragraph breaker for single-column résumé prose that the two
    * agree on where lines end in every fixture we test.

@@ -99,6 +99,8 @@ export interface LayoutResult {
 export interface LineBox {
   /** Baseline offset from the line box's top. */
   ascent: number;
+  /** How far the glyphs on this line extend below the baseline. */
+  descent: number;
   /** Advance to the next line's top. */
   height: number;
   pieces: TextPiece[];

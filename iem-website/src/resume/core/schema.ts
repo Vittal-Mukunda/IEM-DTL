@@ -281,6 +281,8 @@ export interface TemplateDefinition {
     original?: string;
     tags: string[];
     engine: "pdflatex" | "xelatex";
+    /** Short label drawn on the template card, e.g. "Most widely accepted". */
+    badge?: string;
   };
 
   page: {

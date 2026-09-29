@@ -62,6 +62,7 @@ export const jakes: TemplateDefinition = {
     original: "/templates/jakes/original.pdf",
     tags: ["latex", "one-page", "technical", "ats-friendly"],
     engine: "pdflatex",
+    badge: "Most widely accepted",
   },
 
   page: {

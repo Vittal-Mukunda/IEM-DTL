@@ -121,7 +121,7 @@ export interface ResumeOptions {
   accentColor?: string;
   /** Icons in the contact line, for templates that support them. */
   showIcons: boolean;
-  /** Soft target. Exceeding it warns; it never truncates content. */
+  /** Soft target. One page may tighten spacing and type; more pages do not. */
   maxPages: number;
 }
 
@@ -145,7 +145,7 @@ export const DEFAULT_OPTIONS: ResumeOptions = {
   lineSpacing: 1,
   pageSize: "native",
   showIcons: true,
-  maxPages: 1,
+  maxPages: 2,
 };
 
 /* ------------------------------------------------------------------ *

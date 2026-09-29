@@ -196,6 +196,12 @@ export default function ResumeBuilder() {
                     />
                   </span>
                   <span className="block p-3">
+                    {t.meta.badge && (
+                      <span className="mb-1.5 inline-block max-w-full rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase leading-snug tracking-wide text-primary">
+                        <span aria-hidden="true">★ </span>
+                        {t.meta.badge}
+                      </span>
+                    )}
                     <span className="block font-display text-base font-semibold text-primary">
                       {t.name}
                     </span>
@@ -238,8 +244,8 @@ export default function ResumeBuilder() {
               value={String(doc.options.maxPages)}
               onChange={(e) => actions.setOptions({ maxPages: Number(e.target.value) })}
             >
-              <option value="1">One page</option>
               <option value="2">Two pages</option>
+              <option value="1">One page (tighten to fit)</option>
               <option value="3">Three pages</option>
             </Select>
 
@@ -262,6 +268,10 @@ export default function ResumeBuilder() {
               </span>
             </div>
           </div>
+          <p className="mt-3 text-xs leading-snug text-text-muted">
+            Two or three pages keep the template's spacing and type size. One page is the only
+            setting that tightens them to fit.
+          </p>
         </section>
 
         {/* Personal details */}

@@ -237,11 +237,12 @@ function measureRow(ctx: BlockContext, row: Row, bindCtx: BindContext): Measured
   if (pinnedLines.length) {
     if (!lines.length) {
       const first = pinnedLines[0].line;
-      lines.push({ ascent: first.ascent, height: first.height, pieces: [] });
+      lines.push({ ascent: first.ascent, descent: first.descent, height: first.height, pieces: [] });
     }
     for (const { line } of pinnedLines) {
       lines[0].pieces.push(...line.pieces);
       lines[0].ascent = Math.max(lines[0].ascent, line.ascent);
+      lines[0].descent = Math.max(lines[0].descent, line.descent);
       lines[0].height = Math.max(lines[0].height, line.height);
     }
   }
@@ -272,7 +273,7 @@ function measureRow(ctx: BlockContext, row: Row, bindCtx: BindContext): Measured
     if (shape) {
       shapes.push(shape);
       if (!lines.length) {
-        lines.push({ ascent: shape.height, height: shape.height, pieces: [] });
+        lines.push({ ascent: shape.height, descent: 0, height: shape.height, pieces: [] });
       }
     }
   }

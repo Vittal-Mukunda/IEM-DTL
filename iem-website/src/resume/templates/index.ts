@@ -53,16 +53,16 @@ export type TemplateId = keyof typeof registry;
 export const templates: Record<string, TemplateDefinition> = registry;
 
 /**
- * Picker order — deliberate rather than alphabetical. The conservative,
- * universally-accepted layouts come first, because that is what most students
- * applying for placements should be using; the expressive ones come last.
+ * Picker order. Jake's Resume leads: it is the default, and the layout most
+ * students and recruiters already know. The other conservative layouts follow;
+ * the expressive ones come last.
  */
 export const templateOrder: string[] = [
+  "jakes",
   "harvard",
   "yale",
   "princeton",
   "uchicago",
-  "jakes",
   "gatech",
   "mit",
   "cornell",
@@ -81,7 +81,7 @@ export const templateList: TemplateDefinition[] = templateOrder
   .map((id) => registry[id as TemplateId])
   .filter(Boolean);
 
-export const DEFAULT_TEMPLATE_ID = "harvard";
+export const DEFAULT_TEMPLATE_ID = "jakes";
 
 export function getTemplate(id: string): TemplateDefinition {
   const found = templates[id];
