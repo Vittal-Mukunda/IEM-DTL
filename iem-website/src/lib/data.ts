@@ -1938,7 +1938,37 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
-    { name: "Entrepreneurship & Intellectual Property Rights", items: [] },
+    {
+      // HS351TA — official RVCE question bank, typeset from the department's Word files.
+      name: "Entrepreneurship & Intellectual Property Rights",
+      items: [
+        {
+          label: "Unit I: Entrepreneurship Fundamentals",
+          file: "/notes/sem5/entrepreneurship-and-ipr/unit-1-entrepreneurship-fundamentals.pdf",
+          size: "203 KB",
+        },
+        {
+          label: "Unit II: Opportunity Evaluation and Venture Finance",
+          file: "/notes/sem5/entrepreneurship-and-ipr/unit-2-opportunity-evaluation-and-venture-finance.pdf",
+          size: "190 KB",
+        },
+        {
+          label: "Unit III: Marketing, Finance, HR and Legal Aspects",
+          file: "/notes/sem5/entrepreneurship-and-ipr/unit-3-marketing-finance-hr-and-legal.pdf",
+          size: "324 KB",
+        },
+        {
+          label: "Unit IV: Patent & Trade Mark",
+          file: "/notes/sem5/entrepreneurship-and-ipr/unit-4-patent-and-trade-mark.pdf",
+          size: "357 KB",
+        },
+        {
+          label: "Unit V: Copyright and Industrial Design",
+          file: "/notes/sem5/entrepreneurship-and-ipr/unit-5-copyright-and-industrial-design.pdf",
+          size: "248 KB",
+        },
+      ],
+    },
     {
       name: "Operations Management",
       items: [
