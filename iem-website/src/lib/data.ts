@@ -1904,42 +1904,22 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
   // taught courses (Major Project only), so it stays without subfolders.
   5: [
     {
-      name: "Question Papers 2024-25 (CIE)",
+      name: "Question Papers",
       items: [
         {
-          label: "CIE 1 (Nov 2024)",
-          file: "/notes/sem5/question-papers/scanned-paper-jun-2026.pdf",
-          size: "217 KB",
-        },
-        {
-          label: "CIE 2 (Jan 2025)",
-          file: "/notes/sem5/question-papers/cie-2-2024-25.pdf",
-          size: "225 KB",
-        },
-        {
-          label: "Improvement CIE (Jan 2025)",
-          file: "/notes/sem5/question-papers/cie-1-2024-25.pdf",
-          size: "231 KB",
-        },
-      ],
-    },
-    {
-      name: "Question Papers 2025-26 (CIE)",
-      items: [
-        {
-          label: "CIE 1 (Nov 2025)",
+          label: "CIE 1",
           file: "/notes/sem5/question-papers/cie-1.pdf",
-          size: "210 KB",
+          size: "350 KB",
         },
         {
-          label: "CIE 2 (Dec 2025)",
+          label: "CIE 2",
           file: "/notes/sem5/question-papers/cie-2.pdf",
-          size: "219 KB",
+          size: "380 KB",
         },
         {
-          label: "Improvement CIE (Jan 2026)",
+          label: "CIE 3",
           file: "/notes/sem5/question-papers/cie-3.pdf",
-          size: "193 KB",
+          size: "368 KB",
         },
       ],
     },
@@ -2062,42 +2042,22 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
   ],
   6: [
     {
-      name: "Question Papers 2024-25 (CIE)",
+      name: "Question Papers",
       items: [
         {
-          label: "CIE 1 (Apr-May 2025)",
-          file: "/notes/sem6/question-papers/cie-1-2024-25.pdf",
-          size: "269 KB",
+          label: "CIE 1",
+          file: "/notes/sem6/question-papers/cie-1.pdf",
+          size: "436 KB",
         },
         {
-          label: "CIE 2 (May-Jun 2025)",
-          file: "/notes/sem6/question-papers/cie-2-2024-25.pdf",
-          size: "267 KB",
-        },
-        {
-          label: "CIE 3 and Improvement CIE (Jun 2025)",
-          file: "/notes/sem6/question-papers/cie-3-2024-25.pdf",
-          size: "250 KB",
-        },
-      ],
-    },
-    {
-      name: "Question Papers 2025-26 (CIE)",
-      items: [
-        {
-          label: "CIE 1 (Apr 2026)",
+          label: "CIE 2",
           file: "/notes/sem6/question-papers/cie-2.pdf",
-          size: "237 KB",
+          size: "427 KB",
         },
         {
-          label: "CIE 2 (May 2026)",
-          file: "/notes/sem6/question-papers/cie-2-2025-26.pdf",
-          size: "230 KB",
-        },
-        {
-          label: "Improvement CIE (Jun 2026)",
-          file: "/notes/sem6/question-papers/cie-3-2025-26.pdf",
-          size: "268 KB",
+          label: "CIE 3",
+          file: "/notes/sem6/question-papers/cie-3.pdf",
+          size: "469 KB",
         },
       ],
     },
