@@ -1,0 +1,7 @@
+originals/
+out/
+*.aux
+*.log
+*.buildlog
+*.png
+!rvce-emblem.png
