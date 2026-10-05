@@ -1908,17 +1908,17 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       items: [
         {
           label: "CIE 1",
-          file: "/notes/sem5/question-papers/cie-1.pdf",
+          file: "/notes/sem5/question-papers/cie-1-all-years.pdf",
           size: "350 KB",
         },
         {
           label: "CIE 2",
-          file: "/notes/sem5/question-papers/cie-2.pdf",
+          file: "/notes/sem5/question-papers/cie-2-all-years.pdf",
           size: "380 KB",
         },
         {
           label: "CIE 3",
-          file: "/notes/sem5/question-papers/cie-3.pdf",
+          file: "/notes/sem5/question-papers/cie-3-all-years.pdf",
           size: "368 KB",
         },
       ],
@@ -2046,17 +2046,17 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       items: [
         {
           label: "CIE 1",
-          file: "/notes/sem6/question-papers/cie-1.pdf",
+          file: "/notes/sem6/question-papers/cie-1-all-years.pdf",
           size: "436 KB",
         },
         {
           label: "CIE 2",
-          file: "/notes/sem6/question-papers/cie-2.pdf",
+          file: "/notes/sem6/question-papers/cie-2-all-years.pdf",
           size: "427 KB",
         },
         {
           label: "CIE 3",
-          file: "/notes/sem6/question-papers/cie-3.pdf",
+          file: "/notes/sem6/question-papers/cie-3-all-years.pdf",
           size: "469 KB",
         },
       ],

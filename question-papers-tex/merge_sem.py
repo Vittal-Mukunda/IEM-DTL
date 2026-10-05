@@ -23,5 +23,5 @@ for sem, plan in PLAN.items():
         if f.endswith(".pdf"):
             os.remove(os.path.join(d, f))
     for out, m in merged.items():
-        m.save(os.path.join(d, out), garbage=4, deflate=True)
+        m.save(os.path.join(d, out.replace(".pdf", "-all-years.pdf")), garbage=4, deflate=True)
         print(sem, out, len(m), "pages", os.path.getsize(os.path.join(d, out)) // 1024, "KB")
