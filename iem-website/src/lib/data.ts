@@ -2017,7 +2017,24 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
-    { name: "Finance Accounting and Costing", items: [] },
+    {
+      // IM254TA — Prasanna Chandra, Fundamentals of Financial Management 6e.
+      // The book has no bookkeeping or costing chapters, so Units II, IV and V
+      // stay empty until a second text is cut.
+      name: "Finance Accounting and Costing",
+      items: [
+        {
+          label: "Unit I: Introduction, Financial Planning and Budgeting",
+          file: "/notes/sem5/finance-accounting-and-costing/unit-1-introduction-and-budgeting.pdf",
+          size: "549 KB",
+        },
+        {
+          label: "Unit III: Financial Statements",
+          file: "/notes/sem5/finance-accounting-and-costing/unit-3-financial-statements.pdf",
+          size: "255 KB",
+        },
+      ],
+    },
     {
       // IM355TBB — Professional Core Elective-I (Group-B).
       name: "Enterprise Information Systems",
