@@ -1908,17 +1908,17 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       items: [
         {
           label: "CIE 1",
-          file: "/notes/sem5/question-papers/cie-1-all-years.pdf",
+          file: "/notes/sem5/question-papers/cie-1-by-subject.pdf",
           size: "350 KB",
         },
         {
           label: "CIE 2",
-          file: "/notes/sem5/question-papers/cie-2-all-years.pdf",
+          file: "/notes/sem5/question-papers/cie-2-by-subject.pdf",
           size: "380 KB",
         },
         {
           label: "CIE 3",
-          file: "/notes/sem5/question-papers/cie-3-all-years.pdf",
+          file: "/notes/sem5/question-papers/cie-3-by-subject.pdf",
           size: "368 KB",
         },
       ],
