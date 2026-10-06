@@ -2018,20 +2018,25 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      // IM254TA — Tulsian's Quick Revision for Financial Accounting. The book
-      // has no journal/ledger/trial-balance or costing chapters, so Units II,
-      // IV and V stay empty until a suitable text is cut.
+      // IM254TA — Tulsian's Financial Accounting for B.Com. (Programme). The
+      // book has no costing or standard costing, so Units IV and V stay empty
+      // until a cost accounting text is cut.
       name: "Finance Accounting and Costing",
       items: [
         {
-          label: "Unit I: Accounting Theory, GAAP and Double Entry",
-          file: "/notes/sem5/finance-accounting-and-costing/unit-1-accounting-theory.pdf",
-          size: "9.9 MB",
+          label: "Unit I: Introduction, GAAP, IFRS and Accounting Equation",
+          file: "/notes/sem5/finance-accounting-and-costing/unit-1-introduction-and-accounting-concepts.pdf",
+          size: "1.6 MB",
         },
         {
-          label: "Unit III: Final Accounts, Income & Expenditure and Balance Sheet",
-          file: "/notes/sem5/finance-accounting-and-costing/unit-3-final-accounts-of-not-for-profit-organisations.pdf",
-          size: "9.3 MB",
+          label: "Unit II: Accounting Process — Journal, Ledger and Cash Book",
+          file: "/notes/sem5/finance-accounting-and-costing/unit-2-accounting-process-journal-ledger-cash-book.pdf",
+          size: "1.4 MB",
+        },
+        {
+          label: "Unit III: Financial Statements — Trading, P&L and Balance Sheet",
+          file: "/notes/sem5/finance-accounting-and-costing/unit-3-financial-statements.pdf",
+          size: "1.8 MB",
         },
       ],
     },
