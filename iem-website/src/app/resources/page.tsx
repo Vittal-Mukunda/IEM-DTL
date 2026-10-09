@@ -26,12 +26,15 @@ export const metadata: Metadata = {
   },
 };
 
-/** Total number of documents currently published across every semester folder. */
+/** Documents listed across every semester folder (hidden extras are not counted). */
 const documentCount = resourceFolders.reduce(
   (n, folder) =>
     n +
     folder.items.length +
-    folder.subfolders.reduce((m, sf) => m + sf.items.length, 0),
+    folder.subfolders.reduce(
+      (m, sf) => m + sf.items.filter((item) => !item.hidden).length,
+      0,
+    ),
   0,
 );
 

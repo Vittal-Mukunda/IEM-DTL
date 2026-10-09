@@ -121,6 +121,17 @@ const nextConfig: NextConfig = {
         source: "/:dir(notes|syllabus|newsletters)/:path*",
         headers: assetCache(DAY, YEAR, 30 * DAY),
       },
+      // Hidden study material (`hidden: true` in data.ts): keep it out of
+      // search results. A robots.txt Disallow would publish the URL, so a
+      // noindex header on the file itself is used instead.
+      ...[
+        "/notes/sem5/operations-management/question-bank-model-answers.pdf",
+        "/notes/sem5/quality-assurance/question-bank-model-answers.pdf",
+        "/notes/sem5/finance-accounting-and-costing/question-bank-model-answers-units-1-2.pdf",
+      ].map((source) => ({
+        source,
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      })),
     ];
   },
 };

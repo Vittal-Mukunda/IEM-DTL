@@ -1196,6 +1196,14 @@ export interface ResourceItem {
   label: string;
   file: string;
   size?: string;
+  /**
+   * Not listed until a visitor clicks "Contact" in the footer (see
+   * `components/resources/HiddenExtras.tsx`). Hides the link only: the file
+   * under /public is still reachable by URL, so never use it for anything
+   * private. Put a hidden item in a subfolder that already has at least one
+   * visible item, and keep it last in its list.
+   */
+  hidden?: boolean;
 }
 export interface ResourceSubfolder {
   name: string;
@@ -1963,9 +1971,19 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "859 KB",
         },
         {
+          label: "Unit I: Using Operations to Compete (Slides)",
+          file: "/notes/sem5/operations-management/unit-1-slides-using-operations-to-compete.pdf",
+          size: "978 KB",
+        },
+        {
           label: "Unit II: Developing a Process Strategy and Planning Capacity",
           file: "/notes/sem5/operations-management/unit-2-process-strategy-and-planning-capacity.pdf",
           size: "1.3 MB",
+        },
+        {
+          label: "Unit II: Process Strategy (Slides)",
+          file: "/notes/sem5/operations-management/unit-2-slides-process-strategy.pdf",
+          size: "1.2 MB",
         },
         {
           label: "Unit III: Forecasting Demand",
@@ -1982,6 +2000,13 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "Unit V: Planning and Scheduling Operations",
           file: "/notes/sem5/operations-management/unit-5-planning-and-scheduling-operations.pdf",
           size: "2.5 MB",
+        },
+        {
+          // Hidden: unlocked by clicking "Contact" in the footer.
+          label: "CIE & SEE Question Bank with Model Answers (Units I–V)",
+          file: "/notes/sem5/operations-management/question-bank-model-answers.pdf",
+          size: "2.2 MB",
+          hidden: true,
         },
       ],
     },
@@ -2015,6 +2040,13 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem5/quality-assurance/unit-5-failure-models-for-reliability.pdf",
           size: "266 KB",
         },
+        {
+          // Hidden: unlocked by clicking "Contact" in the footer.
+          label: "CIE & SEE Question Bank with Model Answers (Units I–V)",
+          file: "/notes/sem5/quality-assurance/question-bank-model-answers.pdf",
+          size: "773 KB",
+          hidden: true,
+        },
       ],
     },
     {
@@ -2037,6 +2069,13 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "Unit III: Financial Statements — Trading, P&L and Balance Sheet",
           file: "/notes/sem5/finance-accounting-and-costing/unit-3-financial-statements.pdf",
           size: "1.8 MB",
+        },
+        {
+          // Hidden: unlocked by clicking "Contact" in the footer.
+          label: "CIE & SEE Question Bank with Model Answers (Units I–II)",
+          file: "/notes/sem5/finance-accounting-and-costing/question-bank-model-answers-units-1-2.pdf",
+          size: "327 KB",
+          hidden: true,
         },
       ],
     },

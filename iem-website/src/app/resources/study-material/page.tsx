@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { resourceFolders, type ResourceItem } from "@/lib/data";
+import { resourceFolders } from "@/lib/data";
+import { ExtraCount, ExtraItems } from "@/components/resources/HiddenExtras";
+import { FileLink, Icon, IconSprite } from "@/components/resources/ResourceParts";
 
 export const metadata: Metadata = {
   title: "Study Material & Notes",
@@ -92,10 +94,17 @@ export default function StudyMaterialPage() {
         <section aria-label="Semester resource folders">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {resourceFolders.map((folder) => {
+              // `hidden` items stay out of the server render entirely; client
+              // islands show them once "Contact" in the footer is clicked
+              // (see HiddenExtras.tsx).
+              const isShown = (item: { hidden?: boolean }) => !item.hidden;
               const subCount = folder.subfolders.reduce(
-                (n, sf) => n + sf.items.length,
+                (n, sf) => n + sf.items.filter(isShown).length,
                 0,
               );
+              const hiddenTotal =
+                folder.subfolders.reduce((n, sf) => n + sf.items.length, 0) -
+                subCount;
               const total = folder.items.length + subCount;
               const hasContent = total > 0;
               return (
@@ -111,7 +120,9 @@ export default function StudyMaterialPage() {
                       </h2>
                       <p className="text-xs text-text-muted mt-0.5">
                         {hasContent
-                          ? `${total} item${total > 1 ? "s" : ""}`
+                          ? hiddenTotal > 0
+                            ? <ExtraCount base={total} extra={hiddenTotal} label />
+                            : `${total} item${total > 1 ? "s" : ""}`
                           : folder.subfolders.length > 0
                             ? `${folder.subfolders.length} subjects · notes coming soon`
                             : "No resources yet"}
@@ -127,7 +138,10 @@ export default function StudyMaterialPage() {
                     )}
 
                     {/* Subject subfolders — click the header to expand/collapse */}
-                    {folder.subfolders.map((sf) => (
+                    {folder.subfolders.map((sf) => {
+                      const shown = sf.items.filter(isShown);
+                      const extras = sf.items.filter((item) => !isShown(item));
+                      return (
                       <details key={sf.name}>
                         <summary className="res-summary">
                           <Icon id="chevron" className="res-chevron h-4 w-4 text-text-muted" />
@@ -136,16 +150,23 @@ export default function StudyMaterialPage() {
                             {sf.name}
                           </h3>
                           <span className="ml-auto text-xs text-text-muted">
-                            {sf.items.length > 0 ? sf.items.length : "soon"}
+                            {shown.length === 0 ? (
+                              "soon"
+                            ) : extras.length > 0 ? (
+                              <ExtraCount base={shown.length} extra={extras.length} />
+                            ) : (
+                              shown.length
+                            )}
                           </span>
                         </summary>
-                        {sf.items.length > 0 ? (
+                        {shown.length > 0 ? (
                           <ul className="mt-2 ml-2 space-y-2 pl-6 border-l-2 border-accent/30">
-                            {sf.items.map((item) => (
+                            {shown.map((item) => (
                               <li key={item.file}>
                                 <FileLink item={item} />
                               </li>
                             ))}
+                            {extras.length > 0 && <ExtraItems items={extras} />}
                           </ul>
                         ) : (
                           <p className="mt-2 ml-2 pl-6 border-l-2 border-accent/30 text-sm text-text-muted italic">
@@ -153,7 +174,8 @@ export default function StudyMaterialPage() {
                           </p>
                         )}
                       </details>
-                    ))}
+                      );
+                    })}
 
                     {/* Loose files (not in a subfolder) */}
                     {folder.items.length > 0 && (
@@ -213,59 +235,5 @@ export default function StudyMaterialPage() {
         </section>
       </div>
     </>
-  );
-}
-
-function FileLink({ item }: { item: ResourceItem }) {
-  return (
-    <Link href={item.file} target="_blank" rel="noopener noreferrer" className="res-file">
-      <span className="res-file-name">
-        <Icon id="file" className="h-4 w-4 text-text-muted" />
-        <span className="res-file-label">{item.label}</span>
-      </span>
-      {item.size && <span className="res-file-size">{item.size}</span>}
-    </Link>
-  );
-}
-
-/**
- * One reference into {@link IconSprite}.
- *
- * The page draws the same three icons once per document, and at 140 documents
- * restating the path each time cost about 56 kB of markup — paid twice, since
- * the RSC payload carries a copy of everything the HTML already holds. The
- * stroke geometry lives on the sprite's `<symbol>`s, so each use site is only
- * a class and a reference.
- */
-function Icon({ id, className }: { id: "file" | "folder" | "chevron"; className: string }) {
-  return (
-    <svg className={`res-icon ${className}`} aria-hidden="true">
-      <use href={`#i-${id}`} />
-    </svg>
-  );
-}
-
-/** Defines the three shapes once. Rendered off-screen, above the content. */
-function IconSprite() {
-  return (
-    <svg width="0" height="0" aria-hidden="true" className="absolute">
-      <symbol id="i-file" viewBox="0 0 24 24" strokeWidth={1.8}>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M14 3v4a1 1 0 0 0 1 1h4M5 21V5a2 2 0 0 1 2-2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Z"
-        />
-      </symbol>
-      <symbol id="i-folder" viewBox="0 0 24 24" strokeWidth={1.8}>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
-        />
-      </symbol>
-      <symbol id="i-chevron" viewBox="0 0 24 24" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
-      </symbol>
-    </svg>
   );
 }

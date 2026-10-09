@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig, navLinks } from "@/lib/data";
+import { ContactToggle } from "@/components/resources/HiddenExtras";
 
 export default function Footer() {
   return (
@@ -51,7 +52,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-xl font-display font-bold mb-3">
-              Contact
+              <ContactToggle />
             </h3>
             <ul className="space-y-1.5 text-base text-gray-300">
               <li>
