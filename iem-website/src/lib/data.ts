@@ -2111,6 +2111,17 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         },
       ],
     },
+    {
+      // IM255TBD — only Unit V is in so far.
+      name: "Advanced Decision Modelling",
+      items: [
+        {
+          label: "Unit V: Sequencing Problems",
+          file: "/notes/sem5/advanced-decision-modelling/unit-5-sequencing-problems.pdf",
+          size: "2.0 MB",
+        },
+      ],
+    },
   ],
   6: [
     {
