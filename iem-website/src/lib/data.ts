@@ -2020,6 +2020,11 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "882 KB",
         },
         {
+          label: "Unit I: Quality Improvement and Statistical Process Control (Slides)",
+          file: "/notes/sem5/quality-assurance/unit-1-slides-quality-and-statistical-process-control.pdf",
+          size: "1.8 MB",
+        },
+        {
           label:
             "Unit II: Control Charts for Variables and Attributes, and Process Capability",
           file: "/notes/sem5/quality-assurance/unit-2-control-charts-and-process-capability.pdf",
