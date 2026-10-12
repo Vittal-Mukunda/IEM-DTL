@@ -2031,6 +2031,12 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "1.1 MB",
         },
         {
+          label:
+            "Unit II: Control Charts for Variables and Attributes, and Process Capability (Slides)",
+          file: "/notes/sem5/quality-assurance/unit-2-slides-control-charts-and-process-capability.pdf",
+          size: "2.8 MB",
+        },
+        {
           label: "Unit III: Advanced Control Charts and Acceptance Sampling",
           file: "/notes/sem5/quality-assurance/unit-3-advanced-control-charts-and-acceptance-sampling.pdf",
           size: "968 KB",
