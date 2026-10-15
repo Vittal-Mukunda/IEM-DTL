@@ -1271,54 +1271,9 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "88 KB",
         },
         {
-          label: "Unit 1 – Essay Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-1-essay-question-bank.pdf",
-          size: "284 KB",
-        },
-        {
-          label: "Unit 2 – Essay Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-2-essay-question-bank.pdf",
-          size: "304 KB",
-        },
-        {
-          label: "Unit 3 – Essay Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-3-essay-question-bank.pdf",
-          size: "372 KB",
-        },
-        {
-          label: "Unit 4 – Essay Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-4-essay-question-bank.pdf",
-          size: "316 KB",
-        },
-        {
-          label: "Unit 5 – Essay Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-5-essay-question-bank.pdf",
-          size: "300 KB",
-        },
-        {
-          label: "Unit 1 – MCQ Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-1-mcq-question-bank.pdf",
-          size: "256 KB",
-        },
-        {
-          label: "Unit 2 – MCQ Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-2-mcq-question-bank.pdf",
-          size: "248 KB",
-        },
-        {
-          label: "Unit 3 – MCQ Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-3-mcq-question-bank.pdf",
-          size: "272 KB",
-        },
-        {
-          label: "Unit 4 – MCQ Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-4-mcq-question-bank.pdf",
-          size: "256 KB",
-        },
-        {
-          label: "Unit 5 – MCQ Question Bank",
-          file: "/notes/sem3/work-systems-design/unit-5-mcq-question-bank.pdf",
-          size: "252 KB",
+          label: "Question Bank – All Units (Unit-wise)",
+          file: "/notes/sem3/work-systems-design/question-bank-all-units.pdf",
+          size: "241 KB",
         },
         {
           label: "Textbook",
