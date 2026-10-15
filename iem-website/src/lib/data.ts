@@ -1236,21 +1236,6 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "1.4 MB",
         },
         {
-          label: "Unit 2 – Automation Strategies",
-          file: "/notes/sem3/work-systems-design/unit-2-automation-strategies.pdf",
-          size: "53 KB",
-        },
-        {
-          label: "Unit 3 – Work Measurement",
-          file: "/notes/sem3/work-systems-design/unit-3-work-measurement.pdf",
-          size: "195 KB",
-        },
-        {
-          label: "Unit 5 – Industrial Accidents & Injuries",
-          file: "/notes/sem3/work-systems-design/unit-5-industrial-accidents-and-injuries.pdf",
-          size: "86 KB",
-        },
-        {
           label: "Unit I Textbook – Work Systems and Productivity",
           file: "/notes/sem3/work-systems-design/unit-1-textbook-work-systems-and-productivity.pdf",
           size: "420 KB",
