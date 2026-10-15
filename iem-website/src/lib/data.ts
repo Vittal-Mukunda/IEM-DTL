@@ -1770,32 +1770,22 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem4/question-papers/cie-1.pdf",
-          size: "19 MB",
+          size: "1.4 MB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem4/question-papers/cie-2.pdf",
-          size: "8.9 MB",
+          size: "264 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem4/question-papers/cie-3.pdf",
-          size: "9.7 MB",
-        },
-        {
-          label: "IM241AT – Question Paper",
-          file: "/notes/sem4/question-papers/im241at-question-paper.pdf",
-          size: "169 KB",
-        },
-        {
-          label: "Supplementary Examinations",
-          file: "/notes/sem4/question-papers/supplementary-examinations.pdf",
-          size: "556 KB",
+          size: "251 KB",
         },
         {
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem4/question-papers/see-past-year-question-papers.pdf",
-          size: "4.4 MB",
+          size: "630 KB",
         },
         {
           label: "CAD/CAM Robotics – SEE (June/July 2025, IM343AI)",
