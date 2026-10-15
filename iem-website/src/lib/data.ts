@@ -2042,14 +2042,29 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "968 KB",
         },
         {
+          label: "Unit III: Acceptance Sampling (Slides)",
+          file: "/notes/sem5/quality-assurance/unit-3-slides-acceptance-sampling.pdf",
+          size: "2.1 MB",
+        },
+        {
           label: "Unit IV: Experimental Design for Process Improvement",
           file: "/notes/sem5/quality-assurance/unit-4-experimental-design-for-process-improvement.pdf",
           size: "499 KB",
         },
         {
+          label: "Unit IV: Design of Experiments (Slides)",
+          file: "/notes/sem5/quality-assurance/unit-4-slides-design-of-experiments.pdf",
+          size: "5.8 MB",
+        },
+        {
           label: "Unit V: Probability and Failure-Time Models for Reliability",
           file: "/notes/sem5/quality-assurance/unit-5-failure-models-for-reliability.pdf",
           size: "266 KB",
+        },
+        {
+          label: "Unit V: Reliability and Life Testing (Slides)",
+          file: "/notes/sem5/quality-assurance/unit-5-slides-reliability.pdf",
+          size: "3.4 MB",
         },
         {
           // Hidden: unlocked by clicking "Contact" in the footer.
