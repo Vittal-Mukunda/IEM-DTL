@@ -1573,17 +1573,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem3/question-papers/see-past-year-question-papers.pdf",
-          size: "187 KB",
-        },
-        {
-          label: "Digital Metrology – Model Question Paper (2021 Scheme)",
-          file: "/notes/sem3/digital-metrology/model-question-paper-2021-scheme.pdf",
-          size: "120 KB",
-        },
-        {
-          label: "Mathematics III – Model Question Paper",
-          file: "/notes/sem3/mathematics-iii/model-question-paper.pdf",
-          size: "228 KB",
+          size: "208 KB",
         },
       ],
     },
@@ -1735,52 +1725,17 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 2",
           file: "/notes/sem4/question-papers/cie-2.pdf",
-          size: "264 KB",
+          size: "270 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem4/question-papers/cie-3.pdf",
-          size: "251 KB",
+          size: "254 KB",
         },
         {
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem4/question-papers/see-past-year-question-papers.pdf",
-          size: "630 KB",
-        },
-        {
-          label: "CAD/CAM Robotics – SEE (June/July 2025, IM343AI)",
-          file: "/notes/sem4/cad-cam-robotics/see-question-paper-june-july-2025-im343ai.pdf",
-          size: "207 KB",
-        },
-        {
-          label: "CAD/CAM Robotics – SEE (Sep/Oct 2024, IM343AI)",
-          file: "/notes/sem4/cad-cam-robotics/see-question-paper-sep-oct-2024-im343ai.pdf",
-          size: "158 KB",
-        },
-        {
-          label: "CAD/CAM Robotics – SEE (October 2023, 21IM43)",
-          file: "/notes/sem4/cad-cam-robotics/see-question-paper-october-2023-21im43.pdf",
-          size: "157 KB",
-        },
-        {
-          label: "Operations Research – SEE (Sep/Oct 2024, June/July 2025)",
-          file: "/notes/sem4/operations-research/see-question-papers-2024-and-2025.pdf",
-          size: "1.5 MB",
-        },
-        {
-          label: "Marketing Management – CIE 1 Scheme of Valuation (April 2026)",
-          file: "/notes/sem4/marketing-management/cie-1-scheme-of-valuation-april-2026.pdf",
-          size: "220 KB",
-        },
-        {
-          label: "Marketing Management – CIE 2 Scheme & Solution (May 2026)",
-          file: "/notes/sem4/marketing-management/cie-2-scheme-and-solution-may-2026.pdf",
-          size: "398 KB",
-        },
-        {
-          label: "Marketing Management – CIE 3 Scheme & Solution (June 2026)",
-          file: "/notes/sem4/marketing-management/cie-3-scheme-and-solution-june-2026.pdf",
-          size: "204 KB",
+          size: "1.1 MB",
         },
       ],
     },
