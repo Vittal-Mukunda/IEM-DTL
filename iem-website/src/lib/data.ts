@@ -1556,59 +1556,24 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       name: "Question Papers (CIE & SEE)",
       items: [
         {
-          label: "CIE 1 Question Papers (2024-25)",
-          file: "/notes/sem3/question-papers/cie-1-question-papers-2024-25.pdf",
-          size: "3.8 MB",
+          label: "CIE 1",
+          file: "/notes/sem3/question-papers/cie-1.pdf",
+          size: "239 KB",
         },
         {
-          label: "CIE 2 Question Papers (2024-25)",
-          file: "/notes/sem3/question-papers/cie-2-question-papers-2024-25.pdf",
-          size: "2.6 MB",
-        },
-        {
-          label: "CIE 3 Question Papers (2024-25)",
-          file: "/notes/sem3/question-papers/cie-3-question-papers-2024-25.pdf",
-          size: "3.0 MB",
-        },
-        {
-          label: "SEE Question Papers (Collection)",
-          file: "/notes/sem3/question-papers/see-question-papers-collection.pdf",
-          size: "4.1 MB",
-        },
-        {
-          label: "CIE 2 (Additional Set)",
+          label: "CIE 2",
           file: "/notes/sem3/question-papers/cie-2.pdf",
-          size: "11 MB",
+          size: "269 KB",
         },
         {
-          label: "CIE 3 (Additional Set)",
+          label: "CIE 3",
           file: "/notes/sem3/question-papers/cie-3.pdf",
-          size: "11 MB",
+          size: "242 KB",
         },
         {
-          label: "Mathematics III – Question Paper (MAT231TB)",
-          file: "/notes/sem3/question-papers/mat231tb-question-paper.pdf",
-          size: "5.7 MB",
-        },
-        {
-          label: "Work Systems Design – CIE Question Papers (2022-23)",
-          file: "/notes/sem3/work-systems-design/cie-question-papers-2022-23.pdf",
-          size: "1.6 MB",
-        },
-        {
-          label: "Work Systems Design – SEE Question Paper (April 2024)",
-          file: "/notes/sem3/work-systems-design/see-question-paper-april-2024.pdf",
-          size: "100 KB",
-        },
-        {
-          label: "Work Systems Design – SEE Question Papers (Collection)",
-          file: "/notes/sem3/work-systems-design/see-question-papers-collection.pdf",
-          size: "552 KB",
-        },
-        {
-          label: "Digital Metrology – Model Question Paper (IM235AI)",
-          file: "/notes/sem3/digital-metrology/model-question-paper-im235ai.pdf",
-          size: "252 KB",
+          label: "SEE – Past Year Question Papers",
+          file: "/notes/sem3/question-papers/see-past-year-question-papers.pdf",
+          size: "187 KB",
         },
         {
           label: "Digital Metrology – Model Question Paper (2021 Scheme)",
@@ -1619,11 +1584,6 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "Mathematics III – Model Question Paper",
           file: "/notes/sem3/mathematics-iii/model-question-paper.pdf",
           size: "228 KB",
-        },
-        {
-          label: "Mathematics III – SEE Question Paper (April 2024)",
-          file: "/notes/sem3/mathematics-iii/see-question-paper-april-2024.pdf",
-          size: "296 KB",
         },
       ],
     },

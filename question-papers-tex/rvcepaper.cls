@@ -58,7 +58,7 @@
 \newenvironment{bul}{\begin{itemize}[leftmargin=1.5em,itemsep=0pt,topsep=1pt,parsep=0pt,partopsep=0pt]}{\end{itemize}}
 % a small inline table inside a question: \qtab{lcc}{...}
 \newcommand{\qtab}[2]{\par\vspace{2pt}\begin{tabular}{#1}#2\end{tabular}\par\vspace{2pt}}
-\newcommand{\qtabc}[2]{\par\vspace{2pt}\centerline{\begin{tabular}{#1}#2\end{tabular}}\par\vspace{2pt}}
+\newcommand{\qtabc}[2]{\par\vspace{2pt}\centerline{\begin{tabular}{#1}#2\end{tabular}}\par\vspace{2pt}\nointerlineskip\hbox{}}
 
 % ---------------------------------------------------------------- USN boxes
 \newcommand{\usnboxes}{%
