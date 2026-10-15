@@ -1236,49 +1236,49 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "1.4 MB",
         },
         {
-          label: "Handwritten Notes (All Units)",
-          file: "/notes/sem3/work-systems-design/handwritten-notes-all-units.pdf",
-          size: "27 MB",
-        },
-        {
-          label: "Unit 1 – Nature of Work (Notes)",
-          file: "/notes/sem3/work-systems-design/unit-1-nature-of-work-notes.pdf",
-          size: "3.5 MB",
-        },
-        {
-          label: "Unit 1 – Worker-Machine Systems (Handwritten)",
-          file: "/notes/sem3/work-systems-design/unit-1-worker-machine-systems-handwritten.pdf",
-          size: "6.3 MB",
-        },
-        {
           label: "Unit 2 – Automation Strategies",
           file: "/notes/sem3/work-systems-design/unit-2-automation-strategies.pdf",
-          size: "56 KB",
+          size: "53 KB",
         },
         {
           label: "Unit 3 – Work Measurement",
           file: "/notes/sem3/work-systems-design/unit-3-work-measurement.pdf",
-          size: "228 KB",
-        },
-        {
-          label: "Unit 5 – Ergonomics (Handwritten)",
-          file: "/notes/sem3/work-systems-design/unit-5-ergonomics-handwritten.pdf",
-          size: "2.1 MB",
+          size: "195 KB",
         },
         {
           label: "Unit 5 – Industrial Accidents & Injuries",
           file: "/notes/sem3/work-systems-design/unit-5-industrial-accidents-and-injuries.pdf",
-          size: "88 KB",
+          size: "86 KB",
+        },
+        {
+          label: "Unit I Textbook – Work Systems and Productivity",
+          file: "/notes/sem3/work-systems-design/unit-1-textbook-work-systems-and-productivity.pdf",
+          size: "420 KB",
+        },
+        {
+          label: "Unit II Textbook – Methods Engineering and Operations Analysis",
+          file: "/notes/sem3/work-systems-design/unit-2-textbook-methods-engineering-and-operations-analysis.pdf",
+          size: "544 KB",
+        },
+        {
+          label: "Unit III Textbook – Work Measurement",
+          file: "/notes/sem3/work-systems-design/unit-3-textbook-work-measurement.pdf",
+          size: "634 KB",
+        },
+        {
+          label: "Unit IV Textbook – Lean Production",
+          file: "/notes/sem3/work-systems-design/unit-4-textbook-lean-production.pdf",
+          size: "342 KB",
+        },
+        {
+          label: "Unit V Textbook – Ergonomics and Occupational Safety",
+          file: "/notes/sem3/work-systems-design/unit-5-textbook-ergonomics-and-occupational-safety.pdf",
+          size: "230 KB",
         },
         {
           label: "Question Bank – All Units (Unit-wise)",
           file: "/notes/sem3/work-systems-design/question-bank-all-units.pdf",
-          size: "241 KB",
-        },
-        {
-          label: "Textbook",
-          file: "/notes/sem3/work-systems-design/work-systems-design-textbook.pdf",
-          size: "4.0 MB",
+          size: "242 KB",
         },
       ],
     },
