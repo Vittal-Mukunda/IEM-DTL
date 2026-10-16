@@ -1300,26 +1300,6 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem3/manufacturing-processes/cie-1-notes.pdf",
           size: "328 KB",
         },
-        {
-          label: "Unit 1 – Class Notes",
-          file: "/notes/sem3/manufacturing-processes/unit-1.pdf",
-          size: "2.7 MB",
-        },
-        {
-          label: "Unit 3 – Class Notes",
-          file: "/notes/sem3/manufacturing-processes/unit-3.pdf",
-          size: "891 KB",
-        },
-        {
-          label: "Unit 4 – Class Notes",
-          file: "/notes/sem3/manufacturing-processes/unit-4.pdf",
-          size: "2.5 MB",
-        },
-        {
-          label: "Unit 5 – Class Notes",
-          file: "/notes/sem3/manufacturing-processes/unit-5.pdf",
-          size: "3.5 MB",
-        },
       ],
     },
     {
