@@ -115,9 +115,7 @@ export default function CourseExplorer() {
                       {d?.label}
                     </span>
                     <span className="text-xs text-text-muted group-hover:text-primary">
-                      {c.faculty.length > 0
-                        ? `${c.faculty.length} faculty →`
-                        : "Details →"}
+                      Syllabus →
                     </span>
                   </span>
                 </motion.button>
@@ -150,7 +148,7 @@ export default function CourseExplorer() {
               initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.92, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.25, ease: [0.21, 0.65, 0.32, 0.95] }}
-              className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl focus:outline-none"
+              className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl focus:outline-none"
             >
               <div
                 className="h-1.5 w-full rounded-t-2xl"
@@ -189,6 +187,15 @@ export default function CourseExplorer() {
                 <p className="mt-4 text-base leading-relaxed text-gray-700">
                   {selected.description}
                 </p>
+
+                <h4 className="mt-6 mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
+                  Syllabus
+                </h4>
+                <SyllabusPage
+                  key={selected.code}
+                  code={selected.code}
+                  name={selected.name}
+                />
 
                 {selected.faculty.length > 0 ? (
                   <>
@@ -246,6 +253,57 @@ export default function CourseExplorer() {
             </motion.div>
           </motion.div>
         )}
+    </div>
+  );
+}
+
+/**
+ * The course's syllabus page from the official scheme booklet, pre-rendered to
+ * a ~70 KB image (scripts/render_syllabus_pages.py). It is only mounted while
+ * a course is open, so nothing is fetched until a reader asks for it; a plain
+ * <img> is used on purpose — next/image would re-encode the lossless text
+ * rendering into a blurrier, larger variant and bill an image optimisation.
+ */
+function SyllabusPage({ code, name }: { code: string; name: string }) {
+  const [state, setState] = useState<"loading" | "ready" | "error">("loading");
+
+  if (state === "error") {
+    return (
+      <p className="rounded-xl border border-gray-100 bg-surface p-4 text-sm text-text-muted">
+        The syllabus for this course isn&apos;t available here yet. The full
+        scheme booklets are on the{" "}
+        <a href="/resources" className="text-primary hover:underline">
+          Resources page
+        </a>
+        .
+      </p>
+    );
+  }
+
+  return (
+    <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+      {state === "loading" && (
+        <div
+          className="flex min-h-[320px] items-center justify-center"
+          role="status"
+          aria-live="polite"
+        >
+          <span
+            className="h-7 w-7 animate-spin rounded-full border-[3px] border-primary/20 border-t-primary"
+            aria-hidden="true"
+          />
+          <span className="sr-only">Loading syllabus</span>
+        </div>
+      )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/syllabus/courses/${code}.webp`}
+        alt={`${name} (${code}) syllabus: units, laboratory and course outcomes`}
+        decoding="async"
+        onLoad={() => setState("ready")}
+        onError={() => setState("error")}
+        className={`h-auto w-full min-w-[560px] ${state === "ready" ? "" : "hidden"}`}
+      />
     </div>
   );
 }
