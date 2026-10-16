@@ -1333,7 +1333,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "Unit 4 – Optical Interferometry & Form Measurements",
           file: "/notes/sem3/digital-metrology/unit-4-optical-interferometry-and-form-measurements.pdf",
-          size: "11 MB",
+          size: "6.9 MB",
         },
         {
           label: "Unit 4 – Laser Metrology",
@@ -1535,27 +1535,27 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "Unit 1 – Detailed Notes",
           file: "/notes/sem4/statistics-for-data-analytics/unit-1-notes.pdf",
-          size: "21 MB",
+          size: "13.2 MB",
         },
         {
           label: "Unit 2 – Detailed Notes",
           file: "/notes/sem4/statistics-for-data-analytics/unit-2-notes.pdf",
-          size: "13 MB",
+          size: "9.6 MB",
         },
         {
           label: "Unit 3 – Estimation Notes",
           file: "/notes/sem4/statistics-for-data-analytics/unit-3-estimation-notes.pdf",
-          size: "34 MB",
+          size: "10.9 MB",
         },
         {
           label: "Unit 4 – Detailed Notes",
           file: "/notes/sem4/statistics-for-data-analytics/unit-4-notes.pdf",
-          size: "3.0 MB",
+          size: "1.5 MB",
         },
         {
           label: "Unit 5 – Detailed Notes",
           file: "/notes/sem4/statistics-for-data-analytics/unit-5-notes.pdf",
-          size: "28 MB",
+          size: "8.7 MB",
         },
         {
           label: "Question Bank with Solutions (Unitwise)",
@@ -1580,12 +1580,12 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "Unit 1",
           file: "/notes/sem4/cad-cam-robotics/unit-1.pdf",
-          size: "4.5 MB",
+          size: "3.8 MB",
         },
         {
           label: "Unit 2",
           file: "/notes/sem4/cad-cam-robotics/unit-2.pdf",
-          size: "2.4 MB",
+          size: "1.9 MB",
         },
         {
           label: "Unit 3",
@@ -1595,12 +1595,12 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "Unit 4",
           file: "/notes/sem4/cad-cam-robotics/unit-4.pdf",
-          size: "3.5 MB",
+          size: "3.0 MB",
         },
         {
           label: "Unit 5",
           file: "/notes/sem4/cad-cam-robotics/unit-5.pdf",
-          size: "975 KB",
+          size: "789 KB",
         },
       ],
     },
@@ -1640,7 +1640,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem4/question-papers/cie-1.pdf",
-          size: "1.4 MB",
+          size: "362 KB",
         },
         {
           label: "CIE 2",
@@ -1655,7 +1655,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem4/question-papers/see-past-year-question-papers.pdf",
-          size: "1.1 MB",
+          size: "279 KB",
         },
       ],
     },
@@ -1830,7 +1830,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           // Hidden: unlocked by clicking "Contact" in the footer.
           label: "CIE & SEE Question Bank with Model Answers (Units I–V)",
           file: "/notes/sem5/operations-management/question-bank-model-answers.pdf",
-          size: "2.2 MB",
+          size: "1.5 MB",
           hidden: true,
         },
       ],
@@ -1879,7 +1879,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "Unit IV: Design of Experiments (Slides)",
           file: "/notes/sem5/quality-assurance/unit-4-slides-design-of-experiments.pdf",
-          size: "5.8 MB",
+          size: "4.8 MB",
         },
         {
           label: "Unit V: Probability and Failure-Time Models for Reliability",
@@ -1937,12 +1937,12 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "Unit I: Chapter 1 — Analysis and Framework to EIS",
           file: "/notes/sem5/enterprise-information-systems/unit-1-chapter-1-analysis-and-framework-to-eis.pdf",
-          size: "4.0 MB",
+          size: "2.3 MB",
         },
         {
           label: "Unit I: Chapter 2 — Enterprise System Development and Deployment",
           file: "/notes/sem5/enterprise-information-systems/unit-1-chapter-2-enterprise-system-development-and-deployment.pdf",
-          size: "5.6 MB",
+          size: "3.2 MB",
         },
         {
           label: "Unit I: ERP, CRM & SCM, Decision-Making, Digital Transformation",
@@ -1996,7 +1996,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1 (2024-25)",
           file: "/notes/sem7/question-papers/cie-1-2024-25.pdf",
-          size: "12 MB",
+          size: "3.2 MB",
         },
         {
           label: "CIE 1 (2025-26)",
@@ -2006,22 +2006,22 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 2 (2024-25)",
           file: "/notes/sem7/question-papers/cie-2-2024-25.pdf",
-          size: "13 MB",
+          size: "3.3 MB",
         },
         {
           label: "CIE 2 (2025-26)",
           file: "/notes/sem7/question-papers/cie-2-2025-26.pdf",
-          size: "11 MB",
+          size: "3.3 MB",
         },
         {
           label: "CIE 3 (2024-25)",
           file: "/notes/sem7/question-papers/cie-3-2024-25.pdf",
-          size: "13 MB",
+          size: "2.9 MB",
         },
         {
           label: "CIE 3 (2025-26)",
           file: "/notes/sem7/question-papers/cie-3-2025-26.pdf",
-          size: "12 MB",
+          size: "3.5 MB",
         },
       ],
     },
@@ -2066,7 +2066,7 @@ export const syllabusDocs: SyllabusDoc[] = [
     label: "4th Year · Semesters VII–VIII",
     scheme: "2022 Scheme",
     file: "/syllabus/IEM-2022-4th-year-VII-VIII.pdf",
-    size: "2.9 MB",
+    size: "2.5 MB",
   },
 ];
 

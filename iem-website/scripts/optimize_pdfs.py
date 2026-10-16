@@ -42,7 +42,7 @@ from pathlib import Path
 
 try:
     import pymupdf
-    from PIL import Image
+    from PIL import Image, ImageChops, ImageStat
 except ImportError:  # pragma: no cover - dependency hint
     sys.exit("needs pymupdf and pillow: pip install pymupdf pillow")
 
@@ -61,8 +61,52 @@ DPI_SLACK = 1.08
 # A rewrite that saves less than this is not worth the generation loss.
 MIN_SAVING = 0.10
 
+# "Lean" pass for scans that are already near 150 dpi but stored as dense,
+# high-quality JPEGs (a 62-page handwritten notebook can still weigh 20 MB).
+# Greyscale pages — the usual case for pen on ruled paper — are fine at 130 dpi
+# and JPEG quality 60; colour pages keep their resolution and drop to 72.
+# Only JPEGs are touched (lossless diagrams stay lossless), and an image is
+# skipped once its estimated quality is at the target, so re-runs do nothing.
+LEAN_DPI_GRAY = 130
+LEAN_QUALITY_GRAY = 60
+LEAN_QUALITY_COLOUR = 72
+LEAN_BYTES_PER_PIXEL = 0.09
+QUALITY_TOLERANCE = 4
+GRAY_CHROMA = 3.0
 
-def shrink(path: Path, dpi: float, quality: int, apply: bool) -> tuple[int, int, str]:
+# Annex K luminance table: the baseline a JPEG's quality is measured against.
+_STD_LUMA_SUM = sum([
+    16, 11, 10, 16, 24, 40, 51, 61, 12, 12, 14, 19, 26, 58, 60, 55,
+    14, 13, 16, 24, 40, 57, 69, 56, 14, 17, 22, 29, 51, 87, 80, 62,
+    18, 22, 37, 56, 68, 109, 103, 77, 24, 35, 55, 64, 81, 104, 113, 92,
+    49, 64, 78, 87, 103, 121, 120, 101, 72, 92, 95, 98, 112, 100, 103, 99,
+])
+
+
+def estimate_quality(image: Image.Image) -> int:
+    """Best guess at the libjpeg quality an image was saved with."""
+    table = getattr(image, "quantization", {}).get(0)
+    if not table:
+        return 100
+    scale = 100 * sum(table) / _STD_LUMA_SUM
+    quality = (200 - scale) / 2 if scale <= 100 else 5000 / scale
+    return max(1, min(100, round(quality)))
+
+
+def is_greyscale(image: Image.Image) -> bool:
+    """True when an RGB scan carries no real colour (pen on white paper)."""
+    if image.mode == "L":
+        return True
+    if image.mode != "RGB":
+        return False
+    small = image.resize((64, 64))
+    r, _, b = small.split()
+    diff = ImageChops.difference(r, b)
+    return ImageStat.Stat(diff).mean[0] < GRAY_CHROMA
+
+
+def shrink(path: Path, dpi: float, quality: int, apply: bool,
+           lean: bool = True) -> tuple[int, int, str]:
     """Rewrite one PDF's oversized scans. Returns (before, after, note)."""
     before = path.stat().st_size
     doc = pymupdf.open(path)
@@ -93,21 +137,47 @@ def shrink(path: Path, dpi: float, quality: int, apply: bool) -> tuple[int, int,
 
             # Effective resolution: pixels across, over inches across.
             effective_dpi = original["width"] / max(width_pt, 1) * 72
-            if effective_dpi <= dpi * DPI_SLACK:
-                continue
-
-            new_w = max(1, round(width_pt * dpi / 72))
-            new_h = max(1, round(height_pt * dpi / 72))
-            if new_w >= original["width"]:
-                continue
+            is_jpeg = original["ext"] in ("jpeg", "jpg")
 
             try:
                 image = Image.open(io.BytesIO(original["image"]))
-                if image.mode not in ("RGB", "L"):
+                grey = lean and is_jpeg and is_greyscale(image)
+                target_dpi = min(dpi, LEAN_DPI_GRAY) if grey else dpi
+                target_quality = quality
+                if lean and is_jpeg:
+                    target_quality = LEAN_QUALITY_GRAY if grey else LEAN_QUALITY_COLOUR
+                    target_quality = min(target_quality, quality)
+
+                oversized = effective_dpi > target_dpi * DPI_SLACK
+                dense = (
+                    lean
+                    and is_jpeg
+                    and len(original["image"])
+                    / (original["width"] * original["height"])
+                    > LEAN_BYTES_PER_PIXEL
+                    and estimate_quality(image) > target_quality + QUALITY_TOLERANCE
+                )
+                if not oversized and not dense:
+                    continue
+
+                if oversized:
+                    new_w = max(1, round(width_pt * target_dpi / 72))
+                    new_h = max(1, round(height_pt * target_dpi / 72))
+                    if new_w >= original["width"]:
+                        continue
+                else:
+                    new_w, new_h = original["width"], original["height"]
+
+                if grey:
+                    image = image.convert("L")
+                elif image.mode not in ("RGB", "L"):
                     image = image.convert("RGB")
+                if (new_w, new_h) != image.size:
+                    image = image.resize((new_w, new_h), Image.LANCZOS)
                 buffer = io.BytesIO()
-                image.resize((new_w, new_h), Image.LANCZOS).save(
-                    buffer, "JPEG", quality=quality, optimize=True, progressive=True
+                image.save(
+                    buffer, "JPEG", quality=target_quality, optimize=True,
+                    progressive=True,
                 )
             except Exception:
                 continue
@@ -173,6 +243,8 @@ def main() -> int:
                         help="target resolution for page scans (default: 150)")
     parser.add_argument("--quality", type=int, default=82,
                         help="JPEG quality for the rewritten scans (default: 82)")
+    parser.add_argument("--no-lean", action="store_true",
+                        help="skip the dense-JPEG pass (greyscale 130 dpi / q60)")
     parser.add_argument("--dry-run", action="store_true",
                         help="report what would change, write nothing")
     args = parser.parse_args()
@@ -186,7 +258,8 @@ def main() -> int:
     changed = 0
     for path in files:
         try:
-            before, after, note = shrink(path, args.dpi, args.quality, not args.dry_run)
+            before, after, note = shrink(path, args.dpi, args.quality, not args.dry_run,
+                                       lean=not args.no_lean)
         except Exception as exc:
             before = after = path.stat().st_size
             note = f"failed: {exc}"
