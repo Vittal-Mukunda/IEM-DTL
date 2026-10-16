@@ -125,6 +125,7 @@ const nextConfig: NextConfig = {
       // search results. A robots.txt Disallow would publish the URL, so a
       // noindex header on the file itself is used instead.
       ...[
+        "/notes/sem5/question-papers/see-past-year-question-papers.pdf",
         "/notes/sem5/operations-management/question-bank-model-answers.pdf",
         "/notes/sem5/quality-assurance/question-bank-model-answers.pdf",
         "/notes/sem5/finance-accounting-and-costing/question-bank-model-answers-units-1-2.pdf",

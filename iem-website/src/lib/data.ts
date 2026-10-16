@@ -1742,7 +1742,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem5/question-papers/cie-1-by-subject.pdf",
-          size: "350 KB",
+          size: "450 KB",
         },
         {
           label: "CIE 2",
@@ -1753,6 +1753,13 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "CIE 3",
           file: "/notes/sem5/question-papers/cie-3-by-subject.pdf",
           size: "368 KB",
+        },
+        {
+          // Hidden: unlocked by clicking "Contact" in the footer.
+          label: "SEE – Past Year Question Papers (2019–2026)",
+          file: "/notes/sem5/question-papers/see-past-year-question-papers.pdf",
+          size: "5.6 MB",
+          hidden: true,
         },
       ],
     },
