@@ -811,7 +811,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "ops",
     description:
       "Work study, method and time study, work measurement, and workplace design to improve productivity and design efficient, human-centred work systems. Theory with integrated lab.",
-    faculty: ["Dr. Rajeswara Rao K V S", "Dr. Vikram N Bahadurdesai"],
+    faculty: ["Dr. Rajeswara Rao K V S", "Dr. Vikram N Bahadurdesai", "Prof. Shruthi M N"],
   },
   {
     code: "IM234AI",
@@ -820,7 +820,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "design",
     description:
       "How raw material becomes finished product — metal forming, welding, cutting tool technology, drilling, and machine tools. Theory with integrated lab.",
-    faculty: [],
+    faculty: ["Prof. Shruthi M N"],
   },
   {
     code: "IM235AI",
@@ -840,7 +840,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "ops",
     description:
       "Probability, distributions, hypothesis testing, and regression. The statistical foundation for analytics and quality work.",
-    faculty: ["Dr. M N Vijayakumar", "Dr. Vikram N Bahadurdesai"],
+    faculty: ["Dr. Ramaa A"],
   },
   {
     code: "IM343AI",
@@ -867,7 +867,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "finance",
     description:
       "Understanding markets and customers. Segmentation, positioning, the marketing mix, and go-to-market strategy.",
-    faculty: ["Prof. B Nandini"],
+    faculty: ["Dr. Vikram N Bahadurdesai"],
   },
   {
     code: "HS248AT",
@@ -876,7 +876,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "mgmt",
     description:
       "Harmony in the self, in relationships, in society, and with nature — the ethics and values foundation for professional life.",
-    faculty: [],
+    faculty: ["Dr. Bindu Ashwini C"],
   },
 
   // ── Semester 5 ──
@@ -887,7 +887,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "mgmt",
     description:
       "From idea to venture — opportunity recognition, business models, and funding — plus patents, copyrights, and trademarks to protect what you create.",
-    faculty: ["Dr. Chitra B T", "Prof. B Nandini", "Prof. Bhaskar M G"],
+    faculty: ["Dr. Chitra B T"],
   },
   {
     code: "IM352IA",
@@ -896,7 +896,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "ops",
     description:
       "Planning and running production systems — forecasting, capacity, aggregate planning, scheduling, and inventory. Theory and practice.",
-    faculty: ["Dr. Shobha N S", "Prof. Bhaskar M G"],
+    faculty: ["Dr. Shobha N S"],
   },
   {
     code: "IM353IA",
@@ -905,7 +905,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "quality",
     description:
       "Building quality into products and processes. Inspection, statistical process control, reliability, and quality systems. Theory and practice.",
-    faculty: ["Dr. Ramaa A", "Dr. Vikram N Bahadurdesai"],
+    faculty: ["Dr. M N Vijayakumar"],
   },
   {
     code: "IM254TA",
@@ -914,7 +914,7 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "finance",
     description:
       "Financial statements, cost accounting, budgeting, and engineering economics — reading the numbers behind management decisions.",
-    faculty: ["Dr. C K Nagendra Gupta", "Prof. Bhaskar M G"],
+    faculty: ["Prof. Bhaskar M G"],
   },
 
   // ── Semester 6 ──
