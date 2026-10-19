@@ -1,5 +1,5 @@
 """
-Downsample the page scans inside the course PDFs, in place.
+Downsample the page scans inside the course PDFs and repack them, in place.
 
     pip install pymupdf pillow
     python scripts/optimize_pdfs.py            # notes, syllabus, newsletters
@@ -12,16 +12,20 @@ this is idempotent and costs nothing on a second pass.
 
 Why it exists.
 
-Almost every file under `public/notes/` is a phone or flatbed scan — no text
-layer at all, just one JPEG per page — and the scanners hand back 240-500 dpi.
+Many files under `public/notes/` are phone or flatbed scans — no text layer
+at all, just one JPEG per page — and the scanners hand back 240-500 dpi.
 That is two to three times what a page needs to read cleanly on a screen or
 print on a home printer, and it makes single files as large as 35 MB.
 
 Size is not a cosmetic problem here. The site is on Vercel's Hobby plan, which
-includes 10 GB of Fast Origin Transfer a month: every time the CDN has to pull
-a file from the deployment, the whole file is billed. A folder of 30 MB scans
-exhausts that allowance in a few hundred cache misses, and the reader waits
-through the same bytes.
+caps Deployment Storage at 10 GB per team, and every deployment Vercel keeps
+stores its own full copy of `public/` — so a megabyte here is a megabyte times
+every retained deployment. Each download also counts against the 100 GB of
+Fast Data Transfer a month, and the reader waits through the same bytes.
+
+The digital PDFs (typeset notes, slides, merged question papers) get a second,
+lossless pass: embedded fonts are cut down to the glyphs actually used and the
+object tables are packed into compressed streams. See `repack()`.
 
 So each embedded scan is resized to `--dpi` with Lanczos and re-encoded as
 progressive JPEG. At 150 dpi the result is indistinguishable from a 266 dpi
@@ -73,6 +77,18 @@ LEAN_QUALITY_COLOUR = 72
 LEAN_BYTES_PER_PIXEL = 0.09
 QUALITY_TOLERANCE = 4
 GRAY_CHROMA = 3.0
+
+# Lossless repack (fonts subset, objects packed). Pages are rendered at
+# VERIFY_DPI before and after; a page "matches" when at most
+# VERIFY_CHANGED_FRACTION of its pixels move by more than
+# VERIFY_PIXEL_TOLERANCE grey levels (glyph anti-aliasing can shift a little
+# when a font is re-encoded; a lost glyph or image moves far more than that).
+# A repack saving under MIN_REPACK_SAVING is dropped, which also makes re-runs
+# a no-op.
+VERIFY_DPI = 50
+VERIFY_PIXEL_TOLERANCE = 24
+VERIFY_CHANGED_FRACTION = 0.0005
+MIN_REPACK_SAVING = 0.03
 
 # Annex K luminance table: the baseline a JPEG's quality is measured against.
 _STD_LUMA_SUM = sum([
@@ -224,6 +240,77 @@ def shrink(path: Path, dpi: float, quality: int, apply: bool,
     return before, after, f"rewrote {touched} scans"
 
 
+def render_pages(doc: "pymupdf.Document") -> list[Image.Image]:
+    """Every page as a small greyscale raster, for before/after comparison."""
+    pages = []
+    for page in doc:
+        pix = page.get_pixmap(dpi=VERIFY_DPI, colorspace=pymupdf.csGRAY, alpha=False)
+        pages.append(Image.frombytes("L", (pix.width, pix.height), pix.samples))
+    return pages
+
+
+def looks_identical(a: Image.Image, b: Image.Image) -> bool:
+    """True when two renders differ by no more than anti-aliasing noise."""
+    if a.size != b.size:
+        return False
+    histogram = ImageChops.difference(a, b).histogram()
+    changed = sum(histogram[VERIFY_PIXEL_TOLERANCE + 1:])
+    return changed <= a.width * a.height * VERIFY_CHANGED_FRACTION
+
+
+def repack(path: Path, apply: bool) -> tuple[int, int, str]:
+    """Losslessly restructure one PDF. Returns (before, after, note).
+
+    Two things bloat the digital (non-scan) PDFs: whole fonts embedded where a
+    handful of glyphs are used — merged question papers carry one full copy per
+    source paper — and uncompressed object tables. Subsetting the fonts and
+    packing objects into compressed object streams changes no pixel on the
+    page. That claim is checked, not assumed: every page is rendered before and
+    after, and the rewrite is dropped if any page differs.
+    """
+    before = path.stat().st_size
+    doc = pymupdf.open(path)
+    if doc.needs_pass or doc.is_encrypted:
+        doc.close()
+        return before, before, "encrypted, skipped"
+    reference = render_pages(doc)
+
+    tmp = path.with_suffix(".pdf.tmp")
+    try:
+        doc.subset_fonts()
+    except Exception:
+        pass  # an odd font is left whole; the object packing still applies
+    doc.save(tmp, garbage=4, deflate=True, use_objstms=1)
+    doc.close()
+
+    after = tmp.stat().st_size
+    if after >= before * (1 - MIN_REPACK_SAVING):
+        tmp.unlink(missing_ok=True)
+        return before, before, "already packed"
+
+    try:
+        check = pymupdf.open(tmp)
+        rendered = render_pages(check)
+        check.close()
+    except Exception as exc:
+        tmp.unlink(missing_ok=True)
+        return before, before, f"repack unreadable ({exc}), kept original"
+    if len(rendered) != len(reference):
+        tmp.unlink(missing_ok=True)
+        return before, before, "repack changed the page count, kept original"
+    for number, (old, new) in enumerate(zip(reference, rendered), start=1):
+        if not looks_identical(old, new):
+            tmp.unlink(missing_ok=True)
+            return before, before, f"repack changed page {number}, kept original"
+
+    if not apply:
+        tmp.unlink(missing_ok=True)
+        return before, after, "would repack fonts and objects"
+
+    shutil.move(tmp, path)
+    return before, after, "repacked fonts and objects"
+
+
 def collect(targets: list[str]) -> list[Path]:
     files: list[Path] = []
     for target in targets:
@@ -245,6 +332,8 @@ def main() -> int:
                         help="JPEG quality for the rewritten scans (default: 82)")
     parser.add_argument("--no-lean", action="store_true",
                         help="skip the dense-JPEG pass (greyscale 130 dpi / q60)")
+    parser.add_argument("--no-repack", action="store_true",
+                        help="skip the lossless font-subset / object-packing pass")
     parser.add_argument("--dry-run", action="store_true",
                         help="report what would change, write nothing")
     args = parser.parse_args()
@@ -263,6 +352,19 @@ def main() -> int:
         except Exception as exc:
             before = after = path.stat().st_size
             note = f"failed: {exc}"
+        if not args.no_repack:
+            # Runs on the scan pass's output (or, in a dry run, the original).
+            try:
+                packed_before, packed_after, packed_note = repack(path, not args.dry_run)
+            except Exception as exc:
+                packed_before = packed_after = path.stat().st_size
+                packed_note = f"repack failed: {exc}"
+            if packed_after < packed_before:
+                after -= packed_before - packed_after
+                note = packed_note if after + packed_before - packed_after == before \
+                    else f"{note}; {packed_note}"
+            elif packed_note.startswith(("repack", "encrypted")):
+                print(f"  kept as is: {path.relative_to(ROOT)}  [{packed_note}]")
         total_before += before
         total_after += after
         if after < before:

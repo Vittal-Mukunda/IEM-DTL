@@ -87,20 +87,41 @@ wouldn't shrink are skipped.
 Drop the PDF under `public/notes/<sem>/<subject>/`, register it in
 `src/lib/data.ts`, then **run `npm run optimize:pdfs` before committing**.
 
-Almost every file in there is a scan, and scanners hand back 240–700 dpi — two
-to three times what a page needs on screen, which is how single files reach
-35 MB. The script resizes the embedded page images to 150 dpi and leaves
-everything else (text layers, vector diagrams, small figures) untouched. It
-typically halves a file with no visible difference, only rewrites a file when
-that actually saves space, and is safe to re-run: anything already at the
-target resolution is skipped.
+The script does two passes. Scans (scanners hand back 240–700 dpi, two to
+three times what a page needs on screen) have their page images resized to
+150 dpi. Digital PDFs — typeset notes, slides, merged question papers — get a
+lossless repack: embedded fonts are cut to the glyphs actually used and the
+object tables are compressed. The repack renders every page before and after
+and throws the rewrite away if any page changed, so it can only make a file
+smaller, never different. Re-running is safe: anything already done is skipped.
 
-This matters because of the hosting bill, not the repo. The Hobby plan
-includes 10 GB of Fast Origin Transfer a month and every CDN cache miss pulls
-the whole file, so a folder of 30 MB scans drains the month's allowance in a
-few hundred misses. The other half of that fix lives in `next.config.ts`,
-which pins `s-maxage` on `/notes`, `/syllabus` and `/newsletters` so the edge
-holds each file for a year instead of re-fetching it daily.
+## Hosting budget (Vercel Hobby)
+
+The site is fully static, so the Hobby limits that matter are:
+
+| Limit | Hobby allowance | What drives it here |
+| --- | --- | --- |
+| Deployment Storage | 10 GB per team | Every deployment Vercel keeps stores its own full copy of `public/` (~220 MB) |
+| Fast Data Transfer | 100 GB / month | Students opening and downloading notes |
+| Image Optimization | 5,000 transformations / month | `next/image` variants of the photos |
+
+Deployment Storage is the one that fills: thirty-odd pushes a month × ~220 MB
+each. Three things keep it down:
+
+- **`vercel.json` → `scripts/vercel-ignore-build.sh`** cancels preview
+  deployments and production pushes that change nothing under `iem-website/`.
+  A cancelled deployment stores nothing. To force one, use **Redeploy** and
+  untick *Use project's Ignore Build Step*.
+- **Batch your pushes.** Vercel deploys only the newest commit of each push,
+  so ten commits pushed together cost one deployment, not ten.
+- **Retention policy** (dashboard, not code): Project → Settings → Security →
+  Deployment Retention Policy. Set Production and Pre-Production to the
+  shortest option. Hobby always keeps the 3 newest production deployments
+  regardless, so rollback still works.
+
+Edge caching is set in `next.config.ts`: `/notes`, `/syllabus` and
+`/newsletters` carry `s-maxage` of a year so the CDN keeps each file instead of
+re-fetching it daily.
 
 ## Environment variables
 

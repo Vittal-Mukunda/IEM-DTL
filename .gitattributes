@@ -15,3 +15,6 @@
 *.docx  binary
 *.xlsx  binary
 *.pptx  binary
+
+# Shell scripts run on Vercel's Linux builders; a CRLF there breaks them.
+*.sh    text eol=lf

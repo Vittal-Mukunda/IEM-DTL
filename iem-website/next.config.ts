@@ -92,6 +92,11 @@ const nextConfig: NextConfig = {
     // 40 is for decorative backdrops (homepage panels) that are painted at
     // ~30% opacity under gradients; 75 is Next's default for everything else.
     qualities: [40, 75],
+    // Next 16 re-optimises a variant every 4 hours by default, and Hobby
+    // includes only 5,000 image transformations a month. The photos never
+    // change in place (a new photo arrives under a new name), so a variant is
+    // kept for 31 days.
+    minimumCacheTTL: 2678400,
   },
   async headers() {
     return [
