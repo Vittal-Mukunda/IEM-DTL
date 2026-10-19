@@ -1231,11 +1231,6 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       name: "Work Systems Design",
       items: [
         {
-          label: "Course Notes (All Units)",
-          file: "/notes/sem3/work-systems-design/course-notes-all-units.pdf",
-          size: "1.4 MB",
-        },
-        {
           label: "Unit I Textbook – Work Systems and Productivity",
           file: "/notes/sem3/work-systems-design/unit-1-textbook-work-systems-and-productivity.pdf",
           size: "420 KB",
@@ -1295,11 +1290,6 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem3/manufacturing-processes/unit-5-drilling-and-machine-tools.pdf",
           size: "1.7 MB",
         },
-        {
-          label: "CIE 1 Notes",
-          file: "/notes/sem3/manufacturing-processes/cie-1-notes.pdf",
-          size: "328 KB",
-        },
       ],
     },
     {
@@ -1349,11 +1339,6 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "Unit 5 – CMM (Reading Material)",
           file: "/notes/sem3/digital-metrology/unit-5-cmm-reading-material.pdf",
           size: "424 KB",
-        },
-        {
-          label: "CIE 1 Notes",
-          file: "/notes/sem3/digital-metrology/cie-1-notes.pdf",
-          size: "352 KB",
         },
       ],
     },
@@ -1558,19 +1543,9 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "8.7 MB",
         },
         {
-          label: "Question Bank with Solutions (Unitwise)",
-          file: "/notes/sem4/statistics-for-data-analytics/question-bank-with-solutions-unitwise.pdf",
-          size: "447 KB",
-        },
-        {
-          label: "Question Bank – All Units (Part B)",
-          file: "/notes/sem4/statistics-for-data-analytics/question-bank-all-units-part-b.docx",
-          size: "635 KB",
-        },
-        {
-          label: "Question Bank – Units 2 & 3",
-          file: "/notes/sem4/statistics-for-data-analytics/question-bank-units-2-and-3.docx",
-          size: "175 KB",
+          label: "Question Bank with Answers (Unit-wise)",
+          file: "/notes/sem4/statistics-for-data-analytics/question-bank-unitwise-with-answers.pdf",
+          size: "471 KB",
         },
       ],
     },
