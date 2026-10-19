@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resourceFolders } from "@/lib/data";
+import CieRequestPopup from "@/components/resources/CieRequestPopup";
 import { ExtraCount, ExtraItems } from "@/components/resources/HiddenExtras";
 import { FileLink, Icon, IconSprite } from "@/components/resources/ResourceParts";
 
@@ -38,6 +39,7 @@ export default function StudyMaterialPage() {
   return (
     <>
       <IconSprite />
+      <CieRequestPopup />
 
       {/* Page Header */}
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
