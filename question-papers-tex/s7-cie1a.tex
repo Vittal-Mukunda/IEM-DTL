@@ -1,0 +1,567 @@
+\documentclass{rvcepaper}
+\input{s7-common}
+\begin{document}
+
+% ---------- 21IM72 Product Design & Development
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (ODD Sem)},date={26\textsuperscript{th} December 2024},code={21IM72},sem={VII Semester},exam={CIE -- I},maxmarks={10 + 50},duration={120 Mins},
+ title={PRODUCT DESIGN \& DEVELOPMENT},shownote=0}
+\iemheadB
+\twonotes{Answer all the Questions.}{Avoid verbose answers and answer specifically and to the point.}
+\begin{gtable}[PART -- A]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1}{What is the purpose of a product specification document?}{01}{L$_2$}{CO1}
+\q{2}{Which key component of a product specification defines the functional requirements and performance criteria for a product?}{01}{L$_2$}{CO1}
+\q{3}{In the context of product specifications, what does the term `tolerance' refer to?}{01}{L$_2$}{CO1}
+\q{4}{What is the role of modularity in product architecture decisions?}{01}{L$_1$}{CO1}
+\q{5}{Identify the two extreme ends of product architecture types and name them.}{01}{L$_2$}{CO1}
+\q{6}{What is the significance of maintainability in product architecture?}{01}{L$_2$}{CO2}
+\q{7}{Why is it important to consider user experience in product architecture decisions?}{01}{L$_1$}{CO2}
+\q{8}{How does the choice of product architecture impact scalability?}{01}{L$_3$}{CO2}
+\q{9}{What is the primary goal of the product development process?}{01}{L$_3$}{CO2}
+\q{10}{Which phase of the product development process involves generating and evaluating new product ideas?}{01}{L$_2$}{CO2}
+\end{gtable}
+\begin{gtable}[PART -- B]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1.}{Discuss the key stages in the product design and development process. Use an example of a consumer electronics product to illustrate the following aspects:
+\begin{romi}
+\item[i.] \textbf{Idea Generation and Screening:} Explain the methods used for generating and screening ideas for new products. (2 marks)
+\item[ii.] \textbf{Concept Development and Testing:} Describe how concepts are developed and tested to ensure feasibility and market acceptance. (2 marks)
+\item[iii.] \textbf{Design and Prototyping:} Discuss the importance of design and prototyping in the product development process, and how it helps in refining the product. (2 marks)
+\item[iv.] \textbf{Product Testing and Validation:} Analyze the steps involved in product testing and validation to ensure the product meets quality and performance standards. (2 marks)
+\item[v.] \textbf{Launch and Post-Launch Evaluation:} Explain the strategies used for launching the product and the methods for evaluating its success post-launch. (2 marks)
+\end{romi}}{10}{L$_4$}{CO1}
+\q{2.}{\begin{romi}
+\item[i.] Discuss the factors that influence product architecture decisions in the development of a high-tech consumer gadget. Explain how each factor contributes to the overall design and success of the product. Your answer should cover the following points:
+\item[ii.] \textbf{Modularity:} Explain the concept of modularity in product architecture and how it impacts the design and development process. (2 marks)
+\item[iii.] \textbf{Scalability:} Discuss the importance of scalability in product architecture decisions and provide examples of how it can be achieved. (2 marks)
+\item[iv.] \textbf{User Experience (UX):} Analyze how user experience considerations influence product architecture decisions and the implications for product success. (2 marks)
+\item[v.] \textbf{Maintainability:} Describe the role of maintainability in product architecture and how it affects long-term product performance and customer satisfaction. (2 marks)
+\item[vi.] \textbf{Integration with Other Systems:} Evaluate the need for compatibility and integration with other systems and technologies in product architecture decisions. (2 marks)
+\end{romi}}{10}{L$_4$}{CO2}
+\q{3.}{\begin{romi}
+\item[vii.] Discuss the different types of product specifications used in product development. Explain the purpose and importance of each type with relevant examples. Your answer should cover the following points:
+\item[viii.] \textbf{Functional Specifications:} Define what functional specifications are and describe their role in outlining the essential functions that the product must perform. Provide an example to illustrate their use. (2 marks)
+\item[ix.] \textbf{Performance Specifications:} Explain what performance specifications entail and how they set the criteria for the product's performance metrics. Include an example to demonstrate their application. (2 marks)
+\item[x.] \textbf{Technical Specifications:} Describe technical specifications and their importance in detailing the technical aspects and requirements of the product. Provide a relevant example. (2 marks)
+\item[xi.] \textbf{Regulatory and Compliance Specifications:} Discuss what regulatory and compliance specifications are and why they are crucial for ensuring the product meets industry standards and legal requirements. Use an example to illustrate their significance. (2 marks)
+\item[xii.] \textbf{User and Customer Specifications:} Explain user and customer specifications, focusing on how they capture the needs and expectations of the end-users. Provide an example to highlight their relevance. (2 marks)
+\end{romi}}{10}{L$_4$}{\illegc}
+\q{4.}{\begin{romi}
+\item[i.] Examine the characteristics that contribute to the success of product development companies. In your answer, discuss the following aspects with relevant real-world examples:
+\item[ii.] \textbf{Innovation Culture:} How does fostering a culture of innovation impact the success of a company? Provide examples of companies known for their innovative approaches.
+\item[iii.] \textbf{Customer-Centric Approach:} Explain the importance of a customer-centric approach in product development. Illustrate this with examples of companies that excel in understanding and meeting customer needs.
+\item[iv.] \textbf{Effective Leadership and Team Collaboration:} Discuss the role of effective leadership and team collaboration in driving successful product development. Use examples of companies where leadership and teamwork have significantly contributed to their success.
+\item[v.] \textbf{Adaptability and Agility:} Analyze how adaptability and agility in the development process contribute to the success of product development companies. Provide examples of companies that have effectively adapted to market changes.
+\item[vi.] \textbf{Investment in Technology and Resources:} Evaluate the importance of investing in the latest technology and resources for product development. Highlight companies that have benefited from such investments.
+\end{romi}}{10}{L$_4$}{CO1}
+\q{5.}{Analyze how understanding the Product Life Cycle (PLC) can inform and shape effective product development strategies. Discuss the key stages of the PLC and provide examples of strategic actions a company might take at each stage to maximize product success.}{10}{L$_4$}{CO1}
+\end{gtable}
+\btfoot{|l|l|l|*{5}{C{0.8cm}|}*{6}{C{0.8cm}|}}{\hline
+\multirow{3}{*}{Marks Distribution} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & CO5 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-14}
+ & \multirow{2}{*}{\shortstack{Max\\Marks}} & Quiz & 5 & 5 & -- & \multicolumn{8}{c|}{\illeg\ (cut off in the scan)}\\\cline{3-14}
+ & & Test & 30 & \multicolumn{10}{c|}{\illeg\ (cut off in the scan)}\\\hline}
+\end{iempaperB}
+
+% ---------- 21IM74HA Facilities Planning and Design
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (ODD Sem)},usn=0,date={27.12.2024},code={21IM74HA},sem={VII},exam={CIE -- I},maxmarks={10+50},duration={30+90 Min},
+ title={FACILITIES PLANNING and DESIGN},shownote=0}
+\iemheadB
+\onenote{Answer all the Questions.}
+\begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline & \multicolumn{1}{c|}{\textbf{Part -- A}} & & & \\
+\textbf{Q.No} & \multicolumn{1}{c|}{\textbf{Questions}} & \textbf{M} & \textbf{CO} & \textbf{BT}\\\hline
+\q{1.1}{The facilities that any organization plan, help in \blank[2.4cm] to achieve \blank[2.4cm] excellence.}{(02)}{L1}{CO1}
+\q{1.2}{State four levels of supply chain excellence in facilities planning.}{(02)}{L2}{CO1}
+\q{1.3}{Facilities planning are subdivided into the subjects of facilities \blank[2.4cm] and facilities \blank[2.4cm].}{(02)}{L1}{CO1}
+\q{1.4}{Effective method for increasing plant productivity and reducing cost is to \blank[2cm] or \blank[2cm] all elements that are unnecessary or wasteful.}{(02)}{L1}{CO1}
+\q{1.5}{Sketch the model of success ``winning circle.''}{(02)}{L1}{CO1}
+\end{longtable}
+\par\vspace{8pt}
+\begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline & \multicolumn{1}{c|}{\textbf{Part --B}} & & & \\
+\textbf{Sl.\newline No.} & \multicolumn{1}{c|}{\textbf{Questions}} & \textbf{M} & \textbf{BT} & \textbf{CO}\\\hline
+\q{1}{Define facilities planning. Explain the characteristics of all facilities in the context of a supply chain.}{10}{L2}{CO1}
+\q{2}{Discuss application of traditional engineering design process for planning facilities of a manufacturing industry.}{10}{L3}{CO3}
+\q{3}{Evaluate the performance characteristics of process layout, product layout and cellular layout}{10}{L2}{CO2}
+\q{4}{The location factors, factor rating and scores for two potential sites are shown in the following table. Which is the best location based on factor rating method?
+\qtabc{|l|c|c|c|}{\hline Key Factor & Weight & France & Denmark\\\hline Labour availability and attitude & 0.25 & 70 & 60\\\hline People to car ratio & 0.05 & 50 & 60\\\hline Per capita income & 0.10 & 85 & 80\\\hline Tax structure & 0.39 & 75 & 70\\\hline Education and health & 0.21 & 60 & 70\\\hline}}{10}{L3}{CO3}
+\q{5}{Explain briefly the material handling principles recognized by the College-Industry Council on Material Handling Education (CIC-MHE).}{10}{L1}{CO1}
+\end{longtable}
+\btfoot{|l|l|l|*{4}{C{0.8cm}|}*{6}{C{0.8cm}|}}{\hline
+\multirow{3}{*}{Marks Distribution} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-13}
+ & Quiz & \multirow{2}{*}{Max Marks} & 10 & & & & 8 & 2 & & & & \\\cline{2-2}\cline{4-13}
+ & Test & & 20 & 10 & 20 & & 10 & 20 & 20 & & & \\\hline}
+\stars{*******}
+\end{iempaperB}
+
+% ---------- 21IM74HD Database Management System
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (Odd Sem)},usn=0,date={28/12/2024},code={21IM74HD},sem={VII},exam={CIE -- 1},maxmarks={50 + 10},duration={90 + 20 Min},
+ title={Database Management System},shownote=0}
+\iemheadB
+{\small Note: Answer all the Questions.}\par\vspace{3pt}
+\begin{gtable}{Sl No}{Questions}{M}{BT}{CO}
+\qpart{Part A}
+\q{1.}{What is data abstraction in the database approach?}{2}{L2}{CO1}
+\q{2.}{List two primary intended uses of a Database Management System (DBMS) in an organization.}{2}{L1}{CO1}
+\q{3.}{Identify the key responsibilities of a Database Administrator (DBA) when implementing the database approach?}{2}{L2}{CO1}
+\q{4.}{Enumerate the four main components of a database system environment?}{2}{L2}{CO2}
+\q{5.}{What is logical data independence, and how does it benefit database design?}{2}{L2}{CO2}
+\qpart{Part B}
+\q{1}{Consider an online shopping platform like Amazon. Explain how the database approach ensures data integrity, data security, and allows multiple users to browse, order, and update information simultaneously. Use this case to illustrate the advantages of the database approach.}{10}{L3}{CO1}
+\q{2}{Consider a banking system. Identify the \textbf{actors on the scene} and the \textbf{workers behind the scene}. Explain their roles and how they contribute to the smooth functioning of the system with examples.}{10}{L3}{CO1}
+\q{3}{Differentiate between data models, schemas, and instances. Provide examples to explain the relationships between these concepts in a database system.}{10}{L4}{CO1}
+\q{4}{Describe the three-schema architecture of a DBMS and explain how it helps achieve physical and logical data independence. Use examples to illustrate its significance}{10}{L3}{CO2}
+\q{5}{Draw an ER diagram for a small university database, including entities such as Students, Courses, and Instructors, and explain your design.}{10}{L3}{CO2}
+\end{gtable}
+\btfoot{|l|l|l|*{5}{C{0.8cm}|}*{6}{C{0.8cm}|}}{\hline
+\multirow{3}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & CO5 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-14}
+ & Quiz & Max Marks & 6 & 4 & - & - & - & 02 & 08 & - & - & - & -\\\cline{2-14}
+ & Test & & 30 & 20 & - & - & - & - & - & 40 & 10 & - & -\\\hline}
+\stars{***}
+\end{iempaperB}
+
+% ---------- 21IM73G1 Data Mining and Predictive Analytics (Elective)
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (ODD Sem)},date={27-12-2024},code={21IM73G1},sem={VII Semester},exam={CIE -- I},maxmarks={10 + 50},duration={120 Mins},
+ title={DATA MINING AND PREDICTIVE ANALYTICS (Elective)},shownote=0}
+\iemheadB
+\twonotes{Answer all the Questions.}{Avoid verbose answers and answer specifically and to the point.}
+\begin{gtable}[PART -- A]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1}{What is the process of extracting meaningful patterns from large datasets called?}{01}{L$_2$}{CO1}
+\q{2}{Which data mining technique is used to predict a categorical outcome based on input data?}{01}{L$_2$}{CO1}
+\q{3}{What term refers to the task of finding hidden structures and patterns in data without specific target variables?}{01}{L$_2$}{CO1}
+\q{4}{Which plot is often used in EDA to show the relationship between two quantitative variables?}{01}{L$_2$}{CO1}
+\q{5}{What EDA technique is used to summarize the central tendency, dispersion, and shape of a dataset's distribution?}{01}{L$_2$}{CO1}
+\q{6}{Which EDA method involves calculating the percentage of data points within different intervals or bins?}{01}{L$_2$}{CO2}
+\q{7}{What is the main purpose of using a classifier in machine learning?}{01}{L$_3$}{CO2}
+\q{8}{Which type of classifier uses a hyperplane to separate different classes in the data?}{01}{L$_3$}{CO2}
+\q{9}{What term is used to describe a classifier that assigns a probability score to each class?}{01}{L2}{CO2}
+\q{10}{Which classifier is based on the principle of maximizing the margin between classes?}{01}{L1}{CO2}
+\end{gtable}
+\begin{gtable}[PART -- B]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1.}{What is Data Mining? What Is Predictive Analytics? Establish the connection between data mining and predictive analytics. Bring out through examples from any area of application how tools of data mining complement the process of using algorithms to carrying out data mining tasks for predictive analytics.}{10}{L$_2$}{CO1}
+\q{2.}{Identify the relevant phases of data mining in the CRISP-DM process each of the listed represents. Jusify your answer with proper reasoning
+\begin{romi}
+\item[i.] Mangers want to know by next week whether deployment will take place. Therefore, analysts meet to discuss how useful and accurate their model is.
+\item[ii.] The data mining project manager meets with the data warehousing manager to discuss how the data will be collected.
+\item[iii.] The data mining consultant meets with the vice president for marketing, who says that he would like to move forward with customer relationship management.
+\end{romi}}{10}{L$_2$}{CO2}
+\end{gtable}
+\par\vspace{4pt}\centerline{\small\itshape [The rest of this paper is not included in the scanned copy.]}
+\end{iempaperB}
+
+% ---------- 21IM75IM Project Management (Institutional Elective)
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (ODD Sem)},date={28.12.2024},code={21IM75IM},sem={VII Semester},exam={CIE -- I},maxmarks={10 + 50},duration={120 Mins},
+ title={PROJECT MANAGEMENT (Institutional Elective)},shownote=0}
+\iemheadB
+\onenote{Answer all the Questions.}
+\begin{gtable}[PART -- A]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1}{Mention any two characteristics of Project.}{02}{L2}{CO1}
+\q{2}{Differentiate between project scope and product scope.}{02}{L2}{CO1}
+\q{3}{List any four types of requirements.}{02}{L1}{CO2}
+\q{4}{By taking an example of real time project of your choice, identify any four success criteria of that project.}{02}{L1}{CO1}
+\q{5}{Comment on how organisational culture impacts project manager's role?}{02}{L2}{CO2}
+\end{gtable}
+\begin{gtable}[PART -- B]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1.}{A construction firm is tasked with building a residential complex, where the scope and requirements are well-defined from the start.
+\begin{bul}\item Suggest the most appropriate \textbf{Project life cycle} for this project and explain why.\item How does this life cycle ensure cost and time efficiency in construction projects?\end{bul}}{10}{L3}{CO3}
+\q{2.}{Create a Work Breakdown Structure for developing \textbf{CHAT BOT} used for answering the questions of parents who seek admission for their ward in RV College of Engineering. (chat bot designed should be able address frequently asked questions by the parents about the college before the getting the admission into the college)}{10}{L4}{CO4}
+\q{3.}{You are the project manager of a software development company tasked with explaining the \textbf{PMBOK Guide} to your team.
+\begin{bul}\item Highlight the key components of the PMBOK Guide.\item Explain how its framework supports the role of the project manager in managing multiple stakeholders and ensuring project success.\end{bul}}{10}{L2}{CO2}
+\q{4.}{How do different organization structures impact on project manager's role? Explain with the help of suitable examples.}{10}{L2}{CO1}
+\q{5.}{With suitable examples differentiate between project, program and portfolio.}{10}{L2}{CO2}
+\end{gtable}
+\btfoot{|l|l|l|*{5}{C{0.8cm}|}*{6}{C{0.8cm}|}}{\hline
+\multirow{3}{*}{Marks Distribution} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & CO5 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-14}
+ & \multirow{2}{*}{\shortstack{Max\\Marks}} & Quiz & 06 & 04 & -- & -- & -- & 04 & 06 & -- & -- & -- & --\\\cline{3-14}
+ & & Test & 10 & 20 & 10 & 10 & -- & -- & 30 & 10 & 10 & -- & --\\\hline}
+\stars{*****}
+\end{iempaperB}
+
+% ---------- 21BT75IB Healthcare Analytics (Institutional Elective)
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (Odd Sem)},usn=0,rule=0,dept={BIOTECHNOLOGY},date={December, 2024},code={21BT75IB},sem={III Semester},exam={Closed Book Offline Quiz and Test -- 2},maxmarks={10 + 50},duration={120 min},
+ title={Healthcare Analytics (Institutional Elective)},shownote=0}
+\vspace{-0.2cm}\centerline{Common to all branches}\par
+\iemheadB
+{\small Answer all questions in Part A \& Part B, Answer Part A in first two pages in sequence only}\par\vspace{2pt}
+\begin{gtable}[Part A]{Sl No}{Questions}{M}{BT-L}{CO}
+\q{1}{There are \blank[2.2cm] number of nucleotide bases in DNA.}{1}{2}{1}
+\q{2}{Expand DNA}{1}{2}{1}
+\q{3}{\blank[2.2cm] number of amino acids present to form a protein.}{1}{1}{2}
+\q{4}{Bioinformatics databases consists of \blank[2.2cm] and \blank[2.2cm]}{2}{2}{2}
+\q{5}{\blank[2.2cm] is a primary database}{1}{1}{3}
+\q{6}{Bioinformatics data helps in \blank[2.2cm] and \blank[2.2cm]}{2}{3}{3}
+\q{7}{How does Healthcare data helps in improving the lifestyle?}{2}{4}{2}
+\end{gtable}
+\begin{gtable}[Part B]{Sl. No}{Questions (Test)}{M}{BT-L}{CO}
+\q{1.}{What are the goals and applications of bioinformatics?}{10}{2}{3}
+\q{2}{Describe DNA}{10}{3}{3}
+\q{3}{Write a note on Bioinformatics data.}{10}{3}{3}
+\q{4}{How does the database systems help in preserving the healthcare data? Explain with suitable example.}{5}{3}{4}
+\q{5}{What are the different types of healthcare data, that serves genomics and proteomics information?}{5}{2}{3}
+\end{gtable}
+\xfoot{BTL-Blooms taxonomy, CO-Course Outcomes, M-Marks}{|l|l|l|*{10}{C{0.85cm}|}}{\hline
+\multirow{2}{*}{\shortstack{Marks\\Distribution}} & Particulars & & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-13}
+ & Test & Max Marks & 28 & 44 & 28 & & 28 & 44 & 14 & 14 & & \\\hline}
+\end{iempaperB}
+
+% ---------- 21IM78 Innovation and Entrepreneurship
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (ODD Sem)},date={28.12.2024},code={21IM78},sem={VII Semester},exam={CIE -- I},maxmarks={05 + 25},duration={60 Mins},
+ title={Innovation and Entrepreneurship},shownote=0}
+\iemheadB
+\onenote{Answer all the Questions.}
+\begin{gtable}[PART -- A]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1}{List any two characteristics of Early Adopters.}{01}{L2}{CO1}
+\q{2}{As an entrepreneur, when you are targeting a particular market segment, you are limiting your customer base. Considering that, state a reason why most entrepreneurs still prefer to target a particular segment when launching their product or service.}{01}{L2}{CO1}
+\q{3}{Identify the components that you should take into account while doing a quick back-of-the-envelope calculation?}{01}{L1}{CO2}
+\q{4}{As an entrepreneur, when conducting problem interviews, as a best practice, you should not record the interview. Why?}{01}{L1}{CO1}
+\q{5}{From the perspective of Minimum Viable Product (MVP), what is the primary goal of prototyping a solution?}{01}{L2}{CO2}
+\end{gtable}
+\begin{gtable}[PART -- B]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1.}{Explain the concept of Service-Dominant Logic (SDL) and how it differs from the traditional Goods-Dominant Logic (GDL).}{05}{L2}{CO3}
+\q{2.}{Generate any 4 unmet needs of commuters who use public transport in a metropolitan city using ``Listening hats'' method.}{05}{L4}{CO4}
+\q{3.}{Drawing parallels to engineering design and decision-making, explain how the principles of ``The Delphi Flower'' can be applied to address a real-world engineering challenge of your choice.}{05}{L3}{CO2}
+\q{4.}{Analyze how ``JTBD'' framework can be applied to design or improve a product or service in a specific industry of your choice.}{05}{L3}{CO1}
+\q{5.}{\begin{romi}\item[i.] Perform the activity of ``\textbf{PR FAQ}'' for your practice venture and identify top 4 queries from various stake holders.\end{romi}}{05}{L4}{CO2}
+\end{gtable}
+\btfoot{|l|l|l|*{5}{C{0.8cm}|}*{6}{C{0.8cm}|}}{\hline
+\multirow{3}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & CO5 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-14}
+ & \multirow{2}{*}{\shortstack{Max\\Marks}} & Quiz & 03 & 02 & -- & -- & -- & 02 & 03 & -- & -- & -- & --\\\cline{3-14}
+ & & Test & 5 & 10 & & 10 & -- & -- & 15 & 5 & 5 & -- & --\\\hline}
+\stars{*****}
+\end{iempaperB}
+
+% ---------- 21CS75IE Prompt Engineering (Institutional Elective - II, Group G)
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (Odd Sem)},usn=0,dept={COMPUTER SCIENCE AND ENGINEERING},date={December 2024},code={21CS75IE},sem={07},exam={CIE-1},maxmarks={50+10},duration={120 Min},
+ title={PROMPT ENGINEERING \ {\normalfont( INSTITUTIONAL ELECTIVES -- II (Group G))}},shownote=0}
+\iemheadB
+\begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline \textbf{Q.\newline No.} & \centering\textbf{Questions}\newline\textbf{QUIZ} & \textbf{M} & \textbf{BT} & \textbf{CO}\\\hline
+\qq{1.}{1.1 \ Identify the limitations of using LLM prompts for generating accurate responses.}{01}{1}{1}
+\qq{}{1.2 \ List the role of the task description in an LLM prompt?}{01}{2}{2}
+\qq{}{1.3 \ What is input data in an LLM prompt, and why is it important?}{01}{2}{2}
+\qq{}{1.4 \ What type of datasets does the rise of context learning reduce the need for when fine-tuning language models?}{01}{1}{1}
+\qq{}{1.5 \ Which setting adjusts the probability distribution to control randomness in the generated text?}{01}{1}{1}
+\qq{}{1.6 \ Which parameter in an LLM determines the maximum number of tokens in the generated output?}{01}{1}{1}
+\qq{}{1.7 \ How are example prompts used in few-shot learning?}{01}{1}{2}
+\qq{}{1.8 \ What are the different types of patterns in prompt engineering?}{01}{2}{3}
+\qq{}{1.9 \ Write a short note on ReAct prompting technique and its significance in decision-making tasks.}{01}{3}{4}
+\q{}{1.10 \ Briefly explain the concept of `Mix and Match' in prompt engineering. .}{01}{3}{4}
+\q{}{TEST}{}{}{}
+\qq{2.}{(a) Describe in detail the key components of a well-designed prompt with examples.}{05}{2}{3}
+\q{}{(b) Discuss in detail about the strategies that can be used to ensure concise and accurate text summaries? Provide examples.}{05}{1}{2}
+\q{3}{Explain in detail the following concepts: `Introducing LLM Prompts,' `How LLM Prompts Work,' `Architecture,' and `LLM Training.' Highlight their individual roles, interconnections, and their significance in understanding and effectively utilizing large language models (LLMs).}{10}{1}{2}
+\q{4}{List and Explain the different types of LLM prompts, and how can they be categorized based on their purpose, format, and the level of detail they provide? Provide examples to illustrate each category.}{10}{\illegc}{\illegc}
+\q{5}{Explain the techniques used to improve the performance of language models on complex tasks. Include Zero-Shot Prompting, Few-Shot Prompting, Chain-of-Thought Prompting (CoT), and related methods.}{10}{\illegc}{\illegc}
+\q{6}{Write examples of prompts for the following tasks and explain the rationale for each:\newline a) Conversation/Role-playing\newline b) Text Classification\newline c) Code Generation}{10}{3}{\illegc}
+\end{longtable}
+\stars{***********}
+\xfoot{BT-Blooms Taxonomy, CO-Course Outcomes}{|l|l|l|*{10}{C{0.85cm}|}}{\hline
+\multirow{2}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-13}
+ & \shortstack{Test\\\&\\Quiz} & \shortstack{Max\\Marks} & 14 & 28 & 06 & 12 & 30 & 18 & 12 & & & \\\hline}
+\cotable{Course Outcomes:}{CO1: & Demonstrate an understanding of prompt engineering principles including how prompt structure and phrasing impact the performance of AI models.\\\hline
+CO2: & Design and implement effective prompts- to create and apply prompts for various natural language processing (NLP) tasks, such as text generation, summarization, and translation, using AI models..\\\hline
+CO3: & Critically evaluate the effectiveness of prompts - assess the quality and performance of prompts in terms of accuracy, coherence, and relevance, identifying areas for improvement.\\\hline
+CO4: & Apply prompt engineering techniques in real-world scenarios - use prompt engineering strategies to address practical problems in domains such as education, healthcare, and business, demonstrating the applicability of AI-driven solutions.\\\hline
+CO5: & Collaborate on projects involving prompt engineering - work effectively in teams to design, implement, and evaluate prompt-based solutions, showcasing their ability to contribute to complex AI-related projects.}
+\end{iempaperB}
+
+% ---------- 21ME75IQ Nuclear Engineering
+\begin{xpaper}
+\par\vspace{2pt}\centerline{\itshape\fontsize{12}{14}\selectfont Department of Mechanical Engineering}\par\vspace{4pt}
+\noindent\begingroup\renewcommand{\arraystretch}{1.5}\fontsize{11.5}{13}\selectfont
+\begin{tabular}{|C{3.5cm}|C{4.6cm}|C{3.9cm}|C{4.1cm}|}\hline
+Date & \textbf{28 December 2024} & Maximum Marks & Quiz 10 + Test 50\\\hline
+Course Code & \textbf{21ME75IQ} & Duration & 120 Min\\\hline
+Course Name & \textbf{Nuclear Engineering} & \multicolumn{2}{l|}{\textbf{USN:}}\\\hline
+\end{tabular}\endgroup\par\vspace{8pt}
+\begin{longtable}{|C{1.05cm}|p{14.3cm}|C{0.8cm}|}
+\hline \textbf{Q} & \multicolumn{1}{c|}{\textbf{PART-A (Quiz)}} & {\scriptsize M}\\\hline
+\qm{1.1}{Let us consider a doubly ionized Lithium atom similar to Hydrogen like atom to apply Bohr's model with atomic number 3. If Ionisation energy of the hydrogen atom equals 13.6 eV, then wavelength of the radiation required to excite the electron in Li\textsuperscript{+} from the first to the third Bohr orbit in Anstrom is given by \ldots\ldots}{1}
+\qm{1.2}{The total number of spectral lines observed in the emission spectrum of the above excited system (consider all details of Q1.1) is given by\ldots\ldots\ldots}{1}
+\qm{1.3}{The ionization energy of a doubly ionized Lithium atom in Joules is \ldots.}{1}
+\qm{1.4}{In an experiment the following observation is found: ``when an electron and a proton are separated by a large distance and the electron approaches the proton with a kinetic energy of 2 eV. If the electron is captured by the proton to form a hydrogen atom in the ground state'' the wavelength of the given-off photon in Angstrom must be\ldots\ldots}{1}
+\qm{1.5}{Bohr found that a 12.5 MeV $\alpha$-particle approaching a gold nucleus (Z = 79) is deflected by 180\textdegree. The closest distance of the $\alpha$-particle from nucleus in m was calculated by him as \ldots}{1}
+\qm{1.6}{Let us assume that if the average life time of an excited state of hydrogen is of the order of 10\textsuperscript{-8} s, how many revolutions an electron makes when it is in the state n = 2 before it suffers a transition to state n = 1.}{1}
+\qm{1.7}{How many times does the electron go round the first Bohr orbit of hydrogen atom in 100 s?}{1}
+\qm{1.8}{An electron in a hydrogen like atom is in an excited state. It has a total energy of -3.4 eV. Kinetic energy of the electron in eV will be\ldots\ldots}{1}
+\qm{1.9}{An electron in a hydrogen like atom is in an excited state. It has a total energy of -3.4 eV. the de-Broglie wavelength of the electron in Angstrom is \ldots\ldots\ldots\ldots\ldots}{1}
+\qm{1.10}{If potential energy in first orbit is taken to be zero, then, potential energy in first orbit of hydrogen atom in eV will be\ldots..}{1}
+\end{longtable}
+\par\vspace{10pt}
+\centerline{\itshape\fontsize{12}{14}\selectfont Department of Mechanical Engineering}\par\vspace{6pt}
+\begin{longtable}{|C{1.05cm}|p{14.3cm}|C{0.8cm}|}
+\hline \textbf{Q} & \multicolumn{1}{c|}{\textbf{PART-B (Test)}} & \\\hline
+\qm{1}{Certain gas of identical hydrogen like atoms has all its atoms in a particular upper energy level. The atoms make transition to a higher energy level when a monochromatic radiation, having wave length 1654 \AA, is incident upon it. Subsequently, the atoms emit radiation of only three different photon energies. (a) Identify the atom\newline
+(b) Obtain the ionization energy for the gas atoms.\newline
+(c) If the atoms of the gas are to be excited to such a level which gives radiation of only six different photon energies, what should be energy of incident radiation.}{\illegc}
+\qm{2}{Suppose potential energy between electron and proton at separation r is given by U = $-$k\,ln$_\mathrm{e}$r , where k is a constant. For such a hypothetical hydrogen atom, calculate the radius of nth Bohr's orbit and its energy levels.}{\illegc}
+\qm{3}{The energy levels of a hypothetical one electron atom are shown in the figure.\par\vspace{4pt}
+\begin{tikzpicture}[x=1cm,y=0.48cm,font=\sffamily\small]
+\foreach \yy/\lab/\ev in {0/{$\infty$}/0 eV, -0.80/{$n=5$}/$-$0.80 eV, -1.45/{$n=4$}/$-$1.45 eV, -3.08/{$n=3$}/$-$3.08 eV, -5.30/{$n=2$}/$-$5.30 eV, -15.6/{$n=1$}/$-$15.6 eV}{
+  \draw (1.2,\yy*0.75) -- (6.6,\yy*0.75); \node[left] at (1.1,\yy*0.75) {\lab}; \node[right] at (6.6,\yy*0.75+0.25) {\ev};}
+\draw[-{Latex}] (3.6,-9.0) -- (3.6,-5.30*0.75); \draw[-{Latex}] (3.6,-9.0) -- (3.6,-15.6*0.75);
+\node[fill=white] at (3.6,-9.0) {10.3 eV};
+\end{tikzpicture}\par
+(a) Find the ionization potential of this atom.\newline
+(b) Find the short wavelength limit of the series terminating at n = 2.\newline
+(c) Find the excitation potential for the state n = 3.\newline
+(d) Find wave number of the photon emitted for the transition n = 3 to n = 1.\newline
+(e) What is the minimum energy that an electron will have after interacting with this atom in the ground state if the initial kinetic energy of the electron is (i) 6 eV (ii) 11 eV}{\illegc}
+\qm{4}{Find an expression for the magnetic dipole moment and magnetic field induction at the center of a Bohr's hypothetical hydrogen atom in the nth orbit of the electron in terms of universal constants.}{10}
+\qm{5}{The potential energy of a particle varies as:\par\vspace{2pt}
+$U(x)=\left[\begin{array}{ll}E_0 & 0\le x\le 1\\ 0 & x>1\end{array}\right.$\par\vspace{2pt}
+For $0\le x\le 1$, the de-Broglie wavelength is $\lambda_1$ and for $x>1$, the de-Broglie wavelength is $\lambda_2$. Total energy of the particle is 2E$_0$. Find $\dfrac{\lambda_1}{\lambda_2}$.}{10}
+\end{longtable}
+\stars{All the best!}
+\stars{*******}
+\end{xpaper}
+
+% ---------- 21EE75IH E-Mobility (Test - I)
+\begin{xpaper}
+\par\vspace{2pt}\centerline{\sansfont\fontsize{12}{14}\selectfont Department of Electrical \& Electronics Engineering}\par\vspace{8pt}
+\centerline{\fontsize{14}{16}\selectfont Academic Year 2024-25 (ODD SEM)}\par\vspace{8pt}
+\ofour{28\textsuperscript{th}, DECEMBER}{50}{21EE75IH}{90 Mins}{VII Semester}{TEST-I}{E-Mobility}
+\begin{longtable}{|C{1.05cm}|p{11.6cm}|C{1.3cm}|C{0.95cm}|C{0.95cm}|}
+\hline \textbf{Q.No} & \multicolumn{1}{c|}{\textbf{Part B -- Test Questions}} & \textbf{Marks} & \textbf{COs} & \textbf{BT}\\\hline
+\q{1a.}{Explain the following forces which are acting on the vehicle with mathematical equations.\newline (a) Aerodynamic Drag (b) Rolling resistance}{06}{01}{01}
+\q{1b.}{Mention the benefits of EV's over conventional internal combustion vehicle.}{04}{01}{01}
+\q{2a.}{An electric vehicle has the following attributes:\newline Drag Coefficient $C_d$ = \textit{0.25}; Vehicle cross section $A$ = \textit{2m\textsuperscript{2}}; Available propulsion energy of $E_b$ = \textit{20kWh}; Let the density of air $\rho_{air}$ = \textit{1.2 kgm\textsuperscript{-3}}. The vehicle is instantaneously moving at a speed of \textit{120 km/h}, calculate the aerodynamic drag force, power while driving in\newline (a) Calm conditions with no wind\newline (b) Windy conditions with a 12km/h headwind}{06}{01}{03}
+\q{2b.}{What are the challenges of a typical battery electric vehicle?}{04}{01}{01}
+\q{3a.}{An electric car is climbing at 80 km/h up a 5\textdegree\ incline against a 10 km/h headwind. The vehicle has the following attributes: \textit{mass m = 1400 kg}, drag coefficient \textit{C$_D$ = 0.19}, vehicle cross section \textit{A = 2.4 m\textsuperscript{2}}, coefficient of rolling resistance \textit{C$_R$ = 0.0044}, wheel radius \textit{r = 0.3 m}, gear ratio from rotor to drive axle \textit{n$_g$ = 11}, and a nominal gear efficiency \textit{$\eta_g$ = 95\%}. Assume a density of air \textit{$\rho_{air}$ = 1.2 kg m-3.}\newline (i) Calculate the rotor output torque and speed.}{06}{01}{03}
+\q{3b.}{Analyze the limitations of lead acid batteries}{04}{02}{04}
+\q{4a.}{Derive the equivalent model of a Lithium-ion battery. (Both R$_{int}$ and \textit{RC}-Model)}{06}{02}{02}
+\q{4b.}{Examine why lithium-ion batteries are considered for fast charging applications.}{04}{02}{04}
+\q{5a.}{Estimate the 0 to 60 mph acceleration time and energy for the 2015 Nissan Leaf. Ignore all road loads and the internal moment of inertia. Consider the following data, and assume a gear efficiency of 97\%.\newline \textit{r=0.315 m; mass m = 1645 Kg; v$_{rated}$ = 12.11 m/s; Gear ratio = 8.19; Rated torque = 254 Nm;}}{06}{01}{03}
+\q{5b.}{Design the battery pack cell configuration of three-wheeler by considering Lithium-ion battery (Prismatic) whose specifications are \textit{3.7 V} and \textit{20 Ah}. The \textit{battery pack specifications} are \textit{48V} and \textit{30 Ah}.}{04}{02}{04}
+\end{longtable}
+\btfoot{|l|l|l|*{10}{C{0.85cm}|}}{\hline
+\multirow{2}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-13}
+ & Test & \shortstack{Max\\Marks} & 32 & 18 & - & - & 14 & 06 & 18 & 12 & - & -\\\hline}
+\stars{***********}
+\end{xpaper}
+
+% ---------- 21EE75IH E-Mobility (Quiz - I)
+\begin{xpaper}
+\par\vspace{2pt}\centerline{\sansfont\fontsize{12}{14}\selectfont Department of Electrical \& Electronics Engineering}\par\vspace{8pt}
+\centerline{\fontsize{14}{16}\selectfont Academic Year 2024-25 (ODD SEM)}\par\vspace{8pt}
+\ofour{28\textsuperscript{th}, DECEMBER}{10}{21EE75IH}{20 Mins}{VII Semester}{QUIZ-I}{E-Mobility}
+\begin{longtable}{|C{1.05cm}|p{11.6cm}|C{1.3cm}|C{0.95cm}|C{0.95cm}|}
+\hline \textbf{Q.No} & \multicolumn{1}{c|}{\textbf{Part A -- Quiz Questions}} & \textbf{Marks} & \textbf{COs} & \textbf{BT}\\\hline
+\q{1.}{Determine the percentage increase in the required power consumption when a driver who normally drives ay 100 km/h increases the speed to 150 km/h? consider the drag forces only.}{02}{01}{03}
+\q{2.}{An electric vehicle has following attributes:\newline Co-efficient of rolling resistance \textit{C$_r$ = 0.0025} and vehicle mass of \textbf{\textit{2000 kg}}. Instantaneously at a vehicle speed of \textit{10 km/h}, calculate the rolling resistance and power. Let \textit{g=9.81 m/s\textsuperscript{2}}.}{02}{01}{03}
+\q{3.}{Draw the block diagram of Electric Vehicle including the components.}{02}{01}{01}
+\q{4.}{What are the advantages and limitations when batteries are connected in series and parallel? (state at least one per each connection)}{02}{02}{02}
+\q{5.}{Three batteries of internal resistances 2, 2, and 4 ohms are connected in parallel. Find the equivalent resistance for the system.}{01}{02}{02}
+\q{6.}{Draw the circuit diagram of battery pack comprising of cell combination as \textit{5S2P}.}{01}{02}{03}
+\end{longtable}
+\btfoot{|l|l|l|*{10}{C{0.85cm}|}}{\hline
+\multirow{2}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-13}
+ & Test & \shortstack{Max\\Marks} & 06 & 04 & - & - & 02 & 03 & 05 & - & - & -\\\hline}
+\stars{***********}
+\end{xpaper}
+
+% ---------- 21ET75IK Space Technology and Applications
+\begin{xpaper}
+\par\vspace{2pt}\centerline{\sansfont\fontsize{12}{14}\selectfont Department of Electronics \& Telecommunication Engineering}\par\vspace{6pt}
+\noindent\begingroup\renewcommand{\arraystretch}{1.3}\fontsize{11.5}{13}\selectfont
+\begin{tabular}{|C{3.6cm}|p{4.6cm}|C{4.0cm}|C{3.8cm}|}\hline
+Date & 28\textsuperscript{th} Dec. 2024 & \shortstack{Maximum\\Marks/Quiz} & 50+10\\\hline
+Course Code/Title & 21ET75IK & Duration & 120 Min\\\hline
+Sem & VII Semester & \multicolumn{2}{c|}{CIE-I}\\\hline
+\multicolumn{4}{|c|}{\bfseries\fontsize{13}{15}\selectfont SPACE TECHNOLOGY AND APPLICATIONS}\\\hline
+\end{tabular}\endgroup\par\vspace{6pt}
+\begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline & \multicolumn{1}{c|}{\textbf{PART A}} & \textbf{M} & \textbf{BT} & \textbf{CO}\\
+\textbf{Q.No} & & & & \\\hline
+\q{1.}{In the Troposphere region the temperature \blank[1.2cm] with height.}{01}{2}{C2}
+\q{2}{Define Space and satellite}{01}{2}{C1}
+\q{3}{If the wavelength of a carrier is 1.18cms, its frequency will be\blank[1.2cm]}{01}{3}{C2}
+\q{4}{The value of Escape Velocity of Earth is \blank[1.2cm]}{01}{1}{C2}
+\q{5}{The region beyond 42000 km falls in the \blank[1.2cm]space.}{01}{2}{C2}
+\q{6}{The atmospheric drag becomes significant below the altitude\blank[1.2cm]}{01}{2}{C2}
+\q{7}{Define Three Kepler's Laws}{02}{2}{C1}
+\q{8}{What are PSLV and GSLV? What are their general applications}{02}{2}{C2}
+\qpart{PART B}
+\q{1.\ a.}{Explain the behaviour of earth's environment for satellite communication.}{5}{L2}{CO2}
+\q{b.}{Explain the importance of following in launch vehicles:
+\begin{rom}\item Propellants\item Propulsion\item Combustion\end{rom}}{5}{L2}{CO2}
+\q{2.\ a.}{Write a short notes on:
+\begin{rom}\item Van Allen Radiation belts.\item Solar wind.\end{rom}}{5}{L2}{CO2}
+\q{b.}{Explain the following with their features:
+\begin{rom}\item Ion propulsion\item Nuclear Propulsion\end{rom}}{5}{L2}{CO2}
+\q{3}{What is the satellite Transponders? Explain their structure and features.}{10}{L2}{CO1}
+\q{4.}{With a neat diagram explain the typical TT and C system and its functions.}{10}{L2}{CO1}
+\q{5.\ a)}{List any three payloads of satellite and mention its applications.}{05}{L2}{CO1}
+\q{b)}{Describe different types of antennas used in satellite communication.}{05}{L2}{CO1}
+\end{longtable}
+\btfoot{|l|l|l|*{10}{C{0.85cm}|}}{\hline
+\multirow{2}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-13}
+ & Test & \shortstack{Max\\Marks} & 33 & 27 & -- & - & 01 & 58 & 01 & -- & -- & --\\\hline}
+\stars{+++++++++++}
+\end{xpaper}
+
+% ---------- 21CM75ID Advances in Corrosion Science and Management
+\begin{xpaper}
+\par\vspace{2pt}\centerline{\fontsize{14}{16}\selectfont Academic year 2024-2025 (Odd Sem)}\par\vspace{2pt}
+\centerline{\bfseries\fontsize{14}{16}\selectfont (CIE-I FOR VII SEM)}\par\vspace{8pt}
+\centerline{\bfseries DEPARTMENT OF CHEMISTRY}\par\vspace{2pt}
+\noindent\begingroup\renewcommand{\arraystretch}{1.25}\fontsize{11.5}{13}\selectfont
+\begin{tabular}{|C{3.6cm}|C{4.4cm}|C{4.2cm}|C{3.8cm}|}\hline
+Date & 28.12.2024 & Sem - VII & CIE-I\\\hline
+Course Code & 21CM75ID & Maximum Test Marks & \shortstack{Quiz-10 + Test-50\\(60M)}\\\hline
+Course Name & ACSM & Duration & 120 mins\\\hline
+\multicolumn{4}{|c|}{\bfseries ADVANCES IN CORROSION SCIENCE AND MANAGEMENT}\\\hline
+\end{tabular}\endgroup\par\vspace{6pt}
+{\bfseries Note: 1) Answer all the questions}\par
+\hspace*{1.05cm}{\bfseries 2) \ Part A should be answered in the first two pages of the answer script.}\par\vspace{6pt}
+\begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline & \multicolumn{1}{c|}{\textbf{Part-A}} & \textbf{M} & \textbf{BTL} & \textbf{CO}\\\hline
+\q{1}{Suggest any one suitable method to prevent galvanic corrosion.}{1}{2}{3}
+\q{2}{Dust particle settled on the Iron surface forms pit below it. Justify}{1}{3}{1}
+\q{3}{Which one is more destructive among stress corrosion, Intergranular corrosion, and pitting corrosion?}{1}{1}{1}
+\q{4}{Write the cathodic reaction of zinc when exposed to a corrosive environment.}{1}{2}{1}
+\q{5}{Identify the metal which gets corroded when Pt and Co are electrically connected and exposed to corrosive media.}{1}{3}{2}
+\q{6}{What is the basis for the Galvanic series?}{1}{2}{3}
+\q{7}{How does crevice corrosion occur?}{1}{2}{1}
+\q{8}{Write the composition of Iron when NaOH attacks steel boilers working at high pressure.}{1}{1}{3}
+\q{9}{Why does corrosion of water-filled steel tanks occur below the water line?}{1}{1}{1}
+\q{10}{Name the compound formed when steel is subjected to sensitization.}{1}{1}{1}
+\end{longtable}
+\par\vspace{8pt}
+\begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline & \multicolumn{1}{c|}{\textbf{Part-B}} & \textbf{M} & \textbf{BTL} & \textbf{CO}\\\hline
+\q{11}{A cooling system in a power plant is showing signs of bacterial corrosion. How does corrosion occur in this case? Explain. What steps would you take to analyze the situation and prevent further bacterial corrosion?}{7}{2}{3}
+\q{12}{Analyze the phenomenon where metals, particularly brasses, develop cracks when subjected to tensile stress in a corrosive environment. Illustrate this with a relevant example. Propose two practical methods to prevent this type of corrosion and explain how each method addresses the underlying issues.}{7}{3}{3}
+\q{13}{Explain how the formation of chromium carbides affects the corrosion \illeg\ of stainless steel, particularly in the context of intergranular corrosion. \illeg\ any two mitigation techniques to avoid the above type of corrosion.}{\illegc}{\illegc}{\illegc}
+\q{14}{What is stress corrosion cracking? And describe its impact on materials, \illeg\ caustic embrittlement in mild steel boilers as a case study.}{\illegc}{\illegc}{\illegc}
+\q{15}{Write a note on Hydrogen embrittlement.}{\illegc}{\illegc}{\illegc}
+\q{16}{Compute the value of the Pilling Bedworth ratio for the formation of Fe$_2$O$_3$ oxi\illeg\ and describe the passivation tendency of metal oxide foil formed on the meta\illeg\ (Given the atomic weight of Fe =56, O =16, the density of Fe$_2$O$_3$ = 5.24 g/ cm\textsuperscript{3} \illeg\ density of Iron= 7.874 g/cm\textsuperscript{3} )}{\illegc}{\illegc}{\illegc}
+\q{17}{Explain the mixed potential theory of metal and alloys by taking a suitable example.}{\illegc}{\illegc}{\illegc}
+\end{longtable}
+\xfoot{BT-Blooms Taxonomy, CO-Course Outcomes, M-Marks}{|l|l|*{6}{C{0.85cm}|}l|}{\hline
+\multirow{2}{*}{\shortstack{Marks\\Distribution}} & Particulars & CO1 & CO2 & CO3 & CO4 & L1 & L2 & \multirow{2}{*}{\illeg\ (cut off in the scan)}\\\cline{2-8}
+ & Max Marks & 6 & 15 & 24 & 15 & 4 & 33 & \\\hline}
+\stars{************************}
+\end{xpaper}
+
+% ---------- 21CH751C Sustainability and Life Cycle Analysis (Institutional Elective)
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (Odd Sem)},usn=0,dept={CHEMICAL ENGINEERING},date={28\textsuperscript{th} Dec 2024},code={21CH751C},sem={VII Semester},exam={CIE 1},maxmarks={60},duration={120 Min},
+ title={SUSTAINABILITY AND LIFE CYCLE ANALYSIS (Institutional Elective)},shownote=0}
+\iemheadB
+{\small\bfseries Note: 1. \ Answer all the Questions.}\par\vspace{3pt}
+\begin{longtable}{|C{0.5cm}|C{0.5cm}|p{12.15cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline \multicolumn{3}{|c|}{\textbf{Part A}} & \textbf{M} & \textbf{BT} & \textbf{CO}\\\hline
+ & a & Name the three pillars of sustainability & 1 & 1 & CO3\\\hline
+ & b & Define Inventory & 1 & 1 & CO2\\\hline
+ & c & What is the function of an \ Ecological foot print calculator & 1 & 1 & CO2\\\hline
+ & d & What is overshoot & 1 & 1 & CO2\\\hline
+ & e & List the three responses given by different Analytical Instruments & 1 & 1 & CO2\\\hline
+ & f & What is TCLP characterization & 1 & 1 & \\\hline
+ & g & List any 4 salient benefits of biogas technologies. & 2 & 1 & CO2\\\hline
+ & h & Define syngas and give its composition. & 2 & 1 & CO3\\\hline
+\multicolumn{3}{|c|}{\textbf{Part B}} & & & CO2\\\hline
+1 & a & With a neat sketch explain the stages of a product life cycle & 05 & 1 & CO3\\\hline
+ & b & Define limit to growth and carrying capacity. Plan the measures to overcome this & 05 & 2,5 & CO4\\\hline
+2 & & What is Life cycle analysis? Sketch and explain the circular economy for an aluminum industry & 10 & 3 & CO3\\\hline
+3 & a & Classify and Explain the effect of Chemicals used at home on human health & 05 & 2 & CO4\\\hline
+ & b & With neat sketch explain three types of Dose response curves & 05 & 1 & CO1\\\hline
+4 & & Elucidate the classification of biomass feedstock of all generations giving suitable example. & 10 & 2 & CO2\\\hline
+5 & & Devise the detailed mechanism of plant biomass energy conversion routes. & 10 & 4 & CO3\\\hline
+\end{longtable}
+\stars{*******}
+\end{iempaperB}
+
+% ---------- 21HS75IR Principles & Practices of Cyber Law
+\begin{iempaperB}
+\paperinfo{ayear={2023-2024 (ODD Sem)},usn=0,date={28/ 12/2024},code={21HS75IR},sem={VII},exam={CIE -- I},maxmarks={10+50},duration={120 Mins},
+ title={PRINCIPLES \& PRACTICES OF CYBER LAW},shownote=0}
+\iemheadB
+\onenote{Answer all the Questions.}
+\begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline & \multicolumn{1}{c|}{\textbf{PART- A}} & \textbf{M} & \textbf{BT} & \textbf{CO}\\
+Q.No. & & & & \\\hline
+\q{1}{\blank[2.2cm] refers to manipulating individuals into divulging confidential information by exploiting psychological manipulation rather than technical hacking.}{1}{2}{CO2}
+\q{2}{\blank[2.2cm] involves the use of digital platforms to harass or intimidate individuals, often resulting in emotional distress.}{1}{2}{CO3}
+\q{3}{Name two government initiatives in India to prevent cybercrimes.}{2}{2}{CO2}
+\q{4}{Define Cyber Law.}{2}{2}{CO2}
+\q{5}{What are the provisions for the protection of Data under the IT Act, 2000?}{2}{2}{CO2}
+\q{6}{What is the main purpose of the Information Technology Act, 2000 .}{2}{2}{CO2}
+\qpart{PART -B}
+\q{1}{A hospital in a large city experienced a ransom ware attack. Cybercriminals encrypted critical patient data, including medical records, billing information, and appointment schedules. The attackers demanded a large ransom in crypto currency, threatening to permanently delete the data if the hospital did not comply. The hospital was forced to shut down its systems, and patient care was disrupted. The management considered paying the ransom, but it also wanted to avoid encouraging further attacks. The hospital is now evaluating its cyber security defenses to prevent similar incidents in the future.
+\begin{bul}\item What is ransom ware, and how did it affect the hospital in this case?\item What are the potential legal implications for the hospital if it decides to pay the ransom?\item What steps should the hospital take to prevent such attacks in the future?\end{bul}}{10}{4}{CO1}
+\q{2}{What are the challenges faced by law enforcement agencies in dealing with cybercrimes as compared to conventional crimes?}{10}{2}{CO2}
+\q{3}{A group of hackers launched a cyber attack on India's critical infrastructure, including power grids and communication systems. The attack caused massive disruption, leading to a partial blackout in several states. The cybercriminals claimed responsibility through a website, and their actions were identified as an act of cyber terrorism. The government was unable to immediately trace the origin of the attack due to the use of advanced encryption and VPNs by the perpetrators.
+\begin{bul}\item What legal provisions of the IT Act would be applicable in prosecuting the offenders for cyber terrorism?\item How should the Indian government strengthen its defenses against cyber terrorism?\end{bul}}{10}{\illegc}{CO1}
+\q{4}{What are the key amendments made in the Information Technology (Amendment) Act, 2008?}{10}{3}{\illegc}
+\q{5}{Explain the different types of cybercrimes in India. How can individuals protect themselves from cybercrimes?}{10}{2}{\illegc}
+\end{longtable}
+\btfoot{|l|l|l|*{10}{C{0.8cm}|}}{\hline
+\multirow{2}{*}{Marks Distribution} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-13}
+ & Test & Max Marks & 30 & 30 & - & - & - & 20 & 20 & 20 & \illegc & \illegc\\\hline}
+\stars{*******}
+\end{iempaperB}
+
+% ---------- 21HS75IQ Cognitive Psychology
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (ODD Sem)},usn=0,dept={Humanities and Social Sciences},date={28\textsuperscript{th} December 2024},code={21HS75IQ},sem={VII},exam={CIE -- I},maxmarks={10 + 50},duration={30 + 90 Min},
+ title={Cognitive Psychology},shownote=0}
+\iemheadB
+{\small Note: Answer all the Questions.}\par\vspace{3pt}
+\begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+\hline & \multicolumn{1}{c|}{\textbf{Part -- A- Quiz}} & \multicolumn{3}{c|}{\textbf{10 \ Marks}}\\
+\textbf{Sl. No.} & \multicolumn{1}{c|}{\textbf{Questions}} & \textbf{M} & \textbf{BT} & \textbf{CO}\\\hline
+\q{1.1}{How did cognitive psychology develop from psychology?}{2}{L1}{CO1}
+\q{1.2}{What methods do cognitive psychologists use to study how people think?}{2}{L1}{CO1}
+\q{1.3}{What is the difference between sensation and perception?}{2}{L1}{CO2}
+\q{1.4}{Mention different Neural Pathways from Sensory receptors to the Brain.}{2}{L2}{CO2}
+\q{1.5}{List different types of sensory disorders.}{2}{L2}{CO2}
+& \multicolumn{1}{c|}{\textbf{Part -- B}} & \multicolumn{3}{c|}{\textbf{50 Marks}}\\
+Q. No & Questions & \textbf{M} & \textbf{BT} & \textbf{CO}\\\hline
+\q{2}{Analyze how various research methods in cognitive psychology reflect empiricist and rationalist approaches to gaining knowledge.}{10}{L1}{CO1}
+\q{3}{Describe the major historical schools of psychological thought leading up to the development of cognitive psychology.}{10}{L2}{CO2}
+\q{4}{During a psychology lecture, Professor Carter discusses the early days of psychology as a science. She explains how Edward Titchener believed that the mind could be understood through its elements, much like chemistry breaks down compounds into elements. To illustrate, she conducts a classroom activity where students describe the components of their experience while listening to music. How could modern cognitive psychology build upon or challenge Structuralist ideas using advanced methodologies?}{10}{L3}{CO2}
+\q{5}{Liam is performing a lab experiment. He places his hand over a vibrating tuning fork and feels the vibrations, while also hearing the sound it produces. Explain how thermo receptors differ from the mechanoreceptors involved in this scenario.}{10}{L1}{CO1}
+\q{6}{Emily walks into a dimly lit art gallery and initially struggles to make out the details of the paintings. However, after a few minutes, her eyes adjust, and she begins to appreciate the intricate details and vibrant colours of the artwork. How do bottom-up and top-down processing work together to help Emily interpret the paintings?}{10}{L2}{CO2}
+\end{longtable}
+\btfoot{|l|l|l|*{10}{C{0.8cm}|}}{\hline
+\multirow{2}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-13}
+ & Test & Max Marks & 10 & 20 & 20 & -- & 20 & 20 & 10 & -- & -- & --\\\hline}
+\end{iempaperB}
+
+% ---------- 21IM73GC Virtual Commerce (Departmental Elective)
+\begin{iempaperB}
+\paperinfo{ayear={2024-2025 (ODD Sem)},date={27.12.2024},code={21IM73GC},sem={VII Semester},exam={CIE -- I},maxmarks={10 + 50},duration={120 Mins},
+ title={VIRTUAL COMMERCE (Departmental Elective)},shownote=0}
+\iemheadB
+{\small Note: Answer all the Questions.}\par\vspace{3pt}
+\begin{gtable}[PART -- A]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1}{Virtual commerce (v-commerce) uses technologies like \blank[1.5cm] and \blank[1.5cm] to provide immersive shopping experiences.}{02}{L2}{CO1}
+\q{2}{Virtual commerce improves customer engagement by providing a more \blank[1.5cm] and \blank[1.5cm] experience than traditional online shopping.}{02}{L2}{CO1}
+\q{3}{A key device required for virtual commerce is a \blank[1.5cm] headset.}{01}{L1}{CO2}
+\q{4}{One major benefit of virtual commerce is the ability to \blank[1.5cm] products before buying them.}{01}{L1}{CO1}
+\q{5}{The industry that often uses virtual commerce for virtual tours of properties is \blank[1.5cm].}{01}{L2}{CO2}
+\q{6}{Businesses adopting virtual commerce often use \blank[1.5cm] stores to showcase products instead of physical storefronts.}{01}{L2}{CO1}
+\q{7}{Virtual commerce can help reduce the number of \blank[1.5cm] by allowing customers to experience products virtually before purchase}{01}{L1}{CO2}
+\q{8}{Virtual commerce allows customers to interact with products in a \blank[1.5cm] environment before making a purchase}{01}{L1}{CO2}
+\end{gtable}
+\begin{gtable}[PART -- B]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+\q{1.}{Distinguish between B2B (Business-to-Business) and B2C (Business-to-Consumer) models with a focus on serviceability, control, and the order completion cycle. Provide examples to support your explanation.}{10}{L3}{CO3}
+\q{2.}{``Illustrate with examples how customers benefit from Virtual commerce in terms of convenience, cost savings, wider product availability, and improved services.''}{10}{L4}{CO4}
+\q{3.}{Explain how transparency is ensured in B2B models. Highlight key strategies such as communication, trust-building, use of technology, and compliance with regulations, providing examples where possible}{10}{L2}{CO2}
+\q{4.}{What is HTML? Discuss its role and importance in e-commerce applications, focusing on how it helps in creating user-friendly websites, structuring content, and enabling seamless customer interactions.}{10}{L2}{CO1}
+\q{5.}{What are the key differences between traditional commerce and e-commerce? Discuss aspects such as accessibility, cost, geographical reach, transaction speed, and customer experience, providing relevant examples to illustrate your points}{10}{L2}{CO2}
+\end{gtable}
+\btfoot{|l|l|l|*{5}{C{0.8cm}|}*{6}{C{0.8cm}|}}{\hline
+\multirow{3}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{2}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & CO5 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-14}
+ & \multirow{2}{*}{\shortstack{Max\\Marks}} & Quiz & 06 & 04 & -- & -- & -- & 04 & 06 & -- & -- & -- & --\\\cline{3-14}
+ & & Test & 10 & 20 & 10 & 10 & -- & -- & 30 & 10 & 10 & -- & --\\\hline}
+\end{iempaperB}
+
+\end{document}

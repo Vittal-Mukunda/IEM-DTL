@@ -1998,37 +1998,22 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
   ],
   7: [
     {
-      name: "Question Papers (CIE)",
+      name: "Question Papers",
       items: [
         {
-          label: "CIE 1 (2024-25)",
-          file: "/notes/sem7/question-papers/cie-1-2024-25.pdf",
-          size: "3.2 MB",
+          label: "CIE 1",
+          file: "/notes/sem7/question-papers/cie-1-all-years.pdf",
+          size: "440 KB",
         },
         {
-          label: "CIE 1 (2025-26)",
-          file: "/notes/sem7/question-papers/cie-1-2025-26.pdf",
-          size: "4.5 MB",
+          label: "CIE 2",
+          file: "/notes/sem7/question-papers/cie-2-all-years.pdf",
+          size: "575 KB",
         },
         {
-          label: "CIE 2 (2024-25)",
-          file: "/notes/sem7/question-papers/cie-2-2024-25.pdf",
-          size: "3.3 MB",
-        },
-        {
-          label: "CIE 2 (2025-26)",
-          file: "/notes/sem7/question-papers/cie-2-2025-26.pdf",
-          size: "3.3 MB",
-        },
-        {
-          label: "CIE 3 (2024-25)",
-          file: "/notes/sem7/question-papers/cie-3-2024-25.pdf",
-          size: "2.9 MB",
-        },
-        {
-          label: "CIE 3 (2025-26)",
-          file: "/notes/sem7/question-papers/cie-3-2025-26.pdf",
-          size: "3.5 MB",
+          label: "CIE 3",
+          file: "/notes/sem7/question-papers/cie-3-all-years.pdf",
+          size: "485 KB",
         },
       ],
     },

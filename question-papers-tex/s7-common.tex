@@ -1,0 +1,58 @@
+% s7-common.tex -- macros shared by the Sem 7 CIE papers (\input right after \documentclass{rvcepaper})
+% placeholder for text that cannot be read in the scan
+\newcommand{\illeg}{\textit{[illegible]}}
+\newcommand{\illegc}{{\tiny\textit{[illegible]}}}
+% question table with a custom header row: \begin{gtable}[PART -- A]{Sl.\newline No.}{Questions}{M}{BT}{CO}
+% the optional title is set as the table's first row so it never strands at a page foot
+\newcommand{\gtitlerow}{}
+\newenvironment{gtable}[6][]{%
+  \def\gtitle{#1}\ifx\gtitle\empty\def\gtitlerow{}\else\def\gtitlerow{\multicolumn{5}{c}{\bfseries\gtitle}\\*[2pt]}\fi
+  \begin{longtable}{|C{1.05cm}|p{12.2cm}|C{0.95cm}|C{0.95cm}|C{0.95cm}|}
+  \gtitlerow
+  \hline \textbf{#2} & \multicolumn{1}{c|}{\textbf{#3}} & \textbf{#4} & \textbf{#5} & \textbf{#6}\\* \hline
+  \endfirsthead
+  \endhead
+}{\end{longtable}}
+\newcommand{\twonotes}[2]{{\small Note:}\par\vspace{-1pt}
+\hspace*{0.5cm}{\footnotesize 1. \hspace{0.1cm}#1}\par
+\hspace*{0.5cm}{\footnotesize 2. \hspace{0.1cm}#2}\par\vspace{3pt}}
+\newcommand{\onenote}[1]{{\small Note:}\par\vspace{-1pt}
+\hspace*{0.5cm}{\footnotesize 1. \hspace{0.1cm}#1}\par\vspace{3pt}}
+% keep the BT/CO caption and the marks-distribution table on the same page
+\renewcommand{\btfoot}[2]{\par\vspace{8pt}\noindent\begin{minipage}{\textwidth}\centering
+  {\small BT-Blooms Taxonomy, CO-Course Outcomes, M-Marks}\par\vspace{2pt}
+  \begin{tabular}{#1}#2\end{tabular}\end{minipage}\par\nopagebreak\vspace{2pt}}
+\newcommand{\xfoot}[3]{\par\vspace{8pt}\noindent\begin{minipage}{\textwidth}\centering
+  {\small #1}\par\vspace{2pt}\begin{tabular}{#2}#3\end{tabular}\end{minipage}\par\nopagebreak\vspace{2pt}}
+\newcommand{\qq}[5]{#1 & #2 & #3 & #4 & #5\\}
+\newcommand{\qm}[3]{#1 & #2 & #3\\ \hline}
+% other-department header table (Date / Course Code / Sem rows + title row)
+\newcommand{\ofour}[7]{\noindent\begingroup\renewcommand{\arraystretch}{1.3}\fontsize{11.5}{13}\selectfont
+\begin{tabular}{|C{3.6cm}|C{4.6cm}|C{4.0cm}|C{3.8cm}|}\hline
+Date & #1 & Maximum Marks & #2\\\hline
+Course Code & #3 & Duration & #4\\\hline
+Sem & #5 & \multicolumn{2}{c|}{#6}\\\hline
+\multicolumn{4}{|c|}{\bfseries\fontsize{13}{15}\selectfont #7}\\\hline
+\end{tabular}\endgroup\par\vspace{6pt}}
+\renewcommand{\arraystretch}{1.05}
+% the closing stars line stays with the block above it
+\renewcommand{\stars}[1]{\par\nopagebreak\vspace{2pt}\nopagebreak\centerline{#1}}
+% printed value struck through by hand, with the handwritten correction under it: \corr{60}{34}
+\usepackage[normalem]{ulem}
+\newcommand{\corr}[2]{\shortstack{\sout{#1}\\#2}}
+\usetikzlibrary{decorations.pathmorphing}
+% "Academic year" header table without the DEPARTMENT OF block (use inside iempaperB after \paperinfo)
+\newcommand{\iemtableB}{%
+  \par\vspace{4pt}\noindent\begingroup\renewcommand{\arraystretch}{1.5}\bfseries\fontsize{11.5}{13}\selectfont
+  \begin{tabular}{|p{4.2cm}|p{5.0cm}|p{3.7cm}|p{3.6cm}|}\hline
+   Date & \getkey{date} & Maximum Marks & \getkey{maxmarks}\\\hline
+   Course Code & \getkey{code} & Duration & \getkey{duration}\\\hline
+   Sem & \getkey{sem} & \multicolumn{2}{l|}{\getkey{exam}}\\\hline
+   \multicolumn{4}{|c|}{\getkey{title}}\\\hline
+  \end{tabular}\endgroup\par\vspace{4pt}}
+% other-department CIE header: \xdept{Department line}{left1}{mid1}{right1}{left2}{mid2}{right2}{course title cell}{right3}
+\newcommand{\xdept}[9]{\par\vspace{2pt}\centerline{\bfseries\fontsize{13.5}{16}\selectfont #1}\par\vspace{4pt}
+  \noindent\begingroup\renewcommand{\arraystretch}{1.5}\bfseries\fontsize{11.5}{13}\selectfont
+  \begin{tabular}{|p{4.8cm}|C{5.6cm}|p{5.7cm}|}\hline
+  #2 & #3 & #4\\\hline #5 & #6 & #7\\\hline \multicolumn{2}{|p{10.8cm}|}{#8} & #9\\\hline
+  \end{tabular}\endgroup\par\vspace{8pt}}
