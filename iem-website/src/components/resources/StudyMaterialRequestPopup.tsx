@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Pop-up on the study-material page asking 3rd-semester students to share
- * scans of their CIE question papers.
+ * Pop-up on the study-material page asking students to share study material
+ * (notes, slides, lab manuals, question banks) for any semester.
  *
  * A native <dialog> opened with showModal(): the browser supplies the focus
  * trap, Escape-to-close and the backdrop. It opens shortly after the page
@@ -17,9 +17,9 @@ import { useEffect, useRef, useState } from "react";
 
 const EMAIL = "vittalmukunda.im24@rvce.edu.in";
 const REPO_URL = "https://github.com/Vittal-Mukunda/IEM-DTL";
-const SUBJECT = "CIE question papers — 3rd semester";
+const SUBJECT = "Study material for the IEM website";
 
-const KEY = "iem:cie-request-dismissed";
+const KEY = "iem:study-material-request-dismissed";
 const DISMISS_DAYS = 7;
 const OPEN_DELAY_MS = 1200;
 
@@ -40,7 +40,7 @@ function rememberDismissal() {
   }
 }
 
-export default function CieRequestPopup() {
+export default function StudyMaterialRequestPopup() {
   const ref = useRef<HTMLDialogElement>(null);
   // Hidden until the first timer decides, so the server render and hydration
   // match and the button doesn't flash before the pop-up opens on its own.
@@ -86,12 +86,12 @@ export default function CieRequestPopup() {
           <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
           </svg>
-          Share CIE papers
+          Share study material
         </button>
       )}
       <dialog
         ref={ref}
-        aria-labelledby="cie-request-heading"
+        aria-labelledby="material-request-heading"
         onClose={onClosed}
         // A click on the backdrop lands on the <dialog> itself.
         onClick={(e) => {
@@ -112,17 +112,19 @@ export default function CieRequestPopup() {
           </button>
 
           <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-            Request · 3rd semester
+            Request · All semesters
           </p>
-          <h2 id="cie-request-heading" className="mt-1 pr-8 text-xl font-bold text-primary">
-            Have your CIE question papers? Please share a scan
+          <h2 id="material-request-heading" className="mt-1 pr-8 text-xl font-bold text-primary">
+            Have good study material? Please share it
           </h2>
           <p className="mt-3 leading-relaxed text-gray-700">
-            If you&apos;re in the 3rd semester, we&apos;d be grateful for scans (or
-            clear phone photos) of your CIE question papers — both this
-            year&apos;s and last year&apos;s. We&apos;ll upload them here so your
-            classmates and every batch after you can practise with them. This
-            collection is a community effort, and every paper helps.
+            Thank you to everyone who sent in their CIE papers. Next,
+            we&apos;re collecting study material for every
+            semester: class notes (typed, or clear phone photos of handwritten
+            ones), lecture slides, lab manuals, assignments and question banks.
+            We&apos;ll upload them here so your classmates and every batch after
+            you can use them. This collection is a community effort, and every
+            file helps.
           </p>
 
           <ul className="mt-4 space-y-2 text-sm text-gray-700 [overflow-wrap:break-word]">
@@ -135,7 +137,7 @@ export default function CieRequestPopup() {
               >
                 {EMAIL}
               </a>{" "}
-              with the subject and CIE number.
+              with the course name and semester.
             </li>
             <li>
               <span className="font-semibold text-primary">GitHub:</span> or{" "}
@@ -147,7 +149,7 @@ export default function CieRequestPopup() {
               >
                 open a request on this website&apos;s GitHub
               </a>{" "}
-              and attach the scans there (
+              and attach the files there (
               <a
                 href={REPO_URL}
                 target="_blank"
