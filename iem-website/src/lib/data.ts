@@ -1804,29 +1804,29 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      // Professional core electives (EIS, Advanced Decision Modelling, Discrete Event Simulation and earlier-scheme electives)
-      name: "Electives (CIE & SEE)",
+      // Department (professional core) electives of Sem 5 and Sem 6: EIS, Advanced Decision Modelling, Facilities Planning, Service Operations, ...
+      name: "Department Electives (CIE & SEE)",
       items: [
         {
           label: "CIE 1",
           file: "/notes/sem5/electives/cie-1-by-subject.pdf",
-          size: "297 KB",
+          size: "501 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem5/electives/cie-2-by-subject.pdf",
-          size: "302 KB",
+          size: "508 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem5/electives/cie-3-by-subject.pdf",
-          size: "303 KB",
+          size: "502 KB",
         },
         {
           // Hidden with the rest of the Sem 5 SEE papers.
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem5/electives/see-past-year-question-papers.pdf",
-          size: "1.9 MB",
+          size: "4.3 MB",
           hidden: true,
         },
       ],
@@ -2065,28 +2065,28 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      // Professional and institutional electives
-      name: "Electives (CIE & SEE)",
+      // Institutional electives (open to all branches): Elements of Financial Management, Mathematical Modelling, Intelligent Transport Systems, ...
+      name: "Institutional Electives (CIE & SEE)",
       items: [
         {
           label: "CIE 1",
           file: "/notes/sem6/electives/cie-1-all-years.pdf",
-          size: "522 KB",
+          size: "497 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem6/electives/cie-2-all-years.pdf",
-          size: "502 KB",
+          size: "469 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem6/electives/cie-3-all-years.pdf",
-          size: "566 KB",
+          size: "550 KB",
         },
         {
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem6/electives/see-past-year-question-papers.pdf",
-          size: "3.2 MB",
+          size: "678 KB",
         },
       ],
     },
