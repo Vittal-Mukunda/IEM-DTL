@@ -132,10 +132,10 @@ export default function CurriculumPage() {
           </h2>
           <p className="text-text-muted mb-6 max-w-2xl">
             Official semester-wise scheme &amp; syllabus booklets — the 2025
-            scheme for 2nd year, alongside the 2022 scheme booklets.
+            scheme for 2nd year and the 2022 scheme for 3rd and 4th year.
             Download the full course structure, credits, and detailed syllabi.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {syllabusDocs.map((doc) => (
               <a
                 key={doc.file}

@@ -5,7 +5,7 @@ import GPACalculator from "@/components/resources/GPACalculator";
 export const metadata: Metadata = {
   title: "GPA Calculator",
   description:
-    "SGPA and CGPA calculator for the RVCE Industrial Engineering & Management scheme. Subjects, course types and credits come pre-filled for the 3rd through 7th semesters — enter your CIE, Lab SEE and Semester End marks to get grade points, SGPA and CGPA, plus the marks you still need for each grade.",
+    "SGPA and CGPA calculator for the RVCE Industrial Engineering & Management scheme. Subjects, course types and credits come pre-filled for the 3rd through 8th semesters — enter your CIE, Lab SEE and Semester End marks to get grade points, SGPA and CGPA, plus the marks you still need for each grade.",
   keywords: [
     "RVCE GPA calculator",
     "IEM SGPA calculator",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const NOTES = [
   {
     title: "The scheme is already loaded",
-    body: "Pick a semester and its subjects, course types and credits fill in from the 2022 IEM scheme for the 3rd through 7th semesters. Add or edit rows if your electives differ.",
+    body: "Pick a semester and its subjects, course types and credits fill in from the IEM scheme for the 3rd through 8th semesters (2025 scheme for 3rd–4th, 2022 scheme for 5th–8th). Add or edit rows if your electives differ.",
   },
   {
     title: "CIE and Sem End, weighted correctly",

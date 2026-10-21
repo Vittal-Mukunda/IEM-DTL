@@ -37,9 +37,17 @@ const num = (s: string) => {
   return Number.isFinite(v) ? v : 0;
 };
 
+// Marks already earned before the semester end: CIE plus Lab SEE where the
+// course has a lab. A score-only course (NPTEL) has none — its single score
+// lives in `semEnd`.
+function earnedBeforeSemEnd(row: SubjectRow) {
+  const type = COURSE_TYPES[row.type];
+  if (type.scoreOnly) return 0;
+  return num(row.cie) + (type.hasLab ? num(row.labSee) : 0);
+}
+
 function totalMarks(row: SubjectRow) {
-  const lab = COURSE_TYPES[row.type].hasLab ? num(row.labSee) : 0;
-  return num(row.cie) + lab + num(row.semEnd);
+  return earnedBeforeSemEnd(row) + num(row.semEnd);
 }
 
 function gradePoints(row: SubjectRow) {
@@ -63,8 +71,7 @@ const TARGET_GRADES = ["10 GP", "9 GP", "8 GP", "7 GP"] as const;
 // Sem End marks still needed to reach a grade cutoff, given CIE (+ Lab SEE)
 // already earned. Mirrors the sheet: MAX(0, cutoff - earned).
 function requiredSemEnd(row: SubjectRow, cutoff: number) {
-  const lab = COURSE_TYPES[row.type].hasLab ? num(row.labSee) : 0;
-  return Math.max(0, cutoff - num(row.cie) - lab);
+  return Math.max(0, cutoff - earnedBeforeSemEnd(row));
 }
 
 const hasMarks = (rows: SubjectRow[]) =>
@@ -235,6 +242,7 @@ export default function GPACalculator() {
                           update(row.id, {
                             type: t,
                             credits: String(COURSE_TYPES[t].defaultCredits),
+                            cie: COURSE_TYPES[t].scoreOnly ? "" : row.cie,
                             labSee: COURSE_TYPES[t].hasLab ? row.labSee : "",
                           });
                         }}
@@ -249,15 +257,21 @@ export default function GPACalculator() {
                       </select>
                     </td>
                     <td className="px-3 py-2">
-                      <input
-                        type="number"
-                        min={0}
-                        value={row.cie}
-                        onChange={(e) => update(row.id, { cie: e.target.value })}
-                        placeholder="0"
-                        aria-label="CIE total marks"
-                        className={inputCls}
-                      />
+                      {type.scoreOnly ? (
+                        <span className="block text-center text-text-muted">
+                          N/A
+                        </span>
+                      ) : (
+                        <input
+                          type="number"
+                          min={0}
+                          value={row.cie}
+                          onChange={(e) => update(row.id, { cie: e.target.value })}
+                          placeholder="0"
+                          aria-label="CIE total marks"
+                          className={inputCls}
+                        />
+                      )}
                     </td>
                     <td className="px-3 py-2">
                       {type.hasLab ? (
@@ -286,8 +300,12 @@ export default function GPACalculator() {
                         onChange={(e) =>
                           update(row.id, { semEnd: e.target.value })
                         }
-                        placeholder="0"
-                        aria-label="Semester end marks"
+                        placeholder={type.scoreOnly ? "Score" : "0"}
+                        aria-label={
+                          type.scoreOnly
+                            ? "NPTEL score out of 100"
+                            : "Semester end marks"
+                        }
                         className={inputCls}
                       />
                     </td>
@@ -386,6 +404,7 @@ export default function GPACalculator() {
                     update(row.id, {
                       type: t,
                       credits: String(COURSE_TYPES[t].defaultCredits),
+                      cie: COURSE_TYPES[t].scoreOnly ? "" : row.cie,
                       labSee: COURSE_TYPES[t].hasLab ? row.labSee : "",
                     });
                   }}
@@ -399,19 +418,21 @@ export default function GPACalculator() {
                   ))}
                 </select>
                 <div className="grid grid-cols-2 gap-3">
-                  <label className="block">
-                    <span className="block text-xs text-text-muted mb-1">
-                      CIE Total
-                    </span>
-                    <input
-                      type="number"
-                      min={0}
-                      value={row.cie}
-                      onChange={(e) => update(row.id, { cie: e.target.value })}
-                      placeholder="0"
-                      className={inputCls}
-                    />
-                  </label>
+                  {!type.scoreOnly && (
+                    <label className="block">
+                      <span className="block text-xs text-text-muted mb-1">
+                        CIE Total
+                      </span>
+                      <input
+                        type="number"
+                        min={0}
+                        value={row.cie}
+                        onChange={(e) => update(row.id, { cie: e.target.value })}
+                        placeholder="0"
+                        className={inputCls}
+                      />
+                    </label>
+                  )}
                   {type.hasLab && (
                     <label className="block">
                       <span className="block text-xs text-text-muted mb-1">
@@ -431,7 +452,7 @@ export default function GPACalculator() {
                   )}
                   <label className="block">
                     <span className="block text-xs text-text-muted mb-1">
-                      Sem End
+                      {type.scoreOnly ? "Score (out of 100)" : "Sem End"}
                     </span>
                     <input
                       type="number"
@@ -585,7 +606,7 @@ export default function GPACalculator() {
           </h3>
           <p className="text-xs text-text-muted mt-0.5">
             Based on the CIE (and Lab SEE) marks entered for the {scheme.label}{" "}
-            semester above.
+            semester above. For NPTEL it is the course score needed.
           </p>
         </div>
         {/* Five columns need the room. Below `sm` the subject name was being
@@ -671,15 +692,17 @@ export default function GPACalculator() {
           </li>
           <li>
             <span className="font-medium">
-              Theory, 200 marks (CIE 100 + SEE 100):
+              Theory + Lab, 200 marks (CIE 50 + Lab 50 + SEE 50 + Lab SEE 50):
             </span>{" "}
             180+ = 10 &middot; 160&ndash;179 = 9 &middot; 140&ndash;159 = 8
             &middot; 120&ndash;139 = 7
           </li>
           <li>
-            <span className="font-medium">Basket Course, 200 marks:</span> 179+
-            = 10 &middot; 161&ndash;178 = 9 &middot; 141&ndash;160 = 8 &middot;
-            121&ndash;140 = 7
+            <span className="font-medium">
+              Theory, 200 marks (CIE 100 + SEE 100):
+            </span>{" "}
+            180+ = 10 &middot; 160&ndash;179 = 9 &middot; 140&ndash;159 = 8
+            &middot; 120&ndash;139 = 7
           </li>
           <li>
             <span className="font-medium">
@@ -689,17 +712,19 @@ export default function GPACalculator() {
             60&ndash;69 = 7
           </li>
           <li>
-            <span className="font-medium">NPTEL, 50 marks (SEE only):</span> 45+
-            = 10 &middot; 40&ndash;44 = 9 &middot; 35&ndash;39 = 8 &middot;
-            30&ndash;34 = 7
+            <span className="font-medium">
+              NPTEL, 100 marks (one course score, no CIE or SEE):
+            </span>{" "}
+            90+ = 10 &middot; 80&ndash;89 = 9 &middot; 70&ndash;79 = 8 &middot;
+            60&ndash;69 = 7
           </li>
         </ul>
         <p className="text-xs text-text-muted mt-3">
           Projects and the summer internship are graded 100 CIE + 100 SEE, so
           they use the same 200-mark scale as theory courses. Totals below the
           7-grade-point cutoff score 0 grade points. Enter CIE, Lab SEE (for lab
-          courses) and Sem End marks &mdash; totals, grade points, SGPA and CGPA
-          update automatically.
+          courses) and Sem End marks, or the single score for NPTEL &mdash;
+          totals, grade points, SGPA and CGPA update automatically.
         </p>
       </div>
     </div>

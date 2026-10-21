@@ -2063,12 +2063,6 @@ export const syllabusDocs: SyllabusDoc[] = [
     size: "1.7 MB",
   },
   {
-    label: "2nd Year · Semesters III–IV",
-    scheme: "2022 Scheme (2024 Edition)",
-    file: "/syllabus/IEM-2022-2nd-year-III-IV.pdf",
-    size: "1.4 MB",
-  },
-  {
     label: "3rd Year · Semesters V–VI",
     scheme: "2022 Scheme",
     file: "/syllabus/IEM-2022-3rd-year-V-VI.pdf",
