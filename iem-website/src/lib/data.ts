@@ -777,7 +777,8 @@ export const curriculumDomains: CurriculumDomain[] = [
 export interface CurriculumCourse {
   code: string;
   name: string;
-  /** semester (3–8) in which the course is offered (2022 scheme) */
+  /** semester (3–8) in which the course is offered (2025 scheme for 3–4,
+   * 2022 scheme for 5–8) */
   sem: number;
   /** matches a CurriculumDomain id */
   domain: string;
@@ -788,13 +789,14 @@ export interface CurriculumCourse {
   faculty: string[];
 }
 
-// Core (non-elective) courses of the 2022 scheme, semesters 3–8, as listed
+// Core (non-elective) courses, semesters 3–8: semesters 3–4 follow the 2025
+// scheme, semesters 5–8 the 2022 scheme, as listed
 // in the official scheme & syllabus booklets. Elective groups (Basket
 // courses, Professional Core Electives, Institutional Electives, NPTEL,
 // Ability Enhancement) and audit/bridge courses are intentionally excluded.
 // Semester 8 carries only the Major Project (IM481P).
 export const curriculumCourses: CurriculumCourse[] = [
-  // ── Semester 3 ──
+  // ── Semester 3 (2025 scheme) ──
   {
     code: "MA231TB",
     name: "Statistics, Laplace Transform and Numerical Methods",
@@ -802,6 +804,15 @@ export const curriculumCourses: CurriculumCourse[] = [
     domain: "ops",
     description:
       "Statistics, curve fitting, Laplace transforms, complex analysis, and numerical methods for PDEs — the mathematical toolkit behind the analytics-heavy semesters that follow.",
+    faculty: [],
+  },
+  {
+    code: "CV232TA",
+    name: "Environment and Sustainability",
+    sem: 3,
+    domain: "mgmt",
+    description:
+      "Ecosystems, natural resources and waste management, sustainable development and the circular economy, green technologies, and environmental governance, safety and CSR.",
     faculty: [],
   },
   {
@@ -814,42 +825,60 @@ export const curriculumCourses: CurriculumCourse[] = [
     faculty: ["Dr. Rajeswara Rao K V S", "Dr. Vikram N Bahadurdesai", "Prof. Shruthi M N"],
   },
   {
-    code: "IM234AI",
-    name: "Manufacturing Processes",
+    code: "IM334AI",
+    name: "Manufacturing Processes and Automation",
     sem: 3,
     domain: "design",
     description:
-      "How raw material becomes finished product — metal forming, welding, cutting tool technology, drilling, and machine tools. Theory with integrated lab.",
+      "Casting and forming, the theory of metal cutting and tool life, NC/CNC part programming, automation strategies, and industrial robotics. Theory with integrated lab.",
     faculty: ["Prof. Shruthi M N"],
   },
   {
-    code: "IM235AI",
-    name: "Digital Metrology",
+    code: "IM335AI",
+    name: "Digital Measurements and Metrology",
     sem: 3,
     domain: "quality",
     description:
-      "Measurement systems, sensors and transducers, limits, fits and tolerances, laser interferometry, and coordinate measuring machines. Theory with integrated lab.",
+      "Measurement systems, sensors and transducers, data acquisition and digital measurement, engineering metrology, GD&T, and advanced measurement techniques. Theory with integrated lab.",
     faculty: ["Prof. B Nandini"],
   },
-
-  // ── Semester 4 ──
   {
-    code: "IM241AT",
-    name: "Statistics for Data Analytics",
+    code: "IM236AT",
+    name: "Human Resource Management and Analytics",
+    sem: 3,
+    domain: "mgmt",
+    description:
+      "HRM functions, job analysis, HR planning and talent acquisition, training and performance appraisal, then HR data, metrics, and analytics for people decisions.",
+    faculty: [],
+  },
+
+  // ── Semester 4 (2025 scheme) ──
+  {
+    code: "IM341AT",
+    name: "Probability and Applied Statistics",
     sem: 4,
     domain: "ops",
     description:
-      "Probability, distributions, hypothesis testing, and regression. The statistical foundation for analytics and quality work.",
-    faculty: ["Dr. Ramaa A"],
+      "Probability, discrete and continuous distributions, simple and multiple regression, and single-sample inference, with MATLAB implementation. The statistical foundation for analytics and quality work.",
+    faculty: [],
   },
   {
-    code: "IM343AI",
-    name: "CAD/CAM & Robotics",
+    code: "ME242TB",
+    name: "Material Science for Engineers",
     sem: 4,
     domain: "design",
     description:
-      "Computer-aided design and manufacturing with robotics and automation for digitally integrated factories. Theory with integrated lab.",
-    faculty: ["Prof. Shruthi M N"],
+      "Mechanical properties, fatigue and creep, crystal defects and strengthening mechanisms, phase and Fe-C diagrams, heat treatment, and modern semiconductor processing.",
+    faculty: [],
+  },
+  {
+    code: "IM243AI",
+    name: "Principles of Ergonomics",
+    sem: 4,
+    domain: "ops",
+    description:
+      "Anthropometry and workspace design, human–machine interaction, environmental and cognitive ergonomics, and IoT-based ergonomic applications. Theory with integrated lab.",
+    faculty: [],
   },
   {
     code: "IM244AI",
@@ -857,26 +886,26 @@ export const curriculumCourses: CurriculumCourse[] = [
     sem: 4,
     domain: "ops",
     description:
-      "Mathematical models for decision making. Covers linear programming, queuing, inventory, and network optimization applied to industrial systems. Theory with integrated lab.",
+      "Mathematical models for decision making — linear programming and the simplex method, transportation problems, project networks (CPM/PERT), and game theory. Theory with integrated lab.",
     faculty: ["Dr. Shobha N S", "Dr. Vivekanand S Gogi"],
   },
   {
-    code: "IM345AT",
+    code: "IM245AT",
     name: "Marketing Management",
     sem: 4,
     domain: "finance",
     description:
-      "Understanding markets and customers. Segmentation, positioning, the marketing mix, and go-to-market strategy.",
+      "Markets, segmentation and positioning, and consumer behaviour, followed by digital marketing — content, social media, and conversion optimisation.",
     faculty: ["Dr. Vikram N Bahadurdesai"],
   },
   {
-    code: "HS248AT",
-    name: "Universal Human Values",
+    code: "IM248DL",
+    name: "Applied Design Thinking Lab",
     sem: 4,
-    domain: "mgmt",
+    domain: "design",
     description:
-      "Harmony in the self, in relationships, in society, and with nature — the ethics and values foundation for professional life.",
-    faculty: ["Dr. Bindu Ashwini C"],
+      "Teams of two or three take a societal challenge through empathy, design, ideation, prototyping, and testing, reviewed at every stage.",
+    faculty: [],
   },
 
   // ── Semester 5 ──
@@ -1266,14 +1295,14 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       name: "Manufacturing Processes",
       items: [
         {
-          label: "Unit 1 – Introduction to Manufacturing",
-          file: "/notes/sem3/manufacturing-processes/unit-1-introduction-to-manufacturing.pdf",
-          size: "2.0 MB",
+          label: "Unit 1 – Manufacturing, Casting & Special Casting Processes",
+          file: "/notes/sem3/manufacturing-processes/unit-1-manufacturing-and-casting-processes.pdf",
+          size: "1.4 MB",
         },
         {
-          label: "Unit 2 – Metal Forming Processes",
-          file: "/notes/sem3/manufacturing-processes/unit-2-metal-forming-processes.pdf",
-          size: "1.6 MB",
+          label: "Unit 2 – Theory of Metal Cutting",
+          file: "/notes/sem3/manufacturing-processes/unit-2-theory-of-metal-cutting.pdf",
+          size: "1.0 MB",
         },
         {
           label: "Unit 3 – Welding Processes",
@@ -1289,6 +1318,16 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "Unit 5 – Drilling & Machine Tools",
           file: "/notes/sem3/manufacturing-processes/unit-5-drilling-and-machine-tools.pdf",
           size: "1.7 MB",
+        },
+      ],
+    },
+    {
+      name: "Human Resource Management & Analytics",
+      items: [
+        {
+          label: "Units 1–2 – Introduction to HRM, HR Planning & Job Analysis",
+          file: "/notes/sem3/human-resource-management/units-1-2-introduction-hr-planning-and-job-analysis.pdf",
+          size: "1.6 MB",
         },
       ],
     },
@@ -2017,6 +2056,12 @@ export interface SyllabusDoc {
 }
 
 export const syllabusDocs: SyllabusDoc[] = [
+  {
+    label: "2nd Year · Semesters III–IV",
+    scheme: "2025 Scheme (2026 Edition)",
+    file: "/syllabus/IEM-2025-2nd-year-III-IV.pdf",
+    size: "1.7 MB",
+  },
   {
     label: "2nd Year · Semesters III–IV",
     scheme: "2022 Scheme (2024 Edition)",

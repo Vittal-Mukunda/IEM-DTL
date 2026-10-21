@@ -108,7 +108,8 @@ export default function CurriculumPage() {
             Courses Offered — Semesters 3 to 8
           </h2>
           <p className="text-text-muted mb-6 max-w-2xl">
-            Every core course of the 2022 scheme, semester by semester. Open
+            Every core course, semester by semester: the 2025 scheme for
+            Semesters 3–4 and the 2022 scheme for Semesters 5–8. Open
             any course to see what it covers and who teaches it. Elective
             groups (Professional Core Electives, Institutional Electives,
             Basket and NPTEL courses) are not listed here — the full options
@@ -130,10 +131,11 @@ export default function CurriculumPage() {
             Scheme &amp; Syllabus — Downloads
           </h2>
           <p className="text-text-muted mb-6 max-w-2xl">
-            Official semester-wise scheme &amp; syllabus booklets (2022 scheme).
+            Official semester-wise scheme &amp; syllabus booklets — the 2025
+            scheme for 2nd year, alongside the 2022 scheme booklets.
             Download the full course structure, credits, and detailed syllabi.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {syllabusDocs.map((doc) => (
               <a
                 key={doc.file}
@@ -158,7 +160,7 @@ export default function CurriculumPage() {
             ))}
           </div>
           <p className="text-sm text-text-muted mt-4">
-            Also available: the{" "}
+            Also available: the 3rd- and 4th-year booklets of the{" "}
             <span className="font-medium text-primary">2025 scheme</span> and
             earlier 2021/2018 schemes from the department office. Semester-wise
             lecture notes and study material are on the{" "}

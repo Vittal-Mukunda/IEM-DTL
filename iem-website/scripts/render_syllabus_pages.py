@@ -33,22 +33,25 @@ ROOT = Path(__file__).resolve().parent.parent
 BOOKLETS = ROOT / "public" / "syllabus"
 OUT = BOOKLETS / "courses"
 
-Y2 = "IEM-2022-2nd-year-III-IV"
+Y2 = "IEM-2025-2nd-year-III-IV"   # 2025 scheme
 Y3 = "IEM-2022-3rd-year-V-VI"
 Y4 = "IEM-2022-4th-year-VII-VIII"
 
 PAGES: dict[str, tuple[str, int]] = {
-    # Semester 3
+    # Semester 3 (2025 scheme)
     "MA231TB": (Y2, 10),
-    "IM233AI": (Y2, 18),
-    "IM234AI": (Y2, 20),
-    "IM235AI": (Y2, 22),
-    # Semester 4
-    "IM241AT": (Y2, 35),
-    "IM343AI": (Y2, 43),
-    "IM244AI": (Y2, 45),
-    "IM345AT": (Y2, 47),
-    "HS248AT": (Y2, 50),
+    "CV232TA": (Y2, 12),
+    "IM233AI": (Y2, 15),
+    "IM334AI": (Y2, 18),
+    "IM335AI": (Y2, 21),
+    "IM236AT": (Y2, 23),
+    # Semester 4 (2025 scheme)
+    "IM341AT": (Y2, 45),
+    "ME242TB": (Y2, 48),
+    "IM243AI": (Y2, 50),
+    "IM244AI": (Y2, 53),
+    "IM245AT": (Y2, 56),
+    "IM248DL": (Y2, 67),
     # Semester 5
     "HS351TA": (Y3, 10),
     "IM352IA": (Y3, 13),
