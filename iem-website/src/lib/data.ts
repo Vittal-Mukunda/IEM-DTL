@@ -1804,29 +1804,29 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      // Department (professional core) electives of Sem 5 and Sem 6: EIS, Advanced Decision Modelling, Facilities Planning, Service Operations, ...
+      // Sem 5 department (professional core) electives: EIS, Advanced Decision Modelling, Discrete Event Simulation and earlier-scheme electives
       name: "Department Electives (CIE & SEE)",
       items: [
         {
           label: "CIE 1",
           file: "/notes/sem5/electives/cie-1-by-subject.pdf",
-          size: "501 KB",
+          size: "297 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem5/electives/cie-2-by-subject.pdf",
-          size: "508 KB",
+          size: "302 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem5/electives/cie-3-by-subject.pdf",
-          size: "502 KB",
+          size: "303 KB",
         },
         {
           // Hidden with the rest of the Sem 5 SEE papers.
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem5/electives/see-past-year-question-papers.pdf",
-          size: "4.3 MB",
+          size: "1.9 MB",
           hidden: true,
         },
       ],
@@ -2065,27 +2065,53 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
+      // Sem 6 department (professional core) electives: Facilities Planning, Service Operations, TQM, Design of Experiments, ...
+      name: "Department Electives (CIE & SEE)",
+      items: [
+        {
+          label: "CIE 1",
+          file: "/notes/sem6/department-electives/cie-1-all-years.pdf",
+          size: "305 KB",
+        },
+        {
+          label: "CIE 2",
+          file: "/notes/sem6/department-electives/cie-2-all-years.pdf",
+          size: "307 KB",
+        },
+        {
+          label: "CIE 3",
+          file: "/notes/sem6/department-electives/cie-3-all-years.pdf",
+          size: "325 KB",
+        },
+        {
+          label: "SEE – Past Year Question Papers",
+          file: "/notes/sem6/department-electives/see-past-year-question-papers.pdf",
+          size: "2.5 MB",
+        },
+      ],
+    },
+    {
       // Institutional electives (open to all branches): Elements of Financial Management, Mathematical Modelling, Intelligent Transport Systems, ...
       name: "Institutional Electives (CIE & SEE)",
       items: [
         {
           label: "CIE 1",
-          file: "/notes/sem6/electives/cie-1-all-years.pdf",
+          file: "/notes/sem6/institutional-electives/cie-1-all-years.pdf",
           size: "497 KB",
         },
         {
           label: "CIE 2",
-          file: "/notes/sem6/electives/cie-2-all-years.pdf",
+          file: "/notes/sem6/institutional-electives/cie-2-all-years.pdf",
           size: "469 KB",
         },
         {
           label: "CIE 3",
-          file: "/notes/sem6/electives/cie-3-all-years.pdf",
+          file: "/notes/sem6/institutional-electives/cie-3-all-years.pdf",
           size: "550 KB",
         },
         {
           label: "SEE – Past Year Question Papers",
-          file: "/notes/sem6/electives/see-past-year-question-papers.pdf",
+          file: "/notes/sem6/institutional-electives/see-past-year-question-papers.pdf",
           size: "678 KB",
         },
       ],
