@@ -1522,28 +1522,28 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      // Basket electives: Environment & Sustainability, Material Science, Biosafety
+      // All basket electives live here (Environment & Sustainability, Material Science, Biosafety), including the papers set in Sem 4
       name: "Electives (CIE & SEE)",
       items: [
         {
           label: "CIE 1",
           file: "/notes/sem3/electives/cie-1.pdf",
-          size: "277 KB",
+          size: "402 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem3/electives/cie-2.pdf",
-          size: "301 KB",
+          size: "439 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem3/electives/cie-3.pdf",
-          size: "191 KB",
+          size: "289 KB",
         },
         {
           label: "SEE – Past Year Question Papers",
           file: "/notes/sem3/electives/see-past-year-question-papers.pdf",
-          size: "275 KB",
+          size: "282 KB",
         },
       ],
     },
@@ -1696,32 +1696,6 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "SEE – Past Year Question Papers (2016–2025)",
           file: "/notes/sem4/question-papers/see-past-year-question-papers.pdf",
           size: "5.4 MB",
-        },
-      ],
-    },
-    {
-      // Basket electives: Environment & Sustainability (even-semester papers)
-      name: "Electives (CIE & SEE)",
-      items: [
-        {
-          label: "CIE 1",
-          file: "/notes/sem4/electives/cie-1.pdf",
-          size: "192 KB",
-        },
-        {
-          label: "CIE 2",
-          file: "/notes/sem4/electives/cie-2.pdf",
-          size: "204 KB",
-        },
-        {
-          label: "CIE 3",
-          file: "/notes/sem4/electives/cie-3.pdf",
-          size: "199 KB",
-        },
-        {
-          label: "SEE – Past Year Question Papers",
-          file: "/notes/sem4/electives/see-past-year-question-papers.pdf",
-          size: "93 KB",
         },
       ],
     },
