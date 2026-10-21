@@ -1,0 +1,484 @@
+\documentclass{rvcepaper}
+\begin{document}
+
+% ================= Statistics for Data Analytics
+% ---------- IM241AT CIE - II, 05/05/2025
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={05/05/2025},exam={CIE -- II},maxmarks={10 + 50},sem={IV},prog={UG},duration={30 + 90 Min},
+ title={STATISTICS FOR DATA ANALYTICS},code={IM241AT}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\qpart{Part -- A}
+\q{1.}{S$_{XX}$ = 53, S$_{XY}$ = 48, and S$_{YY}$ = 84 in a regression analysis. Then SS$_{Error}$ is given by \blank[1.8cm].}{1}{1}{3}
+\q{2.}{When a set of points are used to fit a 2\textsuperscript{nd} degree curve, \blank[1.8cm] regression is said to be performed.}{1}{1}{3}
+\q{3.}{The 90\% percent point of a $\chi^2$ variable with 9 degrees of freedom is \blank[1.8cm].}{2}{3}{3}
+\q{4.}{In linear regression the error term is distributed as \blank[1.8cm] distribution (include its parameters also).}{2}{2}{4}
+\q{5.}{When can you be confident that the regression relation is a proper one and can be used for prediction?}{2}{2}{4}
+\q{6.}{The test statistic in a test for population variance based on a given sample of size n is \blank[1.8cm] (also state what the terms are).}{1}{2}{4}
+\q{7.}{Type I error is committed when a \blank[1.5cm] hypothesis is \blank[1.5cm].}{1}{2}{4}
+\qpart{Part -- B}
+\q{1(a)}{The summarized data on 10 observations are given below.
+\[\sum_i (y_i-\hat y_i)^2 = 3.267,\quad \sum_i y_i = 63.3,\quad \sum_i y_i^2 = 423.49,\quad \sum_i x_i = 139,\quad \sum_i x_i^2 = 2239\]
+\begin{rom}
+\item Estimate $\beta_1$ and $\beta_0$ assuming positive correlation between X and Y.
+\item Obtain an estimate of the underlying variance.
+\item What is the proportion of variability explained by the regression model?
+\item Assuming normal distribution of the errors, how will a residual plot of errors vs predicted values appear in this case? (Show an indicative plot).
+\end{rom}}{12}{3}{3}
+\q{2.}{In an oil refinery, chemical reactions are observed for a set of 20 pairs of values ($x_i$, $y_i$), and the relevant quantities are derived as: $\sum x_i^2 = 130000$, $\sum y_i^2 = 88.6$, $\sum x_iy_i = 1500$, $\sum x_i = 1500$, $\sum y_i = 10$.
+\begin{abc}
+\item Compute the intercept and slope parameters and write the estimated linear regression model relating x and y.
+\item Compute the predicted value y for an input x = 85, and find the corresponding residual if the observed value is 0.8.
+\item Estimate the error variance and the proportion of variability \underline{not} explained by the model.
+\end{abc}}{10}{3}{3}
+\q{3.}{During the fall harvest season, pumpkins are sold in large quantities. Often, instead of weighing the pumpkins prior to sale, the operator will just place the pumpkin in the appropriate circular cutout on the counter. When asked why this was done, one farmer replied, ``I can tell the weight of the pumpkin from its circumference.'' To determine whether this was really true, a sample of 23 pumpkins were measured for circumference and weighed and the data is provided below.
+\qtabc{|c|c|c|c|c|c|}{\hline Circ. (cm) & Wt (g) & Circ. (cm) & Wt (g) & Circ. (cm) & Wt (g)\\\hline 50 & 1200 & 57 & 2000 & 47 & 1400\\\hline 55 & 2000 & 66 & 2500 & 51 & 1500\\\hline 54 & 1500 & 82 & 4600 & 63 & 2500\\\hline 52 & 1700 & 83 & 4600 & 33 & 500\\\hline 37 & 500 & 70 & 3100 & 43 & 1000\\\hline 52 & 1000 & 34 & 600 & 50 & 1500\\\hline 53 & 1500 & 51 & 1500 & 49 & 1600\\\hline 60 & 2300 & 59 & 2100 & & \\\hline}
+\begin{abc}
+\item Assuming a linear relationship, use the least-squares method to compute the regression coefficients $b_0$ and $b_1$.
+\item Interpret the meaning of the slope, $b_1$, in this problem.
+\item Predict the mean weight for a pumpkin that is 60 centimeters in circumference.
+\item Do you think it is a good idea for the farmer to sell pumpkins by circumference instead of weight? Explain.
+\end{abc}}{14}{3}{4}
+\q{4.}{10 values denoting the number of failed specimens per day in a load test, collected at random on 10 different days are: 100, 115, 150, 170, 90, 135, 180, 110, 150, 155. Assuming that the failed specimens follow normal distribution approximately, test if the mean number of failed specimens is at most 120, at 10\% significance.}{10}{4}{4}
+\q{5.}{What are the ways in which linear regression techniques are misused?}{4}{2}{3}
+\end{cietable}
+\end{iempaper}
+
+% ---------- IM241AT CIE - II, 22.07.2024
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={22.07.2024},exam={CIE -- II},maxmarks={50},sem={IV},prog={UG},duration={90 Min},
+ title={STATISTICS FOR DATA ANALYTICS},code={IM241AT}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\q{1}{The phone lines to an airline reservation system are occupied 40\% of the time. Assume that the events that the lines are occupied on successive calls are independent. Assume that 10 calls are placed to the airline.
+\begin{abc}\item What is the probability that for exactly three calls the lines are occupied?\item What is the probability that for at least one call the lines are not occupied?\item What is the expected number of calls in which the lines are all occupied?\end{abc}}{10}{3}{2}
+\q{2}{Printed circuit cards are placed in a functional test after being populated with semiconductor chips. A lot contains 140 cards, and 20 are selected without replacement for functional testing.
+\begin{abc}\item If 20 cards are defective, what is the probability that at least 1 defective card is in the sample?\item If 5 cards are defective, what is the probability that at least 1 defective card appears in the sample?\end{abc}}{10}{3}{2}
+\q{3}{The fill volume of an automated filling machine used for filling cans of carbonated beverage is normally distributed with a mean of 12.4 fluid ounces and a standard deviation of 0.1 fluid ounce.
+\begin{abc}\item What is the probability a fill volume is less than 12 fluid ounces?\item If all cans less than 12.1 or greater than 12.6 ounces are scrapped, what proportion of cans is scrapped?\item Determine specifications that are symmetric about the mean that include 99\% of all cans.\end{abc}}{10}{4}{3}
+\q{4}{The time between the arrival of electronic messages at your computer is exponentially distributed with a mean of two hours.
+\begin{abc}\item What is the probability that you do not receive a message during a two-hour period?\item If you have not had a message in the last four hours, what is the probability that you do not receive a message in the next two hours?\item What is the expected time between your fifth and sixth messages?\end{abc}}{10}{3}{3}
+\q{5}{A pharmaceutical company is testing a new drug, and historically, 80\% of patients have shown improvement after using this drug. If a sample of 12 patients is selected, what is the probability that at least 10 patients will show improvement?}{10}{2}{4}
+\end{cietable}
+\end{iempaper}
+
+% ---------- 21IM41 CIE - II, 21st August 2023
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING AND MANAGEMENT},date={21\textsuperscript{st} August 2023},exam={CIE -- II},maxmarks={50},sem={IV},prog={UG},duration={90 Min},
+ title={STATISTICS FOR DATA ANALYTICS},code={21IM41},note={Use of statistical tables permitted.}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\q{1.}{BBMP in Bangalore city has installed 2000 electric lamps for street lighting in an area. These lamps have a mean burning life of 1000 hours with a standard deviation of 200 hours. Assume normal distribution is a close approximation to this case.
+\begin{rom}\item What is the probability that a lamp will fail in the first 700 burning hours?\item What is the probability that a lamp will fail between 900 and 1300 burning hours?\item How many lamps are expected to fail between 900 and 1300 burning hours?\item What is the probability that a lamp will burn for exactly 900 hours?\item What is the probability that a lamp will burn between 899 hours and 901 hours before it fails?\item After how many burning hours would we expect 10\% of the lamps to be left?\end{rom}}{15}{3}{3}
+\q{2.}{Data for an increase in blood pressure, y (in mm of Hg) versus sound level exposure, x (in decibels) are given below for 20 instances:
+\qtabc{|c|*{10}{c|}}{\hline x & 60 & 63 & 65 & 70 & 70 & 70 & 80 & 90 & 80 & 80\\\hline y & 1 & 0 & 1 & 2 & 5 & 1 & 4 & 6 & 2 & 3\\\hline x & 85 & 89 & 90 & 90 & 90 & 90 & 90 & 100 & 100 & 100\\\hline y & 5 & 4 & 6 & 8 & 4 & 5 & 7 & 9 & 7 & 6\\\hline}
+\begin{rom}\item Draw a scatter diagram of y v/s x. Does a simple linear regression model seem reasonable?\item Fit the simple linear regression model using least squares. Find an estimate of $\sigma^2$.\item Find the predicted blood pressure at a sound level of 85 dB. What is the residual in this case?\item Find the predicted blood pressure at a sound level of 75 dB and 105 dB.\end{rom}}{15}{3}{3}
+\q{3.}{For a set of 20 pairs of values ($x_i$, $y_i$), $\sum x_i^2 = 29.29$, $\sum y_i^2 = 170044.53$, $\sum x_iy_i = 2214.66$, $\sum x_i = 23.92$, $\sum y_i = 1843.21$. Write the regression line equation. Subsequently it was found that the values for the pair ($x_{20}$, $y_{20}$) = (2, 90) was actually wrong and the correct pair ($x_{20}$, $y_{20}$) = (0, 60) was inserted in the set after deleting the wrong pair. Write the new regression line equation. What is the residual at x = 0 with the corrected data set?}{10}{4}{2}
+\q{4.}{The diameter of the dot produced by a printer is normally distributed with a mean diameter of 0.002 inch and a standard deviation of 0.0004 inch.
+\begin{rom}\item What is the probability that the diameter of a dot exceeds 0.0026 inch?\item What is the probability that a diameter is between 0.0014 and 0.0028 inch?\item What is the probability that the diameter of a dot measures at most 0.0024 inch?\item What standard deviation of diameters is needed so that the probability in part (ii) is 0.995?\end{rom}}{10}{3}{3}
+\end{cietable}
+\end{iempaper}
+
+% ================= CAD/CAM & Robotics
+% ---------- IM343AI CIE - II, 5th May 2025
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={5\textsuperscript{th} May 2025},exam={CIE -- II},maxmarks={10 + 50},sem={IV},prog={UG},duration={30 + 90 Min},
+ title={CAD/CAM \& ROBOTICS},code={IM343AI}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\qpart{Part -- A}
+\q{1.}{What is rendering in computer graphics?}{2}{1}{1}
+\q{2.}{Why is the complexity of Bresenham's line drawing algorithm less than that of DDA line drawing algorithm?}{2}{2}{1}
+\q{3.}{List any two features of fixed automation.}{2}{1}{1}
+\q{4.}{What is the difference between Mechanization and Automation?}{2}{2}{3}
+\q{5.}{List two common reasons for adopting Automation.}{2}{2}{3}
+\qpart{Part -- B}
+\q{1}{Express a line from (5, 5) to (13, 9) on a raster screen using Bresenham's Line Drawing Algorithm. Show the result in a Cartesian graph.}{10}{3}{1}
+\q{2}{What is scan conversion in computer graphics? Explain how lines and polygons are scan converted.}{10}{2}{1}
+\q{3}{After automation in a packaging unit, several workers lost their jobs. There's rising concern about unemployment and skill mismatch. Discuss the social challenges caused by automation. Suggest how these issues can be mitigated.}{10}{3}{3}
+\q{4}{A beverage bottling plant uses high-speed equipment that fills, caps, and labels bottles on a continuous production line. The system is dedicated to a single type of bottle and product. Identify and explain the type of automation used in this plant. Discuss its advantages and limitations in high-volume production.}{10}{3}{3}
+\q{5}{A manufacturing plant wants to implement automation in stages to minimize disruption and investment risk. Outline different strategies for automation and explain which would best suit a gradual transition.}{10}{2}{3}
+\end{cietable}
+\end{iempaper}
+
+% ---------- IM343AI CIE - II, 22nd July 2024
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={22\textsuperscript{nd} July 2024},exam={CIE -- II},maxmarks={50},sem={IV},prog={UG},duration={90 Min},
+ title={CAD/CAM \& ROBOTICS},code={IM343AI}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\q{1}{With the help of a block diagram explain the application of computer in design process.}{10}{1}{1}
+\q{2}{Express a line from (2, 3) to (6, 15) on a raster screen using Bresenham's Line Drawing Algorithm. Show the result in a Cartesian graph.}{10}{3}{1}
+\q{3}{YY Industry manufactures Automotive products with existing setup which has got 5 CNC turning centers and 5 CNC milling centers and 2 Robots. Can the Industry start manufacturing medical equipment's in the same set up? And suggest a suitable automation technique which is used in medical Industry.}{10}{2}{3}
+\q{4}{Productive uses of automation often involve people and technology working in parallel to complement one another. Automation in manufacturing is a means to keep the process moving from step to step from cycle to cycle without a human being having to intervene. We hear automation and we think\ldots robots? Manufacturers are using significantly more robots, but five/three axis machining is also automation and is Automation replacing the people. Comment.}{10}{3}{3}
+\q{5}{How does an assessment of the Productivity Level being checked in Low Cost Automation.}{10}{2}{3}
+\end{cietable}
+\end{iempaper}
+
+% ---------- 21IM43 CIE - II, 23rd August 2023
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING AND MANAGEMENT},date={23\textsuperscript{rd} August 2023},exam={CIE -- II},maxmarks={50},sem={IV},prog={UG},duration={90 Min},
+ title={CAD/CAM \& ROBOTICS},code={21IM43}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\q{1.}{The process of designing something is characterized by Shigley as an interactive procedure which consists of six identifiable steps. Elaborate the steps with block diagram.}{10}{1}{1}
+\q{2.}{Express a line from (12, 14) to (22, 18) on a raster screen using Bresenham's Line Drawing Algorithm. Show the result in a Cartesian graph.}{10}{3}{2}
+\q{3.}{Derive Bresenham's circle Drawing Algorithm. Considering Bresenham's circle Drawing Algorithm draw a circle with radius 14 and centre (2, 2).}{10}{1}{2}
+\q{4.}{Identify major socio-economic considerations favoring automation.}{10}{2}{3}
+\q{5.}{How does an assessment of the Productivity Level being checked in Low Cost Automation.}{10}{2}{3}
+\end{cietable}
+\end{iempaper}
+
+% ================= Operations Research
+% ---------- IM244AI CIE - II A, 06/05/2025
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={06/05/2025},exam={CIE -- II A},maxmarks={10 + 50},sem={IV},prog={UG},duration={30 + 90 Min},
+ title={OPERATIONS RESEARCH},code={IM244AI}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\qpart{Part -- A}
+\q{1.}{A transportation problem is said to be \blank[1.8cm] if total supply is equal to total demand.}{1}{1}{2}
+\q{2.}{In the transportation problem, the \blank[1.8cm] method is used to find an initial basic feasible solution based on the lowest cost.}{1}{2}{2}
+\q{3.}{The \blank[1.8cm] gives a better initial basic feasible solution compared to other methods.}{1}{1}{2}
+\q{4.}{If the number of allocations in a basic feasible solution is less than m + n $-$ 1, the solution is said to be \blank[1.8cm].}{1}{2}{2}
+\q{5.}{The \blank[1.8cm] method is used to check the optimality of a transportation solution.}{1}{2}{2}
+\q{6.}{The assignment problem can be viewed as a special case of the \blank[1.8cm] problem.}{1}{1}{2}
+\q{7.}{The \blank[1.8cm] method ensures that only one task is assigned to one person.}{1}{1}{2}
+\q{8.}{Variants of the assignment problem include \blank[1.8cm] assignment and multiple assignment problems.}{1}{2}{2}
+\q{9.}{The \blank[1.8cm] problem is NP-hard and cannot be solved by the Hungarian method directly.}{1}{2}{2}
+\q{10.}{\blank[1.8cm] tools like Excel Solver or Python libraries can be used to demonstrate assignment and transportation problems.}{1}{2}{2}
+\qpart{Part -- B}
+\q{1}{Explain the formulation and general structure of a transportation problem with a suitable example.}{10}{2}{2}
+\q{2}{With reference to a transportation problem define the following terms:
+\begin{rom}\item Feasible solution\item Basic feasible solution\item Optimal solution\item Non-degenerate basic feasible solution\end{rom}}{10}{2}{2}
+\q{3}{A solicitors' firm employs typists on hourly piece-rate basis for their daily work. There are five typists and their charges and speed are different. According to an earlier understanding only one job was given to one typist and the typist was paid for a full hour, even if he worked for a fraction of an hour. Find the least cost allocation for the following data:
+\qtabc{|c|c|c|c|c|c|}{\hline Typist & Rate per hour & No. of Pages & Job & \multicolumn{2}{c|}{No. of Pages (Rs) Typed/Hour}\\\hline A & 5 & 12 & P & \multicolumn{2}{c|}{199}\\\hline B & 6 & 14 & Q & \multicolumn{2}{c|}{175}\\\hline C & 3 & 8 & R & \multicolumn{2}{c|}{145}\\\hline D & 4 & 10 & S & \multicolumn{2}{c|}{298}\\\hline E & 4 & 11 & T & \multicolumn{2}{c|}{178}\\\hline}}{15}{3}{2}
+\q{4}{A factory manager is considering the most economical schedule to transport cement from his three manufacturing centers 1, 2 and 3 to deposit I, II, III, IV and V. The weekly production and demand along with the transportation cost per ton (Rs.) are given below:
+\qtabc{|c|c|c|c|c|c|c|}{\hline & \multicolumn{5}{c|}{To} & Supply\\\cline{2-6} From & I & II & III & IV & V & \\\hline 1 & 4 & 1 & 3 & 4 & 4 & 60\\\hline 2 & 2 & 3 & 2 & 2 & 3 & 35\\\hline 3 & 3 & 3 & 2 & 4 & 4 & 40\\\hline Demand & 22 & 45 & 20 & 18 & 30 & \\\hline}
+What should be the distribution schedule?}{10}{3}{2}
+\q{5}{Describe variants of the assignment problem.}{5}{2}{2}
+\end{cietable}
+\end{iempaper}
+
+% ---------- IM244AI CIE - II, 23rd July 2024
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={23\textsuperscript{rd} July 2024},exam={CIE -- II},maxmarks={50},sem={IV},prog={UG},duration={90 Min},
+ title={OPERATIONS RESEARCH},code={IM244AI}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\q{1}{A salesman travels from one place to another; he cannot, however, travel from one place and back. The distances (in km) between pairs of cities are given below:
+\qtabc{|c|c|c|c|c|}{\hline & \multicolumn{4}{c|}{To}\\\cline{2-5} From & P & Q & R & S\\\hline P & $\infty$ & 15 & 25 & 20\\\hline Q & 22 & $\infty$ & 45 & 55\\\hline R & 40 & 30 & $\infty$ & 25\\\hline S & 20 & 25 & 38 & $\infty$\\\hline}
+The problem is to chalk out a route which enables him to visit each of the cities only once, so that the total distance covered by him is minimum.}{10}{2}{2}
+\q{2}{A project with activities and predecessor are given in the following table:
+\qtabc{|l|*{10}{c|}}{\hline Activity & A & B & C & D & E & F & G & H & I & J\\\hline Predecessor & -- & A & B & C & C & C & D & F & E & E\\\hline Duration & 2 & 4 & 10 & 7 & 4 & 6 & 8 & 7 & 5 & 9\\\hline Activity & K & L & M & N & O & P & Q & R & S & T\\\hline Predecessor & H & I & G,F & G,F & J,K & M & N & O & P,Q & S,R\\\hline Duration & 9 & 8 & 5 & 4 & 2 & 6 & 6 & 4 & 4 & 5\\\hline}
+\begin{rom}\item Draw the network diagram\item Find the critical path and total project duration.\end{rom}}{10}{3}{3}
+\q{3}{Using the information given in question number 2,
+\begin{rom}\item Find early start and early finish, late start and late finish of all activity\item Calculate total float, free float and independent float for all activities.\end{rom}}{10}{3}{3}
+\q{4}{Consider the following project:
+\qtabc{|l|*{7}{c|}}{\hline Activity & A & B & C & D & E & F & G\\\hline Precedence & -- & -- & A & B & B & C,D & E\\\hline Optimistic Time & 3 & 2 & 2 & 2 & 1 & 4 & 1\\\hline Most Likely Time & 6 & 5 & 4 & 3 & 3 & 6 & 5\\\hline Pessimistic Time & 9 & 8 & 6 & 10 & 11 & 8 & 15\\\hline}
+\begin{rom}\item Draw the network of the above project, calculate the expected time and variance for all the activities.\item Identify the critical path and determine the project duration.\item Find the probability that the project will be completing in 18 weeks.\end{rom}}{10}{4}{4}
+\q{5}{Differentiate between CPM and PERT with reference to the following:
+\begin{rom}\item Meaning\item Orientation\item Evolution\item Model\item Estimates\end{rom}}{10}{2}{2}
+\end{cietable}
+\end{iempaper}
+
+% ---------- IM244AI CIE - 2 Quiz, 23rd July 2024
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={23\textsuperscript{rd} July 2024},exam={CIE -- 2 (Quiz)},maxmarks={10},sem={IV},prog={UG},duration={30 Min},
+ title={OPERATIONS RESEARCH},code={IM244AI}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\q{1}{A salesman needs to visit four cities: P, Q, R, and S. The distances between the cities are: PQ = 8 miles, QR = 12 miles, RS = 9 miles, SP = 15 miles. What is the approximate minimum total distance the salesman must travel to visit each city?}{2}{1}{1}
+\q{2}{A project has two tasks: S and T. Task S takes 8 days, and Task T takes 4 days. If both tasks start simultaneously, but Task T is dependent on Task S, what is the slack time for Task T?}{2}{2}{2}
+\q{3}{Using the following data, what is the total project variance?
+\qtabc{|c|c|c|c|c|}{\hline Activity & a & m & b & Predecessors\\\hline A & 6 & 10 & 14 & --\\\hline B & 8 & 9 & 13 & A\\\hline C & 4 & 12 & 20 & A\\\hline D & 6 & 8 & 10 & B,C\\\hline}}{2}{3}{3}
+\q{4}{One common heuristic used to approximate solutions to the TSP is the \blank[2.2cm] algorithm, which builds a solution step by step by repeatedly selecting the shortest edge that connects a previously included city to a new city.}{2}{2}{2}
+\q{5}{Network is the graphical display of a project that contains both \blank[2cm] and \blank[2cm].}{2}{2}{2}
+\end{cietable}
+\end{iempaper}
+
+% ================= Marketing Management
+% ---------- IM345AT CIE - II, 26.05.2026 (Set 1)
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={26.05.2026},exam={CIE -- II (Set 1)},maxmarks={10 + 50},sem={IV},prog={UG},duration={30 + 90 Min},
+ title={MARKETING MANAGEMENT},code={IM345AT}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\qpart{Part -- A}
+\q{1}{What is meant by data-driven audience insight in Social Media Marketing?}{2}{--}{--}
+\q{2}{List any four elements required for creating an effective social media campaign.}{2}{--}{--}
+\q{3}{List any four important features available in Google Analytics for website performance tracking.}{2}{--}{--}
+\q{4}{Define Web Analytics and mention its importance in digital marketing activities.}{2}{--}{--}
+\q{5}{What is meant by campaign analysis in E-mail Marketing?}{2}{--}{--}
+\qpart{Part -- B}
+\q{1}{Analyse how the Facebook Algorithm Filter evaluates content distribution. What specific practices are penalized (filtered out) and which ones are rewarded (propelled through)?}{10}{--}{--}
+\q{2}{Based on ``The Content Lifecycle Matrix,'' how should a marketer adjust the objective, tone, and format of their content as a prospect transitions from the Early-Stage to the Late-Stage?}{10}{--}{--}
+\q{3}{Differentiate between traditional marketing analysis and web analytics-based marketing analysis with suitable examples.}{10}{--}{--}
+\q{4}{Design an E-mail Marketing plan for a newly launched online business targeting college students.}{10}{--}{--}
+\q{5}{Evaluate the challenges faced in maintaining successful E-mail Marketing campaigns and suggest suitable solutions to improve campaign performance.}{10}{--}{--}
+\end{cietable}
+\end{iempaper}
+
+% ---------- IM345AT CIE - II, 26.05.2026 (Set 2)
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={26.05.2026},exam={CIE -- II (Set 2)},maxmarks={10 + 50},sem={IV},prog={UG},duration={30 + 90 Min},
+ title={MARKETING MANAGEMENT},code={IM345AT}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\qpart{Part -- A}
+\q{1}{Define Click Through Rate (CTR) in E-mail Marketing.}{2}{--}{--}
+\q{2}{What is Bounce Rate in Web Analytics and how does it affect website performance evaluation?}{2}{--}{--}
+\q{3}{List any four advantages of E-mail Marketing over traditional marketing methods.}{2}{--}{--}
+\q{4}{Define campaign optimization in Social Media Marketing and mention its purpose.}{2}{--}{--}
+\q{5}{List any four benefits of using social media platforms for business marketing and customer engagement.}{2}{--}{--}
+\qpart{Part -- B}
+\q{1}{Explain the stages of ``The Customer Lifecycle Orbit'' and discuss the statistical differences in selling to new prospects versus existing customers.}{10}{--}{--}
+\q{2}{Detail the ``4 Rs of Content Scaling.'' How does this strategic framework help marketers maximize the use of their content assets?}{10}{--}{--}
+\q{3}{Create a strategy to integrate Web Analytics and E-mail Marketing for improving customer engagement and business growth.}{10}{--}{--}
+\q{4}{Analyse the effectiveness of an E-mail Marketing campaign using KPIs such as open rate, click-through rate, unsubscribe rate, and conversion rate.}{10}{--}{--}
+\q{5}{Analyse how the Facebook Algorithm Filter evaluates content distribution. What specific practices are penalized (filtered out) and which ones are rewarded (propelled through)?}{10}{--}{--}
+\end{cietable}
+\end{iempaper}
+
+% ---------- IM345AT CIE - II, 07.05.2025
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={07.05.2025},exam={CIE -- II},maxmarks={10 + 50},sem={IV},prog={UG},duration={30 + 90 Min},
+ title={MARKETING MANAGEMENT},code={IM345AT}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\qpart{Part -- A}
+\q{1}{Why is keyword research important in SEO?}{2}{2}{1}
+\q{2}{Differentiate between On-site SEO and Off-site SEO.}{2}{2}{1}
+\q{3}{What is the purpose of optimizing organic search rankings in SEO?}{2}{2}{1}
+\q{4}{Name any two popular web analytics tools other than Google Analytics.}{2}{1}{2}
+\q{5}{What is the main purpose of using Google Analytics?}{2}{1}{2}
+\qpart{Part -- B}
+\q{1}{Explain the importance of social media marketing for businesses today. How can businesses integrate social media platforms into their overall marketing strategy?}{10}{2}{3}
+\q{2}{Compare the roles of Facebook, Instagram, LinkedIn, and Twitter in social media marketing. How should a business choose the right platform?}{10}{3}{3}
+\q{3}{Analyse the differences between on-site and off-site SEO techniques. Provide examples for each.}{10}{3}{3}
+\q{4}{Explain the role of web analytics in digital marketing. How can businesses benefit from analysing website data?}{10}{2}{2}
+\q{5}{Develop a basic strategy to set up Google Analytics for a new e-commerce website. What key metrics should be tracked?}{10}{4}{4}
+\end{cietable}
+\end{iempaper}
+
+% ---------- IM345AT CIE - II, 24th July 2024
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={24\textsuperscript{th} July 2024},exam={CIE -- II},maxmarks={50},sem={IV},prog={UG},duration={90 Min},
+ title={MARKETING MANAGEMENT},code={IM345AT}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\q{1}{What are the key metrics used to measure organic search ranking? How can businesses monitor and improve these metrics over time? Describe the process of conducting an SEO audit and implementing changes to optimize organic search ranking.}{10}{2}{2}
+\q{2}{An educational institution is struggling to rank for competitive keywords related to online courses. Conduct an SEO audit of their website, identify key issues affecting organic search ranking, and recommend actionable solutions.}{10}{3}{2}
+\q{3}{You are writing a blog post about a complex technical topic. Describe how you would integrate relevant keywords naturally into the content while ensuring it remains engaging and informative for readers.}{10}{3}{2}
+\q{4}{Describe the importance of audience segmentation and personalization in email marketing. Provide a step-by-step guide on how to segment an audience effectively and personalize email content based on segmentation criteria. Use relevant examples to support your explanation.}{10}{2}{3}
+\q{5}{Imagine you are a marketing manager for a startup selling organic skincare products. Develop a case study outlining the steps you would take to create and execute an effective e-mail campaign to launch a new product line. Include specific goals, target audience segmentation, content strategy, and metrics for success.}{10}{3}{3}
+\end{cietable}
+\end{iempaper}
+
+% ---------- IM345AT CIE - II Quiz, 24th July 2024
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={24\textsuperscript{th} July 2024},exam={CIE -- II (Quiz)},maxmarks={10},sem={IV},prog={UG},duration={30 Min},
+ title={MARKETING MANAGEMENT},code={IM345AT}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\qpart{Part -- A}
+\q{1}{Name two technical aspects of a website that can significantly impact its organic search ranking.}{2}{2}{2}
+\q{2}{Define SEO and explain why it is important for online businesses.}{2}{2}{2}
+\q{3}{What are two key considerations when writing SEO-friendly content for web pages?}{2}{2}{2}
+\q{4}{You are tasked with creating an effective email campaign to promote a summer sale for a fashion brand. Describe two strategies you would employ to increase open rates and click-through rates for the campaign.}{2}{2}{3}
+\q{5}{After conducting an email marketing campaign for a travel agency, outline two specific metrics you would analyze to assess the campaign's performance.}{2}{2}{3}
+\end{cietable}
+\end{iempaper}
+
+% ---------- 21IM44 CIE - II, 22nd August 2023
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={22\textsuperscript{nd} August 2023},exam={CIE -- II},maxmarks={50},sem={IV},prog={UG},duration={90 Min},
+ title={MARKETING MANAGEMENT},code={21IM44}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\q{1.}{Compare and contrast on-page SEO and off-page SEO techniques, providing examples of each.}{10}{2}{1}
+\q{2.}{Discuss the key metrics used to measure the success of a social media marketing campaign and explain why these metrics are important for evaluating performance.}{10}{2}{2}
+\q{3.}{Explain the importance of social listening and monitoring in social media marketing, and how it can help businesses manage their online reputation effectively.}{10}{3}{2}
+\q{4.}{Analyze the significance of bounce rate, exit rate, and average session duration as essential metrics in evaluating website engagement and user behavior.}{10}{3}{3}
+\q{5.}{Take any product of your choice and identify any one social media to market your product. Give justification for the selection of the social media.}{10}{2}{1}
+\end{cietable}
+\end{iempaper}
+
+% ================= Universal Human Values
+% ---------- HS248AT CIE - II (Quiz and Test), 7th May 2025
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={7\textsuperscript{th} May 2025},exam={CIE -- II (Quiz and Test)},maxmarks={25 + 5},sem={IV},prog={UG},duration={60 Min},
+ title={UNIVERSAL HUMAN VALUES},code={HS248AT}}
+\iemhead
+\begin{cietable}{M}{BT}{CO}
+\qpart{Part -- A \hfill (5 Marks)}
+\q{1.}{Which of the following is considered the foundation of a strong human relationship?
+\begin{abc}\item Intelligence\item Trust\item Wealth\item Appearance\end{abc}}{1}{1}{1}
+\q{2.}{Disrespect arising out of
+\begin{abc}\item Lack of communication\item Lack of knowledge\item Differentiation leading to Discrimination\item Lack of Wealth\end{abc}}{1}{1}{2}
+\q{3.}{Care is the feeling
+\begin{abc}\item of responsibility and commitment for nurturing and protection of the Body of my relative.\item of responsibility and providing facility for nurturing and protection of the Body of my relative.\item of responsibility of making the other feel comfortable with respect to Body of my relative.\item of showing affection to the Body of my relative.\end{abc}}{1}{1}{2}
+\q{4.}{Fulfilment of relationship means
+\begin{abc}\item Making effort for self development, i.e. development of one's own competence\item Making effort for mutual development, i.e. development of one's own competence and being of help to the other in developing their competence\item Making effort for mutual understanding, i.e. understanding of one's own competence and being of help to the other in understanding their competence\item Making effort for mutual in acquiring prosperity\end{abc}}{1}{1}{3}
+\q{5.}{With the complete understanding of respect
+\begin{abc}\item we can see for every individual on the earth that we all are the same in terms of intelligent, prosperity and status.\item we can see for every individual on the earth that we all are the same in terms of Knowledge, family, society.\item we can see for every individual on the earth that we all are the same in terms of competence, prosperity and status.\item we can see for every individual on the earth that we all are the same in terms of intention, program and potential.\end{abc}}{1}{1}{1}
+\qpart{Part -- B}
+\q{1}{Justify the following (i) Relationship is between one Self (I1) and another Self (I2), (ii) feelings in relationship -- in one Self (I1) for the other Self (I2).}{5}{1}{1}
+\q{2}{Distinguish between Intention and Competence with respect to Trust with suitable example.}{5}{2}{3}
+\q{3}{The complete content of respect is to be able to see that `the other is similar to me and we are complementary'. Define complementary in this context.}{5}{1}{1}
+\q{4}{Disrespect arises out of differentiation leading to discrimination on the basis of body, physical facility or beliefs. Illustrate with an example.}{5}{2}{2}
+\q{5}{Illustrate the natural acceptance values in relationship with an example for each (i) Reverence (ii) Glory.}{5}{1}{3}
+\end{cietable}
+\end{iempaper}
+
+% ================= Basket / other-department courses
+% ---------- ME242TB Materials Science for Engineers, CIE - 2, 06th May 2025
+\begin{xpaper}
+\paperinfo{deptline={Department of Mechanical Engineering},date={06\textsuperscript{th} May 2025},exam={CIE -- 2},maxmarks={10 + 50},sem={IV},prog={UG},duration={2 Hrs},
+ title={Materials Science for Engineers},code={ME242TB}}
+\xhead
+\begin{xtable}{Questions}
+\qpart{Part A}
+\q{1}{The stress at which a material begins to deform plastically is called the \blank[1.8cm].}{1}{1}{2}
+\q{2}{Piezoelectric materials generate an electric charge in response to applied \blank[1.8cm].}{1}{1}{2}
+\q{3}{\blank[1.8cm] deformation is fully recoverable when the load is removed.}{1}{1}{2}
+\q{4}{Define optoelectronics with an example.}{2}{2}{2}
+\q{5}{The property of a material that enables it to absorb energy and plastically deform without fracturing is called \blank[1.8cm].}{1}{1}{2}
+\q{6}{In which type of semiconductors the electrical behavior is dominated by impurities?}{1}{1}{2}
+\q{7}{\blank[1.8cm] are materials used in joint replacements due to their compatibility with biological tissues.}{1}{1}{2}
+\q{8}{Cement and concrete are widely used \blank[1.8cm] materials in construction.}{1}{1}{2}
+\q{9}{Fiber-reinforced composites are formed by embedding fibers in a \blank[1.8cm] matrix.}{1}{1}{2}
+\qpart{Part B}
+\q{1}{Explain the working principle of ferroelectricity and piezoelectricity with suitable examples, list their applications.}{10}{3}{2}
+\q{2}{Describe how superconductors and optical fibres work and list their practical applications.}{10}{2}{2}
+\q{3}{Draw and interpret a stress-strain curve for a ductile material.}{10}{3}{2}
+\q{4}{Classify polymers and explain their properties with examples and applications.}{10}{2}{2}
+\q{5}{Write short notes on the following materials: write the composition, grades / types and applications
+\begin{rom}\item Copper Alloys\item Cement\item Glass\end{rom}}{10}{2}{2}
+\end{xtable}
+\end{xpaper}
+
+% ---------- ME242AT Material Science for Engineers, CIE - II, 22nd July 2024
+\begin{xpaper}
+\paperinfo{deptline={Department of Mechanical Engineering},date={22\textsuperscript{nd} July 2024},exam={CIE -- II},maxmarks={50 + 10},sem={IV},prog={UG},duration={120 Min},
+ title={Material Science for Engineers},code={ME242AT}}
+\xhead
+\begin{xtable}{Questions}
+\qpart{Part A}
+\q{1}{Photodiodes serve as \blank[1.8cm] in optical communication systems.}{1}{1}{2}
+\q{2}{A light controlled variable resistor, whose resistance decreases with increasing incident light intensity is known as \blank[1.8cm].}{1}{1}{2}
+\q{3}{Name the fundamental semiconductor devices that act as amplifiers or switch.}{1}{1}{2}
+\q{4}{The insulating materials having ability to store and support the transmission of electric charge without conducting it are known as \blank[1.8cm].}{1}{1}{2}
+\q{5}{Name the alloying element mainly responsible for the high corrosion resistance property in stainless steel.}{1}{1}{2}
+\q{6}{Mention two advantages of non-ferrous alloys over the ferrous alloys.}{2}{1}{2}
+\q{7}{The process involves shaping a material by forcing it through a die to create a specific cross-sectional shape is known as \blank[1.8cm].}{1}{1}{2}
+\q{8}{Name the type of polymer which become soft upon heating and become hard and rigid on cooling also do not have cross linking and branching.}{1}{1}{2}
+\q{9}{Give an example of natural composites.}{1}{1}{2}
+\qpart{Part B}
+\q{1}{Illustrate the working principle and state the applications of the following optoelectronic devices: i) LED ii) Photo resistor iii) photo transistor.}{10}{3}{2}
+\q{2a}{List any five common dielectric materials along with their applications.}{5}{2}{2}
+\q{2b}{Explain the effects of different alloying elements on steel.}{5}{3}{2}
+\q{3}{Explain the properties and applications of following materials with examples. i) Polymers ii) Metal matrix composites.}{10}{3}{2}
+\q{4}{Illustrate the properties and applications of four types of cast iron.}{10}{3}{2}
+\q{5a}{Explain the metal casting process. Write the advantages and disadvantages of any two casting processes.}{5}{3}{2}
+\q{5b}{Write the properties and applications of bio-materials.}{5}{2}{2}
+\end{xtable}
+\end{xpaper}
+
+% ---------- BT242TC Biosafety Standards and Ethics, Test - 2, May 6th 2025
+\begin{xpaper}
+\paperinfo{deptline={Department of Biotechnology},date={May 6\textsuperscript{th} 2025},exam={Closed Book Offline Test -- 2},maxmarks={60},sem={IV},prog={UG},duration={120 Min},
+ title={Bio Safety Standards and Ethics (Basket Course)},code={BT242TC}}
+\xhead
+\begin{xtable}{Part A -- Questions (Quiz)}
+\q{1}{HACCP is a joint management system developed by \blank[1.8cm] and \blank[1.8cm].}{2}{2}{3}
+\q{2}{A man found a copper wire in pizza and human finger in ice cream. Mention the different types of the hazards.}{2}{2}{3}
+\q{3}{Mention the 2-hour and 4-hour rule for food storage.}{2}{2}{3}
+\q{4}{Decode the fssai license number of campa cola (Lic. No. 10012022000857).}{2}{2}{4}
+\q{5}{Expand the term GAP and GHP give its importance.}{2}{2}{4}
+\end{xtable}
+\par\vspace{4pt}
+\begin{xtable}{Part B -- Questions (Test)}
+\q{1--3}{In the wheat processing from farm to customer, the following steps are involved. (ANSWER Q1, Q2, Q3)
+\begin{abc}\item Farmers spend time planting seeds, checking for disease and monitoring plant health until harvest. Combines harvest the wheat kernels, which are then loaded into a semi-truck.\item The harvested grain is sold at market price to a local grain elevator. The elevator can store the grain until the right market price, or it can sell it.\item Country elevators sell their grain to terminal elevators, which clean, separate and maintain the value of the grain. The grain is then sold to flour millers for domestic consumption, or it is loaded into ships bound for overseas markets.\item The flour mills grind the grain into different types of flour --- whole wheat, all-purpose, bread flour, etc. The mills can also use the flour to make ready-to-eat products. Both the flour and wheat products are shipped to grocery stores and other food retailers.\item Bakers and chefs also use flour to make a wide variety of delicacies. Consumers can either buy these products, or buy flour produced by the flour mills to make their own creations at home.\end{abc}
+Finally, wheat products make their way to your table. These products are essential to many holidays and celebrations and go through a safe process to get to you. Whenever you purchase breads, buns, pizza, rotis think of a wheat farmer and all of those in between.}{}{}{}
+\q{1}{Identify and elaborate on the type of hazard in each step of the wheat processing.}{7}{1}{3}
+\q{2}{Mention and justify the elimination method for identified hazard during the wheat processing.}{6}{2}{3}
+\q{3}{How we can implement the HACCP for the wheat processing.}{7}{2}{3}
+\q{4}{Illustrate on various Techniques that take place in a food testing laboratory.}{10}{3}{3}
+\q{5}{Elaborate on food borne diseases and food allergens.}{10}{3}{4}
+\q{6}{Justify GMP and GLP in food processing.}{10}{4}{3}
+\end{xtable}
+\end{xpaper}
+
+% ---------- BT242AT Bio Safety Standards and Ethics, Quiz and Test - 2, July 23, 2024
+\begin{xpaper}
+\paperinfo{deptline={Department of Biotechnology},date={July 23, 2024},exam={Closed Book Offline Quiz and Test -- 2},maxmarks={10 + 50},sem={IV},prog={UG},duration={120 Min},
+ title={Bio Safety Standards and Ethics (Basket Course)},code={BT242AT}}
+\xhead
+\begin{xtable}{Questions}
+\qpart{Part A}
+\q{1}{In food, the term used for disease causing microorganism is referred as \blank[1.8cm].}{1}{2}{3}
+\q{2}{Mention the temperature range which is optimum for bacterial growth in food.}{1}{1}{4}
+\q{3}{What is the 6\textsuperscript{th} principle of HACCP?}{1}{2}{3}
+\q{4}{Mention the instrument used to multiply the DNA.}{1}{1}{3}
+\q{5}{Mention the concentration of the lead in food as per the limit for lead in food as per FSSAI.}{1}{2}{3}
+\q{6}{Mention any two food certification followed in the world.}{1}{2}{3}
+\q{7}{Expand the term GAP.}{1}{2}{4}
+\q{8}{People, premises, processes, products and procedures is related to \blank[1.8cm].}{1}{3}{4}
+\q{9}{Mention any two examples for microbiological contamination.}{1}{2}{3}
+\q{10}{Mention the number of Licenses issued by FSSAI.}{1}{2}{3}
+\qpart{Part B}
+\q{1}{Mention the physical, chemical, and biological hazardous material which contaminate the food.}{10}{2}{3}
+\q{2}{Expand the term FSSAI, illustrate its functions, importance \& type of license issued by them.}{10}{3}{3}
+\q{3}{Discuss various methods to eliminate the chemical, Biological and physical hazardous materials from food.}{10}{3}{3}
+\q{4}{Expand the term HACCP and explain in detail the principles of HACCP.}{10}{3}{3}
+\q{5a}{List out the food spoilage microorganisms and explain the diseases caused by them.}{5}{3}{4}
+\q{5b}{Mention the GMP and GLP in maintaining the food hygiene.}{5}{3}{4}
+\end{xtable}
+\end{xpaper}
+
+% ---------- CV242TA Environment and Sustainability, Quiz 2 and Test - 2, 6.5.25
+\begin{xpaper}
+\paperinfo{deptline={Department of Civil Engineering},date={6.5.25},exam={Quiz 2 and Test -- 2},maxmarks={10 + 50},sem={IV},prog={UG},duration={$1\frac{1}{2}$ Hrs},
+ title={Environment and Sustainability},code={CV242TA}}
+\xhead
+\begin{xtable}{Questions}
+\qpart{Quiz}
+\q{1.}{Highlight the principle of green engineering.}{2}{1}{2}
+\q{2.}{Enumerate 10\% rule of Energy flow.}{2}{1}{2}
+\q{3.}{Hydrogen fuel cells produce electricity by combining \blank[1.5cm] and \blank[1.5cm] atoms.}{2}{1}{2}
+\q{4.}{List two renewable and non-renewable sources of energy.}{2}{1}{1}
+\q{5.}{Define carbon sequestration.}{2}{1}{2}
+\qpart{Test}
+\q{1.}{Enumerate the process of energy management and energy conservation with its objectives.}{10}{2}{2}
+\q{2.}{Demonstrate on ``Hydrogen energy is a clean energy'' write the advantages and Disadvantages of Hydrogen energy as a energy source.}{10}{2}{2}
+\q{3.}{Explain (I) Biomass energy (II) Geothermal Energy.}{10}{2}{1}
+\q{4.}{With a neat sketch explain carbon cycle and enumerate the steps involved in the same.}{10}{2}{2}
+\q{5.}{Justify how renewable energy benefit environment and save money.}{10}{3}{4}
+\end{xtable}
+\end{xpaper}
+
+% ---------- CV242TA Environment and Sustainability, CIE - II, 23/7/2024
+\begin{xpaper}
+\paperinfo{deptline={Department of Civil Engineering},date={23/7/2024},exam={CIE -- II},maxmarks={50},sem={IV},prog={UG},duration={90 Min},
+ title={Environment and Sustainability},code={CV242TA}}
+\xhead
+\begin{xtable}{Questions}
+\qpart{Note: All questions are compulsory.}
+\q{1.}{The last two decades shows an alarming increase in global temperatures. The rise has been directly linked to the increase in \blank[1.8cm].}{2}{1}{2}
+\q{2.}{Write two disadvantages of Tidal energy.}{2}{1}{3}
+\q{3.}{What is meant by Carbon Sequestration.}{2}{1}{1}
+\q{4.}{Write two objectives of fair trade.}{2}{1}{3}
+\q{5.}{How Corporate Social Responsibility leads to sustainability.}{2}{2}{3}
+\qpart{Test -- I}
+\q{1.}{Brief on i) Bio mass energy ii) Ocean Thermal Energy conversion.}{10}{1}{1}
+\q{2.}{Demonstrate on ``Hydrogen energy is a clean energy'' write the advantages and Disadvantages of Hydrogen energy as a energy source.}{10}{3}{3}
+\q{3.}{Write on four approaches and principles of Green engineering.}{10}{1}{3}
+\q{4.}{Explain the importance of Environmental auditing towards the sustainable growth.}{10}{2}{2}
+\q{5a}{Explain Source and sink in Carbon cycle.}{5}{2}{1}
+\q{5b}{Explain the prescriptive based and incentive based Environmental Economics.}{5}{2}{3}
+\end{xtable}
+\end{xpaper}
+
+\end{document}

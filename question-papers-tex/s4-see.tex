@@ -1,0 +1,607 @@
+\documentclass{rvcepaper}
+\newcommand{\orrow}{\multicolumn{6}{|c|}{\bfseries OR}\\ \hline}
+\newcommand{\instrA}[1]{\begin{seeinstr}\item Answer all questions from Part A. Part A questions should be answered in first three pages of the answer book only.\item Answer FIVE full questions from Part B. In Part B question number 2 is compulsory. Answer any one full question from 3 and 4, 5 and 6, 7 and 8, 9 and 10.#1\end{seeinstr}}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% STATISTICS FOR DATA ANALYTICS
+% ---------------- IM241AT, June/July 2025
+\begin{seepaper}
+\paperinfo{code={IM241AT},examline={IV Semester B.E. Regular/Supplementary Examinations June/July -- 2025},dept={Industrial Engineering and Management},title={STATISTICS FOR DATA ANALYTICS},time={03 Hours},maxmarks={100}}
+\seehead
+\instrA{}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{In what way is a stem and leaf diagram better than a histogram?}{02}{2}{1}
+\qa{1.2}{A = \{1, 2, 3, 4\}; B = \{2, 4, 6, 8\}; C = \{6, 7, 8, 9\}; D = \{4, 5, 6, 7\}. If the sample space S = A $\cup$ B $\cup$ C $\cup$ D, and each element of S is equally likely to happen, then P(A$'\cap$B) = \blank[1.5cm]}{02}{2}{2}
+\qa{1.3}{For a continuous random variable, the probability that it takes an exact value is \blank[1.8cm].}{01}{2}{2}
+\qa{1.4}{A negative binomial distribution counts the number of trials needed to get 3 successes with p = 0.4. What is the probability that the 3\textsuperscript{rd} success occurs on the 5\textsuperscript{th} trial?}{02}{2}{2}
+\qa{1.5}{A random variable X is uniformly distributed over the interval [2, 6]. Find the probability that X lies between 3 and 5.}{02}{2}{2}
+\qa{1.6}{For a normal distribution with $\mu$ = 70, $\sigma$ = 8, find P(62 $<$ X $<$ 78).}{02}{2}{2}
+\qa{1.7}{If a population has a mean $\mu$ and standard deviation $\sigma$, the standard error of the mean is given by $\sigma/\sqrt{n}$, where n is the \blank[1.8cm].}{01}{2}{2}
+\qa{1.8}{From Minitab output: Coefficients: Intercept = 2.5, Slope = 1.8. If X = 6, what is the predicted value of Y?}{02}{2}{2}
+\qa{1.9}{What does a correlation coefficient of $-$0.85 indicate?}{02}{2}{3}
+\qa{1.10}{In linear regression the error term is distributed as \blank[1.8cm] distribution (include its parameters also).}{02}{2}{3}
+\qa{1.11}{The test statistic in a test for population variance based on a given sample of size n is \blank[1.8cm] (also state what the terms are).}{02}{2}{4}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{The no of defects when 25 parts were analyzed were recorded as: 15, 18, 20, 9, 11, 8, 16, 14, 13, 15, 17, 21, 7, 9, 11, 8, 18, 12, 6, 19, 15, 22, 19, 12, 10
+\begin{abc}\item Draw the box plot for the above data\item Plot the stem and leaf diagram and comment on the data\end{abc}}{08}{3}{1}
+ & b & Suppose it is known that 1\% of the population suffers from a particular disease. A blood test has a 97\% chance of a positive blood test (identifying the disease) for diseased individuals, but also has a 6\% chance of falsely indicating that a healthy person has the disease.
+\begin{rom}\item What is the probability that a person will have a positive blood test?\item If your blood test is positive, what is the chance that you have the disease?\end{rom} & 08 & 4 & 1\\ \hline
+\qb{3}{a}{The probability mass function of a discrete random variable X is defined as: (pmf table not legible in the source copy)
+\begin{abc}\item Find the expected value E(X)\item Find the probability that X takes a value greater than 3.\end{abc}}{08}{3}{2}
+ & b & The random variable X has a binomial distribution with n = 10 and p = 0.01. Determine the following probabilities.
+\begin{abc}\item P(X = 5)\item P(X $\le$ 2)\item P(X $\ge$ 9)\item P(3 $\le$ X $<$ 5)\end{abc} & 08 & 2 & 2\\ \hline
+\orrow
+\qb{4}{a}{If a random variable X has its cumulative distribution as
+\qtab{l}{F(x) = 0, \hspace{0.3cm} $-\infty < x < 1$\\ \hspace{1.1cm} 0.4, \hspace{0.3cm} $1 \le x < 3$\\ \hspace{1.1cm} 0.5, \hspace{0.3cm} $3 \le x < 8$\\ \hspace{1.1cm} 1.0, \hspace{0.3cm} $8 \le x < \infty$}
+Determine the following: (i) P(X at most 3) (ii) E(X) (iii) P(X between 1 and 2, both inclusive) (iv) P(X at least 2) (v) the median of the distribution}{10}{3}{1}
+ & b & A carton of washers contains 5\% whose variability in thickness around the circumference is unacceptable.
+\begin{rom}\item What is the probability that none of the unacceptable washers is found in a sample of 10 washers?\item What is the probability that at least one unacceptable washer is found in a sample of 20 washers?\end{rom} & 06 & 3 & 2\\ \hline
+\qb{5}{a}{Describe the characteristics and applications of the Normal distribution.}{04}{2}{2}
+ & b & What are the key differences between population and sample? Why is sampling important in statistics? & 06 & 2 & 2\\
+ & c & What is the Central Limit Theorem (CLT)? State its significance in statistical inference. & 06 & 3 & 2\\ \hline
+\orrow
+\qb{6}{a}{An electrical firm manufactures light bulbs that have a life, before burn-out, that is normally distributed with mean equal to 800 hours and a standard deviation of 40 hours. Find
+\begin{abc}\item the probability that a bulb burns between 778 and 834 hours.\item Probability that a bulb has a life of at least 1000 hours.\item What percent of bulbs have their life within $\pm 2\sigma$ from their own mean life, where $\sigma$ is the standard deviation?\end{abc}}{08}{3}{2}
+ & b & The life of a semiconductor laser at a constant power is normally distributed with a mean of 7000 hours and a standard deviation of 600 hours.
+\begin{abc}\item What is the probability that a laser fails before 6000 hours?\item What is the life in hours that 95\% of the lasers exceed?\item If three lasers are used in a product and they are assumed to fail independently, what is the probability that all three are still operating after 7000 hours?\end{abc} & 08 & 3 & 2\\ \hline
+\qb{7}{a}{Regression methods were used to analyze the data from a study investigating the relationship between roadway surface temperature (x) and pavement deflection (y). Summary quantities were n = 20.
+\par $\sum y_i$ = 12.75, $\sum y_i^2$ = 8.86, $\sum x_i$ = 1478, $\sum x_i^2$ = 143,215.8, and $\sum x_iy_i$ = 1083.67
+\begin{abc}\item Calculate the least squares estimates of the slope and intercept. Graph the regression line. Estimate $\sigma^2$.\item Use the equation of the fitted line to predict what pavement deflection would be observed when the surface temperature is 85$^{\circ}$F.\item What is the mean pavement deflection when the surface temperature is 90$^{\circ}$F?\item What change in mean pavement deflection would be expected for a 1$^{\circ}$F change in surface temperature?\end{abc}}{12}{3}{3}
+ & b & Define the correlation coefficient and its range. & 04 & 2 & 3\\ \hline
+\orrow
+\qb{8}{a}{The summarized data on 10 observations are given below.
+\par $\sum (y_i-\hat y_i)^2$ = 3.267, $\sum y_i$ = 63.3, $\sum y_i^2$ = 423.49, $\sum x_i$ = 139, $\sum x_i^2$ = 2239
+\begin{abc}\item Estimate $\beta_1$ and $\beta_0$ assuming positive correlation between X and Y.\item Obtain an estimate of the underlying variance.\item What is the proportion of variability explained by the regression model?\item Assuming normal distribution of the errors, how will a residual plot of errors vs predicted values appear in this case? (Show an indicative plot).\end{abc}}{10}{3}{3}
+ & b & What are the assumptions of simple linear regression? How do you validate them using residual plots? & 06 & 2 & 3\\ \hline
+\qb{9}{a}{Explain the steps involved in conducting a hypothesis testing.}{08}{2}{4}
+ & b & \begin{abc}\item What are the hypothesis statements and the statistic to be used in a two-sided test of variance of a population? What are the assumptions to use this statistic and what is the rejection region for this test?\item State the probability of a t-random variable with 25 degrees of freedom taking on any value between 2.06 and 3.45.\item What is the value x such that a chi-square random variable with 15 degrees of freedom takes on at the most a value of x with 95\% likelihood?\end{abc} & 08 & 4 & 4\\ \hline
+\orrow
+\qb{10}{a}{When is a z-test used for population mean inference?}{04}{2}{4}
+ & b & Cloud seeding has been studied for many decades as a weather modification. The rainfall in acre-feet from 20 clouds that were selected at random and seeded with silver nitrate are as follows: 18.0, 30.7, 19.8, 27.1, 22.3, 18.8, 31.8, 23.4, 21.2, 27.9, 31.9, 27.1, 25.0, 24.7, 26.9, 21.8, 29.2, 34.8, 26.7, and 31.6.
+\begin{abc}\item Construct a 95\% one-sided lower bound on the mean diameter.\item Construct a 90\% two-sided confidence interval on the mean diameter. What is the width of this interval?\item If the width of the interval in part (b) were to be halved, how much should be the sample size? Use trial and error method if needed.\end{abc} & 12 & 4 & 4\\ \hline
+\end{seeB}
+\end{seepaper}
+
+% ---------------- IM241AT, Sept./Oct. 2024
+\begin{seepaper}
+\paperinfo{code={IM241AT},examline={IV Semester B.E. Examinations Sept./Oct. -- 2024},dept={Industrial Engineering and Management},title={STATISTICS FOR DATA ANALYTICS},time={03 Hours},maxmarks={100}}
+\seehead
+\instrA{\item Use of statistical tables and formula handbook permitted.}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{Give an example for ordinal data type.}{01}{1}{1}
+\qa{1.2}{Give one distinction between Histogram and Box plot.}{01}{1}{1}
+\qa{1.3}{What are mutually exclusive events?}{01}{2}{1}
+\qa{1.4}{State Bayes' Theorem.}{01}{2}{1}
+\qa{1.5}{Define Random variable.}{01}{1}{2}
+\qa{1.6}{What is a probability mass function?}{01}{2}{2}
+\qa{1.7}{Sketch the shape of a discrete uniform distribution.}{01}{1}{1}
+\qa{1.8}{Define a Poisson random variable.}{01}{2}{1}
+\qa{1.9}{What is the theoretical range of a Normal distribution?}{01}{1}{2}
+\qa{1.10}{What is a Z score?}{01}{2}{2}
+\qa{1.11}{State the central limit theorem.}{01}{1}{3}
+\qa{1.12}{Sketch the relative spread of a population which is normally distributed and the sampling distribution of means. (Mean $\mu$, standard deviation $\sigma$, sample size n).}{01}{2}{3}
+\qa{1.13}{What is the meaning of an Empirical model?}{01}{2}{3}
+\qa{1.14}{List any one of the properties of Least square estimation.}{01}{1}{3}
+\qa{1.15}{Define correlation coefficient.}{01}{1}{4}
+\qa{1.16}{Mention any one of the common abuses of regression.}{01}{2}{4}
+\qa{1.17}{Give the correct structure of a pair of hypothesis for any one of the population parameter.}{01}{1}{4}
+\qa{1.18}{Define prediction interval.}{01}{1}{4}
+\qa{1.19}{What is the meaning of the term Goodness of fit?}{01}{2}{4}
+\qa{1.20}{When do you use the F statistic?}{01}{2}{4}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{Given below is a frequency distribution of the length of phone calls made by 175 people during a weekend. Construct a histogram for these data.
+\setlength{\tabcolsep}{2pt}\small\qtabc{|l|*{8}{c|}}{\hline Length (min) & 1--7 & 8--14 & 15--21 & 22--28 & 29--35 & 36--42 & 43--49 & 50--56\\\hline Frequency & 45 & 32 & 34 & 22 & 16 & 12 & 9 & 5\\\hline}
+\begin{rom}\item Describe the general shape of the histogram. Does there appear to be a pattern?\item Suppose all the people were making their calls from a room that had 10 different phones and each person knew which time class the call would belong to. Suggest an ordering so that all calls can be completed as fast as possible.\end{rom}}{08}{3}{1}
+ & b & The university's library has been randomly surveying patrons over the last month to see who is using the library and what services they have been using. Patrons are classified as undergraduate student, graduate or faculty. Services are classified as reference, periodicals or books. The data for 350 people are given below. Assume a patron uses only one service per visit.
+\qtabc{|l|c|c|c|}{\hline Patron & Reference & Periodicals & Books\\\hline Undergraduate & 44 & 26 & 72\\\hline Graduate & 24 & 61 & 20\\\hline Faculty & 16 & 69 & 18\\\hline Total & 84 & 156 & 110\\\hline}
+Find the probability that a randomly chosen patron
+\begin{rom}\item Is a graduate student.\item Visited the periodicals section, given that the patron is a graduate student.\item Is a faculty member given a reference section visit?\item Is an undergraduate who visited the book section?\end{rom} & 08 & 2 & 1\\ \hline
+\qb{3}{a}{The probability is 0.80 that a randomly selected technician will finish his or her project successfully. Let X be the number of technicians among a randomly selected group of 10 technicians who will finish their project successfully.
+\begin{rom}\item Find the probability distribution of the random variable X.\item Find the probabilities that at least three technicians will finish their projects successfully.\item Find the probabilities that at most five technicians will finish their projects successfully.\item Find the probability that between four and six (inclusive) technicians will finish their project successfully.\end{rom}}{08}{3}{2}
+ & b & A total of 75 parts are received from the suppliers. We are informed that 8 defective parts were shipped by mistake and 5 parts have already been installed on machines.
+\begin{rom}\item What is the probability that exactly 1 defective part was installed on a machine?\item What is the probability of finding less than 2 defective parts?\end{rom} & 08 & 3 & 2\\ \hline
+\orrow
+\qb{4}{a}{The number of surface flaws in plastic panels used in the interior of automobiles has a Poisson distribution with a mean of 0.05 flaws per square foot of plastic panel. Assume an automobile interior contains 10 square feet of plastic panel.
+\begin{rom}\item What is the probability that there are no surface flaws in an auto's interior?\item If 10 cars are sold to a rental company, what is the probability that none of the 10 cars has any surface flaws?\item If 10 cars are sold to a rental company, what is the probability that at most one car has any surface flaws?\end{rom}}{08}{3}{2}
+ & b & Let X denote the number of bits received in error in a digital communication channel. Assume that X is a binomial random variable with p = 0.001. If 1000 bits are transmitted, determine the following: (i) P(X = 1) (ii) P(X $\ge$ 1) (iii) P(X $\le$ 2) (iv) Mean and Variance of X. & 08 & 3 & 3\\ \hline
+\qb{5}{a}{Suppose the time it takes a data collection operator to fill out an electronic form for a database is uniformly distributed between 1.5 and 2.2 mins.
+\begin{rom}\item What is the mean and variance of the time it takes an operator to fill out the form?\item What is the probability that it will take less than two minutes to fill out the form?\end{rom}}{08}{4}{3}
+ & b & The reaction time of a driver to visual stimulus is normally distributed with a mean of 0.4 seconds and a standard deviation of 0.05 seconds.
+\begin{rom}\item What is the probability that a reaction requires more than 0.5 seconds?\item What is the probability that a reaction requires between 0.4 and 0.5 seconds?\item What is the reaction time that is exceeded 90\% of the time?\end{rom} & 08 & 4 & 3\\ \hline
+\orrow
+\qb{6}{a}{The thickness of the flange on an aircraft component is uniformly distributed between 0.95 and 1.05 millimeters.
+\begin{rom}\item Determine the cumulative distribution function of flange thickness.\item Determine the proportion of flanges that exceed 1.02 millimeters.\item What thickness is exceeded by 90\% of the flanges?\item Determine the mean and variance of the flange thickness.\end{rom}}{08}{3}{3}
+ & b & The sick leave time of employees in a firm in a month is normally distributed with a mean of 100 hours and a standard deviation of 20 hours.
+\begin{rom}\item What is the probability that the sick leave time for the next month will be between 50 and 80 hours?\item How much time should be budgeted for sick leave if the budgeted amount should be exceeded with a probability of only 10\%?\end{rom} & 08 & 4 & 2\\ \hline
+\qb{7}{a}{Gasoline consumption of a test automobile was recorded at speeds (x) ranging from 56 to 112 km/hr. The observed gasoline consumption were converted to distance travelled per liter of gasoline (y). The following information was compiled:
+\par n = 12, $\sum x$ = 964, $\sum x^2$ = 84116, $\sum xy$ = 13418.4, $\sum y$ = 165.3, $\sum y^2$ = 2282.45, $\bar x$ = 80.333, $\bar y$ = 13.755
+\begin{rom}\item Find the regression equation for y on x.\item Find the correlation coefficient.\end{rom}}{12}{4}{3}
+ & b & Give the benefits of initial visualization of data pattern using a scatter plot. Give an example to highlight the visualization of patterns in data. & 04 & 2 & 3\\ \hline
+\orrow
+\qb{8}{a}{For a sample of 12 trees the volume of lumber (in m$^3$) and diameter (in cm) at a fixed height above ground level was measured. The results were as follows:
+\qtabc{|l|*{12}{c|}}{\hline Diameter & 35.1 & 48.4 & 47.9 & 35.3 & 47.3 & 26.4 & 33.8 & 45.3 & 25.2 & 28.5 & 30.1 & 30\\\hline Volume & 0.81 & 1.39 & 1.31 & 0.67 & 1.46 & 0.47 & 0.8 & 1.69 & 0.3 & 0.19 & 0.63 & 0.64\\\hline}
+\begin{rom}\item Construct a scatter plot of volume (y) versus diameter (x).\item Compute the parameters of the least square line for predicting volume from diameters.\item If two trees differ in diameter by 8 cm, how much would you predict their volumes to differ?\item Predict the volume for a tree whose diameter is 44 cm.\item For what diameter would you predict a volume of 1 m$^3$?\end{rom}}{14}{4}{3}
+ & b & How is causation different from correlation? & 02 & 2 & 3\\ \hline
+\qb{9}{a}{A manufacturer produces piston rings for an automobile engine. It is known that the ring diameter is normally distributed with $\sigma$ = 0.001 and $\bar x$ = 74.036 millimeter based on a random sample of 15 rings.
+\begin{rom}\item Construct a 99\% two sided confidence interval on the mean piston ring diameter.\item Construct a 99\% lower confidence band on the mean piston ring diameter.\end{rom}}{08}{3}{4}
+ & b & A post mix beverage machine is adjusted to release a certain amount of syrup into a chamber, where it is mixed with carbonated water. A random sample of 25 beverages was found to have a mean syrup content of $\bar x$ = 1.10 fluid ounces and a standard deviation of s = 0.015 fluid ounces. Find a 95\% confidence interval on the mean volume of syrup dispensed. & 08 & 3 & 4\\ \hline
+\orrow
+\qb{10}{a}{A consumer product company is formulating a new shampoo and is interested in foam height (in mm). Foam height is approximately normally distributed and has a standard deviation of 20 mm. The company wants to test H$_0$: $\mu$ = 175 mm versus H$_1$: $\mu$ $>$ 175 mm using the results of n = 10 samples. Suppose that the sample data result in $\bar x$ = 190 mm.
+\begin{rom}\item What conclusions would you reach?\item How ``unusual'' is the sample value in mm if the true mean is really 175 mm? That is, what is the probability that you would observe a sample average as large as 190 mm (or larger) if the true mean foam height was really 175 mm?\end{rom}}{10}{3}{4}
+ & b & Outline the 8 steps procedure for Testing of hypothesis. Give an example for a null hypothesis and alternate hypothesis. & 06 & 4 & 4\\ \hline
+\end{seeB}
+\end{seepaper}
+
+% ---------------- 21IM41, Oct/Nov 2024 (Supplementary)
+\begin{seepaper}
+\paperinfo{code={21IM41},examline={IV Semester B.E. Supplementary Examinations Oct/Nov -- 2024},dept={Industrial Engineering and Management},title={STATISTICS FOR DATA ANALYTICS},time={03 Hours},maxmarks={100}}
+\seehead
+\instrA{\item Use of statistical tables and formulae handbook permitted.}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{Differentiate between descriptive and inferential statistics.}{02}{2}{1}
+\qa{1.2}{What is the central limit theorem in statistics?}{02}{1}{2}
+\qa{1.3}{State any two assumptions of Binomial Distribution.}{02}{2}{2}
+\qa{1.4}{State any two properties of Normal Distribution.}{02}{2}{1}
+\qa{1.5}{What is the standard error of an estimator in statistics?}{02}{2}{2}
+\qa{1.6}{Define Chi-squared test in statistics.}{02}{1}{2}
+\qa{1.7}{Differentiate between correlation and causation.}{02}{1}{1}
+\qa{1.8}{What is the significance of correlation?}{02}{2}{1}
+\qa{1.9}{Define Type I and Type II error.}{02}{2}{2}
+\qa{1.10}{What is critical value?}{02}{1}{2}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{A part selected for testing is equally likely to have been produced on any one of six cutting tools.
+\begin{rom}\item What is the sample space?\item What is the probability that the part is from tool 1?\item What is the probability that the part is from tool 3 or tool 5?\item What is the probability that the part is not from tool 4?\end{rom}}{08}{2}{2}
+ & b & A lot of 100 semiconductor chips contains 20 that are defective.
+\begin{rom}\item Two are selected, at random, without replacement, from the lot. Determine the probability that the second chip selected is defective.\item Three are selected, at random, without replacement, from the lot. Determine the probability that all are defective.\end{rom} & 08 & 2 & 1\\ \hline
+\qb{3}{a}{The phone lines to an airline reservation system are occupied 40\% of the time. Assume that the events that the lines are occupied on successive calls are independent. Assume that 10 calls are placed to the airline.
+\begin{rom}\item What is the probability that for exactly three calls the lines are occupied?\item What is the probability that for at least one call the lines are not occupied?\item What is the expected number of calls in which the lines are all occupied?\end{rom}}{08}{2}{1}
+ & b & Printed circuit cards are placed in a functional test after being populated with semiconductor chips. A lot contains 140 cards, and 20 are selected without replacement for functional testing.
+\begin{rom}\item If 20 cards are defective, what is the probability that at least 1 defective card is in the sample?\item If 5 cards are defective, what is the probability that at least 1 defective card appears in the sample?\end{rom} & 08 & 2 & 2\\ \hline
+\orrow
+\qb{4}{a}{The number of failures of a testing instrument from contamination particles on the product is a Poisson random variable with a mean of 0.02 failure per hour.
+\begin{rom}\item What is the probability that the instrument does not fail in an 8-hour shift?\item What is the probability of at least one failure in a 24-hour day?\end{rom}}{08}{3}{3}
+ & b & The number of telephone calls that arrive at a phone exchange is often modeled as a Poisson random variable. Assume that on the average there are 10 calls per hour.
+\begin{rom}\item What is the probability that there are exactly 5 calls in one hour?\item What is the probability that there are 3 or less calls in one hour?\item What is the probability that there are exactly 15 calls in two hours?\item What is the probability that there are exactly 5 calls in 30 minutes?\end{rom} & 08 & 3 & 2\\ \hline
+\qb{5}{a}{The fill volume of an automated filling machine used for filling cans of carbonated beverage is normally distributed with a mean of 12.4 fluid ounces and a standard deviation of 0.1 fluid ounce.
+\begin{rom}\item What is the probability a fill volume is less than 12 fluid ounces?\item If all cans less than 12.1 or greater than 12.6 ounces are scrapped, what proportion of cans is scrapped?\item Determine specifications that are symmetric about the mean that include 99\% of all cans.\end{rom}}{12}{4}{4}
+ & b & List any four characteristics of normal distribution curve. & 04 & 2 & 3\\ \hline
+\orrow
+\qb{6}{a}{The time between the arrival of electronic messages at your computer is exponentially distributed with a mean of two hours.
+\begin{rom}\item What is the probability that you do not receive a message during a two-hour period?\item If you have not had a message in the last four hours, what is the probability that you do not receive a message in the next two hours?\item What is the expected time between your fifth and sixth messages?\end{rom}}{08}{3}{4}
+ & b & The time between calls to a corporate office is exponentially distributed with a mean of 10 minutes.
+\begin{rom}\item What is the probability that there are more than three calls in one-half hour?\item What is the probability that there are no calls within one half hour?\item Determine x such that the probability that there are no calls within x hours is 0.01.\end{rom} & 08 & 4 & 4\\ \hline
+\qb{7}{}{The following data for the dependent variable, y, and the independent variable, x, have been collected using simple random sampling:
+\qtabc{|l|*{10}{c|}}{\hline x & 10 & 14 & 16 & 12 & 20 & 18 & 16 & 14 & 16 & 18\\\hline y & 120 & 130 & 170 & 150 & 200 & 180 & 190 & 150 & 160 & 200\\\hline}
+\begin{rom}\item Construct a scatter plot for these data. Based on the scatter plot, how would you describe the relationship between the two variables?\item Compute the correlation coefficient.\end{rom}}{16}{3}{3}
+\orrow
+\qb{8}{}{An article in the Journal of Sound and Vibration (Vol. 151, 1991, pp. 383--394) described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
+\qtabc{|l|*{10}{c|}}{\hline y & 1 & 0 & 1 & 2 & 5 & 1 & 4 & 6 & 2 & 3\\\hline x & 60 & 63 & 65 & 70 & 70 & 70 & 80 & 90 & 80 & 80\\\hline y & 5 & 4 & 6 & 8 & 4 & 5 & 7 & 9 & 7 & 6\\\hline x & 85 & 89 & 90 & 90 & 90 & 90 & 94 & 100 & 100 & 100\\\hline}
+\begin{rom}\item Draw a scatter diagram of y (blood pressure rise in millimeters of mercury) versus x (sound pressure level in decibels). Does a simple linear regression model seem reasonable in this situation?\item Fit the simple linear regression model using least squares. Find an estimate of $\sigma^2$.\item Find the predicted mean rise in blood pressure level associated with a sound pressure level of 85 decibels.\end{rom}}{16}{3}{3}
+\qb{9}{a}{Explain the general procedure for Hypothesis Tests.}{08}{2}{2}
+ & b & The mean water temperature downstream from a power plant cooling tower discharge pipe should be no more than 100$^{\circ}$F. Past experience has indicated that the standard deviation of temperature is 2$^{\circ}$F. The water temperature is measured on nine randomly chosen days, and the average temperature is found to be 98$^{\circ}$F.
+\begin{rom}\item Should the water temperature be judged acceptable with $\alpha$ = 0.05?\item What is the P-value for this test?\item What is the probability of accepting the null hypothesis at $\alpha$ = 0.05 if the water has a true mean temperature of 104$^{\circ}$F?\end{rom} & 08 & 3 & 3\\ \hline
+\orrow
+\qb{10}{}{Grades in a statistics course and an operations research course taken simultaneously were as follows for a group of students.
+\qtabc{|l|c|c|c|c|}{\hline Statistics Grade & \multicolumn{4}{c|}{Operations Research Grade}\\\cline{2-5} & A & B & C & Other\\\hline A & 25 & 6 & 17 & 13\\\hline B & 17 & 16 & 15 & 6\\\hline C & 18 & 4 & 18 & 10\\\hline Other & 10 & 8 & 11 & 20\\\hline}
+Are the grades in statistics and operations research related? Use $\alpha$ = 0.01 in reaching your conclusion. What is the P-value for this test?}{16}{3}{4}
+\end{seeB}
+\end{seepaper}
+
+% ---------------- 21IM41, Oct 2023
+\begin{seepaper}
+\paperinfo{code={21IM41},examline={IV Semester B.E. Examinations Oct -- 2023},dept={Industrial Engineering and Management},title={STATISTICS FOR DATA ANALYTICS},time={03 Hours},maxmarks={100}}
+\seehead
+\begin{seeinstr}\item Answer all questions from Part A. Part A questions should be answered in first three pages of the answer book only.\item Answer FIVE full questions from Part B. In Part B question number 2 is compulsory. Answer any one full question from 3 and 4, 5 and 6, 7 and 8, 9 and 10.\end{seeinstr}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{Differentiate between descriptive and inferential statistics.}{02}{--}{--}
+\qa{1.2}{What is the central limit theorem in statistics?}{02}{--}{--}
+\qa{1.3}{State any two assumptions of Binomial Distribution.}{02}{--}{--}
+\qa{1.4}{State any two properties of Normal Distribution.}{02}{--}{--}
+\qa{1.5}{What is the standard error of an estimator in statistics?}{02}{--}{--}
+\qa{1.6}{Define Chi-squared test in statistics.}{02}{--}{--}
+\qa{1.7}{Differentiate between correlation and causation.}{02}{--}{--}
+\qa{1.8}{What is the significance of correlation?}{02}{--}{--}
+\qa{1.9}{Define Type I and Type II error?}{02}{--}{--}
+\qa{1.10}{What is critical value?}{02}{--}{--}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{A part selected for testing is equally likely to have been produced on any one of six cutting tools.
+\begin{rom}\item What is the sample space?\item What is the probability that the part is from tool 1?\item What is the probability that the part is from tool 3 and tool 5?\item What is the probability that the part is not from tool 4?\end{rom}}{08}{--}{--}
+ & b & A lot of 100 semiconductor chips contains 20 that are defective.
+\begin{rom}\item Two are selected, at random, without replacement, from the lot. Determine the probability that the second chip selected is defective.\item Three are selected, at random, without replacement, from the lot. Determine the probability that all are defective.\end{rom} & 08 & -- & --\\ \hline
+\qb{3}{a}{The phone lines to an airline reservation system are occupied 40\% of the time. Assume that the events that the lines are occupied on successive calls are independent. Assume that 10 calls are placed to the airline.
+\begin{rom}\item What is the probability that for exactly three calls the lines are occupied?\item What is the probability that for at least one call the lines are not occupied?\item What is the expected number of calls in which the lines are all occupied?\end{rom}}{08}{--}{--}
+ & b & Printed circuit cards are placed in a functional test after being populated with semiconductor chips. A lot contains 140 cards, and 20 are selected without replacement for functional testing.
+\begin{rom}\item If 20 cards are defective, what is the probability that at least 1 defective card is in the sample?\item If 5 cards are defective, what is the probability that at least 1 defective card appears in the sample?\end{rom} & 08 & -- & --\\ \hline
+\orrow
+\qb{4}{a}{The number of failures of a testing instrument from contamination particles on the product is a Poisson random variable with a mean of 0.02 failure per hour.
+\begin{rom}\item What is the probability that the instrument does not fail in an 8-hour shift?\item What is the probability of at least one failure in a 24-hour day?\end{rom}}{08}{--}{--}
+ & b & The number of telephone calls that arrive at a phone exchange is often modeled as a Poisson random variable. Assume that on the average there are 10 calls per hour.
+\begin{rom}\item What is the probability that there are exactly 5 calls in one hour?\item What is the probability that there are 3 or less calls in one hour?\item What is the probability that there are exactly 15 calls in two hours?\item What is the probability that there are exactly 5 calls in 30 minutes?\end{rom} & 08 & -- & --\\ \hline
+\qb{5}{a}{The fill volume of an automated filling machine used for filling cans of carbonated beverage is normally distributed with a mean of 12.4 fluid ounces and a standard deviation of 0.1 fluid ounce.
+\begin{rom}\item What is the probability a fill volume is less than 12 fluid ounces?\item If all cans less than 12.1 or greater than 12.6 ounces are scrapped, what proportion of cans is scrapped?\item Determine specifications that are symmetric about the mean that include 99\% of all cans.\end{rom}}{12}{--}{--}
+ & b & List any four characteristics of normal distribution curve. & 04 & -- & --\\ \hline
+\orrow
+\qb{6}{a}{The time between the arrival of electronic messages at your computer is exponentially distributed with a mean of two hours.
+\begin{rom}\item What is the probability that you do not receive a message during a two-hour period?\item If you have not had a message in the last four hours, what is the probability that you do not receive a message in the next two hours?\item What is the expected time between your fifth and sixth messages?\end{rom}}{08}{--}{--}
+ & b & The time between calls to a corporate office is exponentially distributed with a mean of 10 minutes.
+\begin{rom}\item What is the probability that there are more than three calls in one-half hour?\item What is the probability that there are no calls within one half hour?\item Determine x such that the probability that there are no calls within x hours is 0.01.\end{rom} & 08 & -- & --\\ \hline
+\qb{7}{}{The following data for the dependent variable, y, and the independent variable, x, have been collected using simple random sampling:
+\qtabc{|l|*{10}{c|}}{\hline x & 10 & 14 & 16 & 12 & 20 & 18 & 16 & 14 & 16 & 18\\\hline y & 120 & 130 & 170 & 150 & 200 & 180 & 190 & 150 & 160 & 200\\\hline}
+\begin{rom}\item Construct a scatter plot for these data. Based on the scatter plot, how would you describe the relationship between the two variables?\item Compute the correlation coefficient.\end{rom}}{16}{--}{--}
+\orrow
+\qb{8}{}{An article in the Journal of Sound and Vibration (Vol. 151, 1991, pp. 383--394) described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
+\qtabc{|l|*{10}{c|}}{\hline y & 1 & 0 & 1 & 2 & 5 & 1 & 4 & 6 & 2 & 3\\\hline x & 60 & 63 & 65 & 70 & 70 & 70 & 80 & 90 & 80 & 80\\\hline y & 5 & 4 & 6 & 8 & 4 & 5 & 7 & 9 & 7 & 6\\\hline x & 85 & 89 & 90 & 90 & 90 & 90 & 94 & 100 & 100 & 100\\\hline}
+\begin{rom}\item Draw a scatter diagram of y (blood pressure rise in millimeters of mercury) versus x (sound pressure level in decibel). Does a simple linear regression model seem reasonable in this situation?\item Fit the simple linear regression model using least squares. Find an estimate of $\sigma^2$.\item Find the predicted mean rise in blood pressure level associated with a sound pressure level of 85 decibels.\end{rom}}{16}{--}{--}
+\qb{9}{a}{Explain the general procedure for Hypothesis Tests.}{08}{--}{--}
+ & b & The mean water temperature downstream from a power plant cooling tower discharge pipe should be no more than 100$^{\circ}$F. Past experience has indicated that the standard deviation of temperature is 2$^{\circ}$F. The water temperature is measured on nine randomly chosen days, and the average temperature is found to be 98$^{\circ}$F.
+\begin{rom}\item Should the water temperature be judged acceptable with $\alpha$ = 0.05?\item What is the P-value for this test?\item What is the probability of accepting the null hypothesis at $\alpha$ = 0.05 if the water has a true mean temperature of 104$^{\circ}$F?\end{rom} & 08 & -- & --\\ \hline
+\orrow
+\qb{10}{}{Grades in a statistics course and an operations research course taken simultaneously were as follows for a group of students.
+\qtabc{|l|c|c|c|c|}{\hline Statistics Grade & \multicolumn{4}{c|}{Operations Research Grade}\\\cline{2-5} & A & B & C & Other\\\hline A & 25 & 6 & 17 & 13\\\hline B & 17 & 16 & 15 & 6\\\hline C & 18 & 4 & 18 & 10\\\hline Other & 10 & 8 & 11 & 20\\\hline}
+Are the grades in statistics and operations research related? Use $\alpha$ = 0.01 in reaching your conclusion. What is the P-value for this test?}{16}{--}{--}
+\end{seeB}
+\end{seepaper}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CAD/CAM & ROBOTICS
+% ---------------- IM343AI, June/July 2025
+\begin{seepaper}
+\paperinfo{code={IM343AI},examline={IV Semester B.E. Regular/Supplementary Examinations June/July -- 2025},dept={Industrial Engineering and Management},title={CAD/CAM \& ROBOTICS},time={03 Hours},maxmarks={100}}
+\seehead
+\instrA{}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{Why is conceptual design an important phase in the Shigley model?}{02}{1}{1}
+\qa{1.2}{What is the purpose of a line drawing algorithm?}{02}{1}{1}
+\qa{1.3}{What is a part program in NC machining?}{02}{2}{2}
+\qa{1.4}{What is tool offset in CNC machining?}{02}{2}{2}
+\qa{1.5}{What is mechanization?}{02}{2}{2}
+\qa{1.6}{List two motivating factors for robot usage in industries.}{02}{1}{3}
+\qa{1.7}{The power source of a robot can be electric, hydraulic, or \blank[1.8cm].}{01}{1}{3}
+\qa{1.8}{What is meant by payload in robotics?}{02}{2}{4}
+\qa{1.9}{Give two examples of exteroceptive sensors.}{02}{1}{4}
+\qa{1.10}{What is lead-through programming?}{02}{1}{4}
+\qa{1.11}{A \blank[1.8cm] is a device at the end of a robot arm, designed to interact with the environment.}{01}{1}{4}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{Use Bresenham's Line Algorithm to rasterize a line from (10, 15) to (20, 25). Show all intermediate steps.}{10}{4}{1}
+ & b & Discuss the various applications of CAD in different industries such as mechanical, civil, and electrical engineering. & 06 & 3 & 1\\ \hline
+\qb{3}{a}{Analyze the effect of incorrect tool offset values in CNC milling programs.}{06}{1}{2}
+ & b & Compare APT programming with manual NC programming in terms of flexibility, accuracy, and complexity. & 10 & 3 & 2\\ \hline
+\orrow
+\qb{4}{a}{Prepare a program for milling the given component by milling process using APT.
+\qtabc{|l|l|}{\hline Post Processor & Machine Mill, 1\\\hline Feed rate & 60 mm/min\\\hline Spindle speed & 500 rpm\\\hline Cutter diameter & 5 mm\\\hline Tolerance & $\pm$ 0.02 mm\\\hline Thickness & 10 mm\\\hline}
+\par\vspace{4pt}\centerline{\includegraphics[width=0.5\linewidth]{s4/fig-see-cad2025-apt.png}}}{16}{4}{2}
+\qb{5}{a}{Explain the social issues associated with automation.}{08}{1}{2}
+ & b & Explain reasons for adopting automation in industries. & 08 & 3 & 3\\ \hline
+\orrow
+\qb{6}{a}{Explain how automation contributes to sustainable manufacturing.}{08}{4}{3}
+ & b & Explain the different types of automation with examples. & 08 & 2 & 2\\ \hline
+\qb{7}{a}{Discuss the selection criteria for industrial robots in manufacturing applications.}{08}{2}{3}
+ & b & Explain the robot wrist and end-of-arm tooling (EOAT) with examples. & 08 & 2 & 3\\ \hline
+\orrow
+\qb{8}{a}{A family-owned metal fabrication workshop is evaluating whether to automate its manual cutting and welding operations. However, the owner is hesitant. Analyze the reasons why automation might not be suitable for such a workshop. Provide alternatives.}{10}{4}{4}
+ & b & Explain the classification of robots based on configuration. & 06 & 1 & 3\\ \hline
+\qb{9}{a}{Describe in detail the role of sensors in robotics and how they improve robot performance.}{08}{3}{4}
+ & b & How do exteroceptive sensors support robotic adaptability in dynamic environments? & 08 & 2 & 4\\ \hline
+\orrow
+\qb{10}{a}{A bakery needs a robot to pick and place soft pastries into boxes. Recommend an end effector and justify it based on hygiene, delicacy, and cycle time.}{10}{5}{4}
+ & b & Explain on-line robot programming and its advantages. & 06 & 1 & 4\\ \hline
+\end{seeB}
+\end{seepaper}
+
+% ---------------- IM343AI, Sept/Oct 2024
+\begin{seepaper}
+\paperinfo{code={IM343AI},examline={IV Semester B.E. Examinations Sept/Oct -- 2024},dept={Industrial Engineering and Management},title={CAD/CAM AND ROBOTICS},time={03 Hours},maxmarks={100}}
+\seehead
+\instrA{}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{What is rendering in computer graphics?}{02}{2}{1}
+\qa{1.2}{What is the Z-buffer algorithm used for?}{02}{2}{1}
+\qa{1.3}{List the main elements of an NC system.}{02}{2}{2}
+\qa{1.4}{Identify two key components of a DNC system.}{02}{1}{2}
+\qa{1.5}{How does mechanization differ from automation?}{02}{1}{2}
+\qa{1.6}{What are the primary goals of automation?}{02}{2}{1}
+\qa{1.7}{Define zeroth law of Robotics.}{02}{1}{1}
+\qa{1.8}{List any two features of fixed automation.}{02}{1}{2}
+\qa{1.9}{Define pitch, yaw and roll?}{02}{2}{2}
+\qa{1.10}{What is meant by work envelope?}{02}{1}{1}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{Consider a scenario where you are designing a complex mechanical part using CAD. Discuss how you would utilize the different stages of the Shigley Model to ensure a successful design.}{08}{2}{1}
+ & b & Express a line from (5,5) to (13,9) on a raster screen using Bresenham's Line Drawing Algorithm. Show the result in a Cartesian graph. & 08 & 3 & 2\\ \hline
+\qb{3}{a}{Figure 3a below shows the final profile to be generated on a MS by using a CNC milling center. Write CNC program and show the tool path.
+\par\vspace{4pt}\centerline{\includegraphics[width=0.55\linewidth]{s4/fig-see-cad2024-3a.png}}\par\centerline{Fig 3a}}{12}{3}{3}
+ & b & What key factors should be considered during the Problem Definition stage of the Shigley Model when designing a mechanical part? & 04 & 2 & 2\\ \hline
+\orrow
+\qb{4}{a}{Explain the APT statements: (i) GOTO and GODLTA (ii) INTOL and OUTTOL (iii) TANTO and GOBLACK.}{06}{3}{2}
+ & b & Write a manual part program for the component shown below.
+\par\vspace{4pt}\centerline{\includegraphics[width=0.65\linewidth]{s4/fig-see-cad2024-4b.png}}\par\centerline{Fig. 4b} & 10 & 3 & 2\\ \hline
+\qb{5}{a}{Explain the concept of Low-Cost Automation (LCA) and its significance in small and medium enterprises (SMEs).}{08}{2}{2}
+ & b & Imagine you are managing a small manufacturing unit. How would you implement Low-Cost Automation to improve productivity without incurring high expenses? Provide specific example. & 08 & 4 & 3\\ \hline
+\orrow
+\qb{6}{a}{A factory is considering the shift from manual assembly to automated assembly lines. Discuss the issues they might face during this transition and how these challenges can be mitigated.}{08}{4}{4}
+ & b & How would you design a strategy for automation in a factory that currently relies heavily on manual labor? Outline the key steps involved. & 08 & 3 & 3\\ \hline
+\qb{7}{a}{Briefly explain the various components of an industrial robot. State the main function of each of the components.}{08}{2}{3}
+ & b & What do you understand by degree of freedom (DOF)? How many DOFs are required to position an end effector at any point in 3-D space? & 08 & 2 & 2\\ \hline
+\orrow
+\qb{8}{a}{Explain SCARA robot indicating its joints and degree of freedom with the applications.}{08}{2}{3}
+ & b & What is a robotic joint? Distinguish between prismatic and revolute joints. & 08 & 2 & 3\\ \hline
+\qb{9}{a}{A robotic system in a warehouse is required to sort packages of varying sizes and weights. Discuss how you would select grippers and what programming approach would be most suitable for this application.}{08}{3}{3}
+ & b & You are tasked with programming a robot to perform welding tasks in an automotive assembly line. Describe the programming techniques you would use and justify your choice. & 08 & 3 & 4\\ \hline
+\orrow
+\qb{10}{a}{In a scenario where a robot needs to perform a complex assembly task involving multiple components, how would you approach the programming and integration of the robot's sensors and end effectors?}{08}{4}{4}
+ & b & Explain the working principle of an end effector with the help of a sketch and give its important applications. & 08 & 2 & 3\\ \hline
+\end{seeB}
+\end{seepaper}
+
+% ---------------- 21IM43, October 2023
+\begin{seepaper}
+\paperinfo{code={21IM43},examline={IV Semester B.E. Examinations October -- 2023},dept={Industrial Engineering and Management},title={CAD/CAM AND ROBOTICS},time={03 Hours},maxmarks={100}}
+\seehead
+\begin{seeinstr}\item Answer all questions from Part A. Part A questions should be answered in first three pages of the answer book only.\item Answer FIVE full questions from Part B. In Part B question number 2 is compulsory. Answer any one full question from 3 and 4, 5 and 6, 7 and 8, 9 and 10.\end{seeinstr}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{Define Robot Programming.}{02}{--}{--}
+\qa{1.2}{List any two advantages of suction grippers.}{02}{--}{--}
+\qa{1.3}{Identify any two objectives of an Industrial Robot.}{02}{--}{--}
+\qa{1.4}{If given an opportunity to build a robot to be used in the department of IEM at RVCE, what problem would the robot solve and what would be its functionality?}{02}{--}{--}
+\qa{1.5}{\blank[1.5cm] and \blank[1.5cm] are special purpose tool which are used to facilitate production (machining, assembling and inspection operations) when work piece is based on the concept of interchangeability according to which every part will be produced within an established tolerance.}{02}{--}{--}
+\qa{1.6}{Students who carry out productivity studies at industries as part of major project sometimes tend to conclude that one or set of robots can be used to automate the entire process and enhance productivity by multifold and cost of commissioning it can be recovered in a very short period by compensating the salaries of the employee who can be removed from the process. Review such inference from the standpoint of India as a country.}{02}{--}{--}
+\qa{1.7}{Identify two disadvantages of automation.}{02}{--}{--}
+\qa{1.8}{Identify two applications of robots in industrial sector and service sector.}{02}{--}{--}
+\qa{1.9}{Tactile sensors are also called as \blank[1.5cm] and are sensitive to \blank[1.5cm].}{02}{--}{--}
+\qa{1.10}{State the Zeroth Law of robotics.}{02}{--}{--}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{Explain the Shigley model with a block diagram.}{10}{--}{--}
+ & b & Enumerate any six benefits of CAD in automation industry. & 06 & -- & --\\ \hline
+\qb{3}{a}{Write a CNC peck drilling program for the profile given in Fig 3a. The cutting tool used is slot drill cutter and the depth of cut is 5 mm.
+\par\vspace{4pt}\centerline{\includegraphics[width=0.45\linewidth]{s4/fig-see-cad2023-3a.png}}\par\centerline{Fig 3a}}{10}{--}{--}
+ & b & Discuss the various elements of a typical Numerical Control System. & 06 & -- & --\\ \hline
+\orrow
+\qb{4}{a}{Explain with the help of an example (i) Linear interpolation (ii) Circular interpolation.}{06}{--}{--}
+ & b & Explain any five types of Distributed Numerical Control Systems. & 10 & -- & --\\ \hline
+\qb{5}{a}{Identify major socio-economic considerations favoring automation.}{08}{--}{--}
+ & b & With example, state the difference between mechanization and automation. & 08 & -- & --\\ \hline
+\orrow
+\qb{6}{a}{Explain how low-cost automation is achieved in manufacturing industry.}{10}{--}{--}
+ & b & Describe six major issues for Automation in Factory Operations. & 06 & -- & --\\ \hline
+\qb{7}{a}{The robot has to do the following functions. Recommend the types of sensors it should be fitted with to carry out the operations successfully. Also mention one specification of the recommended sensor.
+\begin{rom}\item Functionality 1: A binary output signal when it comes in contact with an object.\item Functionality 2: To sense and indicate presence of any object without physical contact.\item Functionality 3: To identify the distance of sensor from the object.\item Functionality 4: To estimate the speed with which a manipulator is moved.\end{rom}}{08}{--}{--}
+ & b & Explain the advantages and disadvantages of vacuum/suction grippers. & 08 & -- & --\\ \hline
+\orrow
+\qb{8}{a}{Explain the characteristics of an industrial robot.}{10}{--}{--}
+ & b & How are the robots classified? Explain. & 06 & -- & --\\ \hline
+\qb{9}{a}{Assume that the robot must pick up objects from a chute and place them in successive boxes. Choose the sequence of robot activity for which robot programming will have to be written at a later stage.}{08}{--}{--}
+ & b & Explain any two robot programming techniques. & 08 & -- & --\\ \hline
+\orrow
+\qb{10}{a}{Explain the factors considered for selection of gripper.}{10}{--}{--}
+ & b & Write short notes on types of sensors in robots. & 06 & -- & --\\ \hline
+\end{seeB}
+\end{seepaper}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OPERATIONS RESEARCH
+% ---------------- IM244AI, Sep/Oct 2024
+\begin{seepaper}
+\paperinfo{code={IM244AI},examline={IV Semester B.E. Regular Examinations Sep/Oct -- 2024},dept={Industrial Engineering and Management},title={OPERATIONS RESEARCH},time={03 Hours},maxmarks={100}}
+\seehead
+\instrA{}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{What is the difference between a descriptive and a prescriptive models in operations research?}{02}{2}{2}
+\qa{1.2}{List the major assumptions of linear programming.}{02}{2}{2}
+\qa{1.3}{In simplex method, what is the purpose of the pivot operation?}{02}{3}{3}
+\qa{1.4}{When can the dual Simplex method be applied?}{02}{3}{3}
+\qa{1.5}{List the methods used to arrive at an initial basic feasible solution in transportation model.}{02}{2}{2}
+\qa{1.6}{How does a travelling salesman problem differ from a routine assignment model?}{02}{3}{3}
+\qa{1.7}{If an activity has its optimistic, most likely and pessimistic times as 2, 4 and 9 respectively, then what is its expected time and variance?}{02}{3}{3}
+\qa{1.8}{Which project management tool introduces the estimates for optimistic time and pessimistic time?}{02}{2}{2}
+\qa{1.9}{Define pay-off as applied to game theory.}{02}{2}{2}
+\qa{1.10}{What is a two person zero sum game?}{02}{2}{2}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{List the seven step model building process with an example for each step.}{04}{2}{2}
+ & b & An Electric Company produces two products P$_1$ and P$_2$. Products are produced and sold on a weekly basis. The weekly production cannot exceed 25 for product P$_1$ and 35 for product P$_2$ because of limited available facilities. The company employs total of 60 workers. Product P$_1$ requires 2 man-weeks of labor, while P$_2$ requires one man-week of labour. Profit margin on P$_1$ is Rs. 60 and P$_2$ is Rs. 40. Formulate this problem as an LP problem and solve that using graphical method. & 12 & 4 & 4\\ \hline
+\qb{3}{a}{Discuss the following with respect to linear program: (i) Slack variable (ii) Surplus variable.}{04}{2}{2}
+ & b & Solve the following linear programming problem by simplex method: Maximize Z = 3$x_1$ + 5$x_2$ + 4$x_3$ subject to the constraints 2$x_1$ + 3$x_2$ $\le$ 8, 2$x_2$ + 5$x_3$ $\le$ 10, 3$x_1$ + 2$x_2$ + 4$x_3$ $\le$ 15 and $x_1, x_2, x_3 \ge$ 0. & 12 & 3 & 3\\ \hline
+\orrow
+\qb{4}{a}{Enumerate important characteristics of Duality.}{06}{2}{2}
+ & b & Solve by dual simplex method the following linear programming problem: Minimize Z = 6$x_1$ + 7$x_2$ + 3$x_3$ + 5$x_4$ subject to 5$x_1$ + 6$x_2$ $-$ 3$x_3$ + 4$x_4$ $\ge$ 12, $x_2$ + 5$x_3$ $-$ 6$x_4$ $\ge$ 10, 2$x_1$ + 5$x_2$ + $x_3$ + $x_4$ $\ge$ 8 and $x_1, x_2, x_3, x_4 \ge$ 0. & 10 & 3 & 3\\ \hline
+\qb{5}{a}{Solve the initial basic feasible solution of transportation problem by least cost entry method:
+\qtabc{|l|c|c|c|c|}{\hline Source & Kanpur & Pune & Delhi & Supply\\\hline Jaipur & 4 & 5 & 1 & 40\\\hline Udaipur & 3 & 4 & 3 & 60\\\hline Mumbai & 6 & 2 & 8 & 70\\\hline Demand & 70 & 40 & 60 & \\\hline}}{04}{2}{2}
+ & b & Find the optimum solution to the following transportation problem in which the cells contain the transportation cost in rupees.
+\qtabc{|c|c|c|c|c|c|c|}{\hline & W$_1$ & W$_2$ & W$_3$ & W$_4$ & W$_5$ & Available\\\hline F$_1$ & 7 & 6 & 4 & 5 & 9 & 40\\\hline F$_2$ & 8 & 5 & 6 & 7 & 8 & 30\\\hline F$_3$ & 6 & 8 & 9 & 6 & 5 & 20\\\hline F$_4$ & 5 & 7 & 7 & 8 & 6 & 10\\\hline Required & 30 & 30 & 15 & 20 & 5 & \\\hline} & 12 & 3 & 3\\ \hline
+\orrow
+\qb{6}{a}{Four different jobs can be done at four different machines. The set up and take down time costs are assumed to be prohibitively high for changeovers. The matrix below gives the cost in rupees of producing job i on machine j.
+\qtabc{|c|c|c|c|c|}{\hline & M$_1$ & M$_2$ & M$_3$ & M$_4$\\\hline J$_1$ & 5 & 7 & 11 & 6\\\hline J$_2$ & 8 & 5 & 9 & 6\\\hline J$_3$ & 4 & 7 & 10 & 7\\\hline J$_4$ & 10 & 4 & 8 & 3\\\hline}
+How should the jobs be assigned to the various machines so that the total cost is minimized.}{08}{3}{3}
+ & b & ABC Ice cream company has a distribution depot in Greater Kailash Part 1 for distributing ice-cream in South Delhi. There are four vendors located in different parts of South Delhi (call them A, B, C and D) who have to be supplied ice-cream every day. The following matrix displays the distances (in kilometers) between the depot and the four vendors:
+\qtabc{|l|c|c|c|c|c|}{\hline From $\backslash$ To & Depot & Vendor A & Vendor B & Vendor C & Vendor D\\\hline Depot & $\infty$ & 3.5 & 3 & 4 & 2\\\hline Vendor A & 3.5 & $\infty$ & 4 & 2.5 & 3\\\hline Vendor B & 3 & 4 & $\infty$ & 4.5 & 3.5\\\hline Vendor C & 4 & 2.5 & 4.5 & $\infty$ & 4\\\hline Vendor D & 2 & 3 & 3.5 & 4 & $\infty$\\\hline}
+What route should the company van follow so that the total distance travelled is minimized? & 08 & 3 & 3\\ \hline
+\qb{7}{a}{List the steps for drawing a network.}{08}{2}{2}
+ & b & A project schedule has the following characteristics:
+\qtabc{|c|c||c|c|}{\hline Activity & Time (weeks) & Activity & Time (weeks)\\\hline 1--2 & 4 & 5--6 & 4\\\hline 1--3 & 1 & 5--7 & 8\\\hline 2--4 & 1 & 6--8 & 1\\\hline 3--4 & 1 & 7--8 & 2\\\hline 3--5 & 6 & 8--10 & 5\\\hline 4--9 & 5 & 9--10 & 7\\\hline}
+(i) Construct the network. (ii) Compute E$_i$ and L$_j$ values for each network. (iii) Find the critical path and total duration. & 08 & 3 & 3\\ \hline
+\orrow
+\qb{8}{a}{What is float? What are the different types of floats?}{04}{2}{2}
+ & b & A project schedule has the following characteristics:
+\qtabc{|l|c|c|c|c|c|c|c|c|}{\hline Activity & 10--20 & 20--30 & 20--40 & 20--50 & 30--60 & 40--60 & 50--70 & 60--70\\\hline Optimistic & 1 & 8 & 3 & 3 & 4 & 7 & 6 & 1\\\hline Most likely & 2 & 10 & 4 & 5 & 5 & 8 & 8 & 4\\\hline Pessimistic & 3 & 12 & 6 & 7 & 6 & 9 & 10 & 7\\\hline}
+(i) Calculate the expected time for each activity. (ii) Draw the network diagram. (iii) Find the critical path and duration. (iv) Calculate total float for each activity. & 12 & 3 & 3\\ \hline
+\qb{9}{a}{A company management and the labor union are negotiating a new three-year settlement. Each of these has 4 strategies: (i) Hard and aggressive bargaining, (ii) Reasoning and logical approach, (iii) Legalistic strategy, (iv) Conciliatory approach. The costs to the company are given for every pair of strategy choice.
+\qtabc{|l|c|c|c|c|}{\hline Union $\backslash$ Company & I & II & III & IV\\\hline I & 20 & 15 & 12 & 35\\\hline II & 25 & 14 & 8 & 10\\\hline III & 40 & 2 & 10 & 5\\\hline IV & $-$5 & 4 & 11 & 0\\\hline}
+Find the saddle point and value of the game.}{06}{3}{3}
+ & b & Use the graphical method for solving the following game and find the value of the game.
+\qtabc{|l|c|c|c|c|}{\hline Player A $\backslash$ Player B & B$_1$ & B$_2$ & B$_3$ & B$_4$\\\hline A$_1$ & 2 & 2 & 3 & $-$2\\\hline A$_2$ & 4 & 3 & 2 & 6\\\hline} & 10 & 3 & 3\\ \hline
+\orrow
+\qb{10}{a}{List the assumption of a game theory.}{08}{2}{2}
+ & b & Reduce the following game by dominance and find the optimal strategies and value of the game.
+\qtabc{|l|c|c|c|c|}{\hline Player A $\backslash$ Player B & I & II & III & IV\\\hline I & 3 & 2 & 4 & 0\\\hline II & 3 & 4 & 2 & 4\\\hline III & 4 & 2 & 4 & 0\\\hline IV & 0 & 4 & 0 & 8\\\hline} & 08 & 3 & 3\\ \hline
+\end{seeB}
+\end{seepaper}
+
+% ---------------- IM244AI, June/July 2025
+\begin{seepaper}
+\paperinfo{code={IM244AI},examline={IV Semester B.E. Regular/Supplementary Examinations June/July -- 2025},dept={Industrial Engineering and Management},title={OPERATIONS RESEARCH},time={03 Hours},maxmarks={100}}
+\seehead
+\instrA{\item Use of normal distribution table is permitted.}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{Operations research is a \blank[1.5cm] approach to problem solving for executives.}{01}{2}{1}
+\qa{1.2}{Any two isoprofit or isocost lines for a given linear programming problem are \blank[1.8cm] to each other.}{01}{1}{2}
+\qa{1.3}{The constraints may be in the form of \blank[1.5cm] or \blank[1.5cm].}{02}{1}{2}
+\qa{1.4}{Define sensitivity analysis in linear programming.}{02}{1}{1}
+\qa{1.5}{What does the shadow price in duality represent?}{02}{2}{2}
+\qa{1.6}{What is the goal in a transportation problem?}{01}{1}{2}
+\qa{1.7}{What is the cost matrix in assignment problems?}{01}{2}{2}
+\qa{1.8}{What are the steps of the Hungarian method?}{02}{2}{3}
+\qa{1.9}{What is the full form of CPM?}{01}{1}{1}
+\qa{1.10}{What is a critical path?}{01}{2}{2}
+\qa{1.11}{What are the advantages of crashing a network?}{02}{2}{3}
+\qa{1.12}{Define saddle point in a game matrix.}{02}{1}{2}
+\qa{1.13}{When is a game solved using the arithmetic method?}{02}{2}{4}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{With an example, explain a work-scheduling problem in linear programming.}{06}{3}{2}
+ & b & Explain the concept of feasible region and optimal solution in a linear programming problem using an example. & 06 & 3 & 2\\
+ & c & Define Operations Research and mention any four of its applications. & 04 & 1 & 1\\ \hline
+\qb{3}{a}{Use penalty (Big-M) method to solve the following LP problem. Minimize Z = 5$x_1$ + 3$x_2$ subject to the constraints (i) 2$x_1$ + 4$x_2$ $\le$ 12, (ii) 2$x_1$ + 2$x_2$ = 10, (iii) 5$x_1$ + 2$x_2$ $\ge$ 10 and $x_1, x_2 \ge$ 0.}{08}{3}{2}
+ & b & Formulate the dual of the following problem and interpret the dual variables economically: Maximize Z = 6x + 8y s.t. 2x + 3y $\le$ 30, x + 2y $\le$ 20, x, y $\ge$ 0 & 08 & 3 & 2\\ \hline
+\orrow
+\qb{4}{a}{Write the standard format of simplex method for the following LP problem. Maximize Z = 3$x_1$ + 5$x_2$ + 4$x_3$ subject to the constraints (i) 2$x_1$ + 3$x_2$ $\le$ 8, (ii) 2$x_2$ + 5$x_3$ $\le$ 10, (iii) 3$x_1$ + 2$x_2$ + 4$x_3$ $\le$ 15 and $x_1, x_2, x_3 \ge$ 0}{06}{4}{2}
+ & b & Conduct sensitivity analysis for the objective coefficients of the LP: Maximize Z = 2x + 3y s.t. x + y $\le$ 4, x + 2y $\le$ 6, x, y $\ge$ 0 after obtaining optimal solution. & 10 & 4 & 2\\ \hline
+\qb{5}{a}{A company wants to assign 4 salesmen (S1, S2, S3, S4) to 4 different sales regions (R1, R2, R3, R4). The expected profits (in \rupee '000s) from each salesman in each region are given in the table below. Assign the salesmen to the regions such that the total profit is maximized.
+\qtabc{|c|c|c|c|c|}{\hline & R1 & R2 & R3 & R4\\\hline S1 & 25 & 40 & 35 & 20\\\hline S2 & 30 & 45 & 40 & 25\\\hline S3 & 20 & 35 & 30 & 50\\\hline S4 & 10 & 25 & 20 & 30\\\hline}}{10}{3}{3}
+ & b & Compare the three methods of finding initial basic feasible solution: North West Corner, Least Cost, Vogel's Method. & 06 & 4 & 2\\ \hline
+\orrow
+\qb{6}{a}{Discuss degeneracy in a transportation problem. How is it identified and resolved?}{06}{2}{3}
+ & b & Explain the general structure and assumptions of a Transportation Problem. & 06 & 2 & 1\\
+ & c & Explain any two methods to find the initial basic feasible solution. & 04 & 2 & 2\\ \hline
+\qb{7}{a}{A project consists of the following activities with the duration in days:
+\qtabc{|l|*{9}{c|}}{\hline Activity & A & B & C & D & E & F & G & H & I\\\hline Precedence & -- & A & A & B, C & A & D, E & C & F, G & H\\\hline Duration & 10 & 4 & 12 & 10 & 9 & 8 & 7 & 9 & 6\\\hline}
+\begin{rom}\item Draw the network of the above project.\item Identify the critical path and determine the project duration.\item Calculate independent float, free float for all the activities.\end{rom}}{10}{4}{2}
+ & b & An assembly is to be made from two parts X and Y. Both parts must be turned on a lathe. Y must be polished whereas X need not be polished. The sequence of activities, together with their predecessors, is given below.
+\qtabc{|c|l|c|}{\hline Activity & Description & Predecessor Activity\\\hline A & Open work order & --\\\hline B & Get material for X & A\\\hline C & Get material for Y & A\\\hline D & Turn X on lathe & B\\\hline E & Turn Y on lathe & B, C\\\hline F & Polish Y & E\\\hline G & Assemble X and Y & D, F\\\hline H & Pack & G\\\hline}
+Draw a network diagram of activities for the project. & 06 & 4 & 3\\ \hline
+\orrow
+\qb{8}{a}{`PERT takes care of uncertain durations.' How far is this statement correct? Explain with reasons.}{08}{4}{3}
+ & b & Explain the following in the context of project management: (i) Activity variance (ii) Project variance & 08 & 2 & 3\\ \hline
+\qb{9}{a}{Explain: Minimax and Maximin principle used in the theory of games.}{06}{2}{4}
+ & b & By applying dominance rules, reduce the given payoff matrix and identify the optimal pure strategies and value of the game.
+\qtabc{|c|c|c|c|c|}{\hline & B1 & B2 & B3 & B4\\\hline A1 & 1 & 2 & 1 & 3\\\hline A2 & 0 & $-$1 & 0 & 2\\\hline A3 & 2 & 3 & 1 & 4\\\hline}& 10 & 4 & 4\\ \hline
+\orrow
+\qb{10}{a}{Obtain the optimal strategies for both persons and the value of the game for two-person zero-sum game whose payoff matrix is as follows:
+\qtabc{|c|c|c|}{\hline Player A & B$_1$ & B$_2$\\\hline A$_1$ & 1 & $-$3\\\hline A$_2$ & 3 & 5\\\hline A$_3$ & $-$1 & 6\\\hline A$_4$ & 4 & 1\\\hline A$_5$ & 2 & 2\\\hline A$_6$ & $-$5 & 0\\\hline}}{10}{3}{4}
+ & b & Game theory provides a systematic quantitative approach for analysing competitive situations in which the competitors make use of logical processes and techniques in order to determine an optimal strategy for winning. Comment. & 06 & 5 & 4\\ \hline
+\end{seeB}
+\end{seepaper}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MARKETING MANAGEMENT
+% ---------------- IM345AT, June/July 2025
+\begin{seepaper}
+\paperinfo{code={IM345AT},examline={IV Semester B.E. Regular/Supplementary Examinations June/July -- 2025},dept={Industrial Engineering and Management},title={MARKETING MANAGEMENT},time={03 Hours},maxmarks={100}}
+\seehead
+\instrA{}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{Differentiate between push and pull marketing.}{02}{2}{2}
+\qa{1.2}{Mention any four characteristics of a good content.}{02}{1}{1}
+\qa{1.3}{What is the primary goal of social media marketing?}{02}{1}{1}
+\qa{1.4}{What is the primary objective of Search Engine Optimization (SEO)?}{02}{2}{1}
+\qa{1.5}{How bounce rate affects website performance assessment.}{02}{2}{2}
+\qa{1.6}{Why is segmentation important in e-mail marketing campaigns?}{02}{2}{2}
+\qa{1.7}{Why is it important to integrate SEO in website development?}{02}{2}{4}
+\qa{1.8}{What is the role of geo-targeting in mobile marketing?}{02}{2}{2}
+\qa{1.9}{Why is the `Satisfaction' component important in the AIDAS model?}{02}{1}{2}
+\qa{1.10}{What is meant by the ``end-to-end customer experience'' in digital analytics?}{02}{2}{3}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{Discuss how website analysis contributes to enhanced customer experience and conversion optimization.}{08}{3}{2}
+ & b & Explain how content research tools help marketers discover new opportunities and gain a competitive edge. & 08 & 3 & 2\\ \hline
+\qb{3}{a}{Analyse how businesses can utilize Facebook and Instagram for different stages of a marketing funnel.}{08}{3}{2}
+ & b & Develop an SEO content plan for an e-commerce startup targeting eco-friendly household products. & 08 & 3 & 2\\ \hline
+\orrow
+\qb{4}{a}{Illustrate how social media analytics contribute to creating audience profiles.}{08}{3}{3}
+ & b & Construct a targeted marketing plan using SEO tools like Google Analytics and SEMrush for a B2B company. & 08 & 4 & 3\\ \hline
+\qb{5}{a}{Design a simple marketing plan for an e-learning platform using insights gathered from web analytics tools.}{08}{4}{3}
+ & b & Analyze a failed e-mail marketing campaign and identify areas where marketing research could have improved outcomes. & 08 & 3 & 3\\ \hline
+\orrow
+\qb{6}{a}{Evaluate the effectiveness of responsive email design in maintaining a competitive edge in digital marketing.}{08}{4}{4}
+ & b & Critically evaluate the contribution of Google Tag Manager in optimizing marketing channels for global companies. & 08 & 3 & 4\\ \hline
+\qb{7}{a}{Demonstrate how tools like Google Analytics and Hotjar can be used to develop insights into user behavior and improve marketing decisions.}{08}{3}{3}
+ & b & Formulate a mobile-based marketing plan for a local food delivery startup to reach a targeted student segment. & 08 & 3 & 3\\ \hline
+\orrow
+\qb{8}{a}{Evaluate the effectiveness of mobile marketing in facing market changes due to rapid technological advancements.}{08}{4}{2}
+ & b & Create a strategy to use new digital channels like mobile apps, chatbots, and social media integration to strengthen a brand's global online presence. & 08 & 4 & 4\\ \hline
+\qb{9}{a}{What are the key performance indicators (KPIs) used to evaluate website optimization, and how do they contribute to increased conversions?}{08}{3}{4}
+ & b & Analyze how market segmentation can be refined using digital analytics data. & 08 & 3 & 3\\ \hline
+\orrow
+\qb{10}{a}{Design a basic digital dashboard that reflects holistic marketing performance.}{08}{4}{2}
+ & b & Analyze how a company can use the AIDAS model to structure content on its product landing page. & 08 & 3 & 3\\ \hline
+\end{seeB}
+\end{seepaper}
+
+% ---------------- 21IM44, Oct/Nov 2023
+\begin{seepaper}
+\paperinfo{code={21IM44},examline={IV Semester B.E. Examinations Oct/Nov -- 2023},dept={Industrial Engineering and Management},title={MARKETING MANAGEMENT},time={03 Hours},maxmarks={100}}
+\seehead
+\begin{seeinstr}\item Answer all questions from Part A. Part A questions should be answered in first three pages of the answer book only.\item Answer FIVE full questions from Part B. In Part B question number 2 is compulsory. Answer any one full question from 3 and 4, 5 and 6, 7 and 8, 9 and 10.\end{seeinstr}
+\seepartA
+\begin{seeA}
+\qaq{1}{1.1}{List any 2 principles of digital marketing.}{02}{--}{--}
+\qa{1.2}{Differentiate between market segmentation and market mix.}{02}{--}{--}
+\qa{1.3}{Define Hashtag. List the importance of Hashtag in social media marketing.}{02}{--}{--}
+\qa{1.4}{What is keyword research in SEO?}{02}{--}{--}
+\qa{1.5}{Define ``Dimensions'' and ``Metrics'' in Google analytics.}{02}{--}{--}
+\qa{1.6}{List any two key components of a successful email marketing campaign.}{02}{--}{--}
+\qa{1.7}{List any two aspects of branding and consistency in web design.}{02}{--}{--}
+\qa{1.8}{List any two differences between Mobile Web marketing and Mobile App marketing.}{02}{--}{--}
+\qa{1.9}{What is the role of AIDAS framework in the conversion optimization?}{02}{--}{--}
+\qa{1.10}{What is the impact of user behavior analysis on website optimization?}{02}{--}{--}
+\end{seeA}
+\seepart{PART-B}
+\begin{seeB}
+\qb{2}{a}{What is Digital marketing? Explain the differences between Traditional Marketing and Digital Marketing. Highlight any 5 key differences.}{08}{--}{--}
+ & b & List and explain various pricing strategies used in marketing management with suitable examples. & 08 & -- & --\\ \hline
+\qb{3}{a}{Discuss the key metrics used to measure the success of a social media marketing campaign and explain the importance of it for evaluating performance.}{08}{--}{--}
+ & b & Enumerate briefly on the best practices for creating compelling and shareable content on social media platforms to increase brand visibility and engagement. & 08 & -- & --\\ \hline
+\orrow
+\qb{4}{a}{Explain the concept of Search Engine optimization and its significance in digital marketing.}{08}{--}{--}
+ & b & Describe the role of content in SEO. How can business create high quality SEO friendly content? & 08 & -- & --\\ \hline
+\qb{5}{a}{Discuss the concept of ``Acquisition channels'' in Google Analytics. How can business use this information to optimize their marketing efforts.}{08}{--}{--}
+ & b & Explain the significance of A/B testing and conversion rate optimization in Web Analytics. How can these practices help improve website performance. & 08 & -- & --\\ \hline
+\orrow
+\qb{6}{a}{Describe the difference between transactional emails and promotional emails. Provide examples of each and explain when to use them.}{08}{--}{--}
+ & b & List and explain the various reports that can be generated using google analytics. & 08 & -- & --\\ \hline
+\qb{7}{a}{What is the role of user Interface and user Experience designs in web design for marketing? How can businesses ensure a positive user Journey on their websites?}{08}{--}{--}
+ & b & Describe the importance of testing and optimization in web design for Marketing. What tools and methods can be used to analyze and improve Website performance? & 08 & -- & --\\ \hline
+\orrow
+\qb{8}{a}{Discuss briefly on Push Notification in Mobile Marketing. Explain how can businesses use them to engage and retain Mobile App users? Provide examples of effective push notification strategies.}{08}{--}{--}
+ & b & Explain the significance of mobile analytics in mobile marketing campaigns. What key metrics should marketers track to measure the success of their mobile strategies? & 08 & -- & --\\ \hline
+\qb{9}{a}{Describe the conversion funnel in digital marketing. What are the key stages and how can business identify and address drop offs in the funnel?}{08}{--}{--}
+ & b & Explain the concept of social proof and its impact on conversion rates. Provide examples of how business can use social proof effectively in marketing. & 08 & -- & --\\ \hline
+\orrow
+\qb{10}{a}{Define Digital Analytics. Describe the key metrics and KPIs used in digital analytics. How can these metrics help business measure the success of their online campaigns?}{10}{--}{--}
+ & b & Describe the process of setting up and tracking goals in google analytics. How can businesses use goal tracking to measure website performance. & 06 & -- & --\\ \hline
+\end{seeB}
+\end{seepaper}
+
+\end{document}
