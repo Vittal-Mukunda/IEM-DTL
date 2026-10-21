@@ -1502,22 +1502,48 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem3/question-papers/cie-1.pdf",
-          size: "336 KB",
+          size: "265 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem3/question-papers/cie-2.pdf",
-          size: "269 KB",
+          size: "263 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem3/question-papers/cie-3.pdf",
-          size: "242 KB",
+          size: "236 KB",
         },
         {
           label: "SEE – Past Year Question Papers (2016–2026)",
           file: "/notes/sem3/question-papers/see-past-year-question-papers.pdf",
-          size: "6.5 MB",
+          size: "6.6 MB",
+        },
+      ],
+    },
+    {
+      // Basket electives: Environment & Sustainability, Material Science, Biosafety
+      name: "Electives (CIE & SEE)",
+      items: [
+        {
+          label: "CIE 1",
+          file: "/notes/sem3/electives/cie-1.pdf",
+          size: "277 KB",
+        },
+        {
+          label: "CIE 2",
+          file: "/notes/sem3/electives/cie-2.pdf",
+          size: "301 KB",
+        },
+        {
+          label: "CIE 3",
+          file: "/notes/sem3/electives/cie-3.pdf",
+          size: "191 KB",
+        },
+        {
+          label: "SEE – Past Year Question Papers",
+          file: "/notes/sem3/electives/see-past-year-question-papers.pdf",
+          size: "275 KB",
         },
       ],
     },
@@ -1654,22 +1680,48 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem4/question-papers/cie-1.pdf",
-          size: "362 KB",
+          size: "348 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem4/question-papers/cie-2.pdf",
-          size: "336 KB",
+          size: "334 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem4/question-papers/cie-3.pdf",
-          size: "254 KB",
+          size: "242 KB",
         },
         {
           label: "SEE – Past Year Question Papers (2016–2025)",
           file: "/notes/sem4/question-papers/see-past-year-question-papers.pdf",
-          size: "5.2 MB",
+          size: "5.4 MB",
+        },
+      ],
+    },
+    {
+      // Basket electives: Environment & Sustainability (even-semester papers)
+      name: "Electives (CIE & SEE)",
+      items: [
+        {
+          label: "CIE 1",
+          file: "/notes/sem4/electives/cie-1.pdf",
+          size: "192 KB",
+        },
+        {
+          label: "CIE 2",
+          file: "/notes/sem4/electives/cie-2.pdf",
+          size: "204 KB",
+        },
+        {
+          label: "CIE 3",
+          file: "/notes/sem4/electives/cie-3.pdf",
+          size: "199 KB",
+        },
+        {
+          label: "SEE – Past Year Question Papers",
+          file: "/notes/sem4/electives/see-past-year-question-papers.pdf",
+          size: "93 KB",
         },
       ],
     },
@@ -1756,23 +1808,51 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem5/question-papers/cie-1-by-subject.pdf",
-          size: "539 KB",
+          size: "542 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem5/question-papers/cie-2-by-subject.pdf",
-          size: "473 KB",
+          size: "484 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem5/question-papers/cie-3-by-subject.pdf",
-          size: "457 KB",
+          size: "466 KB",
         },
         {
           // Hidden: unlocked by clicking "Contact" in the footer.
           label: "SEE – Past Year Question Papers (2016–2026)",
           file: "/notes/sem5/question-papers/see-past-year-question-papers.pdf",
-          size: "8.1 MB",
+          size: "6.9 MB",
+          hidden: true,
+        },
+      ],
+    },
+    {
+      // Professional core electives (EIS, Advanced Decision Modelling, Discrete Event Simulation and earlier-scheme electives)
+      name: "Electives (CIE & SEE)",
+      items: [
+        {
+          label: "CIE 1",
+          file: "/notes/sem5/electives/cie-1-by-subject.pdf",
+          size: "297 KB",
+        },
+        {
+          label: "CIE 2",
+          file: "/notes/sem5/electives/cie-2-by-subject.pdf",
+          size: "302 KB",
+        },
+        {
+          label: "CIE 3",
+          file: "/notes/sem5/electives/cie-3-by-subject.pdf",
+          size: "303 KB",
+        },
+        {
+          // Hidden with the rest of the Sem 5 SEE papers.
+          label: "SEE – Past Year Question Papers",
+          file: "/notes/sem5/electives/see-past-year-question-papers.pdf",
+          size: "1.9 MB",
           hidden: true,
         },
       ],
@@ -1991,22 +2071,48 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem6/question-papers/cie-1-all-years.pdf",
-          size: "535 KB",
+          size: "431 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem6/question-papers/cie-2-all-years.pdf",
-          size: "527 KB",
+          size: "441 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem6/question-papers/cie-3-all-years.pdf",
-          size: "570 KB",
+          size: "457 KB",
         },
         {
           label: "SEE – Past Year Question Papers (2016–2026)",
           file: "/notes/sem6/question-papers/see-past-year-question-papers.pdf",
-          size: "6.0 MB",
+          size: "3.5 MB",
+        },
+      ],
+    },
+    {
+      // Professional and institutional electives
+      name: "Electives (CIE & SEE)",
+      items: [
+        {
+          label: "CIE 1",
+          file: "/notes/sem6/electives/cie-1-all-years.pdf",
+          size: "522 KB",
+        },
+        {
+          label: "CIE 2",
+          file: "/notes/sem6/electives/cie-2-all-years.pdf",
+          size: "502 KB",
+        },
+        {
+          label: "CIE 3",
+          file: "/notes/sem6/electives/cie-3-all-years.pdf",
+          size: "566 KB",
+        },
+        {
+          label: "SEE – Past Year Question Papers",
+          file: "/notes/sem6/electives/see-past-year-question-papers.pdf",
+          size: "3.2 MB",
         },
       ],
     },
