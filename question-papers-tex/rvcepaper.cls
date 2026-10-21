@@ -29,6 +29,7 @@
 \usetikzlibrary{arrows.meta,calc,positioning}
 \RequirePackage{etoolbox}
 \RequirePackage{textcomp}
+\RequirePackage{needspace}
 
 \setmainfont{Times New Roman}
 \newfontfamily\sansfont{Arial}
@@ -209,7 +210,7 @@
   {\bfseries\fontsize{12.5}{14}\selectfont RV COLLEGE OF ENGINEERING\textsuperscript{\tiny\textregistered}}\\
   {\bfseries\small (An Autonomous Institution affiliated to VTU)}\\
   {\bfseries\small \getkey{examline}}\\
-  {\bfseries\fontsize{11.5}{13}\selectfont \getkey{dept}}\\
+  \edef\tmpdept{\getkey{dept}}\ifx\tmpdept\empty\else{\bfseries\fontsize{11.5}{13}\selectfont \getkey{dept}}\\\fi
   {\bfseries\fontsize{13.5}{15}\selectfont \getkey{title}}
   \end{center}\vspace{-2pt}
   \noindent{\bfseries\itshape\small Time: \getkey{time}}\hfill{\bfseries\itshape\small Maximum Marks: \getkey{maxmarks}}\par
@@ -217,7 +218,7 @@
 \newenvironment{seeinstr}{\begin{enumerate}[label=\arabic*.,leftmargin=1.7em,itemsep=0pt,topsep=1pt,parsep=0pt]}{\end{enumerate}\vspace{2pt}}
 % PART-A heading with M BT CO captions over the marks columns
 \newcommand{\seepartA}{\par\vspace{6pt}\noindent\hbox to \textwidth{\hfil\textbf{PART-A}\hfil\hbox to 3.3cm{\hbox to 1.1cm{\hfil\textbf{M}\hfil}\hbox to 1.1cm{\hfil\textbf{BT}\hfil}\hbox to 1.1cm{\hfil\textbf{CO}\hfil}}\hspace{0.15cm}}\par\vspace{3pt}}
-\newcommand{\seepart}[1]{\par\vspace{6pt}\centerline{\bfseries #1}\par\vspace{3pt}}
+\newcommand{\seepart}[1]{\par\Needspace*{6\baselineskip}\vspace{6pt}\centerline{\bfseries #1}\par\vspace{3pt}}
 % Part A table : number | sub | question | M | BT | CO  (no horizontal rules between rows)
 \newenvironment{seeA}{\renewcommand{\arraystretch}{1.15}%
   \begin{longtable}{|C{0.7cm}C{0.9cm}|p{11.0cm}|C{0.9cm}|C{0.9cm}|C{0.9cm}|}\hline}{\hline\end{longtable}}

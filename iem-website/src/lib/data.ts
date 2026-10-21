@@ -1502,7 +1502,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem3/question-papers/cie-1.pdf",
-          size: "270 KB",
+          size: "336 KB",
         },
         {
           label: "CIE 2",
@@ -1517,7 +1517,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "SEE – Past Year Question Papers (2016–2026)",
           file: "/notes/sem3/question-papers/see-past-year-question-papers.pdf",
-          size: "6.4 MB",
+          size: "6.5 MB",
         },
       ],
     },
@@ -1659,7 +1659,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 2",
           file: "/notes/sem4/question-papers/cie-2.pdf",
-          size: "270 KB",
+          size: "336 KB",
         },
         {
           label: "CIE 3",
@@ -1669,7 +1669,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "SEE – Past Year Question Papers (2016–2025)",
           file: "/notes/sem4/question-papers/see-past-year-question-papers.pdf",
-          size: "5.1 MB",
+          size: "5.2 MB",
         },
       ],
     },
@@ -1756,23 +1756,23 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem5/question-papers/cie-1-by-subject.pdf",
-          size: "450 KB",
+          size: "539 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem5/question-papers/cie-2-by-subject.pdf",
-          size: "380 KB",
+          size: "473 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem5/question-papers/cie-3-by-subject.pdf",
-          size: "368 KB",
+          size: "457 KB",
         },
         {
           // Hidden: unlocked by clicking "Contact" in the footer.
           label: "SEE – Past Year Question Papers (2016–2026)",
           file: "/notes/sem5/question-papers/see-past-year-question-papers.pdf",
-          size: "8.0 MB",
+          size: "8.1 MB",
           hidden: true,
         },
       ],
@@ -1991,22 +1991,22 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem6/question-papers/cie-1-all-years.pdf",
-          size: "436 KB",
+          size: "535 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem6/question-papers/cie-2-all-years.pdf",
-          size: "427 KB",
+          size: "527 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem6/question-papers/cie-3-all-years.pdf",
-          size: "469 KB",
+          size: "570 KB",
         },
         {
-          label: "SEE – Past Year Question Papers (2016–2025)",
+          label: "SEE – Past Year Question Papers (2016–2026)",
           file: "/notes/sem6/question-papers/see-past-year-question-papers.pdf",
-          size: "5.4 MB",
+          size: "6.0 MB",
         },
       ],
     },
