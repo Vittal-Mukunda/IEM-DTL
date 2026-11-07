@@ -16,7 +16,8 @@
     "test:watch": "vitest",
     "fonts:resume": "node scripts/fetch-resume-fonts.mjs && python scripts/subset_fonts.py",
     "verify:templates": "tsx scripts/verify-generate.mts && python scripts/verify_compare.py",
-    "resume:thumbs": "tsx scripts/verify-generate.mts && python scripts/resume_thumbnails.py"
+    "resume:thumbs": "tsx scripts/verify-generate.mts && python scripts/resume_thumbnails.py",
+    "resume:audit": "tsx scripts/resume-export-audit.mts && python scripts/resume_export_audit.py"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

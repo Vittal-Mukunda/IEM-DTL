@@ -237,6 +237,10 @@ function buildBlocks(
       if (!measured.lines.length) return;
 
       let gutter = pendingGutter;
+      // A section title set in the gutter rides on this entry, so the space
+      // a title would have had above it goes here — without it MIT's sections
+      // ran into one another.
+      const carriesTitle = Boolean(pendingGutter);
       pendingGutter = undefined;
 
       // Stanford's date gutter: one date per entry, beside its first line.
@@ -263,8 +267,11 @@ function buildBlocks(
         // A block may override the template-wide gap: Harvard's skill lines
         // are consecutive lines, not separate entries with air between them.
         gapBefore:
-          (index === 0 ? 0 : (entryBlock.gapBefore ?? s.entryGap) * spacingScale) +
-          (measured.leadIn ?? 0),
+          (carriesTitle
+            ? titleGap
+            : index === 0
+              ? 0
+              : (entryBlock.gapBefore ?? s.entryGap) * spacingScale) + (measured.leadIn ?? 0),
         gapAfter: (entryBlock.gapAfter ?? 0) * spacingScale,
         keepWithNext: false,
         // The heading rows of an entry never separate from each other.

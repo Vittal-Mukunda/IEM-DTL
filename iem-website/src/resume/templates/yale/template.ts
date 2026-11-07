@@ -252,7 +252,7 @@ export const yale: TemplateDefinition = {
         default:
           "\\entryline{\\textbf{ {{organization}} }, \\textit{ {{position}} }, {{location}} }{ {{dateRange}} }\n{{summary}}\n{{bullets}}",
         education:
-          "\\entryline{\\textbf{ {{organization}} }, {{location}} }{ {{dateRange}} }\n\\textit{ {{position}} }\\par\n{{summary}}\n{{bullets}}",
+          "\\entryline{\\textbf{ {{organization}} }, {{location}} }{ {{dateRange}} }\n\\textit{ {{position}} }\\par\n{{summary}}\n[[\\par\\textit{Relevant Coursework:} {{detail}}\\par]]\n{{bullets}}",
         labeled: "\\begin{itemize}\\item \\textit{ {{organization}}: } {{summary}}\\end{itemize}",
         paragraph: "{{text}}\\par",
       },

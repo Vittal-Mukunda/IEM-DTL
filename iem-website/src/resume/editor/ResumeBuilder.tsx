@@ -27,6 +27,7 @@ import { hrefForLink, type LinkKind, type SectionKind } from "../core/model";
 import { substitutions } from "../core/schema";
 import { ResumePreview } from "../core/render/preview";
 import { getTemplate, templateList } from "../templates";
+import { clearLeftovers, findLeftovers } from "./exampleLeftovers";
 import { addableKinds, specFor } from "./sectionKinds";
 import { SectionCard } from "./SectionCard";
 import { parseDoc, serialiseDoc, useResumeDoc } from "./useResumeDoc";
@@ -140,6 +141,20 @@ export default function ResumeBuilder() {
   };
 
   const available = useMemo(() => new Set(template.sections.available), [template]);
+  const leftovers = useMemo(() => findLeftovers(doc), [doc]);
+  // Only some headers have a line for the tagline; say so, so nobody has to
+  // guess why it shows in one template's PDF and not another's.
+  const printsTagline = useMemo(
+    () => JSON.stringify(template.blocks.header).includes('"personal.headline"'),
+    [template],
+  );
+  const taglineTemplates = useMemo(
+    () =>
+      templateList
+        .filter((t) => JSON.stringify(t.blocks.header).includes('"personal.headline"'))
+        .map((t) => t.name),
+    [],
+  );
   const subs = useMemo(() => substitutions(template), [template]);
 
   // Both grid children carry `min-w-0`: a grid item's default `min-width:auto`
@@ -162,6 +177,41 @@ export default function ResumeBuilder() {
             </Button>
           </div>
         )}
+        {/* Once the student has started, anything still in the sample's words
+            is easy to miss — the tagline, above all, which most templates do
+            not print. Name each field, and offer to empty them all. */}
+        {leftovers.length > 0 && (
+          <div
+            role="status"
+            className="flex flex-col gap-2 rounded-2xl border border-accent/30 bg-accent/6 px-4 py-3 text-sm"
+          >
+            <p className="leading-relaxed text-foreground">
+              <strong className="font-semibold">
+                {leftovers.length === 1 ? "One field still holds" : `${leftovers.length} fields still hold`}
+                {" the example’s text"}
+              </strong>{" "}
+              and will print on your résumé unless you change {leftovers.length === 1 ? "it" : "them"}:
+            </p>
+            <ul className="flex flex-wrap gap-1.5">
+              {leftovers.map((l) => (
+                <li
+                  key={l.where}
+                  className="rounded-md bg-white px-2 py-0.5 text-xs text-text-muted ring-1 ring-accent/20"
+                >
+                  {l.where}
+                </li>
+              ))}
+            </ul>
+            <Button
+              tone="quiet"
+              className="self-start"
+              onClick={() => actions.setDoc((d) => clearLeftovers(d))}
+            >
+              Clear the example&rsquo;s leftover text
+            </Button>
+          </div>
+        )}
+
         {/* Template + options */}
         <section className="rounded-2xl border border-primary/12 bg-white p-4 shadow-sm sm:p-5">
           <h2 className="mb-1 font-display text-xl font-semibold text-primary">1 · Choose a template</h2>
@@ -269,7 +319,7 @@ export default function ResumeBuilder() {
             </div>
           </div>
           <p className="mt-3 text-xs leading-snug text-text-muted">
-            Two or three pages keep the template's spacing and type size. One page is the only
+            Two or three pages keep the template&rsquo;s spacing and type size. One page is the only
             setting that tightens them to fit.
           </p>
         </section>
@@ -287,8 +337,12 @@ export default function ResumeBuilder() {
             />
             <TextInput
               label="Tagline"
-              placeholder="Industrial Engineering & Management"
-              hint="Printed only by templates that have a place for it."
+              placeholder="e.g. B.E. Mechanical Engineering"
+              hint={
+                printsTagline
+                  ? `Printed under your name in ${template.name}.`
+                  : `${template.name} does not print a tagline. ${taglineTemplates.join(", ")} do.`
+              }
               value={doc.personal.headline ?? ""}
               onChange={(e) => actions.setHeadline(e.target.value)}
             />

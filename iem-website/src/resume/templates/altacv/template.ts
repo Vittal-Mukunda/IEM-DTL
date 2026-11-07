@@ -196,9 +196,23 @@ export const altacv: TemplateDefinition = {
       rows: [
         { cells: [{ bind: "position", role: "entryTitle" }] },
         { cells: [{ bind: "organization", role: "entrySubtitle" }] },
-        { cells: [{ bind: "dateRange", role: "entryMeta" }] },
+        // Location and the "Additional lines" bullets are printed here too:
+        // the LaTeX export always carried them, and a degree's extra lines
+        // (minor, honours, thesis) vanishing from the PDF read as a bug.
+        {
+          cells: [
+            { bind: "dateRange", role: "entryMeta" },
+            { bind: "location", role: "entryMeta", align: "right" },
+          ],
+        },
         { cells: [{ bind: "summary", role: "body", grow: true }] },
         { cells: [{ bind: "detail", role: "body", grow: true }] },
+        {
+          repeat: "bullets",
+          gapBefore: 3,
+          marker: { glyph: "•", x: 0, textX: 10.2 },
+          cells: [{ bind: "$item", role: "body", grow: true }],
+        },
       ],
     },
 

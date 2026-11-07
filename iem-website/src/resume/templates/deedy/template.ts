@@ -360,7 +360,8 @@ export const deedy: TemplateDefinition = {
       document:
         "\\begin{document}\n{{header}}\n\\begin{minipage}[t]{0.33\\textwidth}\n{{side}}\n\\end{minipage}\\hfill\n\\begin{minipage}[t]{0.66\\textwidth}\n{{body}}\n\\end{minipage}\n\\end{document}",
       header:
-        "\\namesection{ {{name}} }{}{ {{contact}} }\n",
+        // The tagline is the first line of the contact block, as in the PDF.
+        "\\namesection{ {{name}} }{}{ [[{{headline}}\\\\]] {{contact}} }\n",
       section: "\\section{ {{title}} }\n{{entries}}\\sectionsep\n",
       entry: {
         default:

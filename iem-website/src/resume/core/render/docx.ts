@@ -90,6 +90,11 @@ interface Emit {
   leading: number;
   /** Right tab stop for the box being emitted, in twips. */
   rightTab: number;
+  /**
+   * Left indent, in twips, that puts body text beside a gutter (MIT's section
+   * titles, Stanford's dates). Zero for templates without one.
+   */
+  gutterIndent: number;
 }
 
 /* ------------------------------------------------------------------ *
@@ -107,16 +112,10 @@ function contentWidthOf(template: TemplateDefinition, doc: ResumeDoc): number {
   return pageOf(template, doc).width - m.left - m.right;
 }
 
-/**
- * Text width of the page's own box.
- *
- * A gutter template (MIT) hands part of the content width to a label column
- * beside the text, so the text the tab is measured against is narrower than the
- * margins suggest. The layout engine narrows the same way in `frameFor`.
- */
-function pageBoxWidth(template: TemplateDefinition, doc: ResumeDoc): number {
+/** Width of the gutter plus its gap, in points — 0 without a gutter. */
+function gutterOffset(template: TemplateDefinition): number {
   const g = template.page.gutter;
-  return contentWidthOf(template, doc) - (g ? g.width + g.gap : 0);
+  return g ? g.width + g.gap : 0;
 }
 
 /** Right tab stop for a box of `boxWidth` points, in twips. */
@@ -149,8 +148,10 @@ function runOptions(
     size: pt2half(style.size * scale),
     bold: style.weight >= 600,
     italics: style.italic,
-    allCaps: style.allCaps,
-    smallCaps: style.smallCaps,
+    // Only ever one of the two. `docx` writes <w:smallCaps> whenever
+    // `smallCaps` is defined — false included — and then skips `allCaps`
+    // entirely, which silently dropped every all-caps role from Word.
+    ...(style.smallCaps ? { smallCaps: true } : style.allCaps ? { allCaps: true } : {}),
     underline: style.underline ? {} : undefined,
     color: resolveColor(template, style.color).replace("#", ""),
     characterSpacing: style.tracking ? pt2twip(style.tracking * scale) : undefined,
@@ -210,7 +211,7 @@ function collectRow(emit: Emit, row: Row, ctx: BindContext): ParaSpec | undefine
       // engine treats it as too — it does not move with the paper size.
       tabStops.push({
         type: cell.align.tabAlign === "right" ? TabStopType.RIGHT : TabStopType.LEFT,
-        position: pt2twip(cell.align.tab),
+        position: pt2twip(cell.align.tab) + emit.gutterIndent,
       });
       children.push(new TextRun({ text: "\t" }));
       pushRun(style, text);
@@ -251,14 +252,63 @@ function collectRow(emit: Emit, row: Row, ctx: BindContext): ParaSpec | undefine
   };
 }
 
+interface BlockOptions {
+  rule?: boolean;
+  heading?: boolean;
+  spacingBefore?: number;
+  /** Full width, ignoring the gutter (Stanford's ruled headings). */
+  fullWidth?: boolean;
+  /** Runs set in the gutter beside the block's first line. */
+  lead?: TextRun[];
+}
+
+/**
+ * Shifts a paragraph past the gutter. A paragraph that carries gutter text
+ * gets a hanging indent instead: its first line starts at the margin with the
+ * gutter text, and the tab after it lands on the indent — Word treats a
+ * hanging indent as an implicit tab stop — so the body text lines up with
+ * every other paragraph, as the engine places it.
+ */
+function placeInGutter(
+  emit: Emit,
+  spec: ParaSpec,
+  lead: TextRun[] | undefined,
+): Pick<ParaSpec, "children" | "indent" | "tabStops"> {
+  const shift = emit.gutterIndent;
+  const left = Number(spec.indent?.left ?? 0) + shift;
+  const hanging = Number(spec.indent?.hanging ?? 0);
+  if (!lead?.length) {
+    return { children: spec.children, indent: shift ? { ...spec.indent, left } : spec.indent, tabStops: spec.tabStops };
+  }
+  // The text a marker or tab would have started at, measured from the margin.
+  const textStart = left - hanging;
+  const align = emit.template.page.gutter?.align;
+  const tabStops = [...(spec.tabStops ?? [])];
+  const children: TextRun[] = [];
+  if (align === "right") {
+    tabStops.push({ type: TabStopType.RIGHT, position: pt2twip(emit.template.page.gutter!.width) });
+    children.push(new TextRun({ text: "	" }));
+  }
+  children.push(...lead, new TextRun({ text: "	" }));
+  if (hanging) {
+    // A bullet row: its marker sits at the hanging position, so the tab after
+    // the gutter text must stop there rather than at the text indent.
+    tabStops.push({ type: TabStopType.LEFT, position: textStart });
+  }
+  children.push(...spec.children);
+  return { children, indent: { left, hanging: left }, tabStops };
+}
+
 function specsToParagraphs(
   emit: Emit,
   block: BlockLayout,
   specs: ParaSpec[],
-  options: { rule?: boolean; heading?: boolean; spacingBefore?: number } = {},
+  options: BlockOptions = {},
 ): Paragraph[] {
   const { template } = emit;
+  const placeEmit = options.fullWidth ? { ...emit, gutterIndent: 0 } : emit;
   return specs.map((spec, index) => {
+    const placed = placeInGutter(placeEmit, spec, index === 0 ? options.lead : undefined);
     const isFirst = index === 0;
     const isLast = index === specs.length - 1;
     // Gaps ride the spacing multiplier, as they do in the engine.
@@ -271,10 +321,10 @@ function specsToParagraphs(
     const ratio = template.typography.base.leadingRatio * emit.spacing;
     const line = Math.max(emit.leading, spec.maxSize * ratio);
     return new Paragraph({
-      children: spec.children,
+      children: placed.children,
       alignment: spec.alignment,
-      tabStops: spec.tabStops,
-      indent: spec.indent,
+      tabStops: placed.tabStops,
+      indent: placed.indent,
       keepNext: options.heading || undefined,
       spacing: {
         before: pt2twip(before),
@@ -301,7 +351,7 @@ function buildBlock(
   emit: Emit,
   block: BlockLayout,
   ctx: BindContext,
-  options: { rule?: boolean; heading?: boolean; spacingBefore?: number } = {},
+  options: BlockOptions = {},
 ): Paragraph[] {
   const { template, scale } = emit;
   const specs: ParaSpec[] = [];
@@ -362,30 +412,70 @@ function buildBlock(
   return specsToParagraphs(emit, block, specs, options);
 }
 
+/** The runs of a block's rows, run together — for text set in the gutter. */
+function gutterRuns(emit: Emit, block: BlockLayout, ctx: BindContext): TextRun[] {
+  const runs: TextRun[] = [];
+  for (const row of block.rows) {
+    if (row.repeat || (row.when && !bindingHasValue(row.when, ctx))) continue;
+    const spec = collectRow({ ...emit, gutterIndent: 0 }, { ...row, cells: row.cells.map((c) => ({ ...c, align: undefined })) }, ctx);
+    if (spec) runs.push(...spec.children);
+  }
+  return runs;
+}
+
 function sectionParagraphs(emit: Emit, section: Section, ctx: BindContext): Paragraph[] {
   const { template } = emit;
+  const carries = emit.gutterIndent ? template.page.gutter?.carries : undefined;
   const out: Paragraph[] = [];
-  out.push(
-    ...buildBlock(emit, template.blocks.sectionTitle, { ...ctx, section }, {
-      rule: true,
-      heading: true,
-      spacingBefore: template.spacing.sectionBefore,
-    }),
-  );
+
+  // MIT sets the section title in the gutter beside the first line of the
+  // section, as the engine does, rather than as a paragraph of its own.
+  let pendingTitle: TextRun[] | undefined;
+  if (carries === "sectionTitle") {
+    pendingTitle = gutterRuns(emit, template.blocks.sectionTitle, { ...ctx, section });
+  } else {
+    out.push(
+      ...buildBlock(emit, template.blocks.sectionTitle, { ...ctx, section }, {
+        rule: true,
+        heading: true,
+        fullWidth: true,
+        spacingBefore: template.spacing.sectionBefore,
+      }),
+    );
+  }
 
   const block = blockFor(template, section.kind, section.layout);
 
   if (section.layout === "paragraph") {
-    out.push(...buildBlock(emit, block, { ...ctx, section }));
+    out.push(
+      ...buildBlock(emit, block, { ...ctx, section }, {
+        lead: pendingTitle,
+        spacingBefore: pendingTitle ? template.spacing.sectionBefore : undefined,
+      }),
+    );
     return out;
   }
 
   section.entries.forEach((entry, index) => {
-    out.push(
-      ...buildBlock(emit, block, { ...ctx, section, entry }, {
-        spacingBefore: index === 0 ? template.spacing.sectionAfter : template.spacing.entryGap,
-      }),
-    );
+    const entryCtx = { ...ctx, section, entry };
+    // Stanford's dates sit in the gutter beside each entry's first line.
+    const lead =
+      pendingTitle ??
+      (carries === "entryDates"
+        ? gutterRuns(emit, { rows: [{ cells: [{ bind: "dateRange", role: "entryMeta" }] }] }, entryCtx)
+        : undefined);
+    const paras = buildBlock(emit, block, entryCtx, {
+      lead,
+      // A block may override the entry gap, as in the engine: skill lines
+      // are consecutive lines, not separate entries with air between them.
+      spacingBefore: pendingTitle
+        ? template.spacing.sectionBefore
+        : index === 0
+          ? template.spacing.sectionAfter
+          : (block.gapBefore ?? template.spacing.entryGap),
+    });
+    if (paras.length) pendingTitle = undefined;
+    out.push(...paras);
   });
   return out;
 }
@@ -446,17 +536,22 @@ export async function renderDocx(
   template: TemplateDefinition,
   fit: DocxFit,
 ): Promise<Uint8Array> {
+  // With a gutter, body paragraphs are indented past it. Word measures tab
+  // stops from the margin, not the indent, so right-aligned text still stops
+  // at the full content width — where the engine puts it.
+  const gutterIndent = pt2twip(gutterOffset(template));
   const base: Omit<Emit, "rightTab"> = {
     template,
+    gutterIndent,
     scale: fit.fontScale,
     spacing: fit.spacing,
     leading:
       template.typography.base.size * template.typography.base.leadingRatio * fit.spacing,
   };
 
-  const pageEmit: Emit = { ...base, rightTab: rightTabIn(template, pageBoxWidth(template, doc)) };
+  const pageEmit: Emit = { ...base, rightTab: rightTabIn(template, contentWidthOf(template, doc)) };
   const baseCtx: BindContext = { doc, dateDash: template.conventions.dateDash };
-  const header = buildBlock(pageEmit, template.blocks.header, baseCtx);
+  const header = buildBlock(pageEmit, template.blocks.header, baseCtx, { fullWidth: true });
 
   // Inside a table cell Word measures a tab from the cell's own left edge, so
   // each column gets a stop cut to its own width rather than the page's.
@@ -465,7 +560,7 @@ export async function renderDocx(
   const emitFor = (column: "main" | "side"): Emit => {
     const spec = columns?.find((c) => c.id === column);
     if (!spec) return pageEmit;
-    return { ...base, rightTab: rightTabIn(template, contentWidth * spec.width) };
+    return { ...base, gutterIndent: 0, rightTab: rightTabIn(template, contentWidth * spec.width) };
   };
 
   const byColumn: ColumnParas = { main: [], side: [] };

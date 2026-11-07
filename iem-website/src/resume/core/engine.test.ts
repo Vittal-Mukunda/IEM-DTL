@@ -616,11 +616,12 @@ describe("exports", () => {
         const m = template.page.margin;
         const content = PAGE_SIZES[pageSize].width - m.left - m.right;
         // The box a right tab is measured from: a column in a two-column
-        // template, otherwise the page's own text width less any gutter.
-        const g = template.page.gutter;
+        // template, otherwise the page's own text width. A gutter template
+        // indents its paragraphs past the gutter, but Word measures tab stops
+        // from the margin, so the stop is still the full width.
         const boxes = template.page.columns?.length
           ? template.page.columns.map((c) => content * c.width)
-          : [content - (g ? g.width + g.gap : 0)];
+          : [content];
         const expected = boxes.map((b) =>
           Math.round((b - (template.emit.docx.rightTabInset ?? 0)) / 0.05),
         );

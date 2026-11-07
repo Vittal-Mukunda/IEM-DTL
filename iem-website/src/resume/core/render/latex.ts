@@ -12,6 +12,7 @@
  *   {{bullets}}   expands via `profile.bullet`, one line per bullet
  *   {{entries}}   inside `section`
  *   {{header}} {{body}} {{side}}  inside `document`
+ *   [[ … ]]       optional group — dropped when every slot inside is empty
  */
 
 import {
@@ -63,10 +64,21 @@ function escapeHref(url: string): string {
  * a line left with nothing but whitespace is dropped — so an entry without a
  * location does not leave a stray blank line in the .tex.
  */
+const SLOT = /\{\{\s*(\w+)\s*\}\}/g;
+
+/**
+ * `[[ … ]]` is an optional group: it is printed only when at least one slot
+ * inside it has a value. That is how a template attaches a label or a line
+ * break to a field — `[[\textit{Coursework:} {{detail}}\par]]` — without
+ * leaving "Coursework:" (or a `\\` with no line to end, which is a TeX error)
+ * behind when the student left the field empty.
+ */
 function fill(templateString: string, values: Record<string, string>): string {
-  const filled = templateString.replace(/\{\{\s*(\w+)\s*\}\}/g, (_, key: string) =>
-    values[key] ?? "",
-  );
+  const filled = templateString
+    .replace(/\[\[([\s\S]*?)\]\]/g, (_, group: string) =>
+      [...group.matchAll(SLOT)].some(([, key]) => (values[key] ?? "").trim()) ? group : "",
+    )
+    .replace(SLOT, (_, key: string) => values[key] ?? "");
   return filled
     .split("\n")
     .filter((line, i, all) => line.trim() !== "" || (i > 0 && all[i - 1].trim() !== ""))
