@@ -1292,7 +1292,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      name: "Manufacturing Processes",
+      name: "Manufacturing Processes and Automation",
       items: [
         {
           label: "Unit 1 – Manufacturing, Casting & Special Casting Processes",
@@ -1310,9 +1310,9 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "1.5 MB",
         },
         {
-          label: "Unit 4 – Cutting Tool Technology",
-          file: "/notes/sem3/manufacturing-processes/unit-4-cutting-tool-technology.pdf",
-          size: "2.4 MB",
+          label: "Unit 4 – Automation: Fundamentals, Low-Cost Automation, Types & Strategies",
+          file: "/notes/sem3/manufacturing-processes/unit-4-introduction-to-automation.pdf",
+          size: "1.1 MB",
         },
         {
           label: "Unit 5 – Drilling & Machine Tools",
@@ -1322,7 +1322,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      name: "Human Resource Management & Analytics",
+      name: "Human Resource Management and Analytics",
       items: [
         {
           label: "Units 1–2 – Introduction to HRM, HR Planning & Job Analysis",
@@ -1332,7 +1332,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      name: "Digital Metrology",
+      name: "Digital Measurements and Metrology",
       items: [
         {
           label: "Unit 1 – Generalized Measurement System",
@@ -1382,7 +1382,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      name: "Mathematics III (MA231TB)",
+      name: "Statistics, Laplace Transform and Numerical Methods",
       items: [
         {
           label: "Syllabus",
@@ -1480,12 +1480,12 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       name: "Lab Manuals",
       items: [
         {
-          label: "Digital Metrology Lab Manual",
+          label: "Digital Measurements and Metrology Lab Manual",
           file: "/notes/sem3/lab-manuals/digital-metrology-lab-manual.pdf",
           size: "11 MB",
         },
         {
-          label: "Manufacturing Processes Lab Manual",
+          label: "Manufacturing Processes and Automation Lab Manual",
           file: "/notes/sem3/lab-manuals/manufacturing-processes-lab-manual.pdf",
           size: "5.8 MB",
         },
@@ -1550,7 +1550,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
   ],
   4: [
     {
-      name: "Statistics for Data Analytics",
+      name: "Probability and Applied Statistics",
       items: [
         {
           label: "Unit 1",
