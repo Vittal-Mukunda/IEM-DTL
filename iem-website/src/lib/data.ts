@@ -1319,6 +1319,11 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem3/manufacturing-processes/unit-5-drilling-and-machine-tools.pdf",
           size: "1.7 MB",
         },
+        {
+          label: "Unit 5 – Robotics: Classification, Sensors, End Effectors & Programming",
+          file: "/notes/sem3/manufacturing-processes/unit-5-robotics.pdf",
+          size: "3.7 MB",
+        },
       ],
     },
     {
