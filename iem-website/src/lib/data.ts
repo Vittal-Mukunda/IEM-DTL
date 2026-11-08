@@ -1981,9 +1981,13 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       ],
     },
     {
-      // IM254TA — Tulsian's Financial Accounting for B.Com. (Programme). The
-      // book has no costing or standard costing, so Units IV and V stay empty
-      // until a cost accounting text is cut.
+      // IM254TA — Units I–III: Tulsian's Financial Accounting for B.Com.
+      // (Programme). Units IV–V: OpenStax, Principles of Accounting Volume 2:
+      // Managerial Accounting (CC BY-NC-SA 4.0), cut as whole chapters.
+      // Unit IV = Ch 2 §2.1–2.2 (cost classification, COGM), Ch 4 Job Order
+      // Costing, Ch 5 Process Costing + answer key. The book has no dedicated
+      // batch costing section; it is only mentioned in Ch 4.1 and Ch 5.1.
+      // Unit V = Ch 8 Standard Costs and Variances + answer key.
       name: "Finance Accounting and Costing",
       items: [
         {
@@ -2000,6 +2004,16 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           label: "Unit III: Financial Statements — Trading, P&L and Balance Sheet",
           file: "/notes/sem5/finance-accounting-and-costing/unit-3-financial-statements.pdf",
           size: "1.8 MB",
+        },
+        {
+          label: "Unit IV: Costing — Cost Elements, Job Order and Process Costing",
+          file: "/notes/sem5/finance-accounting-and-costing/unit-4-costing-elements-job-and-process-costing.pdf",
+          size: "5.6 MB",
+        },
+        {
+          label: "Unit V: Standard Costing — Standard Costs and Variances",
+          file: "/notes/sem5/finance-accounting-and-costing/unit-5-standard-costing-and-variances.pdf",
+          size: "3.0 MB",
         },
         {
           // Hidden: unlocked by clicking "Contact" in the footer.
