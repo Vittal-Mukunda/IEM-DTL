@@ -2043,6 +2043,21 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           file: "/notes/sem5/enterprise-information-systems/unit-1-erp-crm-scm-decision-making-and-digital-transformation.pdf",
           size: "600 KB",
         },
+        {
+          label: "Unit II: Automation in Business Processes, RPA, Use of Data for Decision-Making & Data Analytics",
+          file: "/notes/sem5/enterprise-information-systems/unit-2-automation-rpa-data-for-decision-making-and-data-analytics.pdf",
+          size: "435 KB",
+        },
+        {
+          label: "Unit II: Chapter 5 — Business Process Reengineering and Best Practices",
+          file: "/notes/sem5/enterprise-information-systems/unit-2-chapter-5-business-process-reengineering-and-best-practices.pdf",
+          size: "3.8 MB",
+        },
+        {
+          label: "Unit II: Chapter 10 — Business Intelligence Systems and EIS",
+          file: "/notes/sem5/enterprise-information-systems/unit-2-chapter-10-business-intelligence-systems-and-eis.pdf",
+          size: "6.0 MB",
+        },
       ],
     },
     {
