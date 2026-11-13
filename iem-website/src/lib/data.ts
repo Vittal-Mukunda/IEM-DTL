@@ -1891,9 +1891,19 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "1.2 MB",
         },
         {
+          label: "Unit II: Capacity Planning (Slides)",
+          file: "/notes/sem5/operations-management/unit-2-slides-capacity-planning.pdf",
+          size: "524 KB",
+        },
+        {
           label: "Unit III: Forecasting Demand",
           file: "/notes/sem5/operations-management/unit-3-forecasting-demand.pdf",
           size: "871 KB",
+        },
+        {
+          label: "Unit III: Forecasting (Slides)",
+          file: "/notes/sem5/operations-management/unit-3-slides-forecasting.pdf",
+          size: "968 KB",
         },
         {
           label:
@@ -1902,9 +1912,24 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "1.4 MB",
         },
         {
+          label: "Unit IV: Constraint Management (Slides)",
+          file: "/notes/sem5/operations-management/unit-4-slides-constraint-management.pdf",
+          size: "672 KB",
+        },
+        {
+          label: "Unit IV: Resource Planning (Slides)",
+          file: "/notes/sem5/operations-management/unit-4-slides-resource-planning.pdf",
+          size: "846 KB",
+        },
+        {
           label: "Unit V: Planning and Scheduling Operations",
           file: "/notes/sem5/operations-management/unit-5-planning-and-scheduling-operations.pdf",
           size: "2.5 MB",
+        },
+        {
+          label: "Unit V: Operations Planning and Scheduling (Slides)",
+          file: "/notes/sem5/operations-management/unit-5-slides-operations-planning-and-scheduling.pdf",
+          size: "725 KB",
         },
         {
           // Hidden: unlocked by clicking "Contact" in the footer.
