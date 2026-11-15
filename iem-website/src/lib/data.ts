@@ -1265,9 +1265,34 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "420 KB",
         },
         {
+          label: "Unit I Handwritten Notes – Nature of Work and Productivity",
+          file: "/notes/sem3/work-systems-design/unit-1-handwritten-notes-nature-of-work-and-productivity.pdf",
+          size: "2.8 MB",
+        },
+        {
+          label: "Unit I Handwritten Notes – Worker–Machine Systems",
+          file: "/notes/sem3/work-systems-design/unit-1-handwritten-notes-worker-machine-systems.pdf",
+          size: "4.2 MB",
+        },
+        {
+          label: "Unit I Handwritten Notes – Notebook",
+          file: "/notes/sem3/work-systems-design/unit-1-handwritten-notes-notebook.pdf",
+          size: "3.5 MB",
+        },
+        {
           label: "Unit II Textbook – Methods Engineering and Operations Analysis",
           file: "/notes/sem3/work-systems-design/unit-2-textbook-methods-engineering-and-operations-analysis.pdf",
           size: "544 KB",
+        },
+        {
+          label: "Unit II Handwritten Notes – Notebook (Part 1)",
+          file: "/notes/sem3/work-systems-design/unit-2-handwritten-notes-notebook-part-1.pdf",
+          size: "2.9 MB",
+        },
+        {
+          label: "Unit II Handwritten Notes – Notebook (Part 2)",
+          file: "/notes/sem3/work-systems-design/unit-2-handwritten-notes-notebook-part-2.pdf",
+          size: "3.3 MB",
         },
         {
           label: "Unit III Textbook – Work Measurement",
@@ -1275,14 +1300,49 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
           size: "634 KB",
         },
         {
+          label: "Unit III Handwritten Notes – Notebook (Part 1)",
+          file: "/notes/sem3/work-systems-design/unit-3-handwritten-notes-notebook-part-1.pdf",
+          size: "4.6 MB",
+        },
+        {
+          label: "Unit III Handwritten Notes – Notebook (Part 2)",
+          file: "/notes/sem3/work-systems-design/unit-3-handwritten-notes-notebook-part-2.pdf",
+          size: "4.3 MB",
+        },
+        {
+          label: "Unit III Handwritten Notes – Notebook (Part 3)",
+          file: "/notes/sem3/work-systems-design/unit-3-handwritten-notes-notebook-part-3.pdf",
+          size: "4.7 MB",
+        },
+        {
+          label: "Unit III Handwritten Notes – Notebook (Part 4)",
+          file: "/notes/sem3/work-systems-design/unit-3-handwritten-notes-notebook-part-4.pdf",
+          size: "4.6 MB",
+        },
+        {
           label: "Unit IV Textbook – Lean Production",
           file: "/notes/sem3/work-systems-design/unit-4-textbook-lean-production.pdf",
           size: "342 KB",
         },
         {
+          label: "Unit IV Handwritten Notes – Notebook (Part 1)",
+          file: "/notes/sem3/work-systems-design/unit-4-handwritten-notes-notebook-part-1.pdf",
+          size: "2.9 MB",
+        },
+        {
+          label: "Unit IV Handwritten Notes – Notebook (Part 2)",
+          file: "/notes/sem3/work-systems-design/unit-4-handwritten-notes-notebook-part-2.pdf",
+          size: "2.6 MB",
+        },
+        {
           label: "Unit V Textbook – Ergonomics and Occupational Safety",
           file: "/notes/sem3/work-systems-design/unit-5-textbook-ergonomics-and-occupational-safety.pdf",
           size: "230 KB",
+        },
+        {
+          label: "Unit V Handwritten Notes – Ergonomics and Occupational Safety",
+          file: "/notes/sem3/work-systems-design/unit-5-handwritten-notes-ergonomics-and-occupational-safety.pdf",
+          size: "2.1 MB",
         },
         {
           label: "Question Bank – All Units (Unit-wise)",
@@ -1402,7 +1462,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "Unit 1 – Statistics (Written Notes)",
           file: "/notes/sem3/mathematics-iii/unit-1-statistics-written-notes.pdf",
-          size: "7.3 MB",
+          size: "3.5 MB",
         },
         {
           label: "Statistics – Supplementary Notes",
