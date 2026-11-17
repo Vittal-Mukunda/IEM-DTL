@@ -1852,7 +1852,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 2",
           file: "/notes/sem5/question-papers/cie-2-by-subject.pdf",
-          size: "484 KB",
+          size: "593 KB",
         },
         {
           label: "CIE 3",

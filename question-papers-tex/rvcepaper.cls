@@ -177,6 +177,16 @@
 }{\end{longtable}}
 \newcommand{\qpart}[1]{\multicolumn{5}{|c|}{\bfseries #1}\\ \hline}
 \newcommand{\q}[5]{#1 & #2 & #3 & #4 & #5\\ \hline}
+% 4-column variant for papers that only print M and CO (no BT column):  \begin{cietablemc}{M}{CO} ... \qmc{1.}{text}{M}{CO}
+\newenvironment{cietablemc}[2]{%
+  \def\cieA{#1}\def\cieB{#2}%
+  \begin{longtable}{|C{1.05cm}|p{13.15cm}|C{0.95cm}|C{0.95cm}|}
+  \hline
+  \textbf{Sl.\newline No} & \multicolumn{1}{c|}{\textbf{Questions}} & \textbf{\cieA} & \textbf{\cieB}\\ \hline
+  \endfirsthead
+  \endhead
+}{\end{longtable}}
+\newcommand{\qmc}[4]{#1 & #2 & #3 & #4\\ \hline}
 % centered heading placed above a table:  \ptitle{PART -- A}
 \newcommand{\ptitle}[1]{\par\vspace{3pt}\centerline{\bfseries #1}\par\vspace{2pt}}
 
