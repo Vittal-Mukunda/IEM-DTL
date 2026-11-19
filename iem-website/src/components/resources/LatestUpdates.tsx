@@ -1,41 +1,75 @@
 import Link from "next/link";
 import { studyUpdates } from "@/lib/updates";
-import { UpdateBatch } from "./UpdateParts";
 
 /**
- * "Latest additions" panel at the top of the study-material page: the newest
- * upload batches, with a link to the full history. Add entries in
+ * Small "recently added" log at the top of the study-material page: the newest
+ * few items, one line each, with a link to the full log. Add entries in
  * src/lib/updates.ts.
  */
-export default function LatestUpdates({ batches = 2 }: { batches?: number }) {
-  const latest = studyUpdates.slice(0, batches);
-  if (latest.length === 0) return null;
+const MAX_ROWS = 5;
+
+/** "2026-11-19" -> "19 Nov". Fixed locale and UTC so server and client agree. */
+function shortDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    timeZone: "UTC",
+  });
+}
+
+export default function LatestUpdates() {
+  const rows = studyUpdates
+    .flatMap((u) => u.items.map((item) => ({ date: u.date, item })))
+    .slice(0, MAX_ROWS);
+  if (rows.length === 0) return null;
+  const total = studyUpdates.reduce((n, u) => n + u.items.length, 0);
+
   return (
-    <section aria-labelledby="latest-additions-heading" className="mb-10">
-      <div className="rounded-2xl border border-accent/30 bg-white p-6 shadow-sm sm:p-8">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2
-            id="latest-additions-heading"
-            className="flex items-center gap-2 text-xl font-bold text-primary"
-          >
-            <span className="rounded bg-accent px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
-              New
-            </span>
-            Latest additions
-          </h2>
-          <Link
-            href="/resources/updates"
-            className="text-sm font-semibold text-primary hover:text-accent hover:underline"
-          >
-            See everything that&apos;s new &rarr;
-          </Link>
-        </div>
-        <div className="mt-5 space-y-6">
-          {latest.map((update) => (
-            <UpdateBatch key={update.date} update={update} />
-          ))}
-        </div>
+    <section
+      aria-labelledby="recently-added-heading"
+      className="mb-8 rounded-lg border border-primary/10 bg-surface px-4 py-3"
+    >
+      <div className="flex items-baseline justify-between gap-3">
+        <h2
+          id="recently-added-heading"
+          className="text-xs font-semibold uppercase tracking-wider text-text-muted"
+        >
+          Recently added
+        </h2>
+        <Link
+          href="/resources/updates"
+          className="text-xs font-medium text-primary hover:text-accent hover:underline"
+        >
+          Full log ({total}) &rarr;
+        </Link>
       </div>
+      <ul className="mt-2 space-y-1">
+        {rows.map(({ date, item }) => {
+          const isPdf = item.href.startsWith("/notes/");
+          return (
+            <li key={`${date}|${item.href}|${item.title}`}>
+              <Link
+                href={item.href}
+                {...(isPdf ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="flex items-baseline gap-2 text-sm text-gray-700 hover:text-primary"
+              >
+                <time
+                  dateTime={date}
+                  className="w-12 shrink-0 text-xs tabular-nums text-text-muted"
+                >
+                  {shortDate(date)}
+                </time>
+                <span className="shrink-0 text-xs font-medium text-text-muted">
+                  Sem {item.sem}
+                </span>
+                <span className="min-w-0 truncate">
+                  {item.course}: {item.title}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }

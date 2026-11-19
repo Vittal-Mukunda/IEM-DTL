@@ -129,28 +129,16 @@ export default function ResourcesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Latest upload batch */}
         {studyUpdates[0] && (
-          <Link
-            href="/resources/updates"
-            className="group mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-accent/30 bg-white px-5 py-4 shadow-sm transition-colors hover:border-accent"
-          >
-            <span className="rounded bg-accent px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
-              New
-            </span>
-            <span className="min-w-0 flex-1 text-sm text-gray-700">
-              <span className="font-semibold text-primary">
-                {studyUpdates[0].summary}
-              </span>{" "}
-              <span className="text-text-muted">
-                &middot; added {formatUpdateDate(studyUpdates[0].date)}
-              </span>
-            </span>
-            <span className="text-sm font-semibold text-primary group-hover:text-accent">
-              See what&apos;s new
-              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </span>
-          </Link>
+          <p className="mb-6 text-sm text-text-muted">
+            Latest: {studyUpdates[0].summary} (
+            {formatUpdateDate(studyUpdates[0].date)}).{" "}
+            <Link
+              href="/resources/updates"
+              className="font-medium text-primary hover:text-accent hover:underline"
+            >
+              View log &rarr;
+            </Link>
+          </p>
         )}
 
         {/* Chooser */}
