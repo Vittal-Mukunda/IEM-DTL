@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resourceFolders } from "@/lib/data";
+import { studyUpdates } from "@/lib/updates";
+import { formatUpdateDate } from "@/components/resources/UpdateParts";
 
 export const metadata: Metadata = {
   title: "Student Resources",
@@ -125,6 +127,32 @@ export default function ResourcesPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        {/* Latest upload batch */}
+        {studyUpdates[0] && (
+          <Link
+            href="/resources/updates"
+            className="group mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-accent/30 bg-white px-5 py-4 shadow-sm transition-colors hover:border-accent"
+          >
+            <span className="rounded bg-accent px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
+              New
+            </span>
+            <span className="min-w-0 flex-1 text-sm text-gray-700">
+              <span className="font-semibold text-primary">
+                {studyUpdates[0].summary}
+              </span>{" "}
+              <span className="text-text-muted">
+                &middot; added {formatUpdateDate(studyUpdates[0].date)}
+              </span>
+            </span>
+            <span className="text-sm font-semibold text-primary group-hover:text-accent">
+              See what&apos;s new
+              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">
+                &rarr;
+              </span>
+            </span>
+          </Link>
+        )}
+
         {/* Chooser */}
         <section aria-label="Choose a resource">
           <h2 className="sr-only">Choose a resource</h2>

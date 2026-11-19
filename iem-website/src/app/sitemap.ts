@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/curriculum",
     "/resources",
     "/resources/study-material",
+    "/resources/updates",
     "/resources/gpa-calculator",
     "/resources/resume-builder",
     "/research",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { resourceFolders } from "@/lib/data";
 import StudyMaterialRequestPopup from "@/components/resources/StudyMaterialRequestPopup";
+import LatestUpdates from "@/components/resources/LatestUpdates";
 import { ExtraCount, ExtraItems } from "@/components/resources/HiddenExtras";
 import { FileLink, Icon, IconSprite } from "@/components/resources/ResourceParts";
 
@@ -62,6 +63,9 @@ export default function StudyMaterialPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        {/* Newest uploads (edit src/lib/updates.ts) */}
+        <LatestUpdates />
+
         {/* Intro note */}
         <section className="mb-10">
           <div className="bg-surface rounded-2xl p-6 sm:p-8 border border-primary/10">
