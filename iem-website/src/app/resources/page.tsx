@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resourceFolders } from "@/lib/data";
-import { studyUpdates } from "@/lib/updates";
-import { formatUpdateDate } from "@/components/resources/UpdateParts";
+import UpdatesLogBox from "@/components/resources/UpdatesLogBox";
 
 export const metadata: Metadata = {
   title: "Student Resources",
@@ -113,34 +112,24 @@ export default function ResourcesPage() {
     <>
       {/* Page Header */}
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-3">
-            Student Resources
-          </h1>
-          <p className="text-lg text-gray-200 max-w-3xl">
-            Everything the Department of Industrial Engineering &amp; Management
-            keeps for its students in one place — the notes you study from, the
-            arithmetic behind your marks, and the résumé you send out at the end
-            of it.
-          </p>
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_28rem] lg:px-8">
+          <div>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-3">
+              Student Resources
+            </h1>
+            <p className="text-lg text-gray-200 max-w-3xl">
+              Everything the Department of Industrial Engineering &amp;
+              Management keeps for its students in one place — the notes you
+              study from, the arithmetic behind your marks, and the résumé you
+              send out at the end of it.
+            </p>
+          </div>
+          {/* Update log: click a batch to see what was added (src/lib/updates.ts) */}
+          <UpdatesLogBox />
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        {/* Latest upload batch */}
-        {studyUpdates[0] && (
-          <p className="mb-6 text-sm text-text-muted">
-            Latest: {studyUpdates[0].summary} (
-            {formatUpdateDate(studyUpdates[0].date)}).{" "}
-            <Link
-              href="/resources/updates"
-              className="font-medium text-primary hover:text-accent hover:underline"
-            >
-              View log &rarr;
-            </Link>
-          </p>
-        )}
-
         {/* Chooser */}
         <section aria-label="Choose a resource">
           <h2 className="sr-only">Choose a resource</h2>
