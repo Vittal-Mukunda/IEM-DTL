@@ -1750,7 +1750,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 2",
           file: "/notes/sem4/question-papers/cie-2.pdf",
-          size: "334 KB",
+          size: "425 KB",
         },
         {
           label: "CIE 3",
@@ -1847,17 +1847,17 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem5/question-papers/cie-1-by-subject.pdf",
-          size: "647 KB",
+          size: "805 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem5/question-papers/cie-2-by-subject.pdf",
-          size: "704 KB",
+          size: "810 KB",
         },
         {
           label: "CIE 3",
           file: "/notes/sem5/question-papers/cie-3-by-subject.pdf",
-          size: "466 KB",
+          size: "617 KB",
         },
         {
           // Hidden: unlocked by clicking "Contact" in the footer.
@@ -1875,12 +1875,12 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 1",
           file: "/notes/sem5/electives/cie-1-by-subject.pdf",
-          size: "297 KB",
+          size: "361 KB",
         },
         {
           label: "CIE 2",
           file: "/notes/sem5/electives/cie-2-by-subject.pdf",
-          size: "409 KB",
+          size: "426 KB",
         },
         {
           label: "CIE 3",
@@ -2195,7 +2195,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 2",
           file: "/notes/sem6/department-electives/cie-2-all-years.pdf",
-          size: "307 KB",
+          size: "375 KB",
         },
         {
           label: "CIE 3",
@@ -2226,7 +2226,7 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
         {
           label: "CIE 3",
           file: "/notes/sem6/institutional-electives/cie-3-all-years.pdf",
-          size: "550 KB",
+          size: "618 KB",
         },
         {
           label: "SEE – Past Year Question Papers",
