@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { resourceFolders } from "@/lib/data";
 import StudyMaterialRequestPopup from "@/components/resources/StudyMaterialRequestPopup";
-import LatestUpdates from "@/components/resources/LatestUpdates";
+import UpdatesLogBox from "@/components/resources/UpdatesLogBox";
 import { ExtraCount, ExtraItems } from "@/components/resources/HiddenExtras";
 import { FileLink, Icon, IconSprite } from "@/components/resources/ResourceParts";
 
@@ -44,28 +44,29 @@ export default function StudyMaterialPage() {
 
       {/* Page Header */}
       <section className="bg-primary text-white py-16 border-b-4 border-accent">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="mb-3 text-sm text-gray-300">
-            <Link href="/resources" className="hover:text-white hover:underline">
-              Resources
-            </Link>
-            <span className="mx-2">/</span>
-            <span>Study Material</span>
-          </nav>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-3">
-            Study Material &amp; Notes
-          </h1>
-          <p className="text-lg text-gray-200 max-w-3xl">
-            IEM RVCE Notes &amp; Resources — semester-wise study material for
-            the B.E. in Industrial Engineering &amp; Management.
-          </p>
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_24rem] lg:px-8">
+          <div>
+            <nav aria-label="Breadcrumb" className="mb-3 text-sm text-gray-300">
+              <Link href="/resources" className="hover:text-white hover:underline">
+                Resources
+              </Link>
+              <span className="mx-2">/</span>
+              <span>Study Material</span>
+            </nav>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-3">
+              Study Material &amp; Notes
+            </h1>
+            <p className="text-lg text-gray-200 max-w-3xl">
+              IEM RVCE Notes &amp; Resources — semester-wise study material for
+              the B.E. in Industrial Engineering &amp; Management.
+            </p>
+          </div>
+          {/* Update log: click a batch to see what was added (src/lib/updates.ts) */}
+          <UpdatesLogBox />
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        {/* Newest uploads (edit src/lib/updates.ts) */}
-        <LatestUpdates />
-
         {/* Intro note */}
         <section className="mb-10">
           <div className="bg-surface rounded-2xl p-6 sm:p-8 border border-primary/10">
