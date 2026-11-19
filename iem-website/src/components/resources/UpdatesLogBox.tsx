@@ -1,41 +1,53 @@
 import Link from "next/link";
 import { studyUpdates } from "@/lib/updates";
-import { formatUpdateDate, itemCountLabel } from "./UpdateParts";
+import { formatUpdateDate } from "./UpdateParts";
 
 /**
- * Compact, scrollable update log for the Resources page header (dark
- * background). Every upload batch is a row; click a row to expand it and see
- * the notes and papers added. Native <details>, so no client JS. Add entries in
- * src/lib/updates.ts.
+ * "What's new" card for the Resources page header, in the site's sketchbook
+ * style (paper card, ink border, dashed dividers, mono kicker). Shows the last
+ * few upload batches; click a batch to see the notes and papers added. Native
+ * <details>, so no client JS. Add entries in src/lib/updates.ts.
  */
+const PREVIEW_COUNT = 6;
+
 export default function UpdatesLogBox() {
-  if (studyUpdates.length === 0) return null;
+  const recent = studyUpdates.slice(0, PREVIEW_COUNT);
+  if (recent.length === 0) return null;
+  const hasMore = studyUpdates.length > recent.length;
+
   return (
     <aside
       aria-labelledby="updates-log-heading"
-      className="w-full rounded-lg border border-white/25 bg-white/5"
+      className="card-sketch w-full p-5 text-primary"
+      // The ink shadow would vanish against the dark header, so use the accent.
+      style={{ boxShadow: "5px 5px 0 0 var(--accent)" }}
     >
-      <div className="flex items-baseline justify-between gap-3 border-b border-white/15 px-4 py-2.5">
-        <h2
-          id="updates-log-heading"
-          className="text-xs font-semibold uppercase tracking-wider text-gray-300"
-        >
-          What&apos;s new
-        </h2>
-        <Link
-          href="/resources/updates"
-          className="text-xs text-gray-300 hover:text-white hover:underline"
-        >
-          Full page &rarr;
-        </Link>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-accent">
+            Fresh uploads
+          </p>
+          <h2
+            id="updates-log-heading"
+            className="mt-0.5 text-2xl font-bold text-primary"
+          >
+            What&apos;s new
+          </h2>
+        </div>
+        <span className="tag-sketch shrink-0">
+          {formatUpdateDate(recent[0].date)}
+        </span>
       </div>
 
-      <div className="max-h-80 divide-y divide-white/10 overflow-y-auto">
-        {studyUpdates.map((update) => (
-          <details key={update.date} className="group">
-            <summary className="flex cursor-pointer list-none items-center gap-2.5 px-4 py-2.5 text-sm hover:bg-white/5 [&::-webkit-details-marker]:hidden">
+      <div className="mt-3 border-t-2 border-dashed border-primary/20">
+        {recent.map((update) => (
+          <details
+            key={update.date}
+            className="border-b-2 border-dashed border-primary/20"
+          >
+            <summary className="res-summary cursor-pointer list-none py-2.5 [&::-webkit-details-marker]:hidden">
               <svg
-                className="h-3.5 w-3.5 shrink-0 text-gray-400 transition-transform group-open:rotate-90"
+                className="res-chevron h-4 w-4 shrink-0 text-text-muted"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2.2}
@@ -44,21 +56,17 @@ export default function UpdatesLogBox() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
               </svg>
-              <time
-                dateTime={update.date}
-                className="w-[5.5rem] shrink-0 text-xs tabular-nums text-gray-300"
-              >
-                {formatUpdateDate(update.date)}
-              </time>
-              <span className="min-w-0 flex-1 truncate text-white">
+              <span className="w-[4.6rem] shrink-0 font-mono text-xs uppercase tracking-wide text-accent">
+                {formatUpdateDate(update.date).replace(/ 20\d\d$/, "")}
+              </span>
+              <span className="min-w-0 flex-1 truncate text-sm font-semibold text-primary">
                 {update.summary}
               </span>
-              <span className="shrink-0 text-xs text-gray-400">
+              <span className="shrink-0 font-mono text-xs text-text-muted">
                 {update.items.length}
               </span>
             </summary>
-            <ul className="space-y-1 px-4 pb-3 pl-[2.1rem]">
-              <li className="sr-only">{itemCountLabel(update.items.length)}</li>
+            <ul className="mb-3 ml-2 space-y-1.5 border-l-2 border-accent/30 pl-4">
               {update.items.map((item) => {
                 const isPdf = item.href.startsWith("/notes/");
                 return (
@@ -66,12 +74,14 @@ export default function UpdatesLogBox() {
                     <Link
                       href={item.href}
                       {...(isPdf ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="block text-sm text-gray-200 hover:text-white hover:underline"
+                      className="group/item flex items-baseline gap-2 text-sm leading-snug text-gray-700 hover:text-primary"
                     >
-                      <span className="mr-2 text-xs font-medium text-gray-400">
-                        Sem {item.sem}
+                      <span className="shrink-0 font-mono text-xs text-accent">
+                        S{item.sem}
                       </span>
-                      {item.course}: {item.title}
+                      <span className="group-hover/item:underline">
+                        {item.course}: {item.title}
+                      </span>
                     </Link>
                   </li>
                 );
@@ -80,6 +90,16 @@ export default function UpdatesLogBox() {
           </details>
         ))}
       </div>
+
+      <Link
+        href="/resources/updates"
+        className="group mt-3 inline-block font-semibold text-primary hover:text-accent"
+      >
+        {hasMore ? "See all updates" : "Open the full log"}
+        <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">
+          &rarr;
+        </span>
+      </Link>
     </aside>
   );
 }

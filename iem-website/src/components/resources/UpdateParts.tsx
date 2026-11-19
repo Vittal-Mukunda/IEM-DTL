@@ -2,9 +2,8 @@ import Link from "next/link";
 import type { StudyUpdate, UpdateItem } from "@/lib/updates";
 
 /**
- * Shared rendering for the "What's new" log: used by the full page
- * (/resources/updates) and the "Latest additions" panel on the study-material
- * page. Server components, no state.
+ * Shared rendering for the full "What's new" log page (/resources/updates), in
+ * the site's sketchbook style. Server components, no state.
  */
 
 /** "2026-11-19" -> "19 Nov 2026". Fixed locale and UTC so server and client agree. */
@@ -28,9 +27,9 @@ function UpdateRow({ item }: { item: UpdateItem }) {
       <Link
         href={item.href}
         {...(isPdf ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-        className="group flex flex-wrap items-start gap-x-3 gap-y-1 rounded-lg px-3 py-2.5 transition-colors hover:bg-primary/5"
+        className="group flex flex-wrap items-start gap-x-3 gap-y-1 py-2.5"
       >
-        <span className="mt-0.5 shrink-0 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-white">
+        <span className="mt-0.5 w-12 shrink-0 font-mono text-xs text-accent">
           Sem {item.sem}
         </span>
         <span className="min-w-0 flex-1">
@@ -42,7 +41,7 @@ function UpdateRow({ item }: { item: UpdateItem }) {
             <span className="block text-xs text-text-muted">{item.note}</span>
           )}
         </span>
-        <span className="shrink-0 rounded border border-primary/20 px-2 py-0.5 text-xs text-text-muted">
+        <span className="shrink-0 font-mono text-xs uppercase tracking-wide text-text-muted">
           {item.kind}
         </span>
       </Link>
@@ -59,17 +58,27 @@ export function UpdateBatch({
 }) {
   const Heading = headingLevel;
   return (
-    <section aria-label={`Added on ${formatUpdateDate(update.date)}`}>
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-primary/10 pb-2">
-        <time dateTime={update.date} className="text-sm font-bold text-accent">
-          {formatUpdateDate(update.date)}
-        </time>
-        <Heading className="font-semibold text-primary">{update.summary}</Heading>
-        <span className="ml-auto text-xs text-text-muted">
+    <section
+      aria-label={`Added on ${formatUpdateDate(update.date)}`}
+      className="card-sketch p-5 sm:p-6"
+    >
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <time
+            dateTime={update.date}
+            className="font-mono text-xs uppercase tracking-[0.12em] text-accent"
+          >
+            {formatUpdateDate(update.date)}
+          </time>
+          <Heading className="mt-0.5 text-xl font-bold text-primary">
+            {update.summary}
+          </Heading>
+        </div>
+        <span className="tag-sketch shrink-0">
           {itemCountLabel(update.items.length)}
         </span>
       </div>
-      <ul className="mt-2 divide-y divide-primary/5">
+      <ul className="mt-3 divide-y-2 divide-dashed divide-primary/20 border-t-2 border-dashed border-primary/20">
         {update.items.map((item) => (
           <UpdateRow key={`${item.href}|${item.title}`} item={item} />
         ))}
