@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Pop-up on the study-material page asking students to share study material
- * (notes, slides, lab manuals, question banks) for any semester.
+ * Pop-up on the study-material page asking students for the Sem 3 CIE 2
+ * question papers and any Sem 3 notes.
  *
  * A native <dialog> opened with showModal(): the browser supplies the focus
  * trap, Escape-to-close and the backdrop. It opens shortly after the page
@@ -19,7 +19,9 @@ const EMAIL = "vittalmukunda.im24@rvce.edu.in";
 const REPO_URL = "https://github.com/Vittal-Mukunda/IEM-DTL";
 const SUBJECT = "Study material for the IEM website";
 
-const KEY = "iem:study-material-request-dismissed";
+// Bump the suffix when the request changes so people who closed the previous
+// pop-up see the new one.
+const KEY = "iem:study-material-request-dismissed-sem3-cie2";
 const DISMISS_DAYS = 7;
 const OPEN_DELAY_MS = 1200;
 
@@ -112,19 +114,24 @@ export default function StudyMaterialRequestPopup() {
           </button>
 
           <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-            Request · All semesters
+            Request · Semester 3
           </p>
           <h2 id="material-request-heading" className="mt-1 pr-8 text-xl font-bold text-primary">
-            Have good study material? Please share it
+            Do you have the Sem 3 CIE 2 papers?
           </h2>
           <p className="mt-3 leading-relaxed text-gray-700">
-            Thank you to everyone who sent in their CIE papers. Next,
-            we&apos;re collecting study material for every
-            semester: class notes (typed, or clear phone photos of handwritten
-            ones), lecture slides, lab manuals, assignments and question banks.
-            We&apos;ll upload them here so your classmates and every batch after
-            you can use them. This collection is a community effort, and every
-            file helps.
+            We&apos;re still missing the{" "}
+            <span className="font-semibold">Semester 3 CIE 2 question papers</span>.
+            If you have them (a clear phone photo or scan of each paper is
+            fine), please send them in and we&apos;ll upload them here so
+            everyone can use them.
+          </p>
+          <p className="mt-3 leading-relaxed text-gray-700">
+            Also, if you have{" "}
+            <span className="font-semibold">Semester 3 notes</span> (typed, or
+            clear photos of handwritten ones), lecture slides, assignments or
+            question banks, please share those too. Every file helps your
+            classmates and every batch after you.
           </p>
 
           <ul className="mt-4 space-y-2 text-sm text-gray-700 [overflow-wrap:break-word]">
@@ -137,7 +144,7 @@ export default function StudyMaterialRequestPopup() {
               >
                 {EMAIL}
               </a>{" "}
-              with the course name and semester.
+              with the course name and exam (e.g. &quot;Sem 3 CIE 2&quot;).
             </li>
             <li>
               <span className="font-semibold text-primary">GitHub:</span> or{" "}
