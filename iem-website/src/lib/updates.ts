@@ -45,8 +45,64 @@ const OM = "/notes/sem5/operations-management";
 const EIS = "/notes/sem5/enterprise-information-systems";
 const FAC = "/notes/sem5/finance-accounting-and-costing";
 const STUDY_PAGE = "/resources/study-material";
+const SEM3_CIE2 = "/notes/sem3/question-papers/cie-2.pdf";
+const SEM3_ELECTIVE_CIE2 = "/notes/sem3/electives/cie-2.pdf";
 
 export const studyUpdates: StudyUpdate[] = [
+  {
+    date: "2026-11-20",
+    summary: "Six Sem 3 CIE 2 papers (Nov 2026)",
+    items: [
+      {
+        sem: 3,
+        course: "Mathematics III",
+        title: "CIE 2 paper (16 Nov 2026)",
+        kind: "Question paper",
+        href: SEM3_CIE2,
+        note: "First paper in the file",
+      },
+      {
+        sem: 3,
+        course: "Work Systems Design",
+        title: "CIE 2 paper (17 Nov 2026)",
+        kind: "Question paper",
+        href: SEM3_CIE2,
+        note: "First paper under Work Systems Design",
+      },
+      {
+        sem: 3,
+        course: "Manufacturing Process & Automation",
+        title: "CIE 2 paper (17 Nov 2026)",
+        kind: "Question paper",
+        href: SEM3_CIE2,
+        note: "First paper under Manufacturing Process",
+      },
+      {
+        sem: 3,
+        course: "Digital Measurements & Metrology",
+        title: "CIE 2 paper (18 Nov 2026)",
+        kind: "Question paper",
+        href: SEM3_CIE2,
+        note: "First paper under Digital Metrology",
+      },
+      {
+        sem: 3,
+        course: "Human Resource Management & Analytics",
+        title: "CIE 2 paper (18 Nov 2026)",
+        kind: "Question paper",
+        href: SEM3_CIE2,
+        note: "Last paper in the file",
+      },
+      {
+        sem: 3,
+        course: "Environment & Sustainability (elective)",
+        title: "CIE 2 paper (16 Nov 2026)",
+        kind: "Question paper",
+        href: SEM3_ELECTIVE_CIE2,
+        note: "First paper in the file",
+      },
+    ],
+  },
   {
     date: "2026-11-19",
     summary: "Three more Sem 5 CIE 2 papers",

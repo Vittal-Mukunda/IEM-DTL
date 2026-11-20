@@ -1,0 +1,125 @@
+\documentclass{rvcepaper}
+\newcommand{\cofoot}[1]{\par\vspace{8pt}\centerline{\small CO-Course Outcomes, M-Marks}\par\vspace{2pt}
+ \centerline{\begin{tabular}{|C{1.9cm}|l|C{1.2cm}|C{1.3cm}|C{1.3cm}|C{1.3cm}|C{1.3cm}|}\hline
+ \multirow{2}{*}{\shortstack{Marks\\Distribution}} & Particulars & CO1 & CO2 & CO3 & CO4\\\cline{2-6}
+ & Test \hspace{0.2cm} Max Marks & #1\\\hline\end{tabular}}\par}
+\begin{document}
+
+% ---------- MA231TB Statistics, Laplace Transform and Numerical Methods (Test 2, 16.11.2026)
+\begin{iempaper}
+\paperinfo{dept={MATHEMATICS},date={16.11.2026},exam={Test -- 2},maxmarks={50},sem={III (2026-2027)},prog={Branch: AS, BT, CH, IM},duration={90 minutes},
+ title={Statistics, Laplace transform and Numerical methods},code={MA231TB},note={Answer all questions.}}
+\begin{center}{\bfseries\fontsize{14}{16}\selectfont Department of Mathematics}\end{center}\vspace{-2pt}
+\noindent\begingroup\renewcommand{\arraystretch}{1.8}\bfseries\fontsize{11}{13}\selectfont
+\begin{tabular}{|p{6.2cm}|C{4.4cm}|p{6.1cm}|}\hline
+ Date: 16.11.2026 & Test -- 2 & Max. Marks: 50\\\cline{1-1}\cline{3-3}
+ Time: 11:15AM -12:45PM & & \\\hline
+ Semester: III (2026-2027) & Branch: AS, BT, CH, IM & Duration: 90 minutes\\\hline
+ \multicolumn{2}{|l|}{Course Title: Statistics, Laplace transform and Numerical methods} & Course code: MA231TB\\\hline
+\end{tabular}\endgroup\par\vspace{3pt}
+{\small\itshape Instructions to candidates: 1. Answer all questions.\\
+\hspace*{3.3cm}2. Second year mathematics hand book is allowed.}\par\vspace{4pt}
+\begin{cietablemc}{M}{CO}
+\multicolumn{4}{|c|}{\bfseries Part -- A}\\ \hline
+\qmc{1a}{Solve $\dfrac{\partial^2 u}{\partial t^2}=\dfrac{\partial^2 u}{\partial x^2}$ with the boundary conditions $u(0,t)=u(1,t)=0,\ t\ge 0$ and the initial conditions $u(x,0)=\sin(\pi x)$, $\dfrac{\partial u}{\partial t}(x,0)=0,\ 0\le x\le 1$ taking $h=k=0.2$.
+at $t=0.6$.}{6}{3}
+\qmc{1b}{Solve the heat equation $\dfrac{\partial u}{\partial t}=2\dfrac{\partial^2 u}{\partial x^2}$ subject to the conditions $u(0,t)=0=u(4,t)$ and $u(x,0)=x^2(4-x)$. Employ Bendre-Schmidt method with $h=1$ to find the solution of the equation for $0\le t\le 0.5$.}{4}{3}
+\qmc{2a}{If $f(z)$ is analytic function, show that $\left[\dfrac{\partial |f(z)|}{\partial x}\right]^2+\left[\dfrac{\partial |f(z)|}{\partial y}\right]^2=|f'(z)|^2$.}{6}{1}
+\qmc{2b}{Verify that $u=y+e^{x}\sin y$ satisfy two dimensional Laplace equation.}{4}{1}
+\qmc{3}{Construct an analytic function $f(z)$, given $u-v=2xy+x^2-y^2+x-y$ and also find real and imaginary parts.}{10}{3}
+\qmc{4}{Obtain the power series expansion of the function $f(z)=\dfrac{z}{(z-1)(2-z)}$ in the following regions. (i) $|z|<1$ \quad (ii) $1<|z|<2$ \quad (iii) $|z|>2$.}{10}{2}
+\qmc{5a}{Evaluate the integral $\displaystyle\int_C \dfrac{1}{z^2(z^2+4)}\,dz$ where C is the circle $|z-2i|=3$ using Cauchy's residue theorem.}{6}{3}
+\qmc{5b}{Find the values of $a$ \& $b$ such that the function $f(z)=x^2+ay^2-2xy+i(bx^2-y^2+2xy)$ is analytic.}{4}{2}
+\end{cietablemc}
+\cofoot{10 & 14 & 26 & --}
+\end{iempaper}
+
+% ---------- IM333AI Work Systems Design (CIE - II, 17 Nov 2026)
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={17\textsuperscript{th} November 2026},exam={CIE -- II},maxmarks={50},sem={III},prog={},duration={90 Min},
+ title={Work Systems Design},code={IM333AI},shownote=0}
+\iemhead
+\begin{cietablemc}{M}{CO}
+\qmc{1.}{Outline the step-by-step procedure for determining the Standard Time of a manual task starting from the initial observation.}{10}{3}
+\qmc{2.}{The continuous timing method in direct time study was used to obtain the elemental times for a worker machine task as indicated. Element $c$ is a machine controlled and the time is constant. Elements $a,b,d,e$ and $f$ are operator controlled and external to machine cycle and they are performance rated at 90\%. If the machine allowance is 12\% and worker PFD allowance is 8\%, determine the normal time and standard time for the work cycle.
+\qtabc{|l|c|c|c|c|c|c|}{\hline Element & a & b & c & d & e & f\\\hline Observed Time(min) & 0.24 & 0.38 & 0.88 & 1.04 & 1.65 & 1.90\\\hline}}{10}{3}
+\qmc{3.}{Compare ``General Move'' vs. ``Controlled Move'' in Basic MOST. Give an example for each.}{10}{3}
+\qmc{4.}{Describe the elements of a typical structure of Lean Manufacturing System. Support your answer with an illustration.}{10}{2}
+\qmc{5.}{Justify the need for ``Setup Time Reduction'' a prerequisite for implementing a Pull system?}{10}{2}
+\end{cietablemc}
+\cofoot{-- & 20 & 30 & --}
+\end{iempaper}
+
+% ---------- IM334AI Manufacturing Process & Automation (CIE - II, 17 Nov 2026)
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={17\textsuperscript{th} November 2026},exam={CIE -- II},maxmarks={50},sem={III},prog={},duration={90 Min},
+ title={MANUFACTURING PROCESS \& AUTOMATION},code={IM334AI},shownote=0}
+\iemhead
+\begin{cietablemc}{M}{CO}
+\qmc{1.}{A beverage bottling plant uses high speed equipment that fills, caps and labels bottles on a continuous production line. The system is dedicated to a single type of bottle and product. Identify and explain the type of automation used in this plant. Discuss its advantages and limitations in high-volume production.}{10}{4}
+\qmc{2.}{A manufacturing plant wants to implement automation in stages to minimize disruption and investment risk. Outline different strategies for automation and explain which would best suit a gradual transition.}{10}{3}
+\qmc{3.}{A small-scale enterprise cannot afford high-end automation but installs pneumatic pick-and-place arms using existing infrastructure. Define low-cost automation. Discuss how LCA helps small industries with limited budgets.}{10}{2}
+\qmc{4.}{In a high school STEM fair, a group of students developed a basic humanoid robot capable of assisting elderly people by performing simple tasks like reminding them to take medicine. When presenting the robot, a judge questioned how they ensured the robot would not harm the user or act unpredictably. Explain
+\begin{abc}
+\item Briefly describe the historical development of robots that led to such humanoid robots.
+\item Apply Asimov's Laws of Robotics to this case and explain how each law is relevant.
+\end{abc}}{10}{4}
+\qmc{5.}{An automotive manufacturing plant faced issues with inconsistent weld quality and rising labor costs in its body assembly section. To address this, the management decided to deploy industrial robots for spot welding operations. Analyze how industrial robots solve these challenges. Discuss their advantages, components involved and impact on productivity.}{10}{3}
+\end{cietablemc}
+\cofoot{-- & 10 & 20 & 20}
+\end{iempaper}
+
+% ---------- IM335AI Digital Measurements and Metrology (CIE - II, 18 Nov 2026)
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={18\textsuperscript{th} November 2026},exam={CIE -- II},maxmarks={50},sem={III (2025 Scheme)},prog={},duration={90 Min},
+ title={Digital Measurements and Metrology},code={IM335AI},shownote=0}
+\iemhead
+\begin{cietablemc}{M}{CO}
+\qmc{1.}{Illustrate the construction and working of a Hall Effect Sensor with a neat diagram. Highlight its applications.}{10}{2}
+\qmc{2.}{Describe the construction and operating principle of an Eddy Current Proximity Sensor. Discuss its advantages and limitations.}{10}{2}
+\qmc{3.}{Illustrate the working principle of a tachogenerator using a suitable diagram. How is the rotational speed of a shaft determined from its output?}{10}{2}
+\qmc{4.}{Discuss the pyroelectric effect and analyse the working of a pyroelectric sensor with a neat diagram. Include its applications.}{10}{2}
+\qmc{5.}{With a suitable block diagram, illustrate the elements of a Data Acquisition System. Describe the construction and working principle of a Flash ADC with a neat circuit diagram.}{10}{4}
+\end{cietablemc}
+\cofoot{-- & 40 & -- & 10}
+\end{iempaper}
+
+% ---------- IM236AT Human Resource Management and Analytics (CIE - II, 18 Nov 2026)
+\begin{iempaper}
+\paperinfo{dept={INDUSTRIAL ENGINEERING \& MANAGEMENT},date={18\textsuperscript{th} November 2026},exam={CIE -- II},maxmarks={50},sem={III},prog={},duration={90 Min},
+ title={Human Resource Management and Analytics},code={IM236AT},shownote=0}
+\iemhead
+\begin{cietablemc}{M}{CO}
+\qmc{1.}{An electronics company provides a two-day technical course to improve engineers' ability to use testing instruments. It also selects certain experienced engineers for a two-year programme involving job rotation, leadership coaching and responsibility for special projects. Differentiate between the two programmes and explain the purpose of each.}{10}{3}
+\qmc{2.}{Two candidates attend an interview for an engineering position. Candidate A communicates confidently but has limited practical knowledge. Candidate B is nervous but demonstrates strong technical knowledge and problem-solving ability. The interviewer recommends Candidate A based only on the first impression. Analyse the selection problem and recommend a fair selection method.}{10}{2}
+\qmc{3.}{An engineering project manager receives complaints that he communicates effectively with senior management but does not cooperate with team members and ignores customer concerns. Explain how a 360-degree performance appraisal could be used to assess his performance. Discuss its advantages and limitations.}{10}{3}
+\qmc{4.}{A company has two vacancies. The first is for a supervisory position that requires organizational knowledge. The second is for a specialist engineer with expertise not available among current employees. Recommend suitable recruitment sources for both positions and justify your choices.}{10}{2}
+\qmc{5.}{Electronics manufacturing company observes that newly recruited engineers frequently make errors while testing electronic components. Experienced engineers perform the same tasks accurately. As an HR manager, explain how you would identify the training needs of the new engineers using organizational analysis, task analysis and person analysis.}{10}{3}
+\end{cietablemc}
+\cofoot{-- & 20 & 30 & --}
+\end{iempaper}
+
+% ---------- CV232TA Environment and Sustainability (Basket Course, CIE - II Test, 16/11/2026)
+\begin{iempaperB}
+\paperinfo{ayear={2026-2027 (Odd Sem)},usn=0,deptline={Department of Civil Engineering},date={16/11/2026},code={CV232TA},sem={III (Basket Course)},exam={CIE -- II (Test)},maxmarks={50},duration={90 Min},
+ title={Environment and Sustainability (Basket Course)},shownote=0}
+\iemheadB
+\begin{cietable}{M}{BT}{CO}
+\q{1.}{Critically evaluate the achievements and failures of millennium development goals.}{10}{2}{3}
+\q{2.}{Write a note on green building rating systems:
+\begin{abc}
+\item Green Rating for Integrated Habitat Assessment (GRIHA)
+\item Leadership in Energy and Environmental Design(LEED)
+\end{abc}}{10}{3}{2}
+\q{3.}{Explain circular economy and material life cycle assessment as sustainability practices for pollution prevention}{10}{2}{3}
+\q{4.}{Describe ocean thermal energy conversion with its advantages and limitations}{10}{3}{4}
+\q{5.}{Explain the role of AI \& GIS in smart waste management and disaster prediction}{10}{2}{4}
+\end{cietable}
+\par\vspace{4pt}\noindent{\fontsize{12}{14}\selectfont Course outcomes:}\par
+\btfoot{|l|l|*{4}{C{0.8cm}|}*{6}{C{0.8cm}|}}{\hline
+\multirow{2}{*}{\shortstack{Marks\\Distribution}} & \multicolumn{1}{c|}{Particulars} & CO1 & CO2 & CO3 & CO4 & L1 & L2 & L3 & L4 & L5 & L6\\\cline{2-12}
+ & Test \hspace{0.1cm} Max Marks & -- & 10 & 20 & 20 & -- & 30 & 20 & -- & -- & --\\\hline}
+\stars{***********}
+\end{iempaperB}
+
+\end{document}
