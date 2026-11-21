@@ -36,6 +36,8 @@ export interface StudyUpdate {
   date: string;
   /** One line describing the batch. */
   summary: string;
+  /** Optional small acknowledgement of whoever contributed the batch. */
+  credit?: string;
   items: UpdateItem[];
 }
 
@@ -50,8 +52,24 @@ const SEM3_ELECTIVE_CIE2 = "/notes/sem3/electives/cie-2.pdf";
 
 export const studyUpdates: StudyUpdate[] = [
   {
+    date: "2026-11-21",
+    summary: "Entrepreneurship & IPR master notes",
+    credit: "Notes sent by Pranjal",
+    items: [
+      {
+        sem: 5,
+        course: "Entrepreneurship & Intellectual Property Rights",
+        title: "Master notes, all units",
+        kind: "Notes",
+        href: "/notes/sem5/entrepreneurship-and-ipr/master-notes-all-units.pdf",
+        note: "Full slide deck covering every unit (506 pages, large file)",
+      },
+    ],
+  },
+  {
     date: "2026-11-20",
     summary: "Six Sem 3 CIE 2 papers (Nov 2026)",
+    credit: "Papers contributed by Umar Arshad Ahamed",
     items: [
       {
         sem: 3,

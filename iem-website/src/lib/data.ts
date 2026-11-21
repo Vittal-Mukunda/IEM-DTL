@@ -1901,6 +1901,11 @@ const semesterSubfolders: Record<number, ResourceSubfolder[]> = {
       name: "Entrepreneurship & Intellectual Property Rights",
       items: [
         {
+          label: "Master Notes (All Units)",
+          file: "/notes/sem5/entrepreneurship-and-ipr/master-notes-all-units.pdf",
+          size: "20.8 MB",
+        },
+        {
           label: "Unit I: Entrepreneurship Fundamentals",
           file: "/notes/sem5/entrepreneurship-and-ipr/unit-1-entrepreneurship-fundamentals.pdf",
           size: "203 KB",

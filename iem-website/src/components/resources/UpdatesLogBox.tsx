@@ -70,6 +70,11 @@ export default function UpdatesLogBox() {
                 {update.items.length}
               </span>
             </summary>
+            {update.credit && (
+              <p className="mb-1 ml-1.5 pl-3.5 text-[0.62rem] italic text-text-muted">
+                {update.credit}
+              </p>
+            )}
             <ul className="mb-2.5 ml-1.5 space-y-1 border-l-2 border-accent/30 pl-3.5">
               {update.items.map((item) => {
                 const isPdf = item.href.startsWith("/notes/");

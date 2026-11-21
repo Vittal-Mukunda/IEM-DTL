@@ -73,6 +73,11 @@ export function UpdateBatch({
           <Heading className="mt-0.5 text-xl font-bold text-primary">
             {update.summary}
           </Heading>
+          {update.credit && (
+            <p className="mt-0.5 text-[0.7rem] italic text-text-muted">
+              {update.credit}
+            </p>
+          )}
         </div>
         <span className="tag-sketch shrink-0">
           {itemCountLabel(update.items.length)}
