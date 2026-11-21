@@ -3,13 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Pop-up on the study-material page asking students for the Sem 3 CIE 2
- * question papers and any Sem 3 notes.
+ * Pop-up on the study-material page: announces that the Sem 3 and Sem 5 CIE 2
+ * papers are up (with a one-off burst of confetti) and asks students to send
+ * in any notes they have.
  *
  * A native <dialog> opened with showModal(): the browser supplies the focus
- * trap, Escape-to-close and the backdrop. It opens shortly after the page
- * loads, and once closed (any way) it stays closed in this browser for
- * DISMISS_DAYS, so returning students aren't asked on every visit.
+ * trap, Escape-to-close and the backdrop. It opens on its own shortly after
+ * the page loads, at most once per SHOW_EVERY_DAYS in this browser (the time
+ * is stored when it opens, so reloading doesn't bring it back). The confetti
+ * only fires on that automatic opening, never when the button reopens it.
  *
  * Whenever the pop-up is closed, a small button in the bottom-right corner
  * reopens it.
@@ -21,20 +23,20 @@ const SUBJECT = "Study material for the IEM website";
 
 // Bump the suffix when the request changes so people who closed the previous
 // pop-up see the new one.
-const KEY = "iem:study-material-request-dismissed-sem3-cie2";
-const DISMISS_DAYS = 7;
+const KEY = "iem:study-material-popup-shown-cie2-sem3-sem5";
+const SHOW_EVERY_DAYS = 7;
 const OPEN_DELAY_MS = 1200;
 
-function recentlyDismissed(): boolean {
+function recentlyShown(): boolean {
   try {
     const at = Number(localStorage.getItem(KEY));
-    return at > 0 && Date.now() - at < DISMISS_DAYS * 86_400_000;
+    return at > 0 && Date.now() - at < SHOW_EVERY_DAYS * 86_400_000;
   } catch {
     return false; // storage blocked: ask once per page load
   }
 }
 
-function rememberDismissal() {
+function rememberShown() {
   try {
     localStorage.setItem(KEY, String(Date.now()));
   } catch {
@@ -42,8 +44,68 @@ function rememberDismissal() {
   }
 }
 
+const CONFETTI_COLORS = ["#c0392b", "#f4d03f", "#2e86c1", "#27ae60", "#8e44ad", "#e67e22"];
+
+/** One burst of confetti on a full-screen canvas; the canvas hides itself after. */
+function launchConfetti(canvas: HTMLCanvasElement) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+  const dpr = window.devicePixelRatio || 1;
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  ctx.scale(dpr, dpr);
+  canvas.style.display = "block";
+
+  const pieces = Array.from({ length: 160 }, (_, i) => {
+    const fromLeft = i % 2 === 0;
+    const angle = (fromLeft ? -60 : -120) * (Math.PI / 180) + (Math.random() - 0.5) * 0.9;
+    const speed = 11 + Math.random() * 11;
+    return {
+      x: fromLeft ? 0 : w,
+      y: h * 0.85,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      size: 6 + Math.random() * 6,
+      rot: Math.random() * Math.PI * 2,
+      vr: (Math.random() - 0.5) * 0.4,
+      color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+    };
+  });
+
+  const start = performance.now();
+  const DURATION = 4200;
+  const frame = (now: number) => {
+    const t = now - start;
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalAlpha = t > DURATION - 800 ? Math.max(0, (DURATION - t) / 800) : 1;
+    for (const p of pieces) {
+      p.vy += 0.32;
+      p.vx *= 0.99;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vr;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+      ctx.restore();
+    }
+    if (t < DURATION) requestAnimationFrame(frame);
+    else {
+      ctx.clearRect(0, 0, w, h);
+      canvas.style.display = "none";
+    }
+  };
+  requestAnimationFrame(frame);
+}
+
 export default function StudyMaterialRequestPopup() {
   const ref = useRef<HTMLDialogElement>(null);
+  const confettiRef = useRef<HTMLCanvasElement>(null);
   // Hidden until the first timer decides, so the server render and hydration
   // match and the button doesn't flash before the pop-up opens on its own.
   const [showReopen, setShowReopen] = useState(false);
@@ -51,21 +113,22 @@ export default function StudyMaterialRequestPopup() {
   useEffect(() => {
     const dialog = ref.current;
     if (!dialog) return;
-    const dismissed = recentlyDismissed();
+    const seenRecently = recentlyShown();
     const timer = window.setTimeout(
       () => {
-        if (dismissed) setShowReopen(true);
-        else if (!dialog.open) dialog.showModal();
+        if (seenRecently) setShowReopen(true);
+        else if (!dialog.open) {
+          rememberShown();
+          dialog.showModal();
+          if (confettiRef.current) launchConfetti(confettiRef.current);
+        }
       },
-      dismissed ? 0 : OPEN_DELAY_MS,
+      seenRecently ? 0 : OPEN_DELAY_MS,
     );
     return () => window.clearTimeout(timer);
   }, []);
 
-  const onClosed = () => {
-    rememberDismissal();
-    setShowReopen(true);
-  };
+  const onClosed = () => setShowReopen(true);
 
   const close = () => ref.current?.close();
 
@@ -101,6 +164,11 @@ export default function StudyMaterialRequestPopup() {
         }}
         className="m-auto w-[calc(100%-2rem)] max-w-lg rounded-2xl border-t-4 border-accent bg-white p-0 text-left shadow-2xl backdrop:bg-black/50"
       >
+        <canvas
+          ref={confettiRef}
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 z-50 hidden h-screen w-screen"
+        />
         <div className="relative p-6 sm:p-8">
           <button
             type="button"
@@ -114,23 +182,21 @@ export default function StudyMaterialRequestPopup() {
           </button>
 
           <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-            Request · Semester 3
+            Good news &middot; Semesters 3 &amp; 5
           </p>
           <h2 id="material-request-heading" className="mt-1 pr-8 text-xl font-bold text-primary">
-            Do you have the Sem 3 CIE 2 papers?
+            🎉 We got the CIE 2 papers for Sem 3 and Sem 5!
           </h2>
           <p className="mt-3 leading-relaxed text-gray-700">
-            We&apos;re still missing the{" "}
-            <span className="font-semibold">Semester 3 CIE 2 question papers</span>.
-            If you have them (a clear phone photo or scan of each paper is
-            fine), please send them in and we&apos;ll upload them here so
-            everyone can use them.
+            The <span className="font-semibold">CIE 2 question papers</span> for
+            Semester 3 and Semester 5 are now up in the study material. Thank
+            you to everyone who sent them in.
           </p>
           <p className="mt-3 leading-relaxed text-gray-700">
-            Also, if you have{" "}
-            <span className="font-semibold">Semester 3 notes</span> (typed, or
-            clear photos of handwritten ones), lecture slides, assignments or
-            question banks, please share those too. Every file helps your
+            Keep it going: if you have any{" "}
+            <span className="font-semibold">notes</span> (typed, or clear photos
+            of handwritten ones), lecture slides, assignments or question banks
+            for any semester, please send them to us. Every file helps your
             classmates and every batch after you.
           </p>
 
@@ -144,7 +210,7 @@ export default function StudyMaterialRequestPopup() {
               >
                 {EMAIL}
               </a>{" "}
-              with the course name and exam (e.g. &quot;Sem 3 CIE 2&quot;).
+              with the semester and course name (e.g. &quot;Sem 5 Operations Management notes&quot;).
             </li>
             <li>
               <span className="font-semibold text-primary">GitHub:</span> or{" "}
@@ -170,7 +236,7 @@ export default function StudyMaterialRequestPopup() {
           </ul>
 
           <p className="mt-4 text-sm font-medium text-primary">
-            Thank you to everyone who sends one — it really helps.
+            Thank you to everyone who sends something. It really helps.
           </p>
 
           <div className="mt-6 flex justify-end">
@@ -179,7 +245,7 @@ export default function StudyMaterialRequestPopup() {
               onClick={close}
               className="rounded-lg border border-primary/20 px-4 py-2 text-sm font-medium text-primary hover:bg-primary/5"
             >
-              Maybe later
+              Close
             </button>
           </div>
         </div>

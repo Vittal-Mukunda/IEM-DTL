@@ -80,8 +80,8 @@ export default function UpdatesPage() {
             Have something that&apos;s missing?
           </h2>
           <p className="mt-2 leading-relaxed text-gray-700">
-            We&apos;re collecting Semester 3 CIE 2 papers and any Semester 3
-            notes. Send them to{" "}
+            We&apos;re always collecting notes, slides and question papers for
+            any semester. Send them to{" "}
             <a
               href="mailto:vittalmukunda.im24@rvce.edu.in?subject=Study%20material%20for%20the%20IEM%20website"
               className="font-medium text-primary underline underline-offset-2 hover:text-primary-light"
