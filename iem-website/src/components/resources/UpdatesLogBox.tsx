@@ -63,18 +63,20 @@ export default function UpdatesLogBox() {
               <span className="w-[3.9rem] shrink-0 font-mono text-[0.64rem] uppercase tracking-wide text-accent">
                 {formatUpdateDate(update.date).replace(/ 20\d\d$/, "")}
               </span>
-              <span className="min-w-0 flex-1 truncate text-[0.75rem] font-semibold text-primary">
-                {update.summary}
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-[0.75rem] font-semibold text-primary">
+                  {update.summary}
+                </span>
+                {update.credit && (
+                  <span className="block truncate text-[0.62rem] italic leading-tight text-text-muted">
+                    {update.credit}
+                  </span>
+                )}
               </span>
               <span className="shrink-0 font-mono text-[0.64rem] text-text-muted">
                 {update.items.length}
               </span>
             </summary>
-            {update.credit && (
-              <p className="mb-1 ml-1.5 pl-3.5 text-[0.62rem] italic text-text-muted">
-                {update.credit}
-              </p>
-            )}
             <ul className="mb-2.5 ml-1.5 space-y-1 border-l-2 border-accent/30 pl-3.5">
               {update.items.map((item) => {
                 const isPdf = item.href.startsWith("/notes/");
